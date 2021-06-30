@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.citiustech.impact.pms.logindomain.Login;
 import com.citiustech.impact.pms.loginservice.LoginService;
 
-
+// comment Added by naushad
 /*This Class get the login details from angular,validate the user and check the user is existed in database or not 
  * 
  * URL : http://localhost:8080/login?username=test1@gmail.com&password=test1@123
