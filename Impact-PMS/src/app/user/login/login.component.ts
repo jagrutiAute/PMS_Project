@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators ,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../User';
+import { LoginService } from '../login.service';
+import { User } from '../user';
 
 
 @Component({
@@ -10,13 +11,17 @@ import { User } from '../User';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+user:User;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private service: LoginService
   ) { }
 
+
+  
+    
   signUpForm = this.fb.group({
 
     email: [
@@ -34,12 +39,25 @@ export class LoginComponent {
 {
     return this.signUpForm.controls;
 }
-
-  handleFormSubmit() {
-    // console.log(this.signUpForm.value);
-    let user: User = new User();
-    
+handleFormSubmit() {
+  // console.log(this.signUpForm.value);
+  let user: User = new User();
+  Object.assign(user, this.signUpForm.value);
+  //console.log(user);
+  this.service.getLogin(user).subscribe(
+  data => {
+  if (data != null) {
+    console.log("data is"+data);
+  alert('You are successfully registered.');
+  //this.router.navigateByUrl('/customer/login');
   }
+  },
+  error => {
+  console.log(error);
+  }
+  );
+  }
+    
 
   get email() {
     return this.signUpForm.get('email');
