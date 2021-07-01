@@ -6,6 +6,8 @@ import { RegistrationPatientComponent } from './registration-patient/registratio
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login.service';
 
 
 
@@ -17,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ChangePasswordComponent,
     ForgotPasswordComponent
   ],
+  providers: [LoginService],
   imports: [
     CommonModule,
     FormsModule,
