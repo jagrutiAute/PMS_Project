@@ -47,6 +47,7 @@ handleFormSubmit() {
 
   // console.log(this.signUpForm.value);
   let user: User = new User();
+  user.id=1;
   Object.assign(user, this.signUpForm.value);
   //console.log(user);
   this.service.getLogin(user).subscribe(

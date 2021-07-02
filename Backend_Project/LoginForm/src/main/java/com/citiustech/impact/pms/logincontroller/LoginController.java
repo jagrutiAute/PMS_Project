@@ -36,17 +36,24 @@ public class LoginController {
 	private LoginService userService;
 
 	@PostMapping("/login")
-	public String check() {
-
-		return "Gajanan";
+	public String check(@RequestBody Login log) {
+			System.out.println("in"+log);
+			
+			if(userService.login(log.getEmail(), log.getPassword())!=null) {
+				return "success";
+			}
+			else {
+					return "Invalid credential";
+			}
+		
 	}
-
+	
 	@GetMapping("/login")
 	public String login(@ModelAttribute Login user) {
 
-		System.out.println(user.getUsername());
+		System.out.println(user);
 		System.out.println(user.getPassword());
-		Login loginUser = userService.login(user.getUsername(), user.getPassword());
+		Login loginUser = userService.login(user.getEmail(), user.getPassword());
 
 		if (Objects.nonNull(loginUser)) {
 
@@ -56,7 +63,8 @@ public class LoginController {
 			return "Login Failed !!";
 
 		}
+		}
 
-	}
+	
 
 }

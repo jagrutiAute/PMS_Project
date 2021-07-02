@@ -1,6 +1,8 @@
+import { NumberValueAccessor } from "@angular/forms";
+
 export class User {
-   
-   email: string;
+   id:number;
+   username: string;
    password: string;
   }
   
