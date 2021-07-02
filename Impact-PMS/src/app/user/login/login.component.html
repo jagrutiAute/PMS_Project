@@ -17,7 +17,7 @@
             <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.required">
               Email is required.
             </p>
-            <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.pattern">
+            <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.pattern ">
               Please provide valid email.
             </p>
           </div>
@@ -31,7 +31,7 @@
               <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.required">
                 Please provide password.
               </p> 
-              <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.pattern">
+              <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.pattern && this.passwordFlag">
                 Password should contain minimum length of 8 characters, alphanumeric & special charater.
               </p>
           </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators ,FormGroup} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { User } from '../user';
@@ -11,7 +11,10 @@ import { User } from '../user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-user:User;
+  passwordFlag: boolean = false;
+  emailFlag: boolean = false;
+
+  user: User;
 
   constructor(
     private fb: FormBuilder,
@@ -20,8 +23,8 @@ user:User;
   ) { }
 
 
-  
-    
+
+
   signUpForm = this.fb.group({
 
     email: [
@@ -29,49 +32,56 @@ user:User;
       [
         Validators.required,
         Validators.pattern('[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}')
-        
+
       ]
     ],
 
     password: ['', [Validators.required, Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]]
   });
 
-  get f()
-{
+  get f() {
     return this.signUpForm.controls;
-}
-
-
-handleFormSubmit() {
-  //if (this.signUpForm.valid) { console.log('form submitted'); } else { console.log("Not valid") }
-
-  // console.log(this.signUpForm.value);
-  let user: User = new User();
-  Object.assign(user, this.signUpForm.value);
-  //console.log(user);
-  this.service.getLogin(user).subscribe(
-  data => {
-  if (data != null) {
-    console.log("data is"+data);
-  alert('You are successfully registered.');
-  //this.router.navigateByUrl('/customer/login');
   }
-  },
-  error => {
-  console.log(error);
-  }
-  );
 
-  
-  }
+
+  handleFormSubmit() {
     
+    
+    if (this.password.invalid) {
+     
+      this.passwordFlag = true;
+      return;
+    }
 
-  
+    //if (this.signUpForm.valid) { console.log('form submitted'); } else { console.log("Not valid") }
+
+    // console.log(this.signUpForm.value);
+    let user: User = new User();
+    Object.assign(user, this.signUpForm.value);
+    //console.log(user);
+    this.service.getLogin(user).subscribe(
+      data => {
+        if (data != null) {
+          console.log("data is" + data);
+          alert('You are successfully registered.');
+          //this.router.navigateByUrl('/customer/login');
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+
+  }
+
+
+
 
   get email() {
     return this.signUpForm.get('email');
   }
-  
+
   get password() {
     return this.signUpForm.get('password');
   }
