@@ -28,7 +28,8 @@ user:User;
       '',
       [
         Validators.required,
-        Validators.pattern('/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/')
+        Validators.pattern('[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}')
+        
       ]
     ],
 
@@ -39,7 +40,11 @@ user:User;
 {
     return this.signUpForm.controls;
 }
+
+
 handleFormSubmit() {
+  //if (this.signUpForm.valid) { console.log('form submitted'); } else { console.log("Not valid") }
+
   // console.log(this.signUpForm.value);
   let user: User = new User();
   Object.assign(user, this.signUpForm.value);
@@ -56,8 +61,12 @@ handleFormSubmit() {
   console.log(error);
   }
   );
+
+  
   }
     
+
+  
 
   get email() {
     return this.signUpForm.get('email');

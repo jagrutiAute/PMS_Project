@@ -37,7 +37,7 @@ public class Login {
 	}
 
 	public String getUsername() {
-		return username;
+		return "gaurav@gmail.com";
 	}
 
 	public void setUsername(String username) {
@@ -45,7 +45,7 @@ public class Login {
 	}
 
 	public String getPassword() {
-		return password;
+		return "Gaurav@94";
 	}
 
 	public void setPassword(String password) {

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,8 +35,14 @@ public class LoginController {
 	@Autowired
 	private LoginService userService;
 
+	@PostMapping("/login")
+	public String check() {
+
+		return "Gajanan";
+	}
+
 	@GetMapping("/login")
-	public String login(@ModelAttribute("user") Login user) {
+	public String login(@ModelAttribute Login user) {
 
 		System.out.println(user.getUsername());
 		System.out.println(user.getPassword());
