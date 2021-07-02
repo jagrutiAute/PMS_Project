@@ -24,7 +24,7 @@ public class Login {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String username;
+	private String email;
    
 	private String password;
 
@@ -36,21 +36,31 @@ public class Login {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return "gaurav@gmail.com";
+
+	
+
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
-		return "Gaurav@94";
+		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "Login [id=" + id + ", email=" + email + ", password=" + password + "]";
+	}
+
+	
 	
 	
 }
