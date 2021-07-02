@@ -61,38 +61,24 @@ export class LoginComponent {
     //console.log(user);
     this.service.getLogin(user).subscribe(
       data => {
-        if (data != null) {
+        if (data == 'success') {
           console.log("data is" + data);
-          alert('You are successfully registered.');
+
+
+          alert('You are successfully login');
           //this.router.navigateByUrl('/customer/login');
+        }else{
+
+            console.log('data'+data);
+            
         }
+
+
       },
       error => {
         console.log(error);
       }
     );
-
-<<<<<<< HEAD
-=======
-  // console.log(this.signUpForm.value);
-  let user: User = new User();
-  user.id=1;
-  Object.assign(user, this.signUpForm.value);
-  //console.log(user);
-  this.service.getLogin(user).subscribe(
-  data => {
-  if (data != null) {
-    console.log("data is"+data);
-  alert('You are successfully registered.');
-  //this.router.navigateByUrl('/customer/login');
-  }
-  },
-  error => {
-  console.log(error);
-  }
-  );
->>>>>>> 4c5b81ac859cd867216217bd0a8ae5f55287afbc
-
   }
 
 

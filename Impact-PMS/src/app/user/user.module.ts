@@ -8,6 +8,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
+import { RouterModule } from '@angular/router';
+import{userroutes } from './user.routes'
 
 
 
@@ -24,7 +26,8 @@ import { LoginService } from './login.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forChild(userroutes)
   ],
   exports:[LoginComponent]
 })

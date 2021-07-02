@@ -1,4 +1,4 @@
-<h3 style="text-align: center;">Patient Management System</h3>
+
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
@@ -10,12 +10,12 @@
         <form [formGroup]="signUpForm">
           <!-- Email input -->
           <div class="form-outline mb-1">
-            <label class="form-label" for="form1Example13">Email address</label>
+            <label class="form-label" for="form1Example13">Email ID</label>
             <input type="email" id="form1Example13" class="form-control form-control-lg" formControlName="email"
               [class.is-invalid]="f.email.touched && f.email.invalid" />
 
             <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.required">
-              Email is required.
+              This field cannot be empty
             </p>
             <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.pattern ">
               Please provide valid email.
@@ -23,27 +23,37 @@
           </div>
 
           <!-- Password input -->
-          <div class="form-outline mb-4">
+          <div class="form-outline mb-6">
             <label class="form-label" for="form1Example23">Password</label>
             <input type="password" id="form1Example23" class="form-control form-control-lg" formControlName="password"
               [class.is-invalid]="password.touched && password.invalid" />
 
               <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.required">
-                Please provide password.
+                This field cannot be empty
               </p> 
               <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.pattern && this.passwordFlag">
-                Password should contain minimum length of 8 characters, alphanumeric & special charater.
+                Password entry does not meet criteria
               </p>
           </div>
 
-          <div class="d-flex justify-content-around align-items-center mb-4">
+          <div class="d-flex center-content-around align-items-center mb-4">
             <!-- Checkbox -->   
-            <a href="#!">Forgot password?</a>
+            <a routerLink="/forgot-password">Forgot password?</a>&nbsp;&nbsp;&nbsp;
+            <a routerLink="/change-password">Change password?</a>
+        
           </div>
-
+          
+       
           <!-- Submit button apply-->
+          <diV>
           <button type="submit" class="btn btn-primary btn-lg btn-block" (click) ="handleFormSubmit()">Login</button>
+        </diV>
+          <br>
+          <div class="d-flex center-content-around align-items-center mb-2"  >
+          Not a member?&nbsp;&nbsp;&nbsp; <a href="">Signup</a>
+        </div>
         </form>
+      
       </div>
     </div>
   </div>
