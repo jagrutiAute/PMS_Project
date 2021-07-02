@@ -43,7 +43,7 @@ public class LoginController {
 
 		if (Objects.nonNull(loginUser)) {
 
-			return "Login Successfully!!";
+			return "success";
 
 		} else {
 			return "Login Failed !!";
