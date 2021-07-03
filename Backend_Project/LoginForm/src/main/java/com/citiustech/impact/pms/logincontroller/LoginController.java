@@ -11,7 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,9 +36,11 @@ public class LoginController {
 	@Autowired
 	private LoginService userService;
 
-	@GetMapping("/login")
-	public String login(@ModelAttribute("user") Login user) {
+	@PostMapping("/login")
+	public String check(@RequestBody Login log) {
+		// System.out.println("in"+log);
 
+<<<<<<< HEAD
 		System.out.println(user.getUsername());
 		System.out.println(user.getPassword());
 		Login loginUser = userService.login(user.getUsername(), user.getPassword());
@@ -45,11 +49,28 @@ public class LoginController {
 
 			return "success";
 
+=======
+		if (userService.login(log.getEmail(), log.getPassword()) != null) {
+			return "success";
+>>>>>>> branch 'Login' of git@github.com:jagrutiAute/PMS_Project.git
 		} else {
-			return "Login Failed !!";
-
+			return "Invalid credential";
 		}
 
 	}
 
+	/*
+	 * @GetMapping("/login/{user}") public String login(@PathVariable Login user) {
+	 * 
+	 * System.out.println(user); System.out.println(user.getPassword()); Login
+	 * loginUser = userService.login(user.getEmail(), user.getPassword());
+	 * 
+	 * if (Objects.nonNull(loginUser)) {
+	 * 
+	 * return "Login Successfully!!";
+	 * 
+	 * } else { return "Login Failed !!";
+	 * 
+	 * } }
+	 */
 }
