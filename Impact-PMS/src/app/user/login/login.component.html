@@ -1,48 +1,60 @@
 
-
-<h3 style="text-align: center;">Login</h3>
 <section class="vh-100">
-    <div class="container py-5 h-100">
-      <div class="row d-flex align-items-center justify-content-center h-100">
-        <div class="col-md-8 col-lg-7 col-xl-6">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
         <!-- <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">-->
-          <img src="assets/images/dr.jpg" style="width: 100%;">
+        <img src="assets/images/dr.jpg" style="width: 100%;">
       </div>
-        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-          <form>
-            <!-- Email input -->
-            <div class="form-outline mb-1" >
-              <label class="form-label" for="form1Example13">Email address</label>
-              <input type="email" id="form1Example13" class="form-control form-control-lg" />
-              
-            </div>
-  
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form1Example23">Password</label>
-              <input type="password" id="form1Example23" class="form-control form-control-lg" />
-             
-            </div>
-  
-            <div class="d-flex justify-content-around align-items-center mb-4">
-              <!-- Checkbox -->
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="form1Example3"
-                  checked
-                />
-                <label class="form-check-label" for="form1Example3"> Remember me </label>
-              </div>
-              <a href="#!">Forgot password?</a>
-            </div>
-  
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="loginsubmit()">Login</button>
-          </form>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form [formGroup]="signUpForm">
+          <!-- Email input -->
+          <div class="form-outline mb-1">
+            <label class="form-label" for="form1Example13">Email ID</label>
+            <input type="email" id="form1Example13" class="form-control form-control-lg" formControlName="email"
+              [class.is-invalid]="f.email.touched && f.email.invalid" />
+
+            <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.required">
+              This field cannot be empty
+            </p>
+            <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.pattern ">
+              Please provide valid email.
+            </p>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-6">
+            <label class="form-label" for="form1Example23">Password</label>
+            <input type="password" id="form1Example23" class="form-control form-control-lg" formControlName="password"
+              [class.is-invalid]="password.touched && password.invalid" />
+
+              <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.required">
+                This field cannot be empty
+              </p> 
+              <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.pattern && this.passwordFlag">
+                Password entry does not meet criteria
+              </p>
+          </div>
+
+          <div class="d-flex center-content-around align-items-center mb-4">
+            <!-- Checkbox -->   
+            <a routerLink="/forgot-password">Forgot password?</a>&nbsp;&nbsp;&nbsp;
+            <a routerLink="/change-password">Change password?</a>
+        
+          </div>
+          
+       
+          <!-- Submit button apply-->
+          <diV>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" (click) ="handleFormSubmit()">Login</button>
+        </diV>
+          <br>
+          <div class="d-flex center-content-around align-items-center mb-2"  >
+          Not a member?&nbsp;&nbsp;&nbsp; <a href="">Signup</a>
         </div>
+        </form>
+      
       </div>
     </div>
-  </section>
+  </div>
+</section>

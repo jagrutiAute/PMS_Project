@@ -5,6 +5,11 @@ import { RegistrationProviderComponent } from './registration-provider/registrat
 import { RegistrationPatientComponent } from './registration-patient/registration-patient.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login.service';
+import { RouterModule } from '@angular/router';
+import{userroutes } from './user.routes'
 
 
 
@@ -16,8 +21,13 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ChangePasswordComponent,
     ForgotPasswordComponent
   ],
+  providers: [LoginService],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forChild(userroutes)
   ],
   exports:[LoginComponent]
 })

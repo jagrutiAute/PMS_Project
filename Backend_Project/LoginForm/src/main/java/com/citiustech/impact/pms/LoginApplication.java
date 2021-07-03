@@ -8,7 +8,7 @@ public class LoginApplication {
 
 	public static void main(String[] args) {
 		//changes are done
-		SpringApplication.run(LoginApplication.class, args);
+		SpringApplication.run(LoginApplication.class, args);	
 	}
 
 }
