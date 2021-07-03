@@ -1,17 +1,13 @@
-package com.citiustech.impact.pms.logindomain;
+package com.citiustech.impact.pms.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,7 +21,7 @@ public class Login {
 	private Long id;
 
 	private String email;
-   
+
 	private String password;
 
 	public Long getId() {
@@ -35,9 +31,6 @@ public class Login {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-	
 
 	public String getEmail() {
 		return email;
@@ -60,7 +53,4 @@ public class Login {
 		return "Login [id=" + id + ", email=" + email + ", password=" + password + "]";
 	}
 
-	
-	
-	
 }
