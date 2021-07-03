@@ -40,19 +40,9 @@ public class LoginController {
 	public String check(@RequestBody Login log) {
 		// System.out.println("in"+log);
 
-<<<<<<< HEAD
-		System.out.println(user.getUsername());
-		System.out.println(user.getPassword());
-		Login loginUser = userService.login(user.getUsername(), user.getPassword());
-
-		if (Objects.nonNull(loginUser)) {
-
-			return "success";
-
-=======
+	
 		if (userService.login(log.getEmail(), log.getPassword()) != null) {
 			return "success";
->>>>>>> branch 'Login' of git@github.com:jagrutiAute/PMS_Project.git
 		} else {
 			return "Invalid credential";
 		}
