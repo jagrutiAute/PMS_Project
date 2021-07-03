@@ -1,1 +1,64 @@
-<p>registration-provider works!</p>
+
+
+		<div class="login" align="center">
+				
+            <form class="form-horizontal">
+                <fieldset>
+                    
+                <div class="control-group"> 
+                      
+                    <label class="control-label">Title :</label>
+                    <div class="">
+                    <input type="radio" name="title"  value="Mr"> Mr
+                        <input type="radio" name="title" value="Ms"> Ms
+                        <input type="radio" name="title" value="Mrs"> Mrs
+                        <input type="radio" name="title" value="Dr"> Dr
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label">First Name :</label>
+                    <input type="text" class="form-control w" placeholder="Enter FirstName here" id="t1"   required />
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Last Name :</label>
+                    <input type="text" class="form-control w" placeholder="Enter LastName here" id="t2"   required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Enter Email ID :</label>
+                    <input type="email" class="form-control w" placeholder="Enter Email ID here" id="t3"   required />
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label">DOB :</label>
+                    <input type="date" class="form-control w" placeholder="Enter date of birth here" min="1970-01-01"
+                            max="2070-12-31" id="t4"   required />
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Role :</label>
+                    
+                        <select id="location" class="form-control w" >
+                            <option value="0"> Select
+                            </option>
+                            <option value="1"> Physician
+                            </option>
+                            <option value="2"> Nurse
+                            </option>
+                            <option value="3"> Admin
+                            </option>
+                        </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="email"> Employee ID :&nbsp;&nbsp;</label>
+                    
+                        <input type="email" class="form-control w" placeholder="Enter Employee ID here"   id="t6" required />
+                    
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </fieldset>
+              </form>
+        
+    </div>

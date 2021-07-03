@@ -26,6 +26,6 @@ import { LoginService } from './login.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  exports:[LoginComponent]
+  exports:[LoginComponent,RegistrationProviderComponent]
 })
 export class UserModule { }
