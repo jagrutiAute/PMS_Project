@@ -9,7 +9,7 @@
                     <br/>
                     <br/>
                       
-                    <label class="control-label">Title &nbsp;&nbsp;</label>
+                    <!-- <label class="control-label">Title &nbsp;&nbsp;</label> -->
                     <!-- <div class=""> -->
                     &nbsp;<input type="radio" name="title"  value="Mr"> Mr
                         &nbsp;<input type="radio" name="title" value="Ms"> Ms
@@ -17,33 +17,32 @@
                         &nbsp;<input type="radio" name="title" value="Dr"> Dr
                         
                     <!-- </div>  -->
-
                 </div>
-                <br/>
+                
                 <div class="form-group ">
                     <!-- <label class="form-label left-aligned text">First Name </label> -->
-                    <input type="text" class="form-control w" placeholder=" First Name " id="t1"   required />
+                    <input type="text" class="form-control form-control-lg w" placeholder=" First Name " id="t1"   required />
                     
                 </div>
                 <div class="form-group ">
                     <!-- <label class="control-label">Last Name </label> -->
-                    <input type="text" class="form-control w" placeholder="Last Name" id="t2"   required />
+                    <input type="text" class="form-control form-control-lg w" placeholder="Last Name" id="t2"   required />
                 </div>
                 <div class="form-group">
                     <!-- <label class="control-label">Enter Email ID </label> -->
-                    <input type="email" class="form-control w" placeholder="Email ID " id="t3"   required />
+                    <input type="email" class="form-control form-control-lg w" placeholder="Email ID " id="t3"   required />
                     
                 </div>
                 <div class="form-group">
                     <!-- <label class="control-label">DOB </label> -->
-                    <input type="date" class="form-control w" placeholder="Date of Birth " min="1970-01-01"
+                    <input type="text" class="form-control form-control-lg w" placeholder="Date of Birth" onfocus="(this.type='date')" min="1970-01-01"
                             max="2070-12-31" id="t4"   required />
                     
                 </div>
                 <div class="form-group">
                     <!-- <label class="control-label">Role </label> -->
                     
-                        <select id="location" class="form-control w" >
+                        <select id="location" class="form-control form-control-lg w" >
                             <option value="0"> Role
                             </option>
                             <option value="1"> Physician
@@ -58,7 +57,7 @@
                 <div class="form-group">
                     <!-- <label class="control-label" for="email"> Employee ID &nbsp;&nbsp;</label> -->
                     
-                        <input type="email" class="form-control w" placeholder="Employee ID "   id="t6" required />
+                        <input type="email" class="form-control form-control-lg w" placeholder="Employee ID "   id="t6" required />
                     
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block w">Register</button>
