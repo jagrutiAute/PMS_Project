@@ -61,17 +61,24 @@ export class LoginComponent {
     //console.log(user);
     this.service.getLogin(user).subscribe(
       data => {
-        if (data != null) {
+        if (data == 'success') {
           console.log("data is" + data);
-          alert('You are successfully registered.');
+
+
+          alert('You are successfully login');
           //this.router.navigateByUrl('/customer/login');
+        }else{
+
+            console.log('data'+data);
+            
         }
+
+
       },
       error => {
         console.log(error);
       }
     );
-
   }
 
 

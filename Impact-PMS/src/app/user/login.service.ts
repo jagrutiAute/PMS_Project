@@ -13,16 +13,10 @@ export class LoginService {
 
   getLogin(user: User): Observable<any> {
    
-    
-    //return this._http.get<User>(this.baseUrl + '/login'+JSON.stringify(user));
-    //return this._http.get<User>(this.baseUrl  + '?username=' + user.email + '&password=' + user.password);
-
-    //return this._http.get<User>("http://localhost:8080/login",{headers,responseType: 'text' as 'json'});
+      let id:number=1;
+      //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
       return this._http.post(`${this.baseUrl1}`, user,{responseType: 'text' as 'json'}); 
-  
-    //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123  
+      //return this._http.get(`${this.baseUrl1}`+`${id}`,{ responseType:'text' as 'json'});
+      
   }
-
 }
-
-
