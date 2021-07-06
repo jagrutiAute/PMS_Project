@@ -4,3 +4,20 @@
     
 }
 
+div .radx
+{
+    margin: 15px;
+    padding: 10px;
+    display: inline-block;
+}
+
+div .title-font
+{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+div .div-main
+{
+    margin-bottom: 0%;
+}
