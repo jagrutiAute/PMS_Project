@@ -8,16 +8,12 @@ import { ConfirmedValidator } from './confirmed-equal.validator';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent {
+
   constructor(private fb: FormBuilder) { }
 
   changePasswordForm = this.fb.group({
     password: ['', Validators.required],
-    new_password: ['', 
-                      [
-                        Validators.required, 
-                        Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$")
-                      ]
-    ],
+    new_password: ['', [Validators.required, Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$")]],
     confirm_password: ['', Validators.required]
   },
   { 
