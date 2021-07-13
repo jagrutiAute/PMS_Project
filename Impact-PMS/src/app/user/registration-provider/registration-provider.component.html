@@ -2,7 +2,7 @@
 
 		<div class="login" align="center">
 				
-            <form class="form-horizontal">
+            <form [formGroup]="signUpFormProvider">
                 <fieldset>
                     
                 <div class="form-group"> 
@@ -11,56 +11,89 @@
                       
                     <!-- <label class="control-label">Title &nbsp;&nbsp;</label> -->
                     <!-- <div class=""> -->
-                    &nbsp;<input type="radio" name="title"  value="Mr"> Mr
-                        &nbsp;<input type="radio" name="title" value="Ms"> Ms
-                        &nbsp;<input type="radio" name="title" value="Mrs"> Mrs
-                        &nbsp;<input type="radio" name="title" value="Dr"> Dr
-                        
+                    &nbsp;<input type="radio" name="title"  value="Mr" formControlName="title"> Mr
+                        &nbsp;<input type="radio" name="title" value="Ms" formControlName="title" > Ms
+                        &nbsp;<input type="radio" name="title" value="Mrs" formControlName="title" > Mrs
+                        &nbsp;<input type="radio" name="title" value="Dr" formControlName="title"> Dr
+                        <span class="text-danger" *ngIf="f.title.touched && f.title.invalid">
+                            Please select a title
+                            </span>
                     <!-- </div>  -->
                 </div>
                 
                 <div class="form-group ">
                     <!-- <label class="form-label left-aligned text">First Name </label> -->
-                    <input type="text" class="form-control form-control-lg w" placeholder=" First Name " id="t1"   required />
-                    
+                    <input type="text" placeholder=" First Name " id="t1"  class="form-control form-control-lg w" formControlName="firstName"
+                    [class.is-invalid]="f.firstName.touched && f.firstName.invalid" required />
+                    <p class="text-danger" *ngIf="f.firstName.touched && f.firstName.errors?.required">
+                        This field cannot be empty
+                      </p>
+                      <p class="text-danger" *ngIf="f.firstName.touched && f.firstName.errors?.minlength">
+                        This field contain at least two alphabet
+                      </p>
+
                 </div>
                 <div class="form-group ">
                     <!-- <label class="control-label">Last Name </label> -->
-                    <input type="text" class="form-control form-control-lg w" placeholder="Last Name" id="t2"   required />
+                    <input type="text" class="form-control form-control-lg w" placeholder="Last Name" id="t2" formControlName="lastName"
+                    [class.is-invalid]="f.lastName.touched && f.lastName.invalid"  required />
+                    <p class="text-danger" *ngIf="f.lastName.touched && f.lastName.errors?.required">
+                        This field cannot be empty
+                      </p>
+                      <p class="text-danger" *ngIf="f.lastName.touched && f.lastName.errors?.minlength">
+                        This field contain at least two alphabet
+                      </p>
                 </div>
                 <div class="form-group">
                     <!-- <label class="control-label">Enter Email ID </label> -->
-                    <input type="email" class="form-control form-control-lg w" placeholder="Email ID " id="t3"   required />
-                    
+                    <input type="email" class="form-control form-control-lg w" placeholder="Email ID " id="t3" formControlName="email"
+                    [class.is-invalid]="f.email.touched && f.email.invalid" required />
+                    <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.required">
+                        This field cannot be empty
+                      </p>
+                      <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.pattern ">
+                        Please provide valid email.
+                      </p>
                 </div>
                 <div class="form-group">
                     <!-- <label class="control-label">DOB </label> -->
                     <input type="text" class="form-control form-control-lg w" placeholder="Date of Birth" onfocus="(this.type='date')" min="1970-01-01"
-                            max="2070-12-31" id="t4"   required />
-                    
+                            max="{{maxDate}}" id="t4" formControlName="dob"
+                            [class.is-invalid]="f.dob.touched && f.dob.invalid"  required />
+                            <p class="text-danger" *ngIf="f.dob.touched && f.dob.errors?.required">
+                                This field cannot be empty
+                              </p>
                 </div>
                 <div class="form-group">
                     <!-- <label class="control-label">Role </label> -->
                     
-                        <select id="location" class="form-control form-control-lg w" >
-                            <option value="0"> Role
+                        <select id="location" class="form-control form-control-lg w" formControlName="role"
+                        [class.is-invalid]="f.role.touched && f.role.invalid" required>
+                            <option value=""> --Role--
                             </option>
-                            <option value="1"> Physician
+                            <option value="0"> Physician
                             </option>
-                            <option value="2"> Nurse
+                            <option value="1"> Nurse
                             </option>
-                            <option value="3"> Admin
+                            <option value="2"> Admin
                             </option>
                         </select>
-                    
+                        <p class="text-danger" *ngIf="f.role.touched && f.role.errors?.required">
+                            This field cannot be empty
+                          </p>
                 </div>
+
                 <div class="form-group">
                     <!-- <label class="control-label" for="email"> Employee ID &nbsp;&nbsp;</label> -->
                     
-                        <input type="email" class="form-control form-control-lg w" placeholder="Employee ID "   id="t6" required />
-                    
+                        <input type="text" class="form-control form-control-lg w" placeholder="Employee ID "  formControlName="employeeid"
+                        [class.is-invalid]="f.employeeid.touched && f.employeeid.invalid" required />
+                        <p class="text-danger" *ngIf="f.employeeid.touched && f.employeeid.errors?.required">
+                            This field cannot be empty
+                          </p>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block w">Register</button>
+                
+                <button type="submit" class="btn btn-primary btn-lg btn-block w" [disabled]="signUpFormProvider.invalid">Register</button>
             </fieldset>
               </form>
         

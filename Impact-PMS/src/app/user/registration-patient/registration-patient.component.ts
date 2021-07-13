@@ -1,43 +1,58 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ConfirmedValidator } from './confirmed-equal.validator';
 
 @Component({
   selector: 'app-registration-patient',
   templateUrl: './registration-patient.component.html',
   styleUrls: ['./registration-patient.component.css']
 })
-export class RegistrationPatientComponent  {
+export class RegistrationPatientComponent implements OnInit {
 
+  maxDate:any;
 
+  ngOnInit(){
+    this.futureDateDisable();
+  }
   constructor(
     private fb: FormBuilder,
   
   ) { }
 
+  
   registerForm = this.fb.group({
-    email: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern('[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}')
-
-      ]
-    ],
+    email: ['',[Validators.required,Validators.pattern('[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}')]],
 
     password: ['', [Validators.required, Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
 
-    title:[
-      '',
-      Validators.required
-
-    ],
+    title:['',[Validators.required]],
     fname:['',[Validators.required,Validators.minLength(2)]],
     lname:['',[Validators.required,Validators.minLength(2)]],
-    dob:['',[Validators.required]]
+    dob:['',[Validators.required]],
+    contact:['',[Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+    pwd: ['', [Validators.required, Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$")]],
+    cpwd: ['', Validators.required]
 
- 
-  });
+  },
+  { 
+    validator: ConfirmedValidator('pwd', 'cpwd')
+  }
+  );
 
+  futureDateDisable(){
+    var date: any = new Date();
+    var todayDate: any = date.getDate();
+    var month: any = date.getMonth();
+    var year: any = date.getFullYear();
+    if(todayDate<10){
+       todayDate='0'+ todayDate;
+    }
+    if(month<10){
+      month='0'+ month;
+   }
+   this.maxDate=year + "-" + month + "-" + todayDate;
+    
+  }
 
   get title()
   {

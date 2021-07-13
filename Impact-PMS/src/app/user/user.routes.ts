@@ -12,6 +12,7 @@ export var userroutes:Route[]=[
     {path:'login', component:LoginComponent},
     {path:'change-password',component:ChangePasswordComponent},
     {path:'forgot-password', component:ForgotPasswordComponent},
-    {path:'patient-registration', component:RegistrationPatientComponent}
+    {path:'patient-registration', component:RegistrationPatientComponent},
+    {path:'app-registration-provider', component:RegistrationProviderComponent}
 ]
 
