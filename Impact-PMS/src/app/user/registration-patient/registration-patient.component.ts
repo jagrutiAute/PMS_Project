@@ -10,6 +10,7 @@ import { ConfirmedValidator } from './confirmed-equal.validator';
 export class RegistrationPatientComponent implements OnInit {
 
   maxDate:any;
+  isSubmitted = false;
 
   ngOnInit(){
     this.futureDateDisable();
@@ -21,6 +22,7 @@ export class RegistrationPatientComponent implements OnInit {
 
   
   registerForm = this.fb.group({
+    
     email: ['',[Validators.required,Validators.pattern('[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}')]],
 
     password: ['', [Validators.required, Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
@@ -89,9 +91,14 @@ export class RegistrationPatientComponent implements OnInit {
   {
     return this.registerForm.get('pwd');
 
-  }  get cpwd()
+  } 
+   get cpwd()
   {
     return this.registerForm.get('cpwd');
 
   }
+
+
+
+    
 }
