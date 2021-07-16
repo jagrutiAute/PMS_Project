@@ -20,7 +20,7 @@ public class Patient_Registration_Controller {
 		
 		//logic to call service
 		
-		return "";
+		return "registration";
 		
 		
 	}
