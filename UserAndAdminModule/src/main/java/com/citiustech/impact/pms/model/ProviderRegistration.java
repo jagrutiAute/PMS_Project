@@ -129,10 +129,7 @@ public class ProviderRegistration {
 
 
 
-	public ProviderRegistration() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 
 
