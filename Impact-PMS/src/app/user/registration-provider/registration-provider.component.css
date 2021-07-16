@@ -4,3 +4,11 @@
     
 }
 
+.asterisk_input::after {
+    content:" *"; 
+    color: #e32;
+    position: absolute; 
+    margin: -45px 0px 0px -50px; 
+    font-size: xx-large; 
+    padding: 0px 0px 0 200px;
+}

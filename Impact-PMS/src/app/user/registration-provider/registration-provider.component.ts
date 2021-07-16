@@ -32,11 +32,12 @@ export class RegistrationProviderComponent implements OnInit {
       }
     );
   }
+  
   futureDateDisable() {
     var date: any = new Date();
     var todayDate: any = date.getDate();
     var month: any = date.getMonth();
-    var year: any = date.getFullYear();
+    var year: any = date.getFullYear()-18;
     if (todayDate < 10) {
       todayDate = '0' + todayDate;
     }
@@ -44,6 +45,7 @@ export class RegistrationProviderComponent implements OnInit {
       month = '0' + month;
     }
     this.maxDate = year + "-" + month + "-" + todayDate;
+    //this.maxDate=this.maxDate-100;
 
   }
 
