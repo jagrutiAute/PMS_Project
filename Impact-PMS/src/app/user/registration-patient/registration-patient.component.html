@@ -2,7 +2,7 @@
     <br>
     <form class="form-horizontal" [formGroup]="registerForm">
         <fieldset>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label class="radx">Title</label>
                 <div class="custom-control custom-radio radx">
                     <input id="mr" type="radio" class="custom-control-input" value="mr" name="title"
@@ -32,6 +32,22 @@
                     <p>Kindly select the title</p>
                     </span>
                 
+            </div> -->
+
+            <div class="form-group"> 
+                <br/>
+                <br/>
+                  
+                <!-- <label class="control-label">Title &nbsp;&nbsp;</label> -->
+                <!-- <div class=""> -->
+                &nbsp;<input type="radio" name="title"  value="MR" formControlName="title"> Mr
+                    &nbsp;<input type="radio" name="title" value="MS" formControlName="title" > Ms
+                    &nbsp;<input type="radio" name="title" value="MRS" formControlName="title" > Mrs
+                    &nbsp;<input type="radio" name="title" value="DR" formControlName="title"> Dr
+                    <span class="text-danger" *ngIf="title.touched && title.invalid">
+                        Please select a title
+                        </span>
+                <!-- </div>  -->
             </div>
             <div class="form-group">
                 <input type="text" class="form-control form-control-lg w" placeholder=" First Name " id="t1"
@@ -109,7 +125,7 @@
                 </span>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg btn-block w"
+            <button type="submit" class="btn btn-primary btn-lg btn-block w" (click) ="handleFormSubmit()"
                 >Register</button>
         </fieldset>
 
