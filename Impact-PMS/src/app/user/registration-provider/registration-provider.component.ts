@@ -2,6 +2,9 @@ import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { LoginService } from '../login.service';
+import { Role } from '../role';
 import { User } from '../user';
 
 @Component({
@@ -9,51 +12,63 @@ import { User } from '../user';
   templateUrl: './registration-provider.component.html',
   styleUrls: ['./registration-provider.component.css']
 })
-export class RegistrationProviderComponent implements OnInit{
+export class RegistrationProviderComponent implements OnInit {
 
   maxDate: any;
+ statusofEmployeeId:boolean = true;
+  roles: Role[];
 
-  ngOnInit(){
+
+  ngOnInit() {
     this.futureDateDisable();
+    this.service.getAllRoles().subscribe(
+      (data) => {
+        console.log("data roles :::::  " + data)
+        this.roles = data;
+
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
-  futureDateDisable(){
+  futureDateDisable() {
     var date: any = new Date();
     var todayDate: any = date.getDate();
     var month: any = date.getMonth();
     var year: any = date.getFullYear();
-    if(todayDate<10){
-       todayDate='0'+ todayDate;
+    if (todayDate < 10) {
+      todayDate = '0' + todayDate;
     }
-    if(month<10){
-      month='0'+ month;
-   }
-   this.maxDate=year + "-" + month + "-" + todayDate;
-    
+    if (month < 10) {
+      month = '0' + month;
+    }
+    this.maxDate = year + "-" + month + "-" + todayDate;
+
   }
-  
+
   user: User;
+
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
-  
-  ) 
-  
-  { }
+    private router: Router,
+    private service: LoginService
+  ) { }
 
   signUpFormProvider = this.fb.group({
     title: ['', Validators.required],
-    firstName: ['', 
-              [Validators.required,
-              Validators.minLength(2)
-              ]
-            ],
-    lastName: ['', 
-              [Validators.required,
-              Validators.minLength(2)
-              ]],
+    firstName: ['',
+      [Validators.required,
+      Validators.minLength(2)
+      ]
+    ],
+    lastName: ['',
+      [Validators.required,
+      Validators.minLength(2)
+      ]],
 
-    email: [
+    username: [
       '',
       [
         Validators.required,
@@ -61,10 +76,10 @@ export class RegistrationProviderComponent implements OnInit{
 
       ]
     ],
-    dob:['', Validators.required],
+    date_of_birth: ['', Validators.required],
     role: ['', Validators.required],
-    employeeid:['', Validators.required]
-   
+    employeeid: ['', Validators.required]
+
 
 
   });
@@ -75,5 +90,29 @@ export class RegistrationProviderComponent implements OnInit{
 
 
 
+
+
+  regProviderSubmit() {
+
+    let user: User = new User();
+    Object.assign(user, this.signUpFormProvider.value);
+    //console.log("USers:::::: "+this.signUpFormProvider.get('username').value);
+    console.log("USers:::::: "+user.username);
+    this.service.getRegProvider(user).subscribe(
+      data => {
+       
+          console.log("data is" + data);
+        
+          this.statusofEmployeeId =data;
+
+          console.log("this.statusofEmployeeId  ::  "+this.statusofEmployeeId)
+
+        
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
 }
