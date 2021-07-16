@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.citiustech.impact.pms.model.LoginDTO;
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.service.LoginService;
 
@@ -23,12 +24,14 @@ public class LoginController {
 	private LoginService userService;
 
 	@PostMapping("/login")
-	public String check(@RequestBody Users log) {
+	public Integer check(@RequestBody LoginDTO log) {
 
 		System.out.println("++++++++ "+log);
-		String loginResult=userService.login(log.getEmail(), log.getPassword());
+		Users loginResult=userService.login(log.getEmail(), log.getPassword());
+		//loginResult.setLoginAttempts(2);
+	//	System.out.println(loginResult.getLoginAttempts());
 		
-		return loginResult;
+		return loginResult.getLoginAttempts();
 		
 		
 	}
