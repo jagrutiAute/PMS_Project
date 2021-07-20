@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-
+@NoArgsConstructor
 @Table(name="provider")
 public class ProviderRegistration {
 
