@@ -34,19 +34,19 @@
                 
             </div> -->
 
-            <div class="form-group"> 
-                <br/>
-                <br/>
-                  
+            <div class="form-group">
+                <br />
+                <br />
+
                 <!-- <label class="control-label">Title &nbsp;&nbsp;</label> -->
                 <!-- <div class=""> -->
-                &nbsp;<input type="radio" name="title"  value="MR" formControlName="title"> Mr
-                    &nbsp;<input type="radio" name="title" value="MS" formControlName="title" > Ms
-                    &nbsp;<input type="radio" name="title" value="MRS" formControlName="title" > Mrs
-                    &nbsp;<input type="radio" name="title" value="DR" formControlName="title"> Dr
-                    <span class="text-danger" *ngIf="title.touched && title.invalid">
-                        Please select a title
-                        </span>
+                &nbsp;<input type="radio" name="title" value="MR" formControlName="title"> Mr
+                &nbsp;<input type="radio" name="title" value="MS" formControlName="title"> Ms
+                &nbsp;<input type="radio" name="title" value="MRS" formControlName="title"> Mrs
+                &nbsp;<input type="radio" name="title" value="DR" formControlName="title"> Dr
+                <span class="text-danger" *ngIf="title.touched && title.invalid">
+                    Please select a title
+                </span>
                 <!-- </div>  -->
             </div>
             <div class="form-group">
@@ -62,7 +62,7 @@
             </div>
 
             <div class="form-group ">
-               <input type="text" class="form-control form-control-lg w" placeholder="Last Name" id="t2"
+                <input type="text" class="form-control form-control-lg w" placeholder="Last Name" id="t2"
                     formControlName="lname" [class.is-invalid]="lname.touched && lname.invalid" />
 
                 <p class="text-danger" *ngIf="lname.touched && lname.errors?.required">
@@ -82,6 +82,10 @@
                 <p class="text-danger" *ngIf="email.touched && email.errors?.pattern ">
                     Please provide valid email.
                 </p>
+
+                <p class="text-danger" *ngIf="!statusofEmail">
+                    User already exist
+              </p>
             </div>
 
             <div class="form-group">
@@ -125,8 +129,8 @@
                 </span>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg btn-block w" (click) ="handleFormSubmit()"
-                >Register</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block w"
+                (click)="handleFormSubmit()">Register</button>
         </fieldset>
 
     </form>

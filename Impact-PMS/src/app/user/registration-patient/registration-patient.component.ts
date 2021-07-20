@@ -15,6 +15,7 @@ export class RegistrationPatientComponent implements OnInit {
 
   maxDate: any;
   isSubmitted = false;
+  statusofEmail:boolean=true;
 
   ngOnInit() {
     this.futureDateDisable();
@@ -31,9 +32,7 @@ export class RegistrationPatientComponent implements OnInit {
   registerForm = this.fb.group({
 
     email: ['', [Validators.required, Validators.pattern('[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}')]],
-
     password: ['', [Validators.required, Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
-
     title: ['', [Validators.required]],
     fname: ['', [Validators.required, Validators.minLength(2)]],
     lname: ['', [Validators.required, Validators.minLength(2)]],
@@ -54,23 +53,15 @@ export class RegistrationPatientComponent implements OnInit {
    
     let patient1: Patient = new Patient();
 
-    //let user1:User1 = new User1("test@gmail.com",5766879,"Test@123");
-    //let patient1:Patient=new Patient("MR","best","test2","sachin@gmail.com",new Date("1287-02-03"),5443443,"Pass@123");
-
     Object.assign(patient1, this.registerForm.value);
-    //console.log(user);
+
     this.service.getPatientRegister(patient1).subscribe(
       data => {
-        if (data == 'success') {
-          console.log("data is" + data);
-          alert('You are successfully register');
-          //this.router.navigateByUrl('/customer/login');
-        } else {
+        console.log("data is" + data);
+        
+        this.statusofEmail=data;
 
-          console.log(' data ' + data);
-
-        }
-
+        console.log("this.statusofEmployeeId  ::  "+this.statusofEmail)
 
       },
       error => {
@@ -130,8 +121,5 @@ export class RegistrationPatientComponent implements OnInit {
     return this.registerForm.get('cpwd');
 
   }
-
-
-
 
 }
