@@ -15,10 +15,11 @@ public interface Patient_Registration_Repository extends JpaRepository<Patient_R
 	//spring data jpa
 	
 	
-   Patient_Registration registration(int id, String title , String firstName, String lastName, Date dateOfBirth );
-           Patient_Registration findById(String id);
-           Patient_Registration findByTitle(String title);
-           Patient_Registration findByFirstName(String firstName);
-           Patient_Registration findByLatName(String lastName);
-           Patient_Registration findByDateOfBirth(Date dateOfBirth);
+	/*
+	 * Patient_Registration registration(int id, String title , String firstName,
+	 * String lastName, Date dateOfBirth ); Patient_Registration findById(String
+	 * id); Patient_Registration findByTitle(String title); Patient_Registration
+	 * findByFirstName(String firstName); Patient_Registration findByLatName(String
+	 * lastName); Patient_Registration findByDateOfBirth(Date dateOfBirth);
+	 */
 }
