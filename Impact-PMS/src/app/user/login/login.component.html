@@ -34,12 +34,19 @@
               <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.pattern && this.passwordFlag">
                 Password entry does not meet criteria
               </p>
+              <p class="text-danger" *ngIf="attempts > 0 && attempts < 3">
+                your Attempts remaining {{3-attempts}}
+              </p>
+              <p class="text-danger" *ngIf="attempts > 3">
+                your Account is block contact Admin
+              </p>
           </div>
 
           <div class="d-flex center-content-around align-items-center mb-4">
-            <!-- Checkbox -->   
-            <a routerLink="/forgot-password">Forgot password?</a>&nbsp;&nbsp;&nbsp;
-            <a routerLink="/change-password">Change password?</a>
+            <!-- Checkbox -->  
+            <a routerLink="/forgot-password">Forgot password?</a> 
+            <!-- <a routerLink="/forgot-password">Forgot password?</a>&nbsp;&nbsp;&nbsp;
+            <a routerLink="/change-password">Change password?</a> -->
         
           </div>
           
@@ -50,9 +57,9 @@
         </diV>
           <br>
           <div class="d-flex center-content-around align-items-center mb-2"  >
-          Not a member?&nbsp;&nbsp;&nbsp; <a routerLink="/patient-registration">Signup</a>
+          For a new member?&nbsp;&nbsp;&nbsp; <a routerLink="/patient-registration">PatientSignup</a>
         </div>
-        <a routerLink="/app-registration-provider">SignupProvider</a>
+        <a routerLink="/app-registration-provider">ProviderSignup</a>
         </form>
       
       </div>

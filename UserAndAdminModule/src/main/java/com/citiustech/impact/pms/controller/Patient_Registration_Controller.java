@@ -16,26 +16,28 @@ public class Patient_Registration_Controller {
 	//private Patient_Registration patientService;
 	
 
-	@PostMapping("/register")
-	public String check1(@RequestBody Patient_Registration pregister) {
-		
-		//logic to call service
-		
-		return "registration";
-		
-		
-	}
-
-	
-	  @PostMapping("/register") public String check(@RequestBody
-	  Patient_Registration pregister) {
-	  
-	  //logic to call service
-	  
-	  return "";
-	  
-	  
-	  }
+	/*
+	 * @PostMapping("/register") public String check1(@RequestBody
+	 * Patient_Registration pregister) {
+	 * 
+	 * //logic to call service
+	 * 
+	 * return "registration";
+	 * 
+	 * 
+	 * }
+	 * 
+	 * 
+	 * @PostMapping("/register") public String check(@RequestBody
+	 * Patient_Registration pregister) {
+	 * 
+	 * //logic to call service
+	 * 
+	 * return "";
+	 * 
+	 * 
+	 * }
+	 */
 	 
 
 	

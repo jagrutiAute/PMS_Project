@@ -50,20 +50,11 @@ public class ProviderRegistrationController {
 		provider.setEmployeeid(regProvider.getEmployeeid());
 		provider.setUser(user);
 
-		boolean status = providerRegService.registerProvider(provider);
+		boolean status = providerRegService.registerProvider(provider,regProvider.getUsername());
 
 		return status;
 
 	}
 
-	@GetMapping("/registerProvider/{id}")
-	public int registerProviderGet(@PathVariable int id) {
-
-		System.out.println("--------" + id);
-
-		// boolean status = providerRegService.registerProvider(regProvider);
-
-		return id;
-
-	}
+	
 }

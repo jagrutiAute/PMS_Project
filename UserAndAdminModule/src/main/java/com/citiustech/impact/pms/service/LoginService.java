@@ -21,18 +21,15 @@ public class LoginService {
 	@Autowired
 	private UserRepository repo;
 
-	public Users login(String email, String password) {
+	public Users login(String email) {
 
 		//String sha256hexstr = org.apache.commons.codec.digest.DigestUtils.sha256Hex(email + password);
 
-		Users user = repo.findByEmailAndPassword(email,password);
+		Users user = repo.findByEmail(email);
 		
 		System.out.println("user ---------> "+user);
 		
-		/*
-		 * if(user==null) { user.setLoginAttempts(2); repo.save(user); return user; }
-		 * else {
-		 */
+		
 		
 			return user;
 		//}
@@ -41,5 +38,17 @@ public class LoginService {
 
 
 	}
+
+	public Users updatefaildeLogin(Users loginResult) {
+		// TODO Auto-generated method stub
+		Users user=repo.save(loginResult);
+		return user;
+	}
+	
+	public Users blockUser(Users  user) {
+		
+			return repo.save(user);
+	}
+	
 
 }

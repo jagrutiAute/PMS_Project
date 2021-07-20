@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-
+@NoArgsConstructor
 @Table(name="provider")
 public class ProviderRegistration {
 
@@ -129,10 +129,7 @@ public class ProviderRegistration {
 
 
 
-	public ProviderRegistration() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 
 

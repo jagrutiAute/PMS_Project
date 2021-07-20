@@ -17,6 +17,8 @@ export class LoginComponent {
 
   user: User;
 
+  attempts :number;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -54,26 +56,15 @@ export class LoginComponent {
       return;
     }
 
-    //if (this.signUpForm.valid) { console.log('form submitted'); } else { console.log("Not valid") }
-
-    // console.log(this.signUpForm.value);
+    
     let login: Login = new Login();
     Object.assign(login, this.signUpForm.value);
-    //console.log(user);
+    
     this.service.getLogin(login).subscribe(
+      
       data => {
-        if (data == 0) {
-          console.log("data is" + data);
-
-
-          alert('You are successfully login');
-          //this.router.navigateByUrl('/customer/login');
-        }else{
-
-            console.log('data'+data);
-            
-        }
-
+        
+      this.attempts = data;
 
       },
       error => {
