@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class LoginApplication {
 
 	public static void main(String[] args) {
-		//changes are done
-		SpringApplication.run(LoginApplication.class, args);	
-		
+		// changes are done
+		SpringApplication.run(LoginApplication.class, args);
+
 	}
 
 }
