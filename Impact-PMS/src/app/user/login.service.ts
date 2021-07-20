@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from "./user";
 import { Role } from "./role";
+import { Login } from "../Login";
 
 
 @Injectable({ providedIn: 'root'})
@@ -13,11 +14,11 @@ export class LoginService {
   private rolesUrl = 'http://localhost:8080/getRoles';
   constructor(private _http: HttpClient) { }
 
-  getLogin(user: User): Observable<any> {
+  getLogin(login: Login): Observable<any> {
    
       let id:number=1;
       //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
-      return this._http.post(`${this.baseUrl1}`, user,{responseType: 'text' as 'json'}); 
+      return this._http.post(`${this.baseUrl1}`, login,{responseType: 'text' as 'json'}); 
       //return this._http.get(`${this.baseUrl1}`+`${id}`,{ responseType:'text' as 'json'});
       
   }

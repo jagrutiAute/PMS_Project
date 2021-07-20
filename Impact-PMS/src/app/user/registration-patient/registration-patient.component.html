@@ -1,39 +1,9 @@
 <div class="login" align="center">
     <br>
+    
     <form class="form-horizontal" [formGroup]="registerForm">
         <fieldset>
-            <!-- <div class="form-group">
-                <label class="radx">Title</label>
-                <div class="custom-control custom-radio radx">
-                    <input id="mr" type="radio" class="custom-control-input" value="mr" name="title"
-                        formControlName="title">
-                    <label class="custom-control-label" for="mr">Mr</label>
-                </div>
-
-                <div class="custom-control custom-radio radx">
-                    <input id="mrs" type="radio" class="custom-control-input" value="mrs" name="title"
-                        formControlName="title">
-                    <label class="custom-control-label" for="mrs">Mrs</label>
-                </div>
-
-                <div class="custom-control custom-radio radx">
-                    <input id="ms" type="radio" class="custom-control-input" value="ms" name="title"
-                        formControlName="title">
-                    <label class="custom-control-label" for="ms">MS</label>
-                </div>
-
-                <div class="custom-control custom-radio radx">
-                    <input id="dr" type="radio" class="custom-control-input" value="dr" name="title"
-                        formControlName="title">
-                    <label class="custom-control-label" for="dr">Dr</label>
-                </div>
-
-                <span class="text-danger" *ngIf="title.touched && title.invalid">
-                    <p>Kindly select the title</p>
-                    </span>
-                
-            </div> -->
-
+           
             <div class="form-group">
                 <br />
                 <br />
@@ -52,7 +22,7 @@
             <div class="form-group">
                 <input type="text" class="form-control form-control-lg w" placeholder=" First Name " id="t1"
                     formControlName="fname" [class.is-invalid]="fname.touched && fname.invalid" />
-
+                    <span class="asterisk_input"> </span>
                 <p class="text-danger" *ngIf="fname.touched && fname.errors?.required">
                     First name cannot be empty
                 </p>
@@ -64,7 +34,7 @@
             <div class="form-group ">
                 <input type="text" class="form-control form-control-lg w" placeholder="Last Name" id="t2"
                     formControlName="lname" [class.is-invalid]="lname.touched && lname.invalid" />
-
+                    <span class="asterisk_input"> </span>
                 <p class="text-danger" *ngIf="lname.touched && lname.errors?.required">
                     Last name cannot be empty
                 </p>
@@ -76,7 +46,7 @@
             <div class="form-group">
                 <input type="email" class="form-control form-control-lg w" placeholder="Email ID " id="t3"
                     formControlName="email" [class.is-invalid]="email.touched && email.invalid" />
-
+                    <span class="asterisk_input"> </span>
                 <p class="text-danger" *ngIf="email.touched && email.errors?.required">
                     Please enter your email address e.g. exampleusername@domain.com </p>
                 <p class="text-danger" *ngIf="email.touched && email.errors?.pattern ">
@@ -85,14 +55,14 @@
 
                 <p class="text-danger" *ngIf="!statusofEmail">
                     User already exist
-              </p>
+                  </p>
             </div>
 
             <div class="form-group">
                 <input type="text" class="form-control form-control-lg w" placeholder="Date of Birth"
                     onfocus="(this.type='date')" min="1970-01-01" max="{{maxDate}}" id="t4" formControlName="dob"
                     [class.is-invalid]="dob.touched && dob.invalid" />
-
+                   
                 <p class="text-danger" *ngIf="dob.touched && dob.errors?.required">
                     Please enter a valid date
                 </p>
@@ -109,6 +79,7 @@
             <div class="form-group">
                 <input type="password" class="form-control form-control-lg w" placeholder=" Password "
                     formControlName="pwd" [class.is-invalid]="pwd.touched && pwd.invalid" />
+                    <span class="asterisk_input"> </span>
                 <span class="text-danger" *ngIf="pwd.touched && pwd.errors?.required">
                     This field cannot be empty
                 </span>
@@ -121,6 +92,7 @@
             <div class="form-group">
                 <input type="password" class="form-control form-control-lg w" placeholder="Confirm Password "
                     formControlName="cpwd" [class.is-invalid]="cpwd.touched && cpwd.invalid" />
+                    <span class="asterisk_input"> </span>
                 <span class="text-danger" *ngIf="cpwd.touched && cpwd.errors?.required">
                     This field cannot be empty
                 </span>

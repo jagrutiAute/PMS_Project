@@ -61,7 +61,7 @@ export class RegistrationPatientComponent implements OnInit {
         
         this.statusofEmail=data;
 
-        console.log("this.statusofEmployeeId  ::  "+this.statusofEmail)
+        console.log("this.statusofEmail  ::  "+this.statusofEmail)
 
       },
       error => {
@@ -76,7 +76,7 @@ export class RegistrationPatientComponent implements OnInit {
     var date: any = new Date();
     var todayDate: any = date.getDate();
     var month: any = date.getMonth();
-    var year: any = date.getFullYear();
+    var year: any = date.getFullYear()-18;
     if (todayDate < 10) {
       todayDate = '0' + todayDate;
     }

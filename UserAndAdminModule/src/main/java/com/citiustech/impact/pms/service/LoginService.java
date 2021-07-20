@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.repository.LoginRepository;
+import com.citiustech.impact.pms.repository.UserRepository;
 
 /*
  * 
@@ -18,19 +19,26 @@ import com.citiustech.impact.pms.repository.LoginRepository;
 public class LoginService {
 
 	@Autowired
-	private LoginRepository repo;
+	private UserRepository repo;
 
-	public String login(String email, String password) {
+	public Users login(String email, String password) {
 
-		String sha256hexstr = org.apache.commons.codec.digest.DigestUtils.sha256Hex(email + password);
+		//String sha256hexstr = org.apache.commons.codec.digest.DigestUtils.sha256Hex(email + password);
 
-		Users user = repo.findByEmailAndPassword(email, sha256hexstr);
+		Users user = repo.findByEmailAndPassword(email,password);
+		
+		System.out.println("user ---------> "+user);
+		
+		/*
+		 * if(user==null) { user.setLoginAttempts(2); repo.save(user); return user; }
+		 * else {
+		 */
+		
+			return user;
+		//}
+		
+		
 
-		if (user != null) {
-			return "success";
-		}
-
-		return "Bad credentials";
 
 	}
 

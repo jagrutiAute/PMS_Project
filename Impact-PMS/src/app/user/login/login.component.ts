@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Login } from 'src/app/Login';
 import { LoginService } from '../login.service';
 import { User } from '../user';
 
@@ -56,12 +57,12 @@ export class LoginComponent {
     //if (this.signUpForm.valid) { console.log('form submitted'); } else { console.log("Not valid") }
 
     // console.log(this.signUpForm.value);
-    let user: User = new User();
-    Object.assign(user, this.signUpForm.value);
+    let login: Login = new Login();
+    Object.assign(login, this.signUpForm.value);
     //console.log(user);
-    this.service.getLogin(user).subscribe(
+    this.service.getLogin(login).subscribe(
       data => {
-        if (data == 'success') {
+        if (data == 0) {
           console.log("data is" + data);
 
 
