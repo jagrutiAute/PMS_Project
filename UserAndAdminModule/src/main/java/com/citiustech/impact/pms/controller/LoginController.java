@@ -25,6 +25,7 @@ public class LoginController {
 	@PostMapping("/login")
 	public String check(@RequestBody Users log) {
 
+		System.out.println("++++++++ "+log);
 		String loginResult=userService.login(log.getEmail(), log.getPassword());
 		
 		return loginResult;

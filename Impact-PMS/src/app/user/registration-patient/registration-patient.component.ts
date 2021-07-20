@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Patient } from '../patient';
 import { PatientService } from '../patient-registration.service';
+import { User1 } from '../user1';
 import { ConfirmedValidator } from './confirmed-equal.validator';
 
 @Component({
@@ -25,6 +26,7 @@ export class RegistrationPatientComponent implements OnInit {
     private service: PatientService
   ) { }
 
+  
 
   registerForm = this.fb.group({
 
@@ -49,11 +51,15 @@ export class RegistrationPatientComponent implements OnInit {
 
   handleFormSubmit() {
 
-    let patient: Patient = new Patient();
+   
+    let patient1: Patient = new Patient();
 
-    Object.assign(patient, this.registerForm.value);
+    //let user1:User1 = new User1("test@gmail.com",5766879,"Test@123");
+    //let patient1:Patient=new Patient("MR","best","test2","sachin@gmail.com",new Date("1287-02-03"),5443443,"Pass@123");
+
+    Object.assign(patient1, this.registerForm.value);
     //console.log(user);
-    this.service.getPatientRegister(patient).subscribe(
+    this.service.getPatientRegister(patient1).subscribe(
       data => {
         if (data == 'success') {
           console.log("data is" + data);

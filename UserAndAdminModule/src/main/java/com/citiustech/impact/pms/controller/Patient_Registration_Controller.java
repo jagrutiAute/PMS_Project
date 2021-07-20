@@ -12,17 +12,31 @@ import com.citiustech.impact.pms.model.Patient_Registration;
 @CrossOrigin(origins = "*")
 public class Patient_Registration_Controller {
 
-	@Autowired
-	private Patient_Registration patientService;
+	//@Autowired
+	//private Patient_Registration patientService;
 	
+
 	@PostMapping("/register")
-	public String check(@RequestBody Patient_Registration pregister) {
+	public String check1(@RequestBody Patient_Registration pregister) {
 		
 		//logic to call service
 		
-		return "";
+		return "registration";
 		
 		
 	}
+
+	
+	  @PostMapping("/register") public String check(@RequestBody
+	  Patient_Registration pregister) {
+	  
+	  //logic to call service
+	  
+	  return "";
+	  
+	  
+	  }
+	 
+
 	
 }
