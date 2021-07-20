@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Login } from 'src/app/Login';
 import { LoginService } from '../login.service';
 import { User } from '../user';
 
@@ -15,6 +16,8 @@ export class LoginComponent {
   emailFlag: boolean = false;
 
   user: User;
+
+  attempts :number;
 
   constructor(
     private fb: FormBuilder,
@@ -53,26 +56,15 @@ export class LoginComponent {
       return;
     }
 
-    //if (this.signUpForm.valid) { console.log('form submitted'); } else { console.log("Not valid") }
-
-    // console.log(this.signUpForm.value);
-    let user: User = new User();
-    Object.assign(user, this.signUpForm.value);
-    //console.log(user);
-    this.service.getLogin(user).subscribe(
+    
+    let login: Login = new Login();
+    Object.assign(login, this.signUpForm.value);
+    
+    this.service.getLogin(login).subscribe(
+      
       data => {
-        if (data == 'success') {
-          console.log("data is" + data);
-
-
-          alert('You are successfully login');
-          //this.router.navigateByUrl('/customer/login');
-        }else{
-
-            console.log('data'+data);
-            
-        }
-
+        
+      this.attempts = data;
 
       },
       error => {

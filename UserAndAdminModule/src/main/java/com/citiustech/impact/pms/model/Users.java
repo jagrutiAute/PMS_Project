@@ -1,5 +1,7 @@
 package com.citiustech.impact.pms.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-
+@Data
 @Entity
 @Table(name = "users")
 public class Users {
@@ -31,6 +33,27 @@ public class Users {
 	
 	@Column(name="phone_number")
 	private long phoneNumber;
+	
+	@Column(name="login_attempts")
+	private int loginAttempts;
+	
+	@Column(name="enrolled")
+	private Enrolled enrolled;
+	
+	@Column (name ="created_by")
+	private String createdBy;
+	
+	@Column(name = "created_date_time")
+	private LocalDate createDateAndTime;
+	
+	@Column(name = "modified_by")
+	private String modifiedBy;
+	
+	@Column(name="modified_date_time")
+	private LocalDate modifiedDateAndTime;
+	
+	@Column(name="is_active_role")
+	private ISActive isActive;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="role_master_id")
