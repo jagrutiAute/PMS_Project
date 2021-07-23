@@ -1,9 +1,23 @@
 .w
 {
-    width: 25% !important;
+    height: 40px !important;
+    width: 70% !important;
     
 }
 
+table
+{
+    margin-top: 15px;
+}
+
+.btn_size
+{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 40px !important;
+    width: 30% !important;
+    
+}
 div .radx
 {
     margin: 15px;
@@ -11,7 +25,7 @@ div .radx
     display: inline-block;
 }
 
-div .title-font
+ .title-font
 {
     font-size: 20px;
     font-weight: normal;

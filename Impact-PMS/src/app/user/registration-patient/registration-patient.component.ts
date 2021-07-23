@@ -15,7 +15,8 @@ export class RegistrationPatientComponent implements OnInit {
 
   maxDate: any;
   isSubmitted = false;
-  statusofEmail:boolean=true;
+  statusofEmail:boolean = true;
+  emailAlredyExist = "";
 
   ngOnInit() {
     this.futureDateDisable();
@@ -57,11 +58,16 @@ export class RegistrationPatientComponent implements OnInit {
 
     this.service.getPatientRegister(patient1).subscribe(
       data => {
-        console.log("data is" + data);
-        
-        this.statusofEmail=data;
 
-        console.log("this.statusofEmail  ::  "+this.statusofEmail)
+        if(data=='user already exist')
+        {
+          this.emailAlredyExist = "User Alredy Exist";
+        }
+        else{
+          //this.emailAlredyExist = "";
+          alert("Your succesfully registered")
+          this.router.navigate(['']);
+        }
 
       },
       error => {
