@@ -1,17 +1,12 @@
 package com.citiustech.impact.pms.service;
 
-import java.util.Random;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.repository.UserRepository;
-
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.activation.*;
 import java.util.*;
 
 @Service
@@ -30,8 +25,12 @@ public class ForgotPassService {
 
 			System.out.println("generatedString  ::  " + generatedString);
 
-			send("impactpmsjavabatch1@gmail.com", "amit@1234", email, "Reset Pasword OTP ",
-					"Your one time password is " + generatedString);
+			
+			/*
+			 * send("impactpmsjavabatch1@gmail.com", "amit@1234", email,
+			 * "Reset Pasword OTP ", "Your one time password is " + generatedString);
+			 */
+			 
 
 			user.setPassword(generatedString);
 			user.setPassowrdChangedStatus(1);
