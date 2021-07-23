@@ -22,8 +22,7 @@ public class RoleController {
 	public List<Role> getRoles(){
 		
 		List<Role> role = roleService.getRoles();
-		System.out.println("role  :::::::   "+role);
-
+		//System.out.println("role  :::::::   "+role);
 		return role;
 		
 	}
