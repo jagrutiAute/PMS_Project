@@ -90,10 +90,6 @@ export class RegistrationProviderComponent implements OnInit {
     return this.signUpFormProvider.controls;
   }
 
-
-
-
-
   regProviderSubmit() {
 
     let user: User = new User();
@@ -108,8 +104,7 @@ export class RegistrationProviderComponent implements OnInit {
           this.statusofEmployeeId =data;
 
           console.log("this.statusofEmployeeId  ::  "+this.statusofEmployeeId)
-
-        
+ 
       },
       error => {
         console.log(error);

@@ -40,12 +40,12 @@ getAllRoles(): Observable<Role[]> {
  return this._http.get<Role[]>(`${this.rolesUrl}`);
 }
 
-getForgotPassword( email: string): Observable<any>{
+getForgotPassword( email: String): Observable<any>{
 
 ///forgotPass/{email}
   console.log(email);
   console.log('show:::::::'+this._http.post(`${this.baseUrl}/forgotPass/${email}`, { responseType: 'text' as 'json' }));
-  return this._http.post(`${this.baseUrl}/forgotPass/${email}`, { responseType: 'text' as 'json' });  
+  return this._http.get(`${this.baseUrl}/forgotPass/${email}`, { responseType:'text'});  
 // return this._http.post(`${this.baseUrl}`,{responseType: 'text' as 'json'});
 }
 }

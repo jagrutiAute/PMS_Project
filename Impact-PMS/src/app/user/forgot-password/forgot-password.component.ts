@@ -47,10 +47,12 @@ export class ForgotPasswordComponent  {
     this.service.getForgotPassword(this.forgotPassForm.get("email").value).subscribe(
       data => {
        
-          console.log("data is" + data);
+          
           this.status=data;
-          console.log(this.status);
-             
+          if(this.status=="Success"){
+                alert('Your password reset successfully');
+                this.router.navigate(['/login']);
+          }    
       },
       error => {
         console.log(error);
