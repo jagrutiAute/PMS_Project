@@ -17,10 +17,22 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+}
+||||||| 78dff94
+	 Users findByEmail(String email);
+}
+=======
+>>>>>>> ebdf04721f462af1cc6faab3a2c978d371240229
 	 Users findByEmail(String email);
 
 	Users findByEmailAndPassword(String email, String pwd);
 }
+<<<<<<< HEAD
 =======
 }
 >>>>>>> b707ea0bb99d2dafbba5d70514928c2fbc430850
+=======
+>>>>>>> 8c23b399729fd76973e53460bbd8c7cc648c8d6f
+>>>>>>> ebdf04721f462af1cc6faab3a2c978d371240229
