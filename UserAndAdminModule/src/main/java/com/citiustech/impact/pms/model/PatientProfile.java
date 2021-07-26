@@ -44,7 +44,11 @@ public class PatientProfile implements Serializable {
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "users_id", nullable = false)
+<<<<<<< HEAD
     private Users user;
+=======
+    private User user;
+>>>>>>> b707ea0bb99d2dafbba5d70514928c2fbc430850
     
     @Column(name = "ethnicity_master_id")
     private int ethnicity;
@@ -109,11 +113,19 @@ public class PatientProfile implements Serializable {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+<<<<<<< HEAD
 	public Users getUser() {
 		return user;
 	}
 
 	public void setUser(Users user) {
+=======
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+>>>>>>> b707ea0bb99d2dafbba5d70514928c2fbc430850
 		this.user = user;
 	}
 

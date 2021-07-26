@@ -1,10 +1,10 @@
-package com.citiustech.SpringBootRestDB;
+package com.citiustech.impact.pms;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootRestDbApplicationTests {
+class UserAndAdminModuleApplicationTests {
 
 	@Test
 	void contextLoads() {

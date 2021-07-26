@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.citiustech.impact.pms.model.Patient;
+<<<<<<< HEAD
 import com.citiustech.impact.pms.model.Users;
+=======
+import com.citiustech.impact.pms.model.User;
+>>>>>>> b707ea0bb99d2dafbba5d70514928c2fbc430850
 import com.citiustech.impact.pms.service.PatientService;
 
 
@@ -20,7 +24,20 @@ public class AccountController {
 
 	
 
+<<<<<<< HEAD
 	
+=======
+	@PostMapping("/login")
+	public String check(@RequestBody User user) {
+
+		String loginResult=patientService.login(user.getEmailID(), user.getPassword());
+
+		
+		return loginResult;
+		
+		
+	}
+>>>>>>> b707ea0bb99d2dafbba5d70514928c2fbc430850
 	 
 	@PostMapping("/register")
 	public String patienRegister(@RequestBody Patient p) {
