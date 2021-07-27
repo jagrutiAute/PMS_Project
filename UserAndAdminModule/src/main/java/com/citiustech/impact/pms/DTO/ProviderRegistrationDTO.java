@@ -1,4 +1,4 @@
-package com.citiustech.impact.pms.model;
+package com.citiustech.impact.pms.DTO;
 
 
 public class ProviderRegistrationDTO {

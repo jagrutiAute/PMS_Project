@@ -11,7 +11,7 @@ import com.citiustech.impact.pms.service.ForgotPassService;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class FogotPasswordController {
+public class ForgotPasswordController {
 
 	@Autowired
 	ForgotPassService forgotPassService;
