@@ -4,6 +4,7 @@ package com.citiustech.impact.pms.model;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -43,9 +44,9 @@ public class PatientProfile implements Serializable {
 
    
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "users_id", nullable = false)
-    private Users user;
+    @JoinColumn(name = "users_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	private Users user;
     
     @Column(name = "ethnicity_master_id")
     private int ethnicity;

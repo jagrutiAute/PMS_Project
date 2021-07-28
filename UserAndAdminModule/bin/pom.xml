@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.citiustech</groupId>
-	<artifactId>LoginApplication</artifactId>
+	<artifactId>UserAndAdminModule</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>LoginApplication</name>
 	<description>Demo project for Spring Boot</description>
@@ -121,6 +121,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

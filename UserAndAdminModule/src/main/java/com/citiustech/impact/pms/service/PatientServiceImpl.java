@@ -60,10 +60,17 @@ public class PatientServiceImpl implements PatientService {
 		
 
 
-	   PatientProfile patientProfile = new PatientProfile(p.getTitle(), p.getFname(), p.getLname(), p.getDob(), 1, 1);
+	   PatientProfile patientProfile = new PatientProfile();
+	   patientProfile.setTitle(p.getTitle());
+	   patientProfile.setFirstName(p.getFname());
+	   patientProfile.setLastName(p.getLname());
+	   patientProfile.setDateOfBirth(p.getDob());
+	   patientProfile.setEthnicity(1);
+	   patientProfile.setRace(1);
 
-
-		//user.setUserProfile(patientProfile);
+	  
+	   
+	//	user.setUserProfile(patientProfile);
 
 	   
 		//user.setUserProfile(patientProfile);
@@ -72,7 +79,7 @@ public class PatientServiceImpl implements PatientService {
 		// Set parent reference(user) in child entity(userProfile)
 		patientProfile.setUser(user);
 
-
+		userProfileRepository.save(patientProfile);
 
 
 		  Users user1=userRepository.findByEmail(user.getEmail());
