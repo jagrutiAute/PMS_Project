@@ -5,12 +5,13 @@ import { EmergencyContactInfoComponent } from './emergency-contact-info/emergenc
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { BodyLayoutComponent } from './body-layout/body-layout.component';
 import { patientroutes } from './patient.routes';
 
 
 
 @NgModule({
-  declarations: [PatientDetailsComponent,EmergencyContactInfoComponent],
+  declarations: [PatientDetailsComponent,EmergencyContactInfoComponent, BodyLayoutComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,6 +19,6 @@ import { patientroutes } from './patient.routes';
     HttpClientModule,
     RouterModule.forChild(patientroutes)
   ],
-  exports:[PatientDetailsComponent,EmergencyContactInfoComponent]
+  exports:[PatientDetailsComponent,EmergencyContactInfoComponent,BodyLayoutComponent]
 })
 export class PatientModule { }
