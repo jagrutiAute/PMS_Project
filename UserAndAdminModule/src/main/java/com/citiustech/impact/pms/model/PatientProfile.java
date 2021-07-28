@@ -45,8 +45,8 @@ public class PatientProfile implements Serializable {
    
 
     @JoinColumn(name = "users_id")
-	@OneToOne(cascade = CascadeType.ALL)
-	private Users user;
+	@OneToOne(cascade = CascadeType.PERSIST)
+    private Users user;
     
     @Column(name = "ethnicity_master_id")
     private int ethnicity;

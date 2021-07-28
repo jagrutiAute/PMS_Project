@@ -1,21 +1,13 @@
 package com.citiustech.impact.pms.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.citiustech.impact.pms.DTO.ProviderRegistrationDTO;
 import com.citiustech.impact.pms.model.ProviderRegistration;
-import com.citiustech.impact.pms.model.ProviderRegistrationDTO;
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.service.ProviderRegistrationService;
 import com.citiustech.impact.pms.service.RoleService;
@@ -36,12 +28,6 @@ public class ProviderRegistrationController {
 
 	@PostMapping("/registerProvider")
 	public boolean registerProvider(@RequestBody ProviderRegistrationDTO regProvider) {
-
-		
-		
-		
-		
-		System.out.println("--------" + regProvider);
 
 		Users user = new Users();
 		user.setEmail(regProvider.getUsername());

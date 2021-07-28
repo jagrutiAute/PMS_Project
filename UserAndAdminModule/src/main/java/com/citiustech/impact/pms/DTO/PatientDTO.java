@@ -1,11 +1,11 @@
-package com.citiustech.impact.pms.model;
+package com.citiustech.impact.pms.DTO;
 
 import java.util.Calendar;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Patient {
+public class PatientDTO {
 	
 	String title;
 	String fname;
@@ -15,10 +15,10 @@ public class Patient {
 	long contact;
 	String pwd;
 	
-	public Patient() {
+	public PatientDTO() {
 		super();
 	}
-	public Patient(String title, String fname, String lname, String email, Calendar dob, long contact,
+	public PatientDTO(String title, String fname, String lname, String email, Calendar dob, long contact,
 			String pwd) {
 		super();
 		this.title = title;

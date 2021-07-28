@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.citiustech.impact.pms.DTO.LoginDTO;
 import com.citiustech.impact.pms.model.ISActive;
-import com.citiustech.impact.pms.model.LoginDTO;
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.service.LoginService;
 import com.mysql.cj.log.LogFactory;
@@ -57,6 +57,7 @@ public class LoginController {
 				loginResult.setIsActive(ISActive.BLOCK);
 				
 				userService.blockUser(loginResult);
+				System.out.println(loginResult);
 				
 				System.out.println("your account has blocked");
 				
