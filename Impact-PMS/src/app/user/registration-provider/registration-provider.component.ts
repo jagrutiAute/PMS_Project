@@ -15,7 +15,7 @@ import { User } from '../user';
 export class RegistrationProviderComponent implements OnInit {
 
   maxDate: any;
- statusofEmployeeId:boolean = true;
+ statusofEmployeeId:string ;
   roles: Role[];
 
 

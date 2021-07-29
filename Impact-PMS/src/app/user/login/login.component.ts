@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -63,9 +64,20 @@ export class LoginComponent {
     this.service.getLogin(login).subscribe(
       
       data => {
+        console.log(this.attempts);
+        if(data=="UsernamePass"){
+            this.attempts=6;
+        }
+
+        if(data=="BLOCKED"){
+
+          this.attempts =4;
+          return ;
+        }
         
       this.attempts = data;
 
+      
       },
       error => {
         console.log(error);

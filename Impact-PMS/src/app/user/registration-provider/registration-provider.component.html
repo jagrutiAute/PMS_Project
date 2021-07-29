@@ -61,6 +61,9 @@
         <p class="text-danger" *ngIf="f.username.touched && f.username.errors?.pattern ">
           Please provide valid email.
         </p>
+        <p class="text-danger" *ngIf="statusofEmployeeId === 'EMAIL'">
+          Email Id already exist
+        </p>
       </div>
       <div class="form-group">
         <!-- <label class="control-label">DOB </label> -->
@@ -100,9 +103,10 @@
         <p class="text-danger" *ngIf="f.employeeid.touched && f.employeeid.errors?.required">
           This field cannot be empty
         </p>
-        <p class="text-danger" *ngIf="!statusofEmployeeId">
+        <p class="text-danger" *ngIf="statusofEmployeeId === 'EMPLOYEEID'">
           employee Id already exist
         </p>
+       
       </div>
 
       <button type="submit" class="btn btn-primary btn-lg btn-block w" [disabled]="signUpFormProvider.invalid"

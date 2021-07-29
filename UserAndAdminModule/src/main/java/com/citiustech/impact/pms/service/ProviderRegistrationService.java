@@ -17,23 +17,28 @@ public class ProviderRegistrationService {
 	@Autowired
 	UserRepository userRepo;
 
-	public boolean registerProvider(ProviderRegistration regProvider, String email) {
+	public String registerProvider(ProviderRegistration regProvider, String email) {
 
 		ProviderRegistration providerReg = providerRegRepo.findByEmployeeid(regProvider.getEmployeeid());
-		//Users users = userRepo.findByEmail(email);
-
-		if ((providerReg == null)) {
+		Users users = userRepo.findByEmail(email);
+				
+		if ((providerReg == null)&&(users==null)) {
 
 			ProviderRegistration status = providerRegRepo.save(regProvider);
 			
-			return true;
+			return "SUCCESS";
 
 		}
 		
+		if((providerReg != null)){
+			
+			return "EMPLOYEEID";
+		}else if((users !=null)) {
+			return "EMAIL";
+		}
 		
 		
-		
-		return false;
+		return "FAIL";
 
 	}
 
