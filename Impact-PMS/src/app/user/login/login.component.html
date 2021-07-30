@@ -40,6 +40,9 @@
               <p class="text-danger" *ngIf="attempts > 3">
                 your Account is block contact Admin
               </p>
+              <p class="text-danger" *ngIf="attempts==6">
+                Username and Password not matched
+              </p>
           </div>
 
           <div class="d-flex center-content-around align-items-center mb-4">
@@ -60,7 +63,7 @@
           For a new member?&nbsp;&nbsp;&nbsp; <a routerLink="/patient-registration">PatientSignup</a>
         </div>
         <a routerLink="/app-registration-provider">ProviderSignup</a>&nbsp;&nbsp;&nbsp;
-        <a routerLink="/patient-details">patient details</a>
+        <a routerLink="/app-body-layout/patient-details">patient details</a>
         </form>
       
       </div>

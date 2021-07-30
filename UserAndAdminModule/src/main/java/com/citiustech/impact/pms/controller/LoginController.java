@@ -1,6 +1,8 @@
 package com.citiustech.impact.pms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,60 +27,62 @@ public class LoginController {
 	@Autowired
 	private LoginService userService;
 
-	
 	@PostMapping("/login")
-	public Integer check(@RequestBody LoginDTO log) {
+	public ResponseEntity<String> check(@RequestBody LoginDTO log) {
 
 		System.out.println("++++++++ " + log);
 		Users loginResult = userService.login(log.getEmail());
 
 		System.out.println("loginResult  ::  " + loginResult);
-				
-		  if (loginResult.getIsActive() == ISActive.BLOCK) {
-		  
-			  System.out.println("already blocked");
-		  // return status your account has blocked contact Admin
-		  
-		  return 4;
-		  
-		  }
-		 
 
-		System.out.println(loginResult.getLoginAttempts());
+		if (loginResult == null) {
+			return new ResponseEntity<String>("UsernamePass",HttpStatus.OK);
+		}
 
-		int n = loginResult.getLoginAttempts();
+			if (loginResult.getIsActive() == ISActive.BLOCK) {
+
+				System.out.println("already blocked");
+				// return status your account has blocked contact Admin
+
+				return new ResponseEntity<String>("BLOCKED", HttpStatus.OK);
+
+			}
+
+			System.out.println(loginResult.getLoginAttempts());
+
+			int n = loginResult.getLoginAttempts();
+			
 		
-		if (!loginResult.getPassword().equals(log.getPassword())) {
 
-						
-			
-			if (n == 2) {
-			
-				loginResult.setIsActive(ISActive.BLOCK);
-				
-				userService.blockUser(loginResult);
-				System.out.println(loginResult);
-				
-				System.out.println("your account has blocked");
-				
-				return 4;
+			if (!loginResult.getPassword().equals(log.getPassword())) {
 
-			} else {
+				if (n == 2) {
 
-				loginResult.setLoginAttempts(n + 1);
-			
-				Users re = userService.updatefaildeLogin(loginResult);
+					loginResult.setIsActive(ISActive.BLOCK);
 
-				return re.getLoginAttempts();
+					userService.blockUser(loginResult);
+					System.out.println(loginResult);
+
+					System.out.println("your account has blocked");
+
+					return new ResponseEntity<String>("BLOCKED", HttpStatus.OK);
+
+				} else {
+
+					loginResult.setLoginAttempts(n + 1);
+
+					Users re = userService.updatefaildeLogin(loginResult);
+
+					return new ResponseEntity<String>(String.valueOf(re.getLoginAttempts()), HttpStatus.OK);
+
+				}
 
 			}
 			
-		
-
-		} else {
-			return 0;
+		 else {
+			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		}
-		
+
 	}
 
 }

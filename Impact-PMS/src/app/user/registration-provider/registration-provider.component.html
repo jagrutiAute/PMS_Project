@@ -1,6 +1,6 @@
 <div class="login" align="center">
 
-  <form class="form-horizontal" [formGroup]="signUpFormProvider">
+<form class="form-horizontal" [formGroup]="signUpFormProvider">
 
     <div class="form-group">
 
@@ -49,45 +49,57 @@
         <tr>
           <td><label class="control-label" style="font-size: larger;">Last Name <span
                 style="color: #e32">*</span></label></td>
+                <div class="md-form">
           <td><input class="form-control form-control-lg w1 radx" type="text" style="font-size: larger;" id="t2"
               formControlName="lastName" [class.is-invalid]="f.lastName.touched && f.lastName.invalid" required />
-
+            </td>
+            </div>
             <p class="text-danger" *ngIf="f.lastName.touched && f.lastName.errors?.required">
               Last name cannot be empty</p>
             <p class="text-danger" *ngIf="f.lastName.touched && f.lastName.errors?.minlength">
               This field contain at least two alphabet
             </p>
-          </td>
+          
         </tr>
 
         <tr>
           <td><label class="control-label" style="font-size: larger;">Email <span style="color: #e32">*</span></label>
           </td>
-          <td><input class="form-control form-control-lg w1 radx" type="email" id="t3" style="font-size: larger;"
+          <div class="md-form">
+          <td><input class="form-control form-control-lg w1 radx " type="email" id="t3" style="font-size: larger;"
               formControlName="username" [class.is-invalid]="f.username.touched && f.username.invalid" required />
-            <p class="text-danger" *ngIf="f.username.touched && f.username.errors?.required">
-              Please enter your email address e.g. exampleusername@domain.com </p>
-            <p class="text-danger" *ngIf="f.username.touched && f.username.errors?.pattern ">
-              Please provide valid email.</p>
-
-
+           
+              
           </td>
+          </div>
+              <p class="text-danger " *ngIf="f.username.touched && f.username.errors?.required">
+              Please enter your email address e.g. exampleusername@domain.com </p>
+            <p class="text-danger " *ngIf="f.username.touched && f.username.errors?.pattern ">
+              Please provide valid email.</p>
+            <p class="text-danger " *ngIf="statusofEmployeeId === 'EMPLOYEEID'">
+              employee Id already exist
+            </p>
+
         </tr>
 
         <tr>
           <td><label class="control-label" style="font-size: larger;">Date of Birth <span
                 style="color: #e32">*</span></label></td>
+                <div class="md-form">
           <td><input type="text" class="form-control form-control-lg w1 radx" onfocus="(this.type='date')"
               min="1970-01-01" max="{{maxDate}}" id="t4" formControlName="date_of_birth" style="font-size: larger;"
               [class.is-invalid]="f.date_of_birth.touched && f.date_of_birth.invalid" required />
+            </td>
+          </div>
             <p class="text-danger" *ngIf="f.date_of_birth.touched && f.date_of_birth.errors?.required">
               Please enter a valid date</p>
-          </td>
+          
         </tr>
 
         <tr>
           <td><label class="control-label" style="font-size: larger;">Role <span style="color: #e32">*</span></label>
           </td>
+          <div class="form-group">
           <td><select id="location" class="form-control form-control-lg w1 radx" formControlName="role"
               [class.is-invalid]="f.role.touched && f.role.invalid" required>
 
@@ -100,23 +112,28 @@
 
               </option>
             </select>
+            </td>
+          </div>
             <p class="text-danger" *ngIf="f.role.touched && f.role.errors?.required">
               This field cannot be empty
             </p>
-          </td>
+
         </tr>
 
         <tr>
           <td><label class="control-label" style="font-size: larger;">Employee ID <span
                 style="color: #e32">*</span></label></td>
+                <div class="md-form">
           <td><input type="password" class="form-control form-control-lg w1 radx" style="font-size: larger;"
               formControlName="employeeid" [class.is-invalid]="f.employeeid.touched && f.employeeid.invalid" required />
-            <p class="text-danger" *ngIf="f.employeeid.touched && f.employeeidwd.errors?.required">
+           </td>
+           </div>
+              <p class="text-danger" *ngIf="f.employeeid.touched && f.employeeidwd.errors?.required">
               This field cannot be empty</p>
-            <p class="text-danger" *ngIf="!statusofEmployeeId">
-              employee Id already exist
-            </p>
-          </td>
+              <p class="text-danger" *ngIf="statusofEmployeeId === 'EMPLOYEEID'">
+                employee Id already exist
+              </p>
+          
         </tr>
 
 
@@ -124,6 +141,6 @@
     </div>
     <button type="submit" class="btn btn-primary btn-lg" [disabled]="signUpFormProvider.invalid"
       (click)="regProviderSubmit()">Register</button><br><br>
-  </form>
+        </form>
 
 </div>

@@ -5,13 +5,14 @@ import { EmergencyContactInfoComponent } from './emergency-contact-info/emergenc
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { BodyLayoutComponent } from './body-layout/body-layout.component';
 import { patientroutes } from './patient.routes';
 import { AllergyDetailsComponent } from './allergy-details/allergy-details.component';
 
 
 
 @NgModule({
-  declarations: [PatientDetailsComponent,EmergencyContactInfoComponent, AllergyDetailsComponent],
+  declarations: [PatientDetailsComponent,EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,6 +20,6 @@ import { AllergyDetailsComponent } from './allergy-details/allergy-details.compo
     HttpClientModule,
     RouterModule.forChild(patientroutes)
   ],
-  exports:[PatientDetailsComponent,EmergencyContactInfoComponent,AllergyDetailsComponent]
+  exports:[PatientDetailsComponent,EmergencyContactInfoComponent,BodyLayoutComponent,AllergyDetailsComponent]
 })
 export class PatientModule { }

@@ -28,7 +28,7 @@ export class LoginService {
    
     let id:number=1;
     //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
-    return this._http.post(`${this.regProviderUrl}`, user);
+    return this._http.post(`${this.regProviderUrl}`, user,{responseType: 'text' as 'json'});
     
 }
 
