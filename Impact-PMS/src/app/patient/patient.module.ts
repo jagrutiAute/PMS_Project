@@ -6,11 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { patientroutes } from './patient.routes';
+import { AllergyDetailsComponent } from './allergy-details/allergy-details.component';
 
 
 
 @NgModule({
-  declarations: [PatientDetailsComponent,EmergencyContactInfoComponent],
+  declarations: [PatientDetailsComponent,EmergencyContactInfoComponent, AllergyDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,6 +19,6 @@ import { patientroutes } from './patient.routes';
     HttpClientModule,
     RouterModule.forChild(patientroutes)
   ],
-  exports:[PatientDetailsComponent,EmergencyContactInfoComponent]
+  exports:[PatientDetailsComponent,EmergencyContactInfoComponent,AllergyDetailsComponent]
 })
 export class PatientModule { }
