@@ -7,6 +7,8 @@ import { LoginService } from '../login.service';
 import { Role } from '../role';
 import { User } from '../user';
 
+
+
 @Component({
   selector: 'app-registration-provider',
   templateUrl: './registration-provider.component.html',
@@ -15,10 +17,10 @@ import { User } from '../user';
 export class RegistrationProviderComponent implements OnInit {
 
   maxDate: any;
- statusofEmployeeId:string ;
+ statusofEmployeeId:String ;
   roles: Role[];
 
-
+  
   ngOnInit() {
     this.futureDateDisable();
     this.service.getAllRoles().subscribe(
@@ -90,6 +92,10 @@ export class RegistrationProviderComponent implements OnInit {
     return this.signUpFormProvider.controls;
   }
 
+
+
+
+
   regProviderSubmit() {
 
     let user: User = new User();
@@ -102,6 +108,9 @@ export class RegistrationProviderComponent implements OnInit {
           console.log("data is" + data);
         
           this.statusofEmployeeId =data;
+          if(this.statusofEmployeeId==='SUCCESS'){
+            window.location.reload();
+          }
 
           console.log("this.statusofEmployeeId  ::  "+this.statusofEmployeeId)
  
@@ -111,5 +120,9 @@ export class RegistrationProviderComponent implements OnInit {
       }
     );
   }
+
+  
+
+
 
 }
