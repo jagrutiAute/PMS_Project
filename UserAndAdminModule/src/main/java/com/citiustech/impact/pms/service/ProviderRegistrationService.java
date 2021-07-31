@@ -21,11 +21,13 @@ public class ProviderRegistrationService {
 	
 	@Autowired
 	RoleService role;
+
 	
 	@Autowired
+	UserRegistrationService userRegService;
+
+	@Autowired
 	EmailService emailService;
-	
-	
 
 	public String registerProvider(ProviderRegistrationDTO regProvider, String email) {
 
@@ -33,7 +35,6 @@ public class ProviderRegistrationService {
 		Users users = userRepo.findByEmail(email);
 				
 		if ((providerReg == null)&&(users==null)) {
-			
 			Users user = new Users();
 			user.setEmail(regProvider.getUsername());
 			user.setRole(role.getRoles().get(regProvider.getRole()));
@@ -44,8 +45,9 @@ public class ProviderRegistrationService {
 			 * regProvider.getUsername(), "Reset Pasword OTP ", "Your one time password is "
 			 * + generatedString);
 			 */
-			
-			user.setPassword(generatedString);
+			System.out.println(generatedString);
+			String pwd=PatientServiceImpl.encryption(regProvider.getUsername(),generatedString);
+			user.setPassword(pwd);
 
 		
 			ProviderRegistration provider = new ProviderRegistration();
@@ -56,7 +58,6 @@ public class ProviderRegistrationService {
 			provider.setDate_of_birth(regProvider.getDate_of_birth());
 			provider.setEmployeeid(regProvider.getEmployeeid());
 			provider.setUser(user);
-
 			ProviderRegistration status = providerRegRepo.save(provider);
 			
 			return "SUCCESS";
