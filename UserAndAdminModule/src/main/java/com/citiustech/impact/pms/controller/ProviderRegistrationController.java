@@ -40,16 +40,12 @@ public class ProviderRegistrationController {
 		user.setEmail(regProvider.getUsername());
 		user.setRole(role.getRoles().get(regProvider.getRole()));
 		String generatedString = RandomStringUtils.random(10, true, true).concat("$");
-		
-		/*
-		 * emailService.sendEmail("impactpmsjavabatch1@gmail.com", "amit@1234",
-		 * regProvider.getUsername(), "Reset Pasword OTP ", "Your one time password is "
-		 * + generatedString);
-		 */
+
+		emailService.sendEmail("impactpmsjavabatch1@gmail.com", "amit@1234", regProvider.getUsername(),
+				"Reset Pasword OTP ", "Your one time password is " + generatedString);
 
 		user.setPassword(generatedString);
 
-	
 		ProviderRegistration provider = new ProviderRegistration();
 
 		provider.setTitle(regProvider.getTitle());
@@ -58,10 +54,10 @@ public class ProviderRegistrationController {
 		provider.setDate_of_birth(regProvider.getDate_of_birth());
 		provider.setEmployeeid(regProvider.getEmployeeid());
 		provider.setUser(user);
-		
+
 		String status = providerRegService.registerProvider(provider, regProvider.getUsername());
 
-		return new ResponseEntity<String>(status,HttpStatus.OK);
+		return new ResponseEntity<String>(status, HttpStatus.OK);
 
 	}
 
