@@ -38,6 +38,7 @@ public class ProviderRegistrationService {
 			Users user = new Users();
 			user.setEmail(regProvider.getUsername());
 			user.setRole(role.getRoles().get(regProvider.getRole()));
+			user.setPassowrdChangedStatus(1);
 			String generatedString = RandomStringUtils.randomNumeric(1, 1).concat(RandomStringUtils.randomAlphanumeric(7,14)).concat("$");
 			
 			/*
