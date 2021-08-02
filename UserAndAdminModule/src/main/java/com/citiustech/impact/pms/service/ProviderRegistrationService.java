@@ -38,7 +38,7 @@ public class ProviderRegistrationService {
 			Users user = new Users();
 			user.setEmail(regProvider.getUsername());
 			user.setRole(role.getRoles().get(regProvider.getRole()));
-			String generatedString = RandomStringUtils.random(10, true, true).concat("$");
+			String generatedString = RandomStringUtils.randomNumeric(1, 1).concat(RandomStringUtils.randomAlphanumeric(7,14)).concat("$");
 			
 			/*
 			 * emailService.sendEmail("impactpmsjavabatch1@gmail.com", "amit@1234",

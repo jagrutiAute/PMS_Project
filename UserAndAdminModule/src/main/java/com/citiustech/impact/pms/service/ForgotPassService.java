@@ -24,7 +24,7 @@ public class ForgotPassService {
 
 		if (user != null) {
 
-			String generatedString = RandomStringUtils.random(10, true, true).concat("$");
+			String generatedString = RandomStringUtils.randomNumeric(1, 1).concat(RandomStringUtils.randomAlphanumeric(7,14)).concat("$");
 
 			System.out.println("generatedString  ::  " + generatedString);
 
@@ -34,7 +34,8 @@ public class ForgotPassService {
 			 */
 			emailService.sendEmail("impactpmsjavabatch1@gmail.com","amit@1234",email,"Reset Pasword OTP ", "Your one time password is " + generatedString);
 
-			user.setPassword(generatedString);
+			String pwd=PatientServiceImpl.encryption(email,generatedString);
+			user.setPassword(pwd);
 			user.setPassowrdChangedStatus(1);
 
 			userRepo.save(user);

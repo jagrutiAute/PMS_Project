@@ -95,6 +95,10 @@ public class LoginController {
 		}
 
 		else {
+			if(loginResult.getLoginAttempts()>0) {
+				loginResult.setLoginAttempts(0);
+				userService.updatefaildeLogin(loginResult);
+			}
 			logger.trace("User validate successfully");
 			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		}

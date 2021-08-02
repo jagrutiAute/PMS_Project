@@ -70,7 +70,9 @@ export class LoginComponent {
         //console.log(this.attempts);
         if(data =="SUCCESS")
         {
+          
           alert('Login successfully');
+          this.router.navigateByUrl('app-body-layout');
           console.log("Login successfully..")
         }
         if(data=="UsernamePass"){

@@ -35,10 +35,10 @@
               Password entry does not meet criteria
             </p>
             <p class="text-danger" *ngIf="attempts > 0 && attempts < 3">
-              your Attempts remaining {{3-attempts}}
+              {{3-attempts}} login attempts remaining
             </p>
             <p class="text-danger" *ngIf="attempts > 3">
-              your Account is block contact Admin
+              Your account has been locked. Please contact the hospital administrator or call helpdesk on 123456 for more information.
             </p>
             <p class="text-danger" *ngIf="attempts==6">
               Username and Password not matched
@@ -63,7 +63,7 @@
             For a new member?&nbsp;&nbsp;&nbsp; <a routerLink="/patient-registration">PatientSignup</a>
           </div>
           <a routerLink="/app-registration-provider">ProviderSignup</a>&nbsp;&nbsp;&nbsp;
-          <a routerLink="/app-body-layout/patient-details">patient details</a>
+          <!-- <a routerLink="/app-body-layout/patient-details">patient details</a> -->
         </form>
 
       </div>
