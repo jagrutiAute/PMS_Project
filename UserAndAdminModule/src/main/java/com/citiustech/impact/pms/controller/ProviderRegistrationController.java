@@ -26,7 +26,7 @@ public class ProviderRegistrationController {
 		
 		String status = providerRegService.registerProvider(regProvider, regProvider.getUsername());
 
-		return new ResponseEntity<String>(status,HttpStatus.OK);
+		return new ResponseEntity<String>(status, HttpStatus.OK);
 
 	}
 
