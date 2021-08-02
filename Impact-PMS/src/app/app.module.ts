@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { PatientModule } from './patient/patient.module';
 import { LoginComponent } from './user/login/login.component';
 import { UserModule } from './user/user.module';
+import { AdminModule } from './admin/admin.module';
+import { adminroutes } from './admin/admin.routes';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { UserModule } from './user/user.module';
     UserModule,
     FormsModule,
     PatientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

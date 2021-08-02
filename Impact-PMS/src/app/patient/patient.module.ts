@@ -12,7 +12,7 @@ import { AllergyDetailsComponent } from './allergy-details/allergy-details.compo
 
 
 @NgModule({
-  declarations: [PatientDetailsComponent,EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent],
+  declarations: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent, AllergyDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,6 +20,6 @@ import { AllergyDetailsComponent } from './allergy-details/allergy-details.compo
     HttpClientModule,
     RouterModule.forChild(patientroutes)
   ],
-  exports:[PatientDetailsComponent,EmergencyContactInfoComponent,BodyLayoutComponent,AllergyDetailsComponent]
+  exports: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent, AllergyDetailsComponent]
 })
 export class PatientModule { }
