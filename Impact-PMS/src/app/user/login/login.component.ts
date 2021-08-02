@@ -72,7 +72,7 @@ export class LoginComponent {
         {
           
           alert('Login successfully');
-          this.router.navigateByUrl('app-body-layout');
+          this.router.navigateByUrl('app-body-layout/patient-details');
           console.log("Login successfully..")
         }
         if(data=="UsernamePass"){
