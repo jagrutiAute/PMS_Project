@@ -24,7 +24,7 @@
             <tr>
                 <td><label class="control-label " style="font-size: larger;" >First Name <span style="color: #e32">*</span></label></td>
                 <div class="md-form">
-                <td><input mdbInput type="text" class="form-control form-control-lg w1 radx" style="font-size: larger;" id="t1"
+                <td><input mdbInput type="text" class="form-control form-control-lg w1 radx" id="t1"
                     formControlName="fname" [class.is-invalid]="fname.touched && fname.invalid"  required/>
                 </div>
                 <p class="text-danger" *ngIf="fname.touched && fname.errors?.required">
@@ -38,7 +38,7 @@
                 <tr>
                     <td><label class="control-label" style="font-size: larger;">Last Name <span style="color: #e32">*</span></label></td>
                     <div class="md-form">
-                    <td><input class="form-control form-control-lg w1 radx" type="text" style="font-size: larger;"  id="t2"
+                    <td><input class="form-control form-control-lg w1 radx" type="text"  id="t2"
                         formControlName="lname" [class.is-invalid]="lname.touched && lname.invalid" required />
                        
              
@@ -57,13 +57,13 @@
                     
                     <div class="md-form">
                     <td>
-                        <input class="form-control form-control-lg w1 radx" type="email"  style="font-size: larger;"  id="t3"
+                        <input class="form-control form-control-lg w1 radx" type="email"  id="t3" 
                         formControlName="email" [class.is-invalid]="email.touched && email.invalid" required />
                       
                    </td>
                    </div>
                    <p class="text-danger" *ngIf="email.touched && email.errors?.required">
-                    Please enter your email address e.g. exampleusername@domain.com </p>
+                    Please enter your email address </p>
                    <p class="text-danger" *ngIf="email.touched && email.errors?.pattern ">
                     Please provide valid email.</p>
 
@@ -74,7 +74,7 @@
                 <tr>
                     <td><label class="control-label" style="font-size: larger;">Date of Birth <span style="color: #e32">*</span></label></td>
                     <div class="md-form">
-                    <td><input type="text" class="form-control form-control-lg w1 radx" onfocus="(this.type='date')" style="font-size: larger;"
+                    <td><input type="date" class="form-control form-control-lg w1 radx"  style="font-size: 2rem"
                         onfocus="(this.type='date')" min="1970-01-01" max="{{maxDate}}" id="t4" formControlName="dob"
                         [class.is-invalid]="dob.touched && dob.invalid"  required/>
                        
@@ -89,7 +89,7 @@
                 <tr>
                     <td><label class="control-label" style="font-size: larger;">Contact Number </label></td>
                     <div class="md-form">
-                    <td><input type="text" class="form-control form-control-lg w1 radx" style="font-size: larger;" id="t1"
+                    <td><input type="text" class="form-control form-control-lg w1 radx" id="t1"
                         formControlName="contact" [class.is-invalid]="contact.touched && contact.invalid"/>
                         
                    </td>
@@ -102,7 +102,7 @@
                     <td><label class="control-label" style="font-size: larger;">Password <span style="color: #e32">*</span></label></td>
                     
                     <div class="md-form">
-                        <td><input type="password" class="form-control form-control-lg w1 radx" style="font-size: larger;"
+                        <td><input type="password" class="form-control form-control-lg w1 radx"
                         formControlName="pwd" [class.is-invalid]="pwd.touched && pwd.invalid" required/>
                       
                       
@@ -118,7 +118,7 @@
 
                 <tr>
                     <td><label class="control-label" style="font-size: larger;">Confirm Password <span style="color: #e32">*</span></label></td>
-                    <div class="md-form"><td><input type="password" class="form-control form-control-lg w1 radx" style="font-size: larger;"
+                    <div class="md-form"><td><input type="password" class="form-control form-control-lg w1 radx" 
                         formControlName="cpwd" [class.is-invalid]="cpwd.touched && cpwd.invalid" required/>
                     
                         
