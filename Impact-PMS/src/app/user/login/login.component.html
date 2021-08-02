@@ -1,4 +1,3 @@
-
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
@@ -7,6 +6,7 @@
         <img src="assets/images/dr.jpg" style="width: 100%;">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
         <form [formGroup]="signUpForm">
           <!-- Email input -->
           <div class="form-outline mb-1">
@@ -28,44 +28,44 @@
             <input type="password" id="form1Example23" class="form-control form-control-lg" formControlName="password"
               [class.is-invalid]="password.touched && password.invalid" />
 
-              <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.required">
-                This field cannot be empty
-              </p> 
-              <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.pattern && this.passwordFlag">
-                Password entry does not meet criteria
-              </p>
-              <p class="text-danger" *ngIf="attempts > 0 && attempts < 3">
-                your Attempts remaining {{3-attempts}}
-              </p>
-              <p class="text-danger" *ngIf="attempts > 3">
-                your Account is block contact Admin
-              </p>
-              <p class="text-danger" *ngIf="attempts==6">
-                Username and Password not matched
-              </p>
+            <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.required">
+              This field cannot be empty
+            </p>
+            <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.pattern && this.passwordFlag">
+              Password entry does not meet criteria
+            </p>
+            <p class="text-danger" *ngIf="attempts > 0 && attempts < 3">
+              your Attempts remaining {{3-attempts}}
+            </p>
+            <p class="text-danger" *ngIf="attempts > 3">
+              your Account is block contact Admin
+            </p>
+            <p class="text-danger" *ngIf="attempts==6">
+              Username and Password not matched
+            </p>
           </div>
 
           <div class="d-flex center-content-around align-items-center mb-4">
-            <!-- Checkbox -->  
-            <a routerLink="/forgot-password">Forgot password?</a> 
+            <!-- Checkbox -->
+            <a routerLink="/forgot-password">Forgot password?</a>
             <!-- <a routerLink="/forgot-password">Forgot password?</a>&nbsp;&nbsp;&nbsp;
             <a routerLink="/change-password">Change password?</a> -->
-        
+
           </div>
-          
-       
+
+
           <!-- Submit button apply-->
           <diV>
-          <button type="submit" class="btn btn-primary btn-lg btn-block" (click) ="handleFormSubmit()">Login</button>
-        </diV>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="handleFormSubmit()">Login</button>
+          </diV>
           <br>
-          <div class="d-flex center-content-around align-items-center mb-2"  >
-          For a new member?&nbsp;&nbsp;&nbsp; <a routerLink="/patient-registration">PatientSignup</a>
-        </div>
-        <a routerLink="/app-registration-provider">ProviderSignup</a>&nbsp;&nbsp;&nbsp;
-        <a routerLink="/app-body-layout/patient-details">patient details</a>
+          <div class="d-flex center-content-around align-items-center mb-2">
+            For a new member?&nbsp;&nbsp;&nbsp; <a routerLink="/patient-registration">PatientSignup</a>
+          </div>
+          <a routerLink="/app-registration-provider">ProviderSignup</a>&nbsp;&nbsp;&nbsp;
+          <a routerLink="/app-body-layout/patient-details">patient details</a>
         </form>
-      
+
       </div>
     </div>
   </div>

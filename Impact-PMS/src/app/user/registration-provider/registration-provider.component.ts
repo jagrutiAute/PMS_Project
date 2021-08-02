@@ -109,6 +109,7 @@ export class RegistrationProviderComponent implements OnInit {
         
           this.statusofEmployeeId =data;
           if(this.statusofEmployeeId==='SUCCESS'){
+            alert('registration successful');
             window.location.reload();
           }
 

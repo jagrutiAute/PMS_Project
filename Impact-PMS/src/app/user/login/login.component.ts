@@ -70,6 +70,7 @@ export class LoginComponent {
         //console.log(this.attempts);
         if(data =="SUCCESS")
         {
+          alert('Login successfully');
           console.log("Login successfully..")
         }
         if(data=="UsernamePass"){

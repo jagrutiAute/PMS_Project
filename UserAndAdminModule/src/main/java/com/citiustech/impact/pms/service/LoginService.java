@@ -26,10 +26,9 @@ public class LoginService {
 		//String sha256hexstr = org.apache.commons.codec.digest.DigestUtils.sha256Hex(email + pwd);
 
 
-		Users user = repo.findByEmailAndPassword(email,pwd);
-		System.out.println(pwd.equals(user.getPassword()));
-		System.out.println(email.equals(user.getEmail()));
-		
+		//Users user = repo.findByEmailAndPassword(email,pwd);
+		Users user =repo.findByEmail(email);
+		System.out.println("status is "+user.getPassword().equals(pwd));
 		
 			return user;
 		//}
