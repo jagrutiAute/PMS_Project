@@ -74,7 +74,7 @@
                 <tr>
                     <td><label class="control-label" style="font-size: larger;">Date of Birth <span style="color: #e32">*</span></label></td>
                     <div class="md-form">
-                    <td><input type="Date" class="form-control form-control-lg w1 radx"  style="font-size: larger;"
+                    <td><input type="text" class="form-control form-control-lg w1 radx" onfocus="(this.type='date')" style="font-size: larger;"
                         onfocus="(this.type='date')" min="1970-01-01" max="{{maxDate}}" id="t4" formControlName="dob"
                         [class.is-invalid]="dob.touched && dob.invalid"  required/>
                        
