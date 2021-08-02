@@ -17,7 +17,7 @@ public class RoleService {
 	public List<Role> getRoles() {
 		
 		List<Role> roleList = roleRepository.findAll();
-		
+		System.out.println(roleList);
 		return roleList;
 	}
 

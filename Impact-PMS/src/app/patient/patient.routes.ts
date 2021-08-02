@@ -1,3 +1,4 @@
+import { AllergyDetailsComponent } from './allergy-details/allergy-details.component';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { BodyLayoutComponent } from './body-layout/body-layout.component';
@@ -11,7 +12,8 @@ export var patientroutes:Route[]=[
     children:[
 
         {path:'patient-details', component:PatientDetailsComponent},
-        {path:'emergency-contact-info', component:EmergencyContactInfoComponent}
+        {path:'emergency-contact-info', component:EmergencyContactInfoComponent},
+        {path:'allergy-details',component:AllergyDetailsComponent}
 
     ]
 }

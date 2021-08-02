@@ -19,7 +19,9 @@ export class LoginService {
    
       let id:number=1;
       //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
-      return this._http.post(`${this.baseUrl1}`, login,{responseType: 'text' as 'json'}); 
+      let hit=this._http.post(`${this.baseUrl1}`, login,{responseType: 'text' as 'json'});
+      console.log(hit);
+      return hit; 
       
   }
 

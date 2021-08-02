@@ -21,14 +21,14 @@ public class LoginService {
 	@Autowired
 	private UserRepository repo;
 
-	public Users login(String email) {
+	public Users login(String email,String pwd) {
 
-		//String sha256hexstr = org.apache.commons.codec.digest.DigestUtils.sha256Hex(email + password);
+		//String sha256hexstr = org.apache.commons.codec.digest.DigestUtils.sha256Hex(email + pwd);
 
-		Users user = repo.findByEmail(email);
-		
-		System.out.println("user ---------> "+user);
-		
+
+		Users user = repo.findByEmailAndPassword(email,pwd);
+		System.out.println(pwd.equals(user.getPassword()));
+		System.out.println(email.equals(user.getEmail()));
 		
 		
 			return user;

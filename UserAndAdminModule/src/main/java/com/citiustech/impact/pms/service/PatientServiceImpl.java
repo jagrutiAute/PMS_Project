@@ -51,7 +51,7 @@ public class PatientServiceImpl implements PatientService {
 		Users user = new Users();
 		user.setEmail(p.getEmail());
 		user.setPhoneNumber(p.getContact());
-		user.setPassword(p.getPwd());
+		user.setPassword(pwd);
 
 		PatientProfile patientProfile = new PatientProfile();
 		patientProfile.setTitle(p.getTitle());
@@ -76,7 +76,7 @@ public class PatientServiceImpl implements PatientService {
 
 	}
 
-	static String encryption(String email, String password) {
+	public static String encryption(String email, String password) {
 		return org.apache.commons.codec.digest.DigestUtils.sha256Hex(email + password);
 	}
 

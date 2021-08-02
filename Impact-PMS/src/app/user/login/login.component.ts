@@ -64,7 +64,14 @@ export class LoginComponent {
     this.service.getLogin(login).subscribe(
       
       data => {
-        console.log(this.attempts);
+
+        console.log("backend date " + data);
+
+        //console.log(this.attempts);
+        if(data =="SUCCESS")
+        {
+          console.log("Login successfully..")
+        }
         if(data=="UsernamePass"){
             this.attempts=6;
         }
