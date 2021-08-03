@@ -13,7 +13,7 @@ import { adminroutes } from './admin/admin.routes';
 
 @NgModule({
   declarations: [
-    AppComponent    
+    AppComponent  
   ],
   imports: [
     BrowserModule,

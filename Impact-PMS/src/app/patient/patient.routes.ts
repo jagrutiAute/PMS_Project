@@ -5,6 +5,7 @@ import { BodyLayoutComponent } from './body-layout/body-layout.component';
 import { EmergencyContactInfoComponent } from './emergency-contact-info/emergency-contact-info.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { ChangePasswordComponent } from '../user/change-password/change-password.component';
+import { VitalSignsComponent } from '../patient-visit/vital-signs/vital-signs.component';
 
 export var patientroutes:Route[]=[
     
@@ -15,7 +16,9 @@ export var patientroutes:Route[]=[
         {path:'patient-details', component:PatientDetailsComponent},
         {path:'emergency-contact-info', component:EmergencyContactInfoComponent},
         {path:'allergy-details',component:AllergyDetailsComponent},
-        {path:'change-password',component:ChangePasswordComponent}
+        {path:'change-password',component:ChangePasswordComponent},
+        {path:'vital-signs',component:VitalSignsComponent}
+       
 
     ]
 }
