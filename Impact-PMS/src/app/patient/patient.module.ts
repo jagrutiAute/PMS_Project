@@ -21,6 +21,6 @@ import { VitalSignsComponent } from '../patient-visit/vital-signs/vital-signs.co
     HttpClientModule,
     RouterModule.forChild(patientroutes)
   ],
-  exports:[PatientDetailsComponent,EmergencyContactInfoComponent,BodyLayoutComponent,AllergyDetailsComponent]
+  exports: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent, AllergyDetailsComponent]
 })
 export class PatientModule { }
