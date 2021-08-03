@@ -72,11 +72,11 @@
 			<version>3.11</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.citiustech</groupId>
 			<artifactId>UserAndAdminModule</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
 
