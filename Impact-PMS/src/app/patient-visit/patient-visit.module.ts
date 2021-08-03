@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VisitDetailsComponent } from './visit-details/visit-details.component';
 import { VitalSignsComponent } from './vital-signs/vital-signs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -12,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VitalSignsComponent
   ],
   imports: [
+   
     CommonModule,
     FormsModule,
     ReactiveFormsModule
