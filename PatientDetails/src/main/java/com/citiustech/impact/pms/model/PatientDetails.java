@@ -51,18 +51,21 @@ public class PatientDetails {
 
 	@JoinColumn(name = "users_id")
 
+	@OneToOne(cascade = CascadeType.ALL)
+	private Users user;
+	
+	private String race;
+	private String ethinicity;
+
 	/*
-	 * @OneToOne(cascade = CascadeType.ALL) private Users user;
+	 * @JoinColumn(name = "race_id")
+	 * 
+	 * @OneToOne(cascade = CascadeType.ALL) private Race race;
+	 * 
+	 * @JoinColumn(name = "ethinicity_id")
+	 * 
+	 * @OneToOne(cascade = CascadeType.ALL) private Ethinicity ethinicity;
 	 */
-
-	@JoinColumn(name = "race_id")
-
-	@OneToOne(cascade = CascadeType.ALL)
-	private Race race;
-
-	@JoinColumn(name = "ethinicity_id")
-
-	@OneToOne(cascade = CascadeType.ALL)
-	private Ethinicity ethinicity;
+	
 
 }

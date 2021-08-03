@@ -1,9 +1,7 @@
-
-
 <div class="container bootstrap snippet">
-   
+
     <div class="row">
-        
+
         <!--/col-3-->
         <div class="col-sm-9">
             <!-- <ul class="nav nav-tabs">
@@ -15,16 +13,17 @@
 
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
-                   
-                    <form class="form" action="##" method="post" id="registrationForm">
+
+                    <form class="form" [formGroup]="patientDetailsForm" action="##" method="post" id="registrationForm">
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="first_name">
                                     <h4>First name</h4>
                                 </label>
-                                <input type="text" class="form-control" name="first_name" id="first_name"
-                                    placeholder="first name" title="enter your first name if any.">
+                                <input type="text" class="form-control" formControlName="firstName"
+                                    placeholder="first name"
+                                    [class.is-invalid]="f.firstName.touched && f.firstName.invalid" required />
                             </div>
                         </div>
                         <br>
@@ -35,7 +34,8 @@
                                     <h4>Last name</h4>
                                 </label>
                                 <input type="text" class="form-control" name="last_name" id="last_name"
-                                    placeholder="last name" title="enter your last name if any.">
+                                    formControlName="lastName" placeholder="last name"
+                                    title="enter your last name if any.">
                             </div>
                         </div>
                         <br>
@@ -47,7 +47,7 @@
                                     <h4>Date of birth</h4>
                                 </label>
                                 <input type="text" class="form-control" name="dob" placeholder="enter date of birth"
-                                    title="Date of Birth">
+                                    formControlName="dateOfBirth" title="Date of Birth">
                             </div>
                         </div>
                         <br>
@@ -58,7 +58,8 @@
                                 <label for="phone">
                                     <h4>Age</h4>
                                 </label>
-                                <input type="text" class="form-control" name="age" placeholder="enter age" title="Age">
+                                <input type="text" class="form-control" name="age" placeholder="enter age"
+                                    formControlName="age" title="Age">
                             </div>
                         </div>
                         <br>
@@ -68,9 +69,9 @@
                                 <label for="mobile">
                                     <h4>Gender </h4>
                                 </label><br>
-                                <input type="radio" id="female" name="gender" value="Female">
+                                <input type="radio" id="female" name="gender" value="Female" formControlName="gender">
                                 <label for="female">Female</label>&nbsp;&nbsp;
-                                <input type="radio" id="male" name="gender" value="Male">
+                                <input type="radio" id="male" name="gender" value="Male" formControlName="gender">
                                 <label for="male">Male</label>
 
                             </div>
@@ -84,7 +85,7 @@
                                     <h4>Language Known</h4>
                                 </label>
                                 <input type="text" class="form-control" name="Language" id="password"
-                                    placeholder="Language" title="Language Known.">
+                                    formControlName="languageKnown" placeholder="Language" title="Language Known.">
                             </div>
                         </div>
                         <br>
@@ -92,11 +93,11 @@
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="password2">
+                                <label for="race">
                                     <h4>Race</h4>
                                 </label>
-                                <input type="password" class="form-control" name="password2" id="password2"
-                                    placeholder="Ethinicity" title="Ethinicity.">
+                                <input type="text" class="form-control"  
+                                    formControlName="race" placeholder="Race" title="race">
                             </div>
                         </div>
                         <br>
@@ -107,8 +108,8 @@
                                 <label for="password2">
                                     <h4>Ethinicity</h4>
                                 </label>
-                                <input type="password" class="form-control" name="password2" id="password2"
-                                    placeholder="Ethinicity" title="Ethinicity.">
+                                <input type="text" class="form-control" 
+                                    formControlName="ethinicity" placeholder="Ethinicity" title="Ethinicity.">
                             </div>
                         </div>
                         <br>
@@ -119,7 +120,7 @@
                                 <label for="email">
                                     <h4>Email</h4>
                                 </label>
-                                <input type="email" class="form-control" name="email" id="email"
+                                <input type="email" class="form-control" name="email" id="email" formControlName="email"
                                     placeholder="you@email.com" title="enter your email.">
                             </div>
                         </div>
@@ -132,7 +133,7 @@
                                     <h4>Home Address</h4>
                                 </label>
                                 <input type="email" class="form-control" id="location" placeholder="Home Address"
-                                    title="enter a location">
+                                    formControlName="homeAddress" title="enter a location">
                             </div>
                         </div>
                         <br>
@@ -143,26 +144,26 @@
                                     <h4>Contact Number</h4>
                                 </label>
                                 <input type="text" class="form-control" name="mobile" id="mobile"
-                                    placeholder="enter mobile number" title="Contact Number.">
+                                    formControlName="contactNumber" placeholder="enter mobile number"
+                                    title="Contact Number.">
                             </div>
                         </div>
                         <br>
-                       
-                                       
-                                              
+
+
+
 
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i
+                                <button class="btn btn-lg btn-success" type="submit" (click)="updatePatientDetails()"><i
                                         class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                
+
                             </div>
                         </div>
                     </form>
 
-            
+
 
                 </div>
-           
-                
+            </div>
