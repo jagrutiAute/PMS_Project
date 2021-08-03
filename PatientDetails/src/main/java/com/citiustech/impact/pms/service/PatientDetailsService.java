@@ -31,7 +31,8 @@ public class PatientDetailsService {
 		PatientDetails patientDetails = new PatientDetails();
 		
 		Users user = new Users();
-		
+		//user.setPhoneNumber(patient.getContactNumber());
+		patientDetails.setMrnNumber(patient.getMrnNumber());
 		patientDetails.setFirstName(patient.getFirstName());
 		patientDetails.setLastName(patient.getLastName());
 		patientDetails.setDateOfBirth(patient.getDateOfBirth());

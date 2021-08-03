@@ -20,9 +20,8 @@
                             <div class="col-xs-6">
                                 <label for="first_name">
                                     <h4>First name</h4>
-                                </label>
-                                <input type="text" class="form-control" formControlName="firstName"
-                                    placeholder="first name"
+                                </label> {{patientDetails.firstName}}
+                                <input type="text" class="form-control" [(ngModel)]="patientDetails.firstName"  formControlName="firstName" 
                                     [class.is-invalid]="f.firstName.touched && f.firstName.invalid" required />
                             </div>
                         </div>
@@ -33,7 +32,7 @@
                                 <label for="last_name">
                                     <h4>Last name</h4>
                                 </label>
-                                <input type="text" class="form-control" name="last_name" id="last_name"
+                                <input type="text" class="form-control" name="last_name" id="last_name"  [(ngModel)]="patientDetails.lastName"
                                     formControlName="lastName" placeholder="last name"
                                     title="enter your last name if any.">
                             </div>
@@ -46,7 +45,7 @@
                                 <label for="phone">
                                     <h4>Date of birth</h4>
                                 </label>
-                                <input type="text" class="form-control" name="dob" placeholder="enter date of birth"
+                                <input type="text" class="form-control" name="dob" placeholder="enter date of birth"  [(ngModel)]="patientDetails.dateOfBirth"
                                     formControlName="dateOfBirth" title="Date of Birth">
                             </div>
                         </div>
@@ -59,7 +58,7 @@
                                     <h4>Age</h4>
                                 </label>
                                 <input type="text" class="form-control" name="age" placeholder="enter age"
-                                    formControlName="age" title="Age">
+                                [(ngModel)]="patientDetails.age" formControlName="age" title="Age">
                             </div>
                         </div>
                         <br>
@@ -69,10 +68,11 @@
                                 <label for="mobile">
                                     <h4>Gender </h4>
                                 </label><br>
-                                <input type="radio" id="female" name="gender" value="Female" formControlName="gender">
+                                <h4>{{patientDetails.gender}}</h4>
+                                <!-- <input type="radio" id="female" name="gender" value="Female" formControlName="gender">
                                 <label for="female">Female</label>&nbsp;&nbsp;
                                 <input type="radio" id="male" name="gender" value="Male" formControlName="gender">
-                                <label for="male">Male</label>
+                                <label for="male">Male</label> -->
 
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                     <h4>Language Known</h4>
                                 </label>
                                 <input type="text" class="form-control" name="Language" id="password"
-                                    formControlName="languageKnown" placeholder="Language" title="Language Known.">
+                                [(ngModel)]="patientDetails.languageKnown"  formControlName="languageKnown" placeholder="Language" title="Language Known.">
                             </div>
                         </div>
                         <br>
@@ -97,7 +97,7 @@
                                     <h4>Race</h4>
                                 </label>
                                 <input type="text" class="form-control"  
-                                    formControlName="race" placeholder="Race" title="race">
+                                [(ngModel)]="patientDetails.race"  formControlName="race" placeholder="Race" title="race">
                             </div>
                         </div>
                         <br>
@@ -109,7 +109,7 @@
                                     <h4>Ethinicity</h4>
                                 </label>
                                 <input type="text" class="form-control" 
-                                    formControlName="ethinicity" placeholder="Ethinicity" title="Ethinicity.">
+                                [(ngModel)]="patientDetails.ethinicity"  formControlName="ethinicity" placeholder="Ethinicity" title="Ethinicity.">
                             </div>
                         </div>
                         <br>
@@ -121,7 +121,7 @@
                                     <h4>Email</h4>
                                 </label>
                                 <input type="email" class="form-control" name="email" id="email" formControlName="email"
-                                    placeholder="you@email.com" title="enter your email.">
+                                [(ngModel)]="patientDetails.user.email"  placeholder="you@email.com" title="enter your email.">
                             </div>
                         </div>
                         <br>
@@ -133,7 +133,7 @@
                                     <h4>Home Address</h4>
                                 </label>
                                 <input type="email" class="form-control" id="location" placeholder="Home Address"
-                                    formControlName="homeAddress" title="enter a location">
+                                [(ngModel)]="patientDetails.homeAddress"   formControlName="homeAddress" title="enter a location">
                             </div>
                         </div>
                         <br>
@@ -144,7 +144,7 @@
                                     <h4>Contact Number</h4>
                                 </label>
                                 <input type="text" class="form-control" name="mobile" id="mobile"
-                                    formControlName="contactNumber" placeholder="enter mobile number"
+                                [(ngModel)]="patientDetails.user.phoneNumber"  formControlName="contactNumber" placeholder="enter mobile number"
                                     title="Contact Number.">
                             </div>
                         </div>

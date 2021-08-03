@@ -1,3 +1,4 @@
+import { User } from "../user/user";
 
 export class PatientDetails{
   
@@ -12,6 +13,8 @@ export class PatientDetails{
     ethinicity: string;
     email: string;
     contactNumber: string;
+    mrnNumber:number;
+    user : User
 }
 
 
