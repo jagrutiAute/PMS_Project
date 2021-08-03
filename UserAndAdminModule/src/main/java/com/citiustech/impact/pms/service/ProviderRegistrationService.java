@@ -38,8 +38,7 @@ public class ProviderRegistrationService {
 			Users user = new Users();
 			user.setEmail(regProvider.getUsername());
 			user.setRole(role.getRoles().get(regProvider.getRole()));
-			user.setPassowrdChangedStatus(1);
-			String generatedString = RandomStringUtils.randomNumeric(1, 1).concat(RandomStringUtils.randomAlphanumeric(7,14)).concat("$");
+			String generatedString = RandomStringUtils.random(10, true, true).concat("$");
 			
 			/*
 			 * emailService.sendEmail("impactpmsjavabatch1@gmail.com", "amit@1234",
@@ -65,10 +64,8 @@ public class ProviderRegistrationService {
 
 		}
 		
-		if(users!=null && providerReg!=null) {
-			return "EMAIL_EMPLOYEEID";
-		}
-		else if((providerReg != null)){
+		if((providerReg != null)){
+			
 			return "EMPLOYEEID";
 		}else if((users !=null)) {
 			return "EMAIL";

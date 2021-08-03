@@ -21,10 +21,10 @@ import { PatientVisitModule } from './patient-visit/patient-visit.module';
     AppRoutingModule,
     UserModule,
     FormsModule,
-    PatientVisitModule,
-    PatientModule,
     RouterModule.forRoot(routes),
-    AdminModule
+    AdminModule,
+    PatientVisitModule,
+    PatientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,13 +10,13 @@ export const routes: Routes = [
 
     {path:"",component:LoginComponent},
     {path:'home',component:LoginComponent} 
-  //   {path:'app-body-layout',component:BodyLayoutComponent,
+  //  {path:'app-body-layout',component:BodyLayoutComponent,
   
-  // children:[{
-  //   path:'patient/patient-details',component:PatientDetailsComponent
+ // children:[{
+ //  path:'patient/patient-details',component:PatientDetailsComponent
   // }]
   
-//  }
+ //}
     
 ];
 

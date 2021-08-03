@@ -18,7 +18,7 @@ export class VitalSignsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  vital_signs_form = this.fb.group({
+  vitalForm = this.fb.group({
 
     Height: ['', [Validators.required]],
     Weight: ['', [Validators.required]],
@@ -42,7 +42,7 @@ export class VitalSignsComponent implements OnInit {
 
 
   get f(){
-    return this.vital_signs_form.controls;
+    return this.vitalForm.controls;
   }
 
 
