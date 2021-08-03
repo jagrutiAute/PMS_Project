@@ -14,43 +14,40 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="home"></div>
 
-                <form class="form" [formGroup]="vital_signs_form" >
+                <form [formGroup]="vitalForm">
                     <div class="form-group">
 
                         <div class="col-xs-6">
-                            <label class="control-label" >
+                            <label class="control-label">
                                 <h4>Height</h4>
                             </label>
-                            <input type="text" class="form-control" 
-                                placeholder="Height"  formControlName="Height" [class.is-invalid]="f.touched && f.invalid" required>
-                                <p class="text-danger" *ngIf="f.Height && f.Height.required">
-                                    This field cannot be empty</p>
+                            <input type="text" class="form-control" placeholder="Height" formControlName="Height"
+                                [class.is-invalid]="f.touched && f.invalid" >
                         
-                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
 
                         <div class="col-xs-6">
-                            <label class="control-label" >
+                            <label class="control-label">
                                 <h4>Weight</h4>
                             </label>
-                            <input type="text" class="form-control" 
-                                placeholder="Weight"  formControlName="Weight">
+                            <input type="text" class="form-control" placeholder="Weight" formControlName="Weight">
                         </div>
                     </div>
 
-                    
+
 
 
 
                     <div class="form-group">
 
                         <div class="col-xs-6">
-                            <label class="control-label" >
+                            <label class="control-label">
                                 <h4>Blood Pressure</h4>
                             </label>
-                            <input type="text" class="form-control" formControlName="Blood_Pressure" placeholder="Blood_Pressure"
-                               >
+                            <input type="text" class="form-control" formControlName="Blood_Pressure"
+                                placeholder="Blood_Pressure">
                         </div>
                     </div>
 
@@ -62,23 +59,20 @@
                                 <h4>Body Temperature</h4>
                             </label>
                             <input type="text" class="form-control" formControlName="Body_Temperature"
-                                placeholder="Body_Temperature" >
+                                placeholder="Body_Temperature">
                         </div>
                     </div>
 
-                    
+
 
 
                     <div class="form-group">
                         <div class="col-xs-12">
                             <br>
-                            <button class="btn btn-lg btn-success" type="submit" (click)="handleFormSubmit()" ><i
+                            <button class="btn btn-lg btn-success" type="submit" (click)="handleFormSubmit()"><i
                                     class="glyphicon glyphicon-ok-sign"></i> Save</button>
 
                         </div>
                     </div>
                 </form>
             </div>
-
-
-            
