@@ -8,11 +8,12 @@ import { RouterModule } from '@angular/router';
 import { BodyLayoutComponent } from './body-layout/body-layout.component';
 import { patientroutes } from './patient.routes';
 import { AllergyDetailsComponent } from './allergy-details/allergy-details.component';
+import { VitalSignsComponent } from '../patient-visit/vital-signs/vital-signs.component';
 
 
 
 @NgModule({
-  declarations: [PatientDetailsComponent,EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent],
+  declarations: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,
