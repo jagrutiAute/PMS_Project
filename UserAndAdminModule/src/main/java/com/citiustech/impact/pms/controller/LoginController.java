@@ -38,41 +38,43 @@ public class LoginController {
 	public ResponseEntity<String> check(@RequestBody LoginDTO log) {
 		PropertyConfigurator.configure(System.getProperty("user.dir") + File.separator + "log4j.properties");
 
-		logger.trace("Initializaing check() method ");
-		logger.trace("calling encryption() method to encrypt password");
+		logger.trace("Calling check() method of LoginController Class");
+		logger.trace("Calling encryption() method of PatientServiceImpl class to encrypt password");
 
 		String pwd = PatientServiceImpl.encryption(log.getEmail(), log.getPassword());
 
-		logger.debug(PatientServiceImpl.encryption(log.getEmail(), log.getPassword()));
-
-		logger.trace("calling login() method ");
+	
+		logger.trace("Calling login() method of LoginService class");
 		Users loginResult = userService.login(log.getEmail(), pwd);
-		logger.info("login info " + loginResult);
+		
+		logger.info("Check wether user exist in system or not" );
 
 		if (loginResult == null) {
-			logger.error("user doesn't exist in system");
+			logger.error("User doesn't exist in system");
 			return new ResponseEntity<String>("UsernamePass", HttpStatus.OK);
 
 		}
-
+		
+		
+		logger.info("Check wether user already blocked or not" );
 		if (loginResult.getIsActive() == ISActive.BLOCK) {
 
-			logger.info("user status is blocked");
+			logger.warn("user status is blocked");
 			return new ResponseEntity<String>("BLOCKED", HttpStatus.OK);
 
 		}
 
-		logger.warn("user attements is :" +loginResult.getLoginAttempts() + " after providng 3 time wrong credentials user will enter into block state");
+		logger.warn("Calling getLoginAttempts() to get the count of login attempts");
 
 		int n = loginResult.getLoginAttempts();
 
-		logger.trace("check the password is wrong");
+		logger.trace("Check the password is wrong or not");
 		if (!loginResult.getPassword().equals(pwd)) {
 		logger.debug("Wrong attempt count" + n);
 			if (n == 2) {
 				logger.info("3 wrong attempt , user status set as block");
 				loginResult.setIsActive(ISActive.BLOCK);
-				logger.trace("calling blockUser() method");
+				logger.trace("Calling blockUser() method to block ther user");
 				userService.blockUser(loginResult);
 				
 				logger.error("Account has blocked due to 3 time wrong attempts");
@@ -82,12 +84,10 @@ public class LoginController {
 
 			} else {
 
-				logger.trace("set the login attempts count");
+				logger.trace("Set the login attempts count");
 				loginResult.setLoginAttempts(n + 1);
-				logger.trace("calling updatefaildeLogin method");
+				logger.trace("Calling updatefaildeLogin() method");
 				Users re = userService.updatefaildeLogin(loginResult);
-				logger.debug(userService.updatefaildeLogin(loginResult));
-
 				return new ResponseEntity<String>(String.valueOf(re.getLoginAttempts()), HttpStatus.OK);
 
 			}
@@ -95,6 +95,7 @@ public class LoginController {
 		}
 
 		else {
+			logger.trace("Calling getLoginAttempts() method  to check loginattempts>0 or not");
 			if(loginResult.getLoginAttempts()>0) {
 				loginResult.setLoginAttempts(0);
 				userService.updatefaildeLogin(loginResult);
