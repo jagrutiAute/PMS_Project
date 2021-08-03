@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Vital } from '../vital';
+import { VitalSignsService } from '../vitalsigns.service';
 
 @Component({
   selector: 'app-vital-signs',
@@ -12,7 +14,7 @@ export class VitalSignsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    
+    private service:VitalSignsService
   ) { }
 
   ngOnInit(): void {
@@ -32,16 +34,28 @@ export class VitalSignsComponent implements OnInit {
 
   handleFormSubmit() {
 
-   
-    
+    let vital: Vital = new Vital(165,57,90,36,72,"mi@gmail.com","mi@gmail.com");
 
-    // Object.assign(, this.vital_signs_form.value);
+    Object.assign(vital, this.vitalForm.value);
 
-    
+    this.service.addVitalSigns(vital).subscribe(
+      data => {
+
+        console.log("backent response " +data)
+      
+        alert("successfully added vital signs" + data)
+       
+       
+
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 
-  get f(){
+  get f():any{
     return this.vitalForm.controls;
   }
 

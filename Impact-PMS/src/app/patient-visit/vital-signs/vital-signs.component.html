@@ -15,19 +15,21 @@
                 <div class="tab-pane active" id="home"></div>
 
                 <form [formGroup]="vitalForm">
+
                     <div class="form-group">
 
                         <div class="col-xs-6">
                             <label class="control-label" style="font-size: larger;"> 
                                 <h4>Height</h4>
                             </label>
-                            <input type="text" class="form-control form-control-lg w rdx" 
-                                placeholder="Height"  formControlName="Height" [class.is-invalid]="f.touched && f.invalid" required>
-                                <p class="text-danger" *ngIf="f.Height && f.Height.touched">
+                            <input type="text" class="form-control" 
+                                  formControlName="Height" [class.is-invalid]="f.Height.touched && f.Height.invalid"  required>
+                                <p class="text-danger" *ngIf="f.Height.touched && f.Height.errors?.required">
                                     Please provide Patient height in cms.</p>
                         
                         </div>
                     </div>
+
                     <div class="form-group">
 
                         <div class="col-xs-6">
@@ -35,14 +37,11 @@
                                 <h4>Weight</h4>
                             </label>
                             <input type="text" class="form-control" 
-                                placeholder="Weight"  formControlName="Weight" [class.is-invalid]="f.touched && f.invalid" required>
+                                 formControlName="Weight" [class.is-invalid]="f.Weight.touched && f.Weight.invalid" required>
                         </div>
-                        <p class="text-danger" *ngIf="f.Weight && f.Weight.touched">
+                        <p class="text-danger" *ngIf="f.Weight.touched && f.Weight.errors?.required">
                             Please provide Patient’s Weight in Kgs</p>
                     </div>
-
-
-
 
 
                     <div class="form-group">
@@ -51,9 +50,9 @@
                             <label class="control-label">
                                 <h4>Blood Pressure</h4>
                             </label>
-                            <input type="text" class="form-control" formControlName="Blood_Pressure" placeholder="Blood_Pressure"
-                            [class.is-invalid]="f.touched && f.invalid" required >
-                            <p class="text-danger" *ngIf="f.Blood_Pressure && f.Blood_Pressure.touched">
+                            <input type="text" class="form-control" formControlName="Blood_Pressure" 
+                            [class.is-invalid]="f.Blood_Pressure.touched && f.Blood_Pressure.invalid" required >
+                            <p class="text-danger" *ngIf="f.Blood_Pressure.touched && f.Blood_Pressure.errors?.required">
                                 Please provide Patient’s Blood Pressure (systolic / diastolic)</p>
                         </div>
                         
@@ -67,8 +66,8 @@
                                 <h4>Body Temperature</h4>
                             </label>
                             <input type="text" class="form-control" formControlName="Body_Temperature"
-                                placeholder="Body_Temperature" [class.is-invalid]="f.touched && f.invalid" required >
-                                <p class="text-danger" *ngIf="f.Body_Temperature && f.Body_Temperature.touched">
+                            [class.is-invalid]="f.Body_Temperature.touched && f.Body_Temperature.invalid" required >
+                                <p class="text-danger" *ngIf="f.Body_Temperature.touched && f.Body_Temperature.errors?.required">
                                     Please provide Patient Body Temperature</p>
                             </div>
                         
@@ -80,8 +79,8 @@
                                 <h4>Respiration Rate</h4>
                             </label>
                             <input type="text" class="form-control" formControlName="Respiration_Rate"
-                                placeholder="Respiration_Rate" [class.is-invalid]="f.touched && f.invalid" required >
-                                <p class="text-danger" *ngIf="f.Respiration_Rate && f.Respiration_Rate.touched">
+                            [class.is-invalid]="f.Respiration_Rate.touched && f.Respiration_Rate.invalid"  required >
+                                <p class="text-danger" *ngIf="f.Respiration_Rate.touched && f.Respiration_Rate.errors?.required">
                                     Please provide Patient’s Respiration Rate</p>
                             </div>
                         
