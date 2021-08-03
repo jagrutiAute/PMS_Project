@@ -51,8 +51,9 @@ public class PatientDetails {
 
 	@JoinColumn(name = "users_id")
 
-	@OneToOne(cascade = CascadeType.ALL)
-	private Users user;
+	/*
+	 * @OneToOne(cascade = CascadeType.ALL) private Users user;
+	 */
 
 	@JoinColumn(name = "race_id")
 
