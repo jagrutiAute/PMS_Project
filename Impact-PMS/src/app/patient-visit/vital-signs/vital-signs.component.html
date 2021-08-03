@@ -18,13 +18,13 @@
                     <div class="form-group">
 
                         <div class="col-xs-6">
-                            <label class="control-label" >
+                            <label class="control-label" style="font-size: larger;"> 
                                 <h4>Height</h4>
                             </label>
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control form-control-lg w rdx" 
                                 placeholder="Height"  formControlName="Height" [class.is-invalid]="f.touched && f.invalid" required>
-                                <p class="text-danger" *ngIf="f.Height && f.Height.required">
-                                    This field cannot be empty</p>
+                                <p class="text-danger" *ngIf="f.Height && f.Height.touched">
+                                    Please provide Patient height in cms.</p>
                         
                             </div>
                     </div>
@@ -35,8 +35,10 @@
                                 <h4>Weight</h4>
                             </label>
                             <input type="text" class="form-control" 
-                                placeholder="Weight"  formControlName="Weight">
+                                placeholder="Weight"  formControlName="Weight" [class.is-invalid]="f.touched && f.invalid" required>
                         </div>
+                        <p class="text-danger" *ngIf="f.Weight && f.Weight.touched">
+                            Please provide Patient’s Weight in Kgs</p>
                     </div>
 
                     
@@ -50,8 +52,11 @@
                                 <h4>Blood Pressure</h4>
                             </label>
                             <input type="text" class="form-control" formControlName="Blood_Pressure" placeholder="Blood_Pressure"
-                               >
+                            [class.is-invalid]="f.touched && f.invalid" required >
+                            <p class="text-danger" *ngIf="f.Blood_Pressure && f.Blood_Pressure.touched">
+                                Please provide Patient’s Blood Pressure (systolic / diastolic)</p>
                         </div>
+                        
                     </div>
 
 
@@ -62,19 +67,35 @@
                                 <h4>Body Temperature</h4>
                             </label>
                             <input type="text" class="form-control" formControlName="Body_Temperature"
-                                placeholder="Body_Temperature" >
-                        </div>
+                                placeholder="Body_Temperature" [class.is-invalid]="f.touched && f.invalid" required >
+                                <p class="text-danger" *ngIf="f.Body_Temperature && f.Body_Temperature.touched">
+                                    Please provide Patient Body Temperature</p>
+                            </div>
+                        
                     </div>
 
-                    
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="control-label">
+                                <h4>Respiration Rate</h4>
+                            </label>
+                            <input type="text" class="form-control" formControlName="Respiration_Rate"
+                                placeholder="Respiration_Rate" [class.is-invalid]="f.touched && f.invalid" required >
+                                <p class="text-danger" *ngIf="f.Respiration_Rate && f.Respiration_Rate.touched">
+                                    Please provide Patient’s Respiration Rate</p>
+                            </div>
+                        
+                    </div>
 
+                   
+
+                    
 
                     <div class="form-group">
                         <div class="col-xs-12">
                             <br>
                             <button class="btn btn-lg btn-success" type="submit" (click)="handleFormSubmit()" ><i
                                     class="glyphicon glyphicon-ok-sign"></i> Save</button>
-
                         </div>
                     </div>
                 </form>

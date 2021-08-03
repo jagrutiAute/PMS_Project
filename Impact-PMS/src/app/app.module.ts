@@ -10,6 +10,7 @@ import { LoginComponent } from './user/login/login.component';
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { adminroutes } from './admin/admin.routes';
+import { PatientVisitModule } from './patient-visit/patient-visit.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { adminroutes } from './admin/admin.routes';
     AppRoutingModule,
     UserModule,
     FormsModule,
+    PatientVisitModule,
     PatientModule,
     RouterModule.forRoot(routes),
     AdminModule
