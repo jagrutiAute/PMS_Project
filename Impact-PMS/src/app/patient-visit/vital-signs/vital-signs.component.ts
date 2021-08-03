@@ -23,7 +23,8 @@ export class VitalSignsComponent implements OnInit {
     Height: ['', [Validators.required]],
     Weight: ['', [Validators.required]],
     Blood_Pressure: ['', [Validators.required]],
-    Body_Temperature: ['', [Validators.required]]
+    Body_Temperature: ['', [Validators.required]],
+    Respiration_Rate:['',[Validators.required]]
     
 
   });
