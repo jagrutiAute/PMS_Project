@@ -2,10 +2,12 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Ethinicity } from '../ethinicity';
 import { PatientDetailService } from '../patient.service';
 
 
 import { PatientDetails } from '../patientDetail';
+import { Race } from '../race';
 
 @Component({
   selector: 'app-patient-details',
@@ -15,8 +17,8 @@ import { PatientDetails } from '../patientDetail';
 export class PatientDetailsComponent implements OnInit {
 
    patientDetails: PatientDetails ;
-   
-   
+   races:Race[];  
+   ethinicities: Ethinicity[];
   
 
   constructor(
@@ -34,6 +36,28 @@ export class PatientDetailsComponent implements OnInit {
         this.patientDetails=data;
 
         
+      }
+    );
+
+    this.service.getAllRace().subscribe(
+      (data) => {
+        console.log("data Race :::::  " + data)
+        this.races = data;
+
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+    this.service.getEthinicity().subscribe(
+      (data) => {
+        console.log("data Ethinicity :::::  " + data)
+        this.ethinicities = data;
+
+      },
+      error => {
+        console.log(error);
       }
     );
   }
@@ -54,10 +78,12 @@ export class PatientDetailsComponent implements OnInit {
     contactNumber: ['', Validators.required]
 
   });
-
+ 
   get f() {
     return this.patientDetailsForm.controls;
   }
+
+  
 
   updatePatientDetails() {
 
@@ -83,5 +109,6 @@ export class PatientDetailsComponent implements OnInit {
 
   }
 
+  
 }
     

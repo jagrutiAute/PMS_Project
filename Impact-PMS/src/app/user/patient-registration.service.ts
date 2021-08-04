@@ -10,7 +10,7 @@ import { User1 } from "./user1";
 
 export class PatientService {
  
-  private baseUrl = 'http://localhost:8080/register'; 
+  private baseUrl = 'http://localhost:8088/register'; 
   
   constructor(private _http: HttpClient) { }
 

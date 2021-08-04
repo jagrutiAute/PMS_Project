@@ -46,17 +46,16 @@ public class PatientDetailsService {
 		
 		Optional<Ethinicity> ethinicity = ethinicityRepo.findById(patient.getEthinicity());
 		Optional<Race> race = raceRepo.findById(patient.getRace());
+		
+		System.out.println("ethinicity ::: "+ethinicity.get()+"  race  ::   "+race.get());
 
 		RestTemplate rest = new RestTemplate();
-		Users user = rest.getForObject("http://localhost:8088/getUser/jagruti@gmail.com", Users.class);
+		Users user = rest.getForObject("http://localhost:8088/getUser/shivraj@gmail.com", Users.class);
 
 		System.out.println("user  :::::  " + user);
 
-		// user and admin module
-		// user findByEmail using feign client
-		// set user object
-		// user.setPhoneNumber(patient.getContactNumber());
-		patientDetails.setMrnNumber(patient.getMrnNumber());
+		
+		patientDetails.setMrnNumber(1);
 		patientDetails.setFirstName(patient.getFirstName());
 		patientDetails.setLastName(patient.getLastName());
 		patientDetails.setDateOfBirth(patient.getDateOfBirth());

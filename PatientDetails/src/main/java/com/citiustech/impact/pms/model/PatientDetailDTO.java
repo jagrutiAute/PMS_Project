@@ -86,6 +86,10 @@ public class PatientDetailDTO {
 			this.homeAddress = homeAddress;
 		}
 
+		
+
+		
+
 		public String getRace() {
 			return race;
 		}

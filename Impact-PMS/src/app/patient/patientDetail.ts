@@ -1,4 +1,6 @@
 import { User } from "../user/user";
+import { Ethinicity } from "./ethinicity";
+import { Race } from "./race";
 
 export class PatientDetails{
   
@@ -9,8 +11,8 @@ export class PatientDetails{
     gender:  string;
     languageKnown:  string;
     homeAddress: string;
-    race: string;
-    ethinicity: string;
+    race: Race;
+    ethinicity: Ethinicity;
     email: string;
     contactNumber: string;
     mrnNumber:number;
