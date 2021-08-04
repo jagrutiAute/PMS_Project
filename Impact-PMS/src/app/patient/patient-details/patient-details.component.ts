@@ -64,7 +64,9 @@ export class PatientDetailsComponent implements OnInit {
     console.log("inside method");
 
     let patientDetails: PatientDetails = new PatientDetails();
+
     this.patientDetails.mrnNumber=1;
+    
     Object.assign(patientDetails, this.patientDetailsForm.value);
     console.log("above subscribe");
     this.service.updatePatientDetails(patientDetails).subscribe(

@@ -6,8 +6,8 @@ import { PatientDetails } from "./patientDetail";
 @Injectable({ providedIn: 'root' })
 export class PatientDetailService {
 
-    private baseurl = "http://localhost:8080/updatePatientDetails";
-    private baseurl1 = "http://localhost:8080/getPatientDetails/1";
+    private baseurl = "http://localhost:8094/updatePatientDetails";
+    private baseurl1 = "http://localhost:8094/getPatientDetails/1";
 
     constructor(private _http: HttpClient) { }
 

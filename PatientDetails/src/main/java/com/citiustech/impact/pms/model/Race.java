@@ -16,7 +16,7 @@ public class Race {
 
 	@Id
 	@Column(name = "race_id")
-	private int id;
+	private String id;
 	
 	@Column(name = "name")
 	private String name;
