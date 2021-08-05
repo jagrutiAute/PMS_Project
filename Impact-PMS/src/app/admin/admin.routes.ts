@@ -22,14 +22,20 @@ export var adminroutes: Route[] = [
                 children: [
                     {path: '', component: PatientUsersComponent},
                     { path: 'edit-patient-users/:id', component: EditPatientUsersComponent },
-                    { path: 'add-patient-users', component: EditPatientUsersComponent }
+                    { path: 'add-patient-users', component: AddPatientUsersComponent }
                 ]
 
             }
 
         ]
     }
-]
-
-
-
+    // {
+    //          path: 'admin-dashboard', component: AdminDashboardComponent,
+    //          children: [
+    // { path: '', redirectTo: 'patient-users', pathMatch: 'full' },
+    // { path: 'patient-users', component: PatientUsersComponent },
+    // { path: 'add-patient-users', component: AddPatientUsersComponent },
+    // { path: 'edit-patient-users/:id', component: EditPatientUsersComponent }
+    //          ]
+    //         }
+  ];

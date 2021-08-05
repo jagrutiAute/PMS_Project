@@ -8,7 +8,7 @@ import { adminroutes } from './admin.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminDashBoardService } from './admin.service';
 import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-users.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.component';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(adminroutes),HttpClientModule,FormsModule
+    RouterModule.forChild(adminroutes),HttpClientModule,FormsModule,ReactiveFormsModule
   ],
    exports: [
     HospitalUsersComponent,

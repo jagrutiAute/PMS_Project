@@ -1,4 +1,4 @@
-<div class="first">patient-users works!</div>
+
 
 
 <h1>Patient Details</h1>
@@ -11,21 +11,18 @@
             <th style="width: 20%">Name</th>
             <th style="width: 20%">Date of Joining</th>
             <th style="width: 20%">Status</th>
-            <th style="width: 5%"></th>
+            <th style="width: 10%">Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of patients; index as i">
+        <tr *ngFor="let patient of patients | async">
             <td>{{patient.id}}</td>
             <td> {{patient.firstName}} {{patient.lastName}}</td>
             <td>{{patient.date_of_joining}}</td>
             <td>{{patient.status}}</td>
-            <td style="white-space: nowrap">
-                <a [routerLink]="['edit-patient-users',patient.id]" class="btn btn-sm btn-primary mr-1" (click)="editSubmit(i)">Edit</a>
-                <button  class="btn btn-sm btn-danger btn-delete-user">
-                   
-                    <span >Delete</span>
-                </button>
+            <td><button (click)="deletePatient(patient.id)" class="btn btn-danger">Delete</button>&nbsp;
+                <button (click)="updatePatient(patient.id)" class="btn btn-primary" >Update</button>
+               
             </td>
         </tr>
        
