@@ -22,6 +22,8 @@ export class User {
    role:number;
    
    employeeid:string;
+   email: string;
+   phoneNumber :string;
 
    
    

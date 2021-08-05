@@ -14,7 +14,7 @@ import com.citiustech.impact.pms.repository.PatientProfileRepository;
 import com.citiustech.impact.pms.repository.UserRepository;
 
 @SpringBootApplication
-public class UserAndAdminModuleApplication implements CommandLineRunner {
+public class UserAndAdminModuleApplication {
 
     @Autowired
     private UserRepository userRepository;
@@ -29,36 +29,5 @@ public class UserAndAdminModuleApplication implements CommandLineRunner {
       SpringApplication.run(UserAndAdminModuleApplication.class, args);
     }
 
-    public void run(String... args) throws Exception {
-    	
-    	//PatientProfile p=new PatientProfile();
-    	//String message=acct.patienRegister(p);
-    	//System.out.println(message);
-        // Clean up database tables
-		/*
-		 * userProfileRepository.deleteAllInBatch(); userRepository.deleteAllInBatch();
-		 * 
-		 * //=========================================
-		 * 
-		 * // Create a User instance User user = new User("shivraj@gmail.com",
-		 * 234343443, "Shivraj@123",1);
-		 * 
-		 * Calendar dateOfBirth = Calendar.getInstance(); dateOfBirth.set(1992, 7, 21);
-		 * 
-		 * // Create a UserProfile instance PatientProfile patientProfile = new
-		 * PatientProfile(Title.MR, "Shivraj", "Pawar", dateOfBirth,1,1);
-		 * 
-		 * 
-		 * // Set child reference(userProfile) in parent entity(user)
-		 * user.setUserProfile(patientProfile);
-		 * 
-		 * // Set parent reference(user) in child entity(userProfile)
-		 * patientProfile.setUser(user);
-		 * 
-		 * // Save Parent Reference (which will save the child as well)
-		 * userRepository.save(user);
-		 */
-
-        //=========================================
-    }
+   
 }

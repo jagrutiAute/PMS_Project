@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Patient } from "./patient";
@@ -6,6 +6,7 @@ import { Patient } from "./patient";
 
 @Injectable()
 export class AdminDashBoardService {
+ // private baseUrl = 'http://localhost:8081';
 
 
     
@@ -14,11 +15,8 @@ export class AdminDashBoardService {
   constructor(private _http: HttpClient) { }
 
   getPatient(): Observable<any> {
-   
-      
-      //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
-      return this._http.get(this.baseUrl+'/patient'); 
-      
+    //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
+    return this._http.get(this.baseUrl + '/patient');
   }
 
   getPatientById(id:number): Observable<any>{
@@ -39,4 +37,6 @@ export class AdminDashBoardService {
   deleteEmployee(id: number): Observable<any> {
     return this._http.delete(`${this.baseUrl}/patient/${id}`, { responseType: 'text' });
   }
+
+
 }
