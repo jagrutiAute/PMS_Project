@@ -50,11 +50,11 @@ public class PatientDetailsService {
 		System.out.println("ethinicity ::: "+ethinicity.get()+"  race  ::   "+race.get());
 
 		RestTemplate rest = new RestTemplate();
-		Users user = rest.getForObject("http://localhost:8088/getUser/shivraj@gmail.com", Users.class);
+		Users user = rest.getForObject("http://localhost:8088/getUser/gaurav.abale@gmail.com", Users.class);
 
 		System.out.println("user  :::::  " + user);
 
-		
+		// pass dynamic MRN Number instead of hardcoded 1
 		patientDetails.setMrnNumber(1);
 		patientDetails.setFirstName(patient.getFirstName());
 		patientDetails.setLastName(patient.getLastName());
