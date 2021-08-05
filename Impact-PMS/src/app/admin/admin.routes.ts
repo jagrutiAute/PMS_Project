@@ -6,6 +6,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-users.component';
 import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.component';
+import { CreateHospitalUserComponent } from './create-hospital-user/create-hospital-user.component';
+import { UpdateHospitalUserComponent } from './update-hospital-user/update-hospital-user.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 export var adminroutes: Route[] = [
@@ -15,12 +17,19 @@ export var adminroutes: Route[] = [
 
         children: [
 
-            { path: 'hospital-users', component: HospitalUsersComponent },
+            {
+                path: 'hospital-users',
+                children: [
+                    { path: '', component: HospitalUsersComponent },
+                    { path: "create-user", component: CreateHospitalUserComponent },
+                    { path: "update-user/:uid", component: UpdateHospitalUserComponent },
 
+                ]
+            },
             {
                 path: 'patient-users',
                 children: [
-                    {path: '', component: PatientUsersComponent},
+                    { path: '', component: PatientUsersComponent },
                     { path: 'edit-patient-users/:id', component: EditPatientUsersComponent },
                     { path: 'add-patient-users', component: EditPatientUsersComponent }
                 ]
@@ -28,7 +37,7 @@ export var adminroutes: Route[] = [
             }
 
         ]
-    }
+    },
 ]
 
 

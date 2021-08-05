@@ -8,8 +8,11 @@ import { adminroutes } from './admin.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminDashBoardService } from './admin.service';
 import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-users.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.component';
+import { CreateHospitalUserComponent } from './create-hospital-user/create-hospital-user.component';
+import { UpdateHospitalUserComponent } from './update-hospital-user/update-hospital-user.component';
+import { HospitalUserService } from './hospital-user.service';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,17 @@ import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.
     PatientUsersComponent,
     AdminDashboardComponent,
     EditPatientUsersComponent,
-    AddPatientUsersComponent
+    AddPatientUsersComponent,
+    CreateHospitalUserComponent,
+    UpdateHospitalUserComponent
     
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(adminroutes),HttpClientModule,FormsModule
+    RouterModule.forChild(adminroutes),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
    exports: [
     HospitalUsersComponent,
@@ -30,6 +38,6 @@ import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.
     AdminDashboardComponent
    
   ],
-  providers:[AdminDashBoardService]
+  providers:[AdminDashBoardService, HospitalUserService]
 })
 export class AdminModule { }
