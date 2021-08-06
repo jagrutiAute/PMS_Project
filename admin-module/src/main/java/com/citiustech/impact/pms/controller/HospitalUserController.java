@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.citiustech.impact.pms.model.HospitalUser;
-import com.citiustech.impact.pms.service.AdminService;
+import com.citiustech.impact.pms.service.HospitalUserService;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class AdminController {
+public class HospitalUserController {
 
 	@Autowired
-	AdminService adminService;
+	HospitalUserService adminService;
 
 	@GetMapping("/hospital-users/{hid}")
 	public ResponseEntity<?> getHospitalUser(@PathVariable long hid) {

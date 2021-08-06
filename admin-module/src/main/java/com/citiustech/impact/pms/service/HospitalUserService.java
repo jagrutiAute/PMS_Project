@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import com.citiustech.impact.pms.model.HospitalUser;
 
-public interface AdminService {
+public interface HospitalUserService {
 	public Optional<HospitalUser> getHospitalUserById(long id);
-	
+
 	public List<HospitalUser> getAllHospitalUsers();
 
 	public String saveHospitalUser(HospitalUser h);
