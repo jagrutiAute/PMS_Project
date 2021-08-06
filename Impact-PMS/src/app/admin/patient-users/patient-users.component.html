@@ -1,6 +1,19 @@
-<h1>Patient Details</h1>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<h1 style="text-align: center;"><u><b>Patient Details</b></u></h1>
 <br>
 <a routerLink="add-patient-users" class="btn btn-lg btn-success mb-2">Add Patient</a>
+
+<div class="search-container" style="text-align: right;">
+    <form action="#">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>..
+  </div>
+
 <table class="table table-striped" style="font-size: 15px;">
     <thead>
         <tr>
@@ -14,7 +27,7 @@
     <tbody>
         <tr *ngFor="let patient of patients | async">
             <td>{{patient.id}}</td>
-            <td> {{patient.firstName}} {{patient.lastName}}</td>
+            <td> {{patient.firstname}} {{patient.lastname}}</td>
             <td>{{patient.date_of_joining}}</td>
             <td>{{patient.status}}</td>
             <td><button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp;

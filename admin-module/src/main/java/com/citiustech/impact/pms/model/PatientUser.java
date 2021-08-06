@@ -2,6 +2,7 @@ package com.citiustech.impact.pms.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -17,8 +18,12 @@ public class PatientUser {
 
 	@Id
 	private int id;
-	private String firstName;
-	private String lastName;
+	
+	@Column(name="firstname")
+	private String firstname;
+	
+	@Column(name="lastname")
+	private String lastname;
 	private LocalDate date_of_joining;
 	private String status;
 	

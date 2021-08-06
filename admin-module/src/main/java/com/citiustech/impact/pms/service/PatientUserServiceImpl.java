@@ -49,6 +49,13 @@ public class PatientUserServiceImpl implements PatientUserService {
 		patientUserRepository.delete(patient);
 	}
 
+	@Override
+	public List<PatientUser> gettingByLastnameOrFirstname(String lastname, String firstname) {
+		
+		return patientUserRepository.findByLastnameOrFirstname(lastname, firstname);
+		
+	}
+
 	
 
 	

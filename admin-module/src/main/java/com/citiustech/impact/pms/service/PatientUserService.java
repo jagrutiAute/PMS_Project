@@ -18,6 +18,8 @@ public interface PatientUserService {
 
 	void deletePatient(PatientUser patient);
 
+	List<PatientUser> gettingByLastnameOrFirstname(String lastname, String firstname);
+
 	
 
 }

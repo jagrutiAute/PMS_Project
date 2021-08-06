@@ -13,7 +13,7 @@ import com.citiustech.impact.pms.model.PatientUser;
 @EnableJpaRepositories
 public interface PatientUserRepository extends JpaRepository<PatientUser, Integer>{
 
-
+	List<PatientUser> findByLastnameOrFirstname(String lastname, String firstname);
 
 	
 }

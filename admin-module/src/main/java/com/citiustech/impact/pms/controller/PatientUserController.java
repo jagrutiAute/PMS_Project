@@ -66,4 +66,11 @@ public class PatientUserController {
 		patient.setId(id);
 		patientUserService.deletePatient(patient);
 	}
+	
+	@GetMapping("patient/firstnameorlastname/{lastname}/{firstname}")
+	public ResponseEntity<List<PatientUser>> getByLastnameOrFirstname(@PathVariable String lastname, String firstname){
+		
+		List<PatientUser> patientuser=patientUserService.gettingByLastnameOrFirstname(lastname,firstname);
+		return new ResponseEntity<List<PatientUser>>(patientuser, HttpStatus.OK);
+	}
 }
