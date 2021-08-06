@@ -15,7 +15,7 @@ import { Patient } from '../patient';
 })
 export class EditPatientUsersComponent implements OnInit {
 
-
+  status: string[] = ["Active", "Blocked", "Disable"];
   id: number;
   patient: Patient;
 
