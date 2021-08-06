@@ -1,5 +1,7 @@
 package com.citiustech.impact.pms.model;
 
+import java.util.Calendar;
+
 public class PatientDetailDTO {
 	
 	    private String firstName;
@@ -45,6 +47,7 @@ public class PatientDetailDTO {
 			this.lastName = lastName;
 		}
 
+		
 		public String getDateOfBirth() {
 			return dateOfBirth;
 		}
@@ -53,7 +56,6 @@ public class PatientDetailDTO {
 			this.dateOfBirth = dateOfBirth;
 		}
 
-		
 		public int getAge() {
 			return age;
 		}

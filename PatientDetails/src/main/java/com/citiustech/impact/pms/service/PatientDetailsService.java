@@ -55,7 +55,7 @@ public class PatientDetailsService {
 		System.out.println("user  :::::  " + user);
 
 		// pass dynamic MRN Number instead of hardcoded 1
-		patientDetails.setMrnNumber(1);
+		patientDetails.setMrnNumber(9);
 		patientDetails.setFirstName(patient.getFirstName());
 		patientDetails.setLastName(patient.getLastName());
 		patientDetails.setDateOfBirth(patient.getDateOfBirth());
