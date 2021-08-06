@@ -8,6 +8,6 @@ import com.citiustech.impact.pms.model.HospitalUser;
 
 @Repository
 @EnableJpaRepositories
-public interface AdminRepository extends JpaRepository<HospitalUser, Integer> {
+public interface HospitalUserRepository extends JpaRepository<HospitalUser, Long> {
 
 }

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AdminDashBoardService } from '../admin.service';
 import { Patient } from '../patient';
 
@@ -11,40 +12,34 @@ import { Patient } from '../patient';
 })
 export class PatientUsersComponent implements OnInit {
 
-  patients:Patient[];
-  @ViewChild('userForm') userForm:ElementRef;
-  constructor(private adminDashBoardService: AdminDashBoardService, private router:ActivatedRoute) { }
+  patients: Observable<Patient[]>;
 
-  ngOnInit(){
-    //throw new Error('Method not implemented.');
-    this.adminDashBoardService.getPatient().subscribe(data => {
-        this.patients=data;
-      },
-      error => {
-        console.log(error);
-      })
+  constructor(private adminDashBoardService: AdminDashBoardService,
+    private router: Router) {}
 
-     
+  ngOnInit() {
+    this.reloadData();
   }
-@ViewChild('id') id:ElementRef;
 
+  reloadData() {
+    this.patients = this.adminDashBoardService.getPatient();
+  }
 
-  editSubmit(index:number){
-    console.log(this.patients[index]);
-    this.id.nativeElement.value = this.patients[index].id;
-    /* this.patients[index].id;
-    firstName this.patients[index].firstName,
-    lastName: this.patients[index].lastName,
-    this.date_of_joining.nativeElement.value = this.patients[index].date_of_joining;
-    this.status.nativeElement.value = this.patients[index].status;
-    /*this.userForm.nativeElement({
-      
-      id: this.patients[index].id,
-      firstName: this.patients[index].firstName,
-      lastName: this.patients[index].lastName,
-      date_of_joining:this.patients[index].date_of_joining,
-      status: this.patients[index].status
-    })*/
-}
+  deletePatient(id: number) {
+    this.adminDashBoardService.deleteEmployee(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
 
+  // employeeDetails(id: number){
+  //   this.router.navigate(['details', id]);
+  // }
+
+  updatePatient(id: number){
+    this.router.navigate(['admin-dashboard/patient-users/edit-patient-users', id]);
+  }
 }
