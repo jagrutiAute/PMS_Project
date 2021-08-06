@@ -1,4 +1,4 @@
-package com.diagnoses;
+package com.citiustech.impact.pms.diagnoses;
 
 import org.hibernate.validator.constraints.EAN;
 import org.springframework.boot.SpringApplication;

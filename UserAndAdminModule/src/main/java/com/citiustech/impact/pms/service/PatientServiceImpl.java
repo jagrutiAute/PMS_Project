@@ -1,13 +1,13 @@
 
 package com.citiustech.impact.pms.service;
 
+import java.util.Calendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.citiustech.impact.pms.DTO.PatientDTO;
 import com.citiustech.impact.pms.model.PatientProfile;
-import com.citiustech.impact.pms.model.ProviderRegistration;
-import com.citiustech.impact.pms.model.Role;
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.repository.PatientProfileRepository;
 import com.citiustech.impact.pms.repository.UserRepository;
@@ -41,10 +41,7 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public String savePatient(PatientDTO p) {
 
-		// Clean up database tables
-		// userProfileRepository.deleteAllInBatch();
-		// userRepository.deleteAllInBatch();
-
+		
 		String pwd = encryption(p.getEmail(), p.getPwd());
 		System.out.println(pwd);
 
@@ -58,9 +55,27 @@ public class PatientServiceImpl implements PatientService {
 		patientProfile.setFirstName(p.getFname());
 		patientProfile.setLastName(p.getLname());
 		patientProfile.setDateOfBirth(p.getDob());
-		patientProfile.setEthnicity(1);
 		patientProfile.setRace(1);
-		patientProfile.setUser(user);
+		patientProfile.setEthnicity(1);
+		
+		if(p.getTitle().equals("MS") || p.getTitle().equals("MRS"))
+			patientProfile.setGender("Female");
+		else patientProfile.setGender("Male");
+		
+		 //create calendar object for birth day
+		Calendar birthDay = p.getDob();
+		
+		//create calendar object for current day
+	      long currentTime = System.currentTimeMillis();
+	      Calendar now = Calendar.getInstance();
+	      now.setTimeInMillis(currentTime);
+	 
+	      //Get difference between years
+	     int years = now.get(Calendar.YEAR) - birthDay.get(Calendar.YEAR);
+	     
+	     patientProfile.setAge(years);
+	     
+	     patientProfile.setUser(user);
 
 		// user.setUserProfile(patientProfile);
 

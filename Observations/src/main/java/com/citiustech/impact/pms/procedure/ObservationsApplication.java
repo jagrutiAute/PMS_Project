@@ -1,4 +1,4 @@
-package com.observations;
+package com.citiustech.impact.pms.procedure;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

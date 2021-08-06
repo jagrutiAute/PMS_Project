@@ -21,7 +21,7 @@
                             <label for="first_name">
                                 <h4>First name</h4>
                             </label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" [(ngModel)]="emergencyContactInfo.firstName"
+                            <input type="text" class="form-control" name="first_name" id="first_name" [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.firstName"
                                 placeholder="first name" formControlName="firstName">
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                             <label for="last_name">
                                 <h4>Last name</h4>
                             </label>
-                            <input type="text" class="form-control" name="last_name" id="last_name" [(ngModel)]="emergencyContactInfo.lastName"
+                            <input type="text" class="form-control" name="last_name" id="last_name" [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.lastName"
                                 placeholder="last name" formControlName="lastName">
                         </div>
                     </div>
@@ -42,11 +42,11 @@
                             <label for="phone">
                                 <h4>Home Address &nbsp;</h4>
                             </label>
-                            <input type="checkbox" id="emergencyAddress" name="emergencyAddress" 
+                            <!-- <input type="checkbox" id="emergencyAddress" name="emergencyAddress" 
                                 value="emergencyAddress">
-                            <label for="emergencyAddress"> Same as Patient Address</label>
+                            <label for="emergencyAddress"> Same as Patient Address</label> -->
                             <input type="text" class="form-control" name="dob" placeholder="Home Address" formControlName="homeAddress"
-                            [(ngModel)]="emergencyContactInfo.homeAddress">
+                            [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.homeAddress">
                         </div>
                     </div>
 
@@ -59,7 +59,7 @@
                                 <h4>Email</h4>
                             </label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com"
-                            [(ngModel)]="emergencyContactInfo.emergencyEmail" formControlName="emergencyEmail">
+                            [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.emergencyEmail" formControlName="emergencyEmail">
                         </div>
                     </div>
 
@@ -70,7 +70,7 @@
                             <label for="mobile">
                                 <h4>Contact Number</h4>
                             </label>
-                            <input type="text" class="form-control" name="mobile" id="mobile" [(ngModel)]="emergencyContactInfo.emergencyContact"
+                            <input type="text" class="form-control" name="mobile" id="mobile" [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.emergencyContact"
                             formControlName="emergencyContact" placeholder="enter mobile number" title="Contact Number.">
                         </div>
                     </div>

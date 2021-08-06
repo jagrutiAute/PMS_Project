@@ -83,7 +83,7 @@ export class PatientDetailsComponent implements OnInit {
     return this.patientDetailsForm.controls;
   }
 
-  
+ 
 
   updatePatientDetails() {
 
@@ -91,7 +91,7 @@ export class PatientDetailsComponent implements OnInit {
 
     let patientDetails: PatientDetails = new PatientDetails();
 
-    this.patientDetails.mrnNumber=1;
+    this.patientDetails.mrnNumber=9;
     
     Object.assign(patientDetails, this.patientDetailsForm.value);
     console.log("above subscribe");
