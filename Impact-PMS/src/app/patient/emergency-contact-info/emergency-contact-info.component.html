@@ -21,7 +21,7 @@
                             <label for="first_name">
                                 <h4>First name</h4>
                             </label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.firstName"
+                            <input type="text" class="form-control" name="first_name" id="first_name" [ngStyle]="{'color':'black', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.firstName"
                                 placeholder="first name" formControlName="firstName">
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                             <label for="last_name">
                                 <h4>Last name</h4>
                             </label>
-                            <input type="text" class="form-control" name="last_name" id="last_name" [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.lastName"
+                            <input type="text" class="form-control" name="last_name" id="last_name" [ngStyle]="{'color':'black', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.lastName"
                                 placeholder="last name" formControlName="lastName">
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                 value="emergencyAddress">
                             <label for="emergencyAddress"> Same as Patient Address</label> -->
                             <input type="text" class="form-control" name="dob" placeholder="Home Address" formControlName="homeAddress"
-                            [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.homeAddress">
+                            [ngStyle]="{'color':'black', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.homeAddress">
                         </div>
                     </div>
 
@@ -59,7 +59,7 @@
                                 <h4>Email</h4>
                             </label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com"
-                            [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.emergencyEmail" formControlName="emergencyEmail">
+                            [ngStyle]="{'color':'black', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.emergencyEmail" formControlName="emergencyEmail">
                         </div>
                     </div>
 
@@ -70,7 +70,7 @@
                             <label for="mobile">
                                 <h4>Contact Number</h4>
                             </label>
-                            <input type="text" class="form-control" name="mobile" id="mobile" [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.emergencyContact"
+                            <input type="text" class="form-control" name="mobile" id="mobile" [ngStyle]="{'color':'black', 'font-size':'15px'}" [(ngModel)]="emergencyContactInfo.emergencyContact"
                             formControlName="emergencyContact" placeholder="enter mobile number" title="Contact Number.">
                         </div>
                     </div>
@@ -80,9 +80,9 @@
                             <label for="mobile">
                                 <h4>Patient Portal Access </h4>
                             </label><br>
-                            <input type="radio" id="Yes" name="acces" value="Yes" formControlName="patientPortalAccess">
+                            <input type="radio" id="Yes" name="acces" value="Yes" formControlName="patientPortalAccess" [(ngModel)]="emergencyContactInfo.patientPortalAccess">
                             <label for="Yes">Yes</label><br>
-                            <input type="radio" id="No" name="acces" value="No" formControlName="patientPortalAccess">
+                            <input type="radio" id="No" name="acces" value="No" formControlName="patientPortalAccess" [(ngModel)]="emergencyContactInfo.patientPortalAccess" >
                             <label for="No">No</label><br>
 
                         </div>

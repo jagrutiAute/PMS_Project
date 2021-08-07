@@ -63,6 +63,9 @@ public class PatientDetailsService {
 		patientDetails.setGender(patient.getGender());
 		patientDetails.setLanguageKnown(patient.getLanguageKnown());
 		patientDetails.setHomeAddress(patient.getHomeAddress());
+		
+		user.setEmail(patient.getEmail());
+		user.setPhoneNumber(patient.getContactNumber());
 		patientDetails.setUser(user);
 		patientDetails.setEthinicity(ethinicity.get());
 		patientDetails.setRace(race.get());

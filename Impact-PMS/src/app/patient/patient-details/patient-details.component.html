@@ -21,9 +21,9 @@
                                 <label for="first_name">
                                     <h4>First name</h4>
                                 </label> 
-                                <input type="text" class="form-control" [ngStyle]="{'color':'red', 'font-size':'17px'}" [(ngModel)]="patientDetails.firstName"
+                                <input type="text" class="form-control" [ngStyle]="{'color':'black', 'font-size':'17px'}" [(ngModel)]="patientDetails.firstName"
                                     formControlName="firstName" 
-                                    [class.is-invalid]="f.firstName.touched && f.firstName.invalid" required />
+                                    [class.is-invalid]="f.firstName.touched && f.firstName.invalid" readonly />
                             </div>
                         </div>
                         <br>
@@ -34,8 +34,8 @@
                                     <h4>Last name</h4>
                                 </label>
                                 <input type="text" class="form-control" name="last_name" id="last_name"
-                                [ngStyle]="{'color':'red', 'font-size':'17px'}"  [(ngModel)]="patientDetails.lastName" formControlName="lastName"
-                                    placeholder="last name" title="enter your last name if any.">
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}"  [(ngModel)]="patientDetails.lastName" formControlName="lastName"
+                                    placeholder="last name" title="enter your last name if any." readonly>
                             </div>
                         </div>
                         <br>
@@ -47,8 +47,8 @@
                                     <h4>Date of birth</h4>
                                 </label>
                                 <input type="text" class="form-control" name="dob" placeholder="enter date of birth"
-                                [ngStyle]="{'color':'red', 'font-size':'17px'}"   [(ngModel)]="patientDetails.dateOfBirth" formControlName="dateOfBirth"
-                                    title="Date of Birth">
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}"   [(ngModel)]="patientDetails.dateOfBirth" formControlName="dateOfBirth"
+                                    title="Date of Birth" readonly>
                             </div>
                         </div>
                         <br>
@@ -60,7 +60,7 @@
                                     <h4>Age</h4>
                                 </label>
                                 <input type="text" class="form-control" name="age" placeholder="enter age"
-                                [ngStyle]="{'color':'red', 'font-size':'17px'}"  [(ngModel)]="patientDetails.age" formControlName="age" title="Age">
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}"  [(ngModel)]="patientDetails.age" formControlName="age" title="Age" readonly>
                             </div>
                         </div>
                         <br>
@@ -76,7 +76,7 @@
                                 <input type="radio" id="male" name="gender" value="Male" formControlName="gender">
                                 <label for="male">Male</label> -->
                                 <input type="text" class="form-control" 
-                                [ngStyle]="{'color':'red', 'font-size':'17px'}"  [(ngModel)]="patientDetails.gender" formControlName="gender">
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}"  [(ngModel)]="patientDetails.gender" formControlName="gender" readonly>
 
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                     <h4>Language Known</h4>
                                 </label>
                                 <input type="text" class="form-control" name="Language" id="password"
-                                [ngStyle]="{'color':'red', 'font-size':'17px'}" [(ngModel)]="patientDetails.languageKnown" formControlName="languageKnown"
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}" [(ngModel)]="patientDetails.languageKnown" formControlName="languageKnown"
                                     placeholder="Language" title="Language Known.">
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                                 </label>
                                 <!-- <input type="text" class="form-control"  
                                 [(ngModel)]="patientDetails.race"  formControlName="race" placeholder="Race" title="race"> -->
-                               <select id="location" class="form-control" formControlName="race" [ngStyle]="{'color':'red', 'font-size':'12px'}" [(ngModel)]="patientDetails.race.id">
+                               <select id="location" class="form-control" formControlName="race" [ngStyle]="{'color':'black', 'font-size':'12px'}" [(ngModel)]="patientDetails.race.id">
 
                                                                       
 
@@ -130,7 +130,7 @@
                                 <!-- <input type="text" class="form-control" [(ngModel)]="patientDetails.ethinicity"
                                     formControlName="ethinicity" placeholder="Ethinicity" title="Ethinicity."> -->
 
-                                    <select id="location" class="form-control" formControlName="ethinicity" [ngStyle]="{'color':'red', 'font-size':'12px'}" [(ngModel)]="patientDetails.ethinicity.id">
+                                    <select id="location" class="form-control" formControlName="ethinicity" [ngStyle]="{'color':'black', 'font-size':'12px'}" [(ngModel)]="patientDetails.ethinicity.id">
 
                                                                            
                                         
@@ -153,8 +153,8 @@
                                     <h4>Email</h4>
                                 </label>
                                 <input type="email" class="form-control" name="email" id="email" formControlName="email"
-                                [ngStyle]="{'color':'red', 'font-size':'15px'}"  [(ngModel)]="patientDetails.user.email" placeholder="you@email.com"
-                                    title="enter your email.">
+                                [ngStyle]="{'color':'black', 'font-size':'15px'}"  [(ngModel)]="patientDetails.user.email" placeholder="you@email.com"
+                                    title="enter your email." >
                             </div>
                         </div>
                         <br>
@@ -166,7 +166,7 @@
                                     <h4>Home Address</h4>
                                 </label>
                                 <input type="email" class="form-control" id="location" placeholder="Home Address"
-                                [ngStyle]="{'color':'red', 'font-size':'15px'}"  [(ngModel)]="patientDetails.homeAddress" formControlName="homeAddress"
+                                [ngStyle]="{'color':'black', 'font-size':'15px'}"  [(ngModel)]="patientDetails.homeAddress" formControlName="homeAddress"
                                     title="enter a location">
                             </div>
                         </div>
@@ -178,8 +178,8 @@
                                     <h4>Contact Number</h4>
                                 </label>
                                 <input type="text" class="form-control" name="mobile" id="mobile"
-                                [ngStyle]="{'color':'red', 'font-size':'15px'}" [(ngModel)]="patientDetails.user.phoneNumber" formControlName="contactNumber"
-                                    placeholder="enter mobile number" title="Contact Number.">
+                                [ngStyle]="{'color':'black', 'font-size':'15px'}" [(ngModel)]="patientDetails.user.phoneNumber" formControlName="contactNumber"
+                                    placeholder="enter mobile number" title="Contact Number." >
                             </div>
                         </div>
                         <br>
