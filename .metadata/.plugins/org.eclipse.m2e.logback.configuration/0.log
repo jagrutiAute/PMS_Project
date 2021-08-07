@@ -1769,3 +1769,48 @@
 2021-08-05 15:04:47,226 [Worker-468: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-08-05 15:04:47,226 [Worker-468: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\Medications\src\test\resources
 2021-08-05 15:05:02,967 [Worker-470: Launching Medications - MedicationsApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier null to /UserAndAdminModule/target/classes
+2021-08-07 12:45:02,289 [Worker-802: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.allergies:Allergies:0.0.1-SNAPSHOT @ D:\Project 379\PMS_Project\Allergies\pom.xml.
+2021-08-07 12:45:15,969 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:45:15,972 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-07 12:45:15,978 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-07 12:45:15,983 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:45:15,983 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\Allergies\src\test\resources
+2021-08-07 12:45:24,606 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:45:24,607 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-07 12:45:24,610 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-07 12:45:24,613 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:45:24,613 [Worker-802: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\Allergies\src\test\resources
+2021-08-07 12:45:27,934 [Worker-797: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.diagnoses:Diagnoses:0.0.1-SNAPSHOT @ D:\Project 379\PMS_Project\Diagnoses\pom.xml.
+2021-08-07 12:45:37,417 [Worker-797: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:45:37,422 [Worker-797: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-07 12:45:37,544 [Worker-797: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-07 12:45:37,551 [Worker-797: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:45:37,552 [Worker-797: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\Diagnoses\src\test\resources
+2021-08-07 12:45:52,143 [Worker-803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:45:52,147 [Worker-803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-07 12:45:52,154 [Worker-803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-07 12:45:52,162 [Worker-803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:45:52,163 [Worker-803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\Diagnoses\src\test\resources
+2021-08-07 12:46:01,146 [Worker-806: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.observations:Observations:0.0.1-SNAPSHOT @ D:\Project 379\PMS_Project\Observations\pom.xml.
+2021-08-07 12:46:08,347 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:46:08,350 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-07 12:46:08,356 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-07 12:46:08,360 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:46:08,360 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\Observations\src\test\resources
+2021-08-07 12:46:12,362 [Worker-806: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.citiustech:PatientDetails:0.0.1-SNAPSHOT @ D:\Project 379\PMS_Project\PatientDetails\pom.xml.
+2021-08-07 12:46:16,290 [Worker-806: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier  to /UserAndAdminModule/target/classes
+2021-08-07 12:46:37,046 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:46:37,048 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-07 12:46:37,054 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-07 12:46:37,060 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:46:37,061 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\PatientDetails\src\test\resources
+2021-08-07 12:46:48,979 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:46:48,981 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-07 12:46:48,987 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-07 12:46:48,992 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:46:48,992 [Worker-806: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\Observations\src\test\resources
+2021-08-07 12:46:56,240 [Worker-804: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:46:56,244 [Worker-804: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-07 12:46:56,249 [Worker-804: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-07 12:46:56,258 [Worker-804: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-07 12:46:56,258 [Worker-804: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Project 379\PMS_Project\UserAndAdminModule\src\test\resources
