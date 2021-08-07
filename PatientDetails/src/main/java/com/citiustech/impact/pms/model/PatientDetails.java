@@ -49,14 +49,14 @@ public class PatientDetails {
 	@Column(name = "home_address")
 	private String homeAddress;
 
-	@JoinColumn(name = "users_id")
+	//@JoinColumn(name = "users_id")
 
-	@OneToOne(cascade = CascadeType.ALL)
+	/*@OneToOne(cascade = CascadeType.ALL)
 	private Users user;
 	
 	private String race;
 	private String ethinicity;
-
+*/
 	/*
 	 * @JoinColumn(name = "race_id")
 	 * 

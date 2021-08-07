@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core'
 import { Route, RouterModule } from '@angular/router'
 import { AdminDashboardComponent } from '../admin/admin-dashboard/admin-dashboard.component'
+
 import { ChangePasswordComponent } from './change-password/change-password.component'
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'
 import { LoginComponent } from './login/login.component'
