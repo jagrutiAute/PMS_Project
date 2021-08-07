@@ -10,7 +10,7 @@ import com.citiustech.impact.pms.model.HospitalUser;
 import com.citiustech.impact.pms.repository.HospitalUserRepository;
 
 @Service
-public class AdminServiceImpl implements AdminService {
+public class HospitalUserServiceImpl implements HospitalUserService {
 
 	@Autowired
 	HospitalUserRepository adminRepo;

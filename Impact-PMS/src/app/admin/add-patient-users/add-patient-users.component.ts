@@ -13,6 +13,8 @@ import { Patient } from '../patient';
 })
 export class AddPatientUsersComponent implements OnInit {
 
+  status: string[] = ["Active", "Blocked", "Disable"];
+
   patient: Patient = new Patient();
   submitted = false;
 
