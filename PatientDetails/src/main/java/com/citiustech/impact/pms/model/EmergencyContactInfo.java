@@ -16,36 +16,36 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "emergency_contact_info")
 public class EmergencyContactInfo {
-	
-	@Id
 
-	@Column(name="id")
+	@Id
+    
+	@Column(name = "id")
 	private int id;
 
-	@Column(name="title")
+	@Column(name = "title")
 	private String title;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name="address")
+	@Column(name = "address")
 	private String homeAddress;
 
-	@Column(name="email")
+	@Column(name = "email")
 	private String emergencyEmail;
 
-	@Column(name="contact_number")
+	@Column(name = "contact_number")
 	private String emergencyContact;
 
-	@Column(name="patient_portal_access")
-	private boolean patientPortalAccess;
-	
-	@JoinColumn(name = "mrn")
+	@Column(name = "patient_portal_access")
+	private String patientPortalAccess;
+
+	@JoinColumn(name = "mrnNumber")
 
 	@OneToOne(cascade = CascadeType.ALL)
-    private PatientDetails patientDetails;
+	private PatientDetails patientDetails;
 
 }

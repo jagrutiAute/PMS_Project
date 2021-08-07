@@ -16,7 +16,7 @@ public class Ethinicity {
 
 	@Id
 	@Column(name = "ethinicity_id")
-	private int id;
+	private String id;
 	
 	@Column(name = "name")
 	private String name;

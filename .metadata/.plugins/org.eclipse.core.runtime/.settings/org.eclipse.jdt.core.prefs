@@ -1,9 +1,16 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jdk1.8.0_281/jre/lib/rt.jar
 org.eclipse.jdt.core.classpathVariable.JRE_SRC=
 org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
 org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/shivrajp/.m2/repository
 org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+||||||| a39b143
+org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/farheenb/.m2/repository
+=======
+org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/farheenb/.m2/repository
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+>>>>>>> 44a197e0587bd6ddf153911f18dfba247cf3c7bc
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
 org.eclipse.jdt.core.compiler.compliance=1.8
