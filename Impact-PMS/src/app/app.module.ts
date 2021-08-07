@@ -6,11 +6,12 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PatientModule } from './patient/patient.module';
-import { LoginComponent } from './user/login/login.component';
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
-import { adminroutes } from './admin/admin.routes';
+
 import { PatientVisitModule } from './patient-visit/patient-visit.module';
+import { NbThemeModule } from '@nebular/theme';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PatientVisitModule } from './patient-visit/patient-visit.module';
     RouterModule.forRoot(routes),
     AdminModule,
     PatientVisitModule,
-    PatientModule
+    PatientModule,
+    NbThemeModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -52,20 +52,20 @@ public class PatientDetails {
 	@Column(name = "home_address")
 	private String homeAddress;
 
-	
+
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "users_id")
 	private Users user;
 
-	
+
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "race_master_id")
 	private Race race;
 
-	
 
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ethnicity_master_id")
 	private Ethinicity ethinicity;
