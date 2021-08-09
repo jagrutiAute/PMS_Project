@@ -26,7 +26,6 @@ import com.mysql.cj.log.LogFactory;
 */
 
 @RestController
-@CrossOrigin(origins = "*")
 public class LoginController {
 
 	private static Logger logger = Logger.getLogger(LoginController.class);

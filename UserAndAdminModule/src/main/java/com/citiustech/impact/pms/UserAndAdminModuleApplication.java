@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.citiustech.impact.pms.controller.AccountController;
 import com.citiustech.impact.pms.model.PatientProfile;
@@ -28,6 +31,18 @@ public class UserAndAdminModuleApplication {
     public static void main(String[] args) {
       SpringApplication.run(UserAndAdminModuleApplication.class, args);
     }
+    
+    @Bean
+	public WebMvcConfigurer corsConfiguration() {
+		
+		return new WebMvcConfigurer() {
+			
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("http://localhost:4200", "http://www.myapp.com");
+			}
+		};
+	}
 
    
 }

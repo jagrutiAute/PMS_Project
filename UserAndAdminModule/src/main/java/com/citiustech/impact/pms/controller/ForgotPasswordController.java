@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.citiustech.impact.pms.service.ForgotPassService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class ForgotPasswordController {
 
 	@Autowired

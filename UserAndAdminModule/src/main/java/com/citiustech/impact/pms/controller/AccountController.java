@@ -18,7 +18,6 @@ import com.citiustech.impact.pms.repository.UserRepository;
 import com.citiustech.impact.pms.service.PatientService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class AccountController {
 
 	static Logger log = Logger.getLogger(AccountController.class.getName());
@@ -41,7 +40,7 @@ public class AccountController {
 
 	@GetMapping("/getUser/{email}")
 	public ResponseEntity<Users> getUser(@PathVariable String email) {
-
+		
 		return new ResponseEntity<Users>(userRepo.findByEmail(email), HttpStatus.OK);
 
 	}
