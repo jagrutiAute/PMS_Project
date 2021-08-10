@@ -9,11 +9,10 @@ import { HospitalUser } from '../HospitalUser';
   styleUrls: ['./hospital-users.component.css']
 })
 export class HospitalUsersComponent implements OnInit {
-  status: string[] = ["Active", "Blocked", "Inactive"];
 
-  users: HospitalUser[];
+  husers: HospitalUser[];
 
-  id: number
+  id: any
   user: HospitalUser
 
   constructor(
@@ -43,7 +42,8 @@ export class HospitalUsersComponent implements OnInit {
   reloadData() {
     this.service.getAllHospitalUsers().subscribe(
       (data) => {
-        this.users = data
+        this.husers = data
+        console.log(this.husers)
       },
       (error) => {
         console.log(error)
@@ -51,7 +51,7 @@ export class HospitalUsersComponent implements OnInit {
     )
   }
 
-  updateUser(id: number) {
+  updateUser(id: any) {
     this.router.navigate(['/admin-dashboard/hospital-users/update-user', id])
   }
 
@@ -71,7 +71,7 @@ export class HospitalUsersComponent implements OnInit {
   }
 
   updateForm() {
-    this.service.updateHospitalUser(this.user.id, this.user).subscribe((res) => {
+    this.service.updateHospitalUser(this.user.employeeid, this.user).subscribe((res) => {
       console.log(res)
       alert("User Updated Successfully...")
       // this.router.navigateByUrl("/admin-dashboard/hospital-users")
@@ -86,7 +86,7 @@ export class HospitalUsersComponent implements OnInit {
 
   }
 
-  deleteUser(id: number) {
+  deleteUser(id: any) {
     this.service.deleteHospitalUser(id).subscribe(
       res => {
         // this.users = this.users.filter(user => user.id !== id);

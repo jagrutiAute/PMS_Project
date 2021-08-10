@@ -36,15 +36,15 @@ export class UpdateHospitalUserComponent implements OnInit {
     )
   }
 
-  submitForm() {
-    this.service.updateHospitalUser(this.id, this.user).subscribe((res) => {
-      console.log(res)
-      alert("User Updated Successfully...")
-      this.router.navigateByUrl("/admin-dashboard/hospital-users")
-    },
-      (error) => {
-        console.log(error)
-      }
-    )
-  }
+  // submitForm() {
+  //   this.service.updateHospitalUser(this.id, this.user).subscribe((res) => {
+  //     console.log(res)
+  //     alert("User Updated Successfully...")
+  //     this.router.navigateByUrl("/admin-dashboard/hospital-users")
+  //   },
+  //     (error) => {
+  //       console.log(error)
+  //     }
+  //   )
+  // }
 }
