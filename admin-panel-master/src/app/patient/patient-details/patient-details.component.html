@@ -1,0 +1,203 @@
+<div class="container bootstrap snippet">
+
+    <div class="row">
+
+        <!--/col-3-->
+        <div class="col-sm-9">
+            <!-- <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" routerLink="/patient-details">Patient Details</a></li>
+                <li><a data-toggle="tab" routerLink="/emergency-contact-info">Emergency Contact Info</a></li>
+                <li><a data-toggle="tab" href="#settings">Allergy Details</a></li>
+            </ul> -->
+
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+
+                    <form class="form" [formGroup]="patientDetailsForm" action="##" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name">
+                                    <h4>First name</h4>
+                                </label> 
+                                <input type="text" class="form-control" [ngStyle]="{'color':'black', 'font-size':'17px'}" [(ngModel)]="patientDetails.firstName"
+                                    formControlName="firstName" 
+                                    [class.is-invalid]="f.firstName.touched && f.firstName.invalid" readonly />
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="last_name">
+                                    <h4>Last name</h4>
+                                </label>
+                                <input type="text" class="form-control" name="last_name" id="last_name"
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}"  [(ngModel)]="patientDetails.lastName" formControlName="lastName"
+                                    placeholder="last name" title="enter your last name if any." readonly>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="phone">
+                                    <h4>Date of birth</h4>
+                                </label>
+                                <input type="text" class="form-control" name="dob" placeholder="enter date of birth"
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}"   [(ngModel)]="patientDetails.dateOfBirth" formControlName="dateOfBirth"
+                                    title="Date of Birth" readonly>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="phone">
+                                    <h4>Age</h4>
+                                </label>
+                                <input type="text" class="form-control" name="age" placeholder="enter age"
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}"  [(ngModel)]="patientDetails.age" formControlName="age" title="Age" readonly>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Gender </h4>
+                                </label><br>
+                               
+                                <!-- <input type="radio" id="female" name="gender" value="Female" formControlName="gender">
+                                <label for="female">Female</label>&nbsp;&nbsp;
+                                <input type="radio" id="male" name="gender" value="Male" formControlName="gender">
+                                <label for="male">Male</label> -->
+                                <input type="text" class="form-control" 
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}"  [(ngModel)]="patientDetails.gender" formControlName="gender" readonly>
+
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password">
+                                    <h4>Language Known</h4>
+                                </label>
+                                <input type="text" class="form-control" name="Language" id="password"
+                                [ngStyle]="{'color':'black', 'font-size':'17px'}" [(ngModel)]="patientDetails.languageKnown" formControlName="languageKnown"
+                                    placeholder="Language" title="Language Known.">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="race">
+                                    <h4>Race</h4>
+                                </label>
+                                <!-- <input type="text" class="form-control"  
+                                [(ngModel)]="patientDetails.race"  formControlName="race" placeholder="Race" title="race"> -->
+                               <select id="location" class="form-control" formControlName="race" [ngStyle]="{'color':'black', 'font-size':'12px'}" [(ngModel)]="patientDetails.race.id">
+
+                                                                      
+
+
+                                       <option *ngFor="let race of races" value="{{race.id}}">
+
+                                            {{race.name}}
+
+                                        </option>
+                                    </select>
+
+                                   
+                                
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password2">
+                                    <h4>Ethinicity</h4>
+                                </label>
+                                <!-- <input type="text" class="form-control" [(ngModel)]="patientDetails.ethinicity"
+                                    formControlName="ethinicity" placeholder="Ethinicity" title="Ethinicity."> -->
+
+                                    <select id="location" class="form-control" formControlName="ethinicity" [ngStyle]="{'color':'black', 'font-size':'12px'}" [(ngModel)]="patientDetails.ethinicity.id">
+
+                                                                           
+                                        
+
+                                        <option *ngFor="let ethinicity of ethinicities" value="{{ethinicity.id}}">
+ 
+                                             {{ethinicity.name}}
+ 
+                                         </option>
+                                     </select>
+
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email">
+                                    <h4>Email</h4>
+                                </label>
+                                <input type="email" class="form-control" name="email" id="email" formControlName="email"
+                                [ngStyle]="{'color':'black', 'font-size':'15px'}"  [(ngModel)]="patientDetails.user.email" placeholder="you@email.com"
+                                    title="enter your email." >
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email">
+                                    <h4>Home Address</h4>
+                                </label>
+                                <input type="email" class="form-control" id="location" placeholder="Home Address"
+                                [ngStyle]="{'color':'black', 'font-size':'15px'}"  [(ngModel)]="patientDetails.homeAddress" formControlName="homeAddress"
+                                    title="enter a location">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Contact Number</h4>
+                                </label>
+                                <input type="text" class="form-control" name="mobile" id="mobile"
+                                [ngStyle]="{'color':'black', 'font-size':'15px'}" [(ngModel)]="patientDetails.user.phoneNumber" formControlName="contactNumber"
+                                    placeholder="enter mobile number" title="Contact Number." >
+                            </div>
+                        </div>
+                        <br>
+
+
+
+
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit" (click)="updatePatientDetails()"><i
+                                        class="glyphicon glyphicon-ok-sign"></i> Save</button>
+
+                            </div>
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </div>
