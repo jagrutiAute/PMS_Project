@@ -9,29 +9,34 @@
     <table class="table table-bordeles table-hover">
         <thead class="thead thead-light">
             <tr>
-                <th>Id</th>
+                <th>Employee Id</th>
+                <th>Title</th>
                 <th>Name</th>
+                <th>Role</th>
                 <th>Date of Joining</th>
-                <th>Status</th>
+                <th>Email</th>
                 <th></th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
-                <td>{{user.firstName}} {{user.lastName}}</td>
-                <td>{{user.dateOfJoining}}</td>
-                <td>{{user.status}}</td>
+            <tr *ngFor="let huser of husers">
+                <td>{{huser.employeeid}}</td>
+                <td>{{huser.title}}</td>
+                <td>{{huser.firstName}} {{huser.lastName}}</td>
+                <td>{{huser.user.role.roleName}}</td>
+                <td>{{huser.date_of_birth}}</td>
+                <td>{{huser.user.email}}</td>
                 <td>
-                    <button class="btn btn-block btn-primary btn-lg" (click)="updateUser(user.id)">Edit</button>
+                    <button class="btn btn-block btn-primary btn-lg" (click)="updateUser(user.employeeid)">Edit</button>
                 </td>
                 <td>
-                    <button (click)="updateUser1(user.id)" class="btn btn-block btn-primary btn-lg" data-toggle="modal"
-                        data-target="#myModal">Update</button>
+                    <!-- <button (click)="updateUser1(user.id)" class="btn btn-block btn-primary btn-lg" data-toggle="modal"
+                        data-target="#myModal">Update</button> -->
+                        
                 </td>
                 <td>
-                    <button class="btn btn-block btn-danger btn-lg" (click)="deleteUser(user.id)">Delete</button>
+                    <button class="btn btn-block btn-danger btn-lg" (click)="deleteUser(user.employeeid)">Delete</button>
                 </td>
             </tr>
         </tbody>
@@ -43,12 +48,12 @@
     </button> -->
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <div class="modal-content"> -->
                 <!-- <form (ngSubmit)="updateForm()"> -->
-                    <form>
+                    <!-- <form>
 
                     <div class="modal-header">
                         <h4 class="modal-title" id="exampleModalLongTitle">Update Hopital User</h4>
@@ -101,5 +106,5 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

@@ -1,0 +1,46 @@
+
+.w1
+{
+    height: 40px !important;
+    width: 150% !important;
+    
+}
+table
+{
+    margin-top: 15px;
+}
+
+.btn_size
+{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 40px !important;
+    width: 30% !important;
+    
+}
+div .radx
+{
+    margin: 15px;
+    padding: 10px;
+    display: inline-block;
+}
+
+ .title-font
+{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+div .div-main
+{
+    margin-bottom: 0%;
+}
+
+.asterisk_input::after {
+    content:" *"; 
+    color: #e32;
+    position: absolute; 
+    margin: -45px 0px 0px -50px; 
+    font-size: xx-large; 
+    padding: 0px 0px 0 200px;
+}
