@@ -4,10 +4,11 @@ import { HospitalUsersComponent } from './hospital-users/hospital-users.componen
 import { PatientUsersComponent } from './patient-users/patient-users.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
-import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-users.component';
+//import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-users.component';
 import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.component';
 import { CreateHospitalUserComponent } from './create-hospital-user/create-hospital-user.component';
 import { UpdateHospitalUserComponent } from './update-hospital-user/update-hospital-user.component';
+import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-users.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 export var adminroutes: Route[] = [

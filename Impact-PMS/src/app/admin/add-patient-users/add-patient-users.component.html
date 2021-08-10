@@ -6,29 +6,26 @@
   <br />
   <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label class="form-label">Id: </label>
-      <input type="text" id="id" class="form-control" name="id" [(ngModel)]="patient.id" required />
-    </div>
+    
 
     <div class="form-group">
       <label class="form-label">FirstName: </label>
-      <input type="text" id="firstname" class="form-control" name="firstname" [(ngModel)]="patient.firstname" required />
+      <input type="text" id="firstName" class="form-control" name="firstName" [(ngModel)]="patient.firstName" required />
     </div>
 
     <div class="form-group">
       <label class="form-label">LastName: </label>
-      <input type="text" id="lastname" class="form-control" name="lastname" [(ngModel)]="patient.lastname" required />
+      <input type="text" id="lastName" class="form-control" name="lastName" [(ngModel)]="patient.lastName" required />
     </div>
 
     <div class="form-group">
       <label class="form-label">Date of Joining: </label>
-      <input type="date" id="date_of_joining" class="form-control" name="date_of_joining" [(ngModel)]="patient.date_of_joining" required />
+      <input type="date" id="dateOfBirth"  class="form-control" name="dateOfBirth" [(ngModel)]="patient.dateOfBirth" required />
     </div>
 
     <div class="form-group">
       <label class="form-label">Status: </label>
-      <select name="status" id="status" class="form-control" [(ngModel)]="patient.status" required>
+      <select name="gender" id="gender" class="form-control" [(ngModel)]="patient.gender" required>
         <option value="">--Select--</option>
         <option *ngFor="let status of status" value="{{status}}">{{status}}</option>
     </select>
@@ -41,5 +38,6 @@
 
 <div [hidden]="!submitted">
   <h4>You submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+ 
 </div>
+

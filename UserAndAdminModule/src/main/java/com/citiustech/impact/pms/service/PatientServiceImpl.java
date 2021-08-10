@@ -2,6 +2,8 @@
 package com.citiustech.impact.pms.service;
 
 import java.util.Calendar;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +21,10 @@ public class PatientServiceImpl implements PatientService {
 
 	@Autowired
 	private UserRepository userRepository;
-
+	
+	@Autowired
+	private PatientProfileRepository patientProfileRepository;
+	
 	@Autowired
 	private PatientProfileRepository userProfileRepository;
 
@@ -93,6 +98,23 @@ public class PatientServiceImpl implements PatientService {
 
 	public static String encryption(String email, String password) {
 		return org.apache.commons.codec.digest.DigestUtils.sha256Hex(email + password);
+	}
+
+	@Override
+	public List<PatientProfile> gettingUserDetails() {
+		
+		return patientProfileRepository.findAll();	}
+
+	@Override
+	public Users updatingStatus(Users user) {
+		
+		return userRepository.save(user);
+	}
+
+	@Override
+	public Optional<PatientProfile> gettinPatientById(int id) {
+		
+		return patientProfileRepository.findById((long) id);
 	}
 
 }

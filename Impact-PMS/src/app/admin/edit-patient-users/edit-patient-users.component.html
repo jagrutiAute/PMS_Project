@@ -4,29 +4,26 @@
     <div class="card-header"> <h1>Edit & Update Patient Details</h1></div>
      <br />
      <form (ngSubmit)="onSubmit()">
-       <div class="form-group">
-         <label class="form-label">Id: </label>
-         <input type="text" id="id" name="id"  class="form-control" [(ngModel)]="patient.id" required/>
-       </div>
+      
    
        <div class="form-group">
          <label class="form-label">FirstName: </label>
-         <input type="text" id="firstname" name="firstname" class="form-control"  [(ngModel)]="patient.firstname" required/>
+         <input type="text" id="firstName" name="firstName" class="form-control"  [(ngModel)]="patient.firstName" required/>
        </div>
 
        <div class="form-group">
         <label class="form-label">LastName: </label>
-        <input type="text" id="lastName" name="lastname" class="form-control" [(ngModel)]="patient.lastname" required />
+        <input type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="patient.lastName" required />
       </div>
  
        <div class="form-group">
          <label class="form-label">Date of Joining: </label>
-         <input type="date" id="date_of_joining" name="date_of_joining" class="form-control" [(ngModel)]="patient.date_of_joining" required/>
+         <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" [(ngModel)]="patient.dateOfBirth" required/>
        </div>
  
        <div class="form-group">
          <label class="form-label">Status: </label>
-         <select name="status" id="status" class="form-control" [(ngModel)]="patient.status" required>
+         <select name="gender" id="gender" class="form-control" [(ngModel)]="patient.gender" required>
           <option value="">--Select--</option>
           <option *ngFor="let status of status" value="{{status}}">{{status}}</option>
       </select>

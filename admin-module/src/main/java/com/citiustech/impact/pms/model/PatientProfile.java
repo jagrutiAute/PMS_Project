@@ -1,47 +1,34 @@
 
 package com.citiustech.impact.pms.model;
 
-import java.io.Serializable;
+
 import java.util.Calendar;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-@Entity
-@Table(name = "patient")
-public class PatientProfile  {
-	@Id
-	@Column(name = "mrn")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PatientProfile {
+	
 	private Long id;
 
 	// @Enumerated(EnumType.STRING)
 	// @Column(length = 10)
-	@Column(name = "title")
+	
 	private String title;
 
-	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name = "last_name")
 	private String lastName;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "date_of_birth")
 	private Calendar dateOfBirth;
 
-	@Column(name = "age")
 	private int age;
+	
+     private String gender;
+
+	private Users user;
+
+	private int ethnicity;
+
+	private int race;
 
 	public int getAge() {
 		return age;
@@ -59,18 +46,8 @@ public class PatientProfile  {
 		this.gender = gender;
 	}
 
-	@Column(name = "gender")
-	private String gender;
-
-	@JoinColumn(name = "users_id")
-	@OneToOne(cascade = CascadeType.PERSIST)
-	private Users user;
-
-	@Column(name = "ethnicity_master_id")
-	private int ethnicity;
-
-	@Column(name = "race_master_id")
-	private int race;
+	
+	
 
 	public int getEthnicity() {
 		return ethnicity;

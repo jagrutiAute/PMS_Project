@@ -10,13 +10,18 @@ export class AdminDashBoardService {
 
 
     
-  private baseUrl = 'http://localhost:8081';  
+  private baseUrl = 'http://localhost:8088';  
   
   constructor(private _http: HttpClient) { }
 
-  getPatient(): Observable<any> {
+  // getPatient(): Observable<Patient[]> {
+  //   //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
+  //   return this._http.get<Patient[]>(this.baseUrl + '/admin/patient');
+  // }
+
+  getPatient1(): Observable<Patient[]> {
     //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
-    return this._http.get(this.baseUrl + '/patient');
+    return this._http.get<Patient[]>(this.baseUrl + '/patient');
   }
 
   getPatientById(id:number): Observable<any>{
@@ -35,7 +40,7 @@ export class AdminDashBoardService {
   }
 
   deleteEmployee(id: number): Observable<any> {
-    return this._http.delete(`${this.baseUrl}/patient/${id}`, { responseType: 'text' });
+    return this._http.delete(`${this.baseUrl}/admin/patient/${id}`, { responseType: 'text' });
   }
 
 

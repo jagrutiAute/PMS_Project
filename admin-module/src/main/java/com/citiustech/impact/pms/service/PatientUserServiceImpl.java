@@ -14,6 +14,7 @@ import com.citiustech.impact.pms.repository.PatientUserRepository;
 @Service
 public class PatientUserServiceImpl implements PatientUserService {
 
+	
 	@Autowired
 	private PatientUserRepository patientUserRepository;
 	
@@ -22,7 +23,7 @@ public class PatientUserServiceImpl implements PatientUserService {
 		
 		return patientUserRepository.findAll();
 	}
-
+	/*
 	@Override
 	public Optional<PatientUser> gettinPatientById(int id) {
 		
@@ -56,7 +57,7 @@ public class PatientUserServiceImpl implements PatientUserService {
 		
 	}
 
-	
+	*/
 
 	
 
