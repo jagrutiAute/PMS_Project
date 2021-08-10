@@ -12,7 +12,6 @@ import com.citiustech.impact.pms.DTO.ProviderRegistrationDTO;
 import com.citiustech.impact.pms.service.ProviderRegistrationService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class ProviderRegistrationController {
 
 	@Autowired
