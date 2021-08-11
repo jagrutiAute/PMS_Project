@@ -19,14 +19,19 @@ public class HospitalUserService {
 		return users;
 	}
 
-	public ProviderRegistration getUserByEmpId(String id) {
-		ProviderRegistration user = hospitalRepo.findByEmployeeid(id);
+	public List<ProviderRegistration> getUserByEmpId(String id) {
+		List<ProviderRegistration> user = hospitalRepo.findByEmployeeid(id);
 		return user;
 	}
 
-//	public List<ProviderRegistration> getUserByName(String fname, String lname) {
-//		List<ProviderRegistration> users = hospitalRepo.findByFirstnameOrLastname(fname, lname)
-//		return users;
-//	}
+	public List<ProviderRegistration> getUserByName(String fname, String lname) {
+		List<ProviderRegistration> users = hospitalRepo.findByFirstNameOrLastName(fname, lname);
+		return users;
+	}
+	
+	public List<ProviderRegistration> getUserByName1(String fname, String lname) {
+		List<ProviderRegistration> users = hospitalRepo.findByFirstNameAndLastName(fname, lname);
+		return users;
+	}
 
 }
