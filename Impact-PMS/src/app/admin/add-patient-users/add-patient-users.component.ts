@@ -12,8 +12,8 @@ import { Patient } from '../patient';
   templateUrl: './add-patient-users.component.html',
   styleUrls: ['./add-patient-users.component.css']
 })
-export class AddPatientUsersComponent implements OnInit {
-
+export class AddPatientUsersComponent  {
+/*
   status: string[] = ["Active", "Blocked", "Disable"];
 
   patient: Patient = new Patient();
@@ -47,5 +47,5 @@ export class AddPatientUsersComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['admin-dashboard/patient-users']);
-  }
+  }*/
 }

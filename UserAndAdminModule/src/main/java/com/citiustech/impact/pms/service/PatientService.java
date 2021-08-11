@@ -16,9 +16,11 @@ public interface PatientService {
 
 	public List<PatientProfile> gettingUserDetails();
 
-	public Users updatingStatus(Users user);
+	public Users updatingStatus(int id, String status);
 
 	public Optional<PatientProfile> gettinPatientById(int id);
+
+	
 
 
 	

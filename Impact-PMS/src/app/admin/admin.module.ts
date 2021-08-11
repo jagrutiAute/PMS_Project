@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HospitalUsersComponent } from './hospital-users/hospital-users.component';
 import { PatientUsersComponent } from './patient-users/patient-users.component';
@@ -13,6 +13,8 @@ import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.
 import { CreateHospitalUserComponent } from './create-hospital-user/create-hospital-user.component';
 import { UpdateHospitalUserComponent } from './update-hospital-user/update-hospital-user.component';
 import { HospitalUserService } from './hospital-user.service';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,10 @@ import { HospitalUserService } from './hospital-user.service';
     RouterModule.forChild(adminroutes),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2OrderModule,
+    NgxPaginationModule
+    
   ],
    exports: [
     HospitalUsersComponent,

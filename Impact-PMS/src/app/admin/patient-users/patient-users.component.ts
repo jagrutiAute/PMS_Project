@@ -20,6 +20,8 @@ export class PatientUsersComponent implements OnInit {
  // patients: Observable<Patient[]>;
   patients: Patient[];
   user: User1;
+  firstName: any;
+  p: number = 1;
   constructor(private adminDashBoardService: AdminDashBoardService,
     private router: Router) {}
 
@@ -59,6 +61,22 @@ export class PatientUsersComponent implements OnInit {
     // console.log(this.patients);
   }
 
+
+  search(){
+    if(this.firstName == ""){
+      this.reloadData();
+    }else
+      this.patients = this.patients.filter(res=>{
+      return res.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+    }) 
+  }
+
+  key: string = 'id';
+  reverse:boolean = false;
+  sort(key: string){
+     this.key = key;
+     this.reverse = !this.reverse;
+  }
  /* deletePatient(id: number) {
     this.adminDashBoardService.deleteEmployee(id)
       .subscribe(

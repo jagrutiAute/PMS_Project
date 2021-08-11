@@ -1,13 +1,6 @@
-table {
-    width: 100%;
-    
-  }
-  
-  th {
-    height: 100%;
-  }
 
-  .search-container button {
+
+  /* .search-container button {
     float: right;
     padding: 6px 10px;
     margin-top: 8px;
@@ -17,23 +10,29 @@ table {
     border: none;
     cursor: pointer;
 
-  }
+  } */
   
 
-  .search-container button:hover {
+  /* .search-container button:hover {
     background:#ccc; 
-  }
+  } */
 
+  
   input[type=text] {
     padding: 6px;
-    margin-top: 8px;
+    margin-bottom: 16px;
     font-size: 17px;
-    border:ridge;
+    text-align: left;
+    size: 20px;
+    height: 35px;
+    width: 250px;
+
+    
   }
-  a:hover {
+  /* a:hover {
     background-color: #ddd;
     color: black;
-  }
+  } */
 
   
-  * {box-sizing: border-box;}  
+  /* * {box-sizing: border-box;}   */

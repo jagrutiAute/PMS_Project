@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.citiustech.impact.pms.DTO.PatientDTO;
+import com.citiustech.impact.pms.model.ISActive;
 import com.citiustech.impact.pms.model.PatientProfile;
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.repository.PatientProfileRepository;
@@ -106,9 +107,13 @@ public class PatientServiceImpl implements PatientService {
 		return patientProfileRepository.findAll();	}
 
 	@Override
-	public Users updatingStatus(Users user) {
+	public Users updatingStatus(int id, String status) {
 		
-		return userRepository.save(user);
+	Users users = userRepository.findById((long) id).get();
+	System.out.println("113="+users);
+	users.setIsActive(ISActive.valueOf(status));
+	System.out.println("115="+users);
+		return userRepository.save(users);
 	}
 
 	@Override
@@ -116,5 +121,7 @@ public class PatientServiceImpl implements PatientService {
 		
 		return patientProfileRepository.findById((long) id);
 	}
+
+	
 
 }

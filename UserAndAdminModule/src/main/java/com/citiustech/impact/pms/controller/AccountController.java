@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.citiustech.impact.pms.DTO.PatientDTO;
+import com.citiustech.impact.pms.DTO.UsersDTO;
 import com.citiustech.impact.pms.model.ISActive;
 import com.citiustech.impact.pms.model.PatientProfile;
 import com.citiustech.impact.pms.model.Users;
@@ -25,6 +26,7 @@ import com.citiustech.impact.pms.repository.PatientProfileRepository;
 import com.citiustech.impact.pms.repository.UserRepository;
 import com.citiustech.impact.pms.service.PatientService;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class AccountController {
 
@@ -77,12 +79,16 @@ public class AccountController {
 		patientProfileRepository.deleteById((long) id);
 	}
 
-	@PutMapping("/patient/{id}")
-	public Users updateStatusPatientById(@RequestBody Users user) {
-		System.out.println(user);
-		
+	@PutMapping("/patient/{id}/{status}")
+	public Users updateStatusPatientById(@PathVariable int id, @PathVariable String status) {
+		System.out.println(id);
+		System.out.println(status);
+		//userDTO.getIsActive();
 		//ISActive isActive = user.getIsActive();
-		return patientService.updatingStatus(user);
+		patientService.updatingStatus(id, status);
+		return null;
 	}
+	
+	
 
 }

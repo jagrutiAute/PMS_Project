@@ -31,8 +31,8 @@ export var adminroutes: Route[] = [
                 path: 'patient-users',
                 children: [
                     { path: '', component: PatientUsersComponent },
-                    { path: 'edit-patient-users/:id', component: EditPatientUsersComponent },
-                    { path: 'add-patient-users', component: AddPatientUsersComponent }
+                    { path: 'edit-patient-users/:id', component: EditPatientUsersComponent }
+                    // { path: 'add-patient-users', component: AddPatientUsersComponent }
                 ]
 
             }

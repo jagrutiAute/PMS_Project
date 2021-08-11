@@ -34,9 +34,9 @@ export class AdminDashBoardService {
     return this._http.post(`${this.baseUrl}/patient`, patient, { responseType: 'text' as 'json' }); 
   }
 
-  updatePatintById(id:number, value: any): Observable<any>{
-
-    return this._http.put(`${this.baseUrl}/patient/${id}`, value, { responseType: 'text' as 'json' }); 
+  updatePatintById(id:number, status: String): Observable<any>{
+console.log(id+"    "+status);
+    return this._http.put(`${this.baseUrl}/patient/${id}/${status}`, { responseType: 'text' as 'json' }); 
   }
 
   deleteEmployee(id: number): Observable<any> {

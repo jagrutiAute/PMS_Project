@@ -16,7 +16,7 @@ import { User1 } from '../user1';
 })
 export class EditPatientUsersComponent implements OnInit {
 
-  status: string[] = ["Active", "Blocked"];
+  status: string[] = ["ACTIVE", "BLOCK"];
   id: number;
   patient: Patient;
   user: User1;
@@ -37,7 +37,7 @@ export class EditPatientUsersComponent implements OnInit {
   }
 
   updateEmployee() {
-    this.adminDashBoardService.updatePatintById(this.id, this.patient)
+    this.adminDashBoardService.updatePatintById(this.patient.user.id, this.patient.user.isActive)
       .subscribe(data => {
         console.log(data);
         this.patient = new Patient();
