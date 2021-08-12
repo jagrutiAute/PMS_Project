@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.citiustech.impact.pms.exception.RoleNotFoundException;
 import com.citiustech.impact.pms.model.Role;
 import com.citiustech.impact.pms.repository.RoleRepository;
 
@@ -18,7 +19,10 @@ public class RoleService {
 		
 		List<Role> roleList = roleRepository.findAll();
 		System.out.println(roleList);
+		if(!roleList.isEmpty())
 		return roleList;
+		else
+		 throw new RoleNotFoundException("Role Not FOund");
 	}
 
 }

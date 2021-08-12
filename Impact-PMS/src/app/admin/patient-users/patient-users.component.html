@@ -37,7 +37,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of patients | orderBy: key: reverse | paginate: {itemsPerPage:1,currentPage:p};">
+        <tr *ngFor="let patient of patients | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p};">
             <td>{{patient.id}}</td>
             <td>{{patient.title}}</td>
             <td> {{patient.firstName}} {{patient.lastName}}</td>
