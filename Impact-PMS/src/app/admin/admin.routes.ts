@@ -1,3 +1,4 @@
+import { NotesComponent } from './../user/notes/notes.component';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { HospitalUsersComponent } from './hospital-users/hospital-users.component';
@@ -44,11 +45,14 @@ export var adminroutes: Route[] = [
                 path: 'medication',
                 children: [
                     { path: '', component: MedicationComponent }
-                   // { path: 'add-medication', component: AddMedicationComponent }
+                    // { path: 'add-medication', component: AddMedicationComponent }
 
 
                 ]
+            },
 
+            {
+                path: 'notes', component: NotesComponent
 
             },
             {

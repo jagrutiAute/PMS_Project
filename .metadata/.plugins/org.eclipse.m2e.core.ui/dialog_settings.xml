@@ -2,8 +2,9 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="C:\Users\farheenb\Desktop\Angular8-SpringBoot-CRUD-Tutorial\springboot2-jpa-crud-example"/>
 			<item value="C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\UserAndAdminModule"/>
+			<item value="C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\eureka-server"/>
+			<item value="C:\Users\farheenb\Desktop\Angular8-SpringBoot-CRUD-Tutorial\springboot2-jpa-crud-example"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

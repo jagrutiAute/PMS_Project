@@ -26,17 +26,22 @@ public class HospitalUserController {
 		return new ResponseEntity<List<ProviderRegistration>>(husers, HttpStatus.OK);
 	}
 
-	@GetMapping("hospital-users/{eid}")
-	public ResponseEntity<ProviderRegistration> getUserByEId(@PathVariable String eid) {
-		ProviderRegistration huser = hospitalService.getUserByEmpId(eid);
-		return new ResponseEntity<ProviderRegistration>(huser, HttpStatus.OK);
+	@GetMapping("hospital-users/id/{eid}")
+	public ResponseEntity<List<ProviderRegistration>> getUserByEId(@PathVariable String eid) {
+		List<ProviderRegistration> huser = hospitalService.getUserByEmpId(eid);
+		return new ResponseEntity<List<ProviderRegistration>>(huser, HttpStatus.OK);
 	}
 
-//	@GetMapping("hospital-users/name/{fname}{lname}")
-//	public ResponseEntity<List<ProviderRegistration>> getUserByName(@PathVariable String fname,
-//			@PathVariable String lname) {
-//		List<ProviderRegistration> husers = hospitalService.getUserByName(fname, lname);
-//		return new ResponseEntity<List<ProviderRegistration>>(husers, HttpStatus.OK);
-//	}
+	@GetMapping("hospital-users/name/{name}")
+	public ResponseEntity<List<ProviderRegistration>> getUserByName(@PathVariable String name) {
+		List<ProviderRegistration> husers = hospitalService.getUserByName(name, name);
+		return new ResponseEntity<List<ProviderRegistration>>(husers, HttpStatus.OK);
+	}
 
+	@GetMapping("hospital-users/name/{fname}/{lname}")
+	public ResponseEntity<List<ProviderRegistration>> getUserByName1(@PathVariable String fname,
+			@PathVariable String lname) {
+		List<ProviderRegistration> husers = hospitalService.getUserByName1(fname, lname);
+		return new ResponseEntity<List<ProviderRegistration>>(husers, HttpStatus.OK);
+	}
 }

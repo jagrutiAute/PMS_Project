@@ -13,7 +13,7 @@ export class UpdateHospitalUserComponent implements OnInit {
   status: string[] = ["Active", "Blocked", "Inactive"];
 
   id: number;
-  user: HospitalUser
+  user: HospitalUser[]
 
   constructor(
     private router: Router,
@@ -21,7 +21,7 @@ export class UpdateHospitalUserComponent implements OnInit {
     private service: HospitalUserService) { }
 
   ngOnInit(): void {
-    this.user = new HospitalUser()
+    // this.user = new HospitalUser()
 
     this.id = this.route.snapshot.params['uid'];
 

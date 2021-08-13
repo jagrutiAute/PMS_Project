@@ -1,3 +1,4 @@
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -25,7 +26,8 @@ export class RegistrationPatientComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: PatientService
+    private service: PatientService,
+    private toaster: ToasterService1
   ) { }
 
   
@@ -50,22 +52,25 @@ export class RegistrationPatientComponent implements OnInit {
 
 
   handleFormSubmit() {
-
    
-    let patient1: Patient = new Patient();
+     let patient1: Patient = new Patient();
 
     Object.assign(patient1, this.registerForm.value);
 
     this.service.getPatientRegister(patient1).subscribe(
       data => {
-
+       console.log("data "+data);
+      
         if(data=='user already exist')
         {
+   
           this.emailAlredyExist = "User Alredy Exist";
+          this.toaster.Warning("Email already exist");
         }
         else{
-          //this.emailAlredyExist = "";
-          alert("Your succesfully registered")
+          //alert("Your succesfully registered")
+          this.toaster.Success("Registered Successfully");
+   
           this.router.navigate(['']);
         }
 

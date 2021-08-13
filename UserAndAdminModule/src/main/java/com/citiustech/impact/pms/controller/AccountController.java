@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.citiustech.impact.pms.DTO.PatientDTO;
-import com.citiustech.impact.pms.DTO.UsersDTO;
 import com.citiustech.impact.pms.model.ISActive;
 import com.citiustech.impact.pms.model.PatientProfile;
 import com.citiustech.impact.pms.model.Users;

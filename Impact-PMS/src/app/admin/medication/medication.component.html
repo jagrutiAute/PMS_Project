@@ -41,9 +41,9 @@
     <tbody>
         <tr *ngFor="let medication of medications | orderBy: key: reverse | paginate: {itemsPerPage:15,currentPage:p};">
             <td>{{medication.applNo}}</td>
-            <td>{{medication.ProductNo}}</td>
+            <td>{{medication.productNo}}</td>
             <td> {{medication.form}}</td>
-            <td>{{medication.strengthString}}</td>
+            <td>{{medication.strength}}</td>
             <td>{{medication.referenceDrug}}</td>
             <td>{{medication.activeIngredient}}</td>
             <td>{{medication.referenceStandard}}</td>

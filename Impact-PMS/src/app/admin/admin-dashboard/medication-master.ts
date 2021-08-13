@@ -1,9 +1,9 @@
 export class Medication {
 
      applNo:String;;
-	private  ProductNo:String;
+	private  productNo:String;
 	private  form:String;
-	private  strengthString:number;
+	private  strength:number;
 	private  referenceDrug:String;
 	private drugName:String;
 	private  activeIngredient:String;

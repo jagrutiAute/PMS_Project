@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/Login';
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { LoginService } from '../login.service';
 import { User } from '../user';
 
@@ -23,7 +24,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: LoginService
+    private service: LoginService,
+    private toaster: ToasterService1
   ) { }
 
 
@@ -71,16 +73,18 @@ export class LoginComponent {
         if(data =="SUCCESS")
         {
           
-          alert('Login successfully');
+          //alert('Login successfully');
+         this.toaster.Success("Login successfully");
           this.router.navigateByUrl('app-body-layout/patient-details');
           console.log("Login successfully..")
+
         }
         if(data=="UsernamePass"){
             this.attempts=6;
         }
 
         if(data=="BLOCKED"){
-
+           this.toaster.Error("Account is Blocked.Please contact Administrator");
           this.attempts =4;
           return ;
         }

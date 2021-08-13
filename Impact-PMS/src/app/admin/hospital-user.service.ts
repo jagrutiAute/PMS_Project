@@ -13,27 +13,27 @@ export class HospitalUserService {
 
   constructor(private _http: HttpClient) { }
 
-  createHospitalUser(user: any): Observable<String> {
-    return this._http.post<String>(this.hospitalUrl + '/registerProvider', user, { responseType: 'text' as 'json' })
-  }
-
   getAllRoles(): Observable<Role[]> {
     return this._http.get<Role[]>(this.rolesUrl);
-  }
-
-  getHospitalUserById(id: any): Observable<HospitalUser> {
-    return this._http.get<HospitalUser>(this.hospitalUrl + '/' + id)
   }
 
   getAllHospitalUsers(): Observable<HospitalUser[]> {
     return this._http.get<HospitalUser[]>(this.hospitalUrl + '/hospital-users')
   }
 
-  updateHospitalUser(id: any, user: any): Observable<String> {
-    return this._http.put<String>(this.hospitalUrl + '/update/' + id, user, { responseType: 'text' as 'json' })
+  createHospitalUser(user: any): Observable<String> {
+    return this._http.post<String>(this.hospitalUrl + '/registerProvider', user, { responseType: 'text' as 'json' })
   }
 
-  deleteHospitalUser(id: any) {
-    return this._http.delete(this.hospitalUrl + '/delete/' + id)
+  getHospitalUserById(id: any): Observable<HospitalUser[]> {
+    return this._http.get<HospitalUser[]>(this.hospitalUrl + '/hospital-users/id/' + id)
+  }
+
+  getHospitalUserByName(name: any): Observable<HospitalUser[]> {
+    return this._http.get<HospitalUser[]>(this.hospitalUrl + '/hospital-users/name/' + name)
+  }
+
+  updateHospitalUser(id: any, user: any): Observable<String> {
+    return this._http.put<String>(this.hospitalUrl + '/update/' + id, user, { responseType: 'text' as 'json' })
   }
 }
