@@ -1,3 +1,4 @@
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -20,7 +21,6 @@ export class RegistrationProviderComponent implements OnInit {
  statusofEmployeeId:String ;
   roles: Role[];
 
-  
   ngOnInit() {
     this.futureDateDisable();
     this.service.getAllRoles().subscribe(
@@ -35,6 +35,7 @@ export class RegistrationProviderComponent implements OnInit {
     );
   }
   
+
   futureDateDisable() {
     var date: any = new Date();
     var todayDate: any = date.getDate();
@@ -57,7 +58,9 @@ export class RegistrationProviderComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: LoginService
+    private service: LoginService,
+    private toaster: ToasterService1
+
   ) { }
 
   signUpFormProvider = this.fb.group({
@@ -102,14 +105,14 @@ export class RegistrationProviderComponent implements OnInit {
     Object.assign(user, this.signUpFormProvider.value);
     //console.log("USers:::::: "+this.signUpFormProvider.get('username').value);
     console.log("USers:::::: "+user.username);
+  
     this.service.getRegProvider(user).subscribe(
       data => {
        
-          console.log("data is" + data);
-        
           this.statusofEmployeeId =data;
           if(this.statusofEmployeeId==='SUCCESS'){
-            alert('registration successful');
+            this.toaster.Success("Registration Successful");
+            //alert('registration successful');
             window.location.reload();
           }
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { PatientVisitModule } from './patient-visit/patient-visit.module';
 import { NbThemeModule } from '@nebular/theme';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { ToasterService1 } from './toaster-service.service';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -29,9 +32,11 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     PatientVisitModule,
     PatientModule,
     NbThemeModule.forRoot(),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ToasterService1],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

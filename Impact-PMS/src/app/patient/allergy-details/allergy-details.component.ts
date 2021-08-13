@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarEvent } from 'angular-calendar';
 
 @Component({
   selector: 'app-allergy-details',
@@ -11,5 +12,5 @@ export class AllergyDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+calender: CalendarEvent;
 }
