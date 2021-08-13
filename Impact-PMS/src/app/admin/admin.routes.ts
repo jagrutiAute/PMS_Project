@@ -9,6 +9,9 @@ import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.
 import { CreateHospitalUserComponent } from './create-hospital-user/create-hospital-user.component';
 import { UpdateHospitalUserComponent } from './update-hospital-user/update-hospital-user.component';
 import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-users.component';
+import { MedicationComponent } from './medication/medication.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { AddMedicationComponent } from './add-medication/add-medication.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 export var adminroutes: Route[] = [
@@ -32,11 +35,32 @@ export var adminroutes: Route[] = [
                 children: [
                     { path: '', component: PatientUsersComponent },
                     { path: 'edit-patient-users/:id', component: EditPatientUsersComponent }
+
                     // { path: 'add-patient-users', component: AddPatientUsersComponent }
                 ]
 
-            }
+            },
+            {
+                path: 'medication',
+                children: [
+                    { path: '', component: MedicationComponent }
+                   // { path: 'add-medication', component: AddMedicationComponent }
 
+
+                ]
+
+
+            },
+            {
+                path: 'patient-details',
+                children: [
+                    { path: '', component: PatientDetailsComponent }
+
+
+                ]
+
+
+            }
         ]
     }
     // {
@@ -48,4 +72,4 @@ export var adminroutes: Route[] = [
     // { path: 'edit-patient-users/:id', component: EditPatientUsersComponent }
     //          ]
     //         }
-  ];
+];

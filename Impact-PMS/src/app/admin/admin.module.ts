@@ -15,6 +15,9 @@ import { UpdateHospitalUserComponent } from './update-hospital-user/update-hospi
 import { HospitalUserService } from './hospital-user.service';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MedicationComponent } from './medication/medication.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { AddMedicationComponent } from './add-medication/add-medication.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EditPatientUsersComponent,
     AddPatientUsersComponent,
     CreateHospitalUserComponent,
-    UpdateHospitalUserComponent
+    UpdateHospitalUserComponent,
+    MedicationComponent,
+    PatientDetailsComponent,
+    AddMedicationComponent
     
   ],
   imports: [
