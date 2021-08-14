@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { Medication } from '../admin-dashboard/medication-master';
 import { AdminDashBoardService } from '../admin.service';
-import { Patient } from '../patient';
+
 import { User1 } from '../user1';
 
 @Component({
@@ -17,7 +19,9 @@ export class MedicationComponent implements OnInit {
   user: User1;
   applno: any;
   p: number = 1;
-  constructor(private adminDashBoardService: AdminDashBoardService,
+  patientsMedication: Medication[];
+   map =new Map();
+  constructor(private medicationService: AdminDashBoardService, private toaster: ToasterService1,
     private router: Router) {}
 
   ngOnInit() {
@@ -34,8 +38,10 @@ export class MedicationComponent implements OnInit {
 //   }
 // }
   reloadData() {
-     this.adminDashBoardService.gerMedication().subscribe((data1) => {
+    console.log("inside reload")
+     this.medicationService.gerMedication().subscribe((data1) => {
       this.medications= data1
+      
       console.log(data1)
     /*  for(let data in this.patients){
         this.patients[data];
@@ -59,13 +65,15 @@ export class MedicationComponent implements OnInit {
 
   search(){
     if(this.applno == ""){
-      this.reloadData();
+      //this.reloadData();
     }else
+    console.log("inside search else")
       this.medications = this.medications.filter(res=>{
       return res.applNo.toLocaleLowerCase().match(this.applno.toLocaleLowerCase());
     }) 
   }
 
+  // sorting
   key: string = 'id';
   reverse:boolean = false;
   sort(key: string){
@@ -86,7 +94,33 @@ export class MedicationComponent implements OnInit {
   //   this.router.navigate(['details', id]);
   // }
 
-  updatePatient(id: number){
-    this.router.navigate(['admin-dashboard/patient-users/edit-patient-users', id]);
+  
+  addMedication(medication: Medication){
+    //this.router.navigate(['admin-dashboard/patient-users/edit-patient-users', id]);
+   if(this.map.has(medication.applNo)){
+    this.toaster.Warning("already added")
+
+   } else
+  
+    this.map.set(medication.applNo, medication)
+
+    // getPatientIdFromSession
+  }
+
+  
+  deleteMedication(applNo: string){
+    this.map.delete(applNo)
+  }
+
+
+   // saveMedication
+  saveMedication(){
+  let r =  confirm("are you sure to save? ")
+
+  if(r==true){
+    this.router.navigate(['admin-dashboard/patient-users'])
+  }else
+  console.log("same page")
+    
   }
 }

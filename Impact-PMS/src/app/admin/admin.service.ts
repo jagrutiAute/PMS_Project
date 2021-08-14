@@ -44,10 +44,12 @@ console.log(id+"    "+status);
     return this._http.delete(`${this.baseUrl}/admin/patient/${id}`, { responseType: 'text' });
   }
 
-
   gerMedication(): Observable<Medication[]> {
     //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
     return this._http.get<Medication[]>(this.baseUrl + '/physician/medication');
+  
   }
 
+
+  
 }

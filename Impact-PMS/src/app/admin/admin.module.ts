@@ -18,6 +18,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MedicationComponent } from './medication/medication.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { AddMedicationComponent } from './add-medication/add-medication.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +45,7 @@ import { AddMedicationComponent } from './add-medication/add-medication.componen
     ReactiveFormsModule,
     Ng2OrderModule,
     NgxPaginationModule
+    
     
   ],
    exports: [
