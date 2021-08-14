@@ -13,6 +13,7 @@ import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-use
 import { MedicationComponent } from './medication/medication.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { AddMedicationComponent } from './add-medication/add-medication.component';
+import { SchedulingComponent } from './scheduling/scheduling.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 export var adminroutes: Route[] = [
@@ -63,6 +64,10 @@ export var adminroutes: Route[] = [
 
                 ]
 
+
+            },
+            {
+                path: 'scheduling', component: SchedulingComponent
 
             }
         ]
