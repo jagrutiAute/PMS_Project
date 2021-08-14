@@ -1,1 +1,70 @@
-<p>hospital-users works!</p>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container" style="font-size: 15px;">
+
+        <h3 style="text-align: center; font-size: 25px;">Hospital Users</h3>
+        <p style="text-align: right;">
+            <a routerLink="create-user" class="btn btn-success btn-lg">Add Hospital User</a>
+        </p>
+        <br>
+
+        <!-- <input class="form-control" type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()"
+            placeholder="Search using Employee ID or Name"> -->
+        <div class="search-container" style="width: 40%;">
+            <!-- <label class="control-label" style="font-size: 100px;">Search: </label> -->
+            <input type="text" placeholder=" Search using Employee First Name" class="form-control" name="firstName"
+                [(ngModel)]="firstName" (ngModelChange)="search()">
+        </div>
+        <br>
+
+        <form [formGroup]="searchForm" (ngSubmit)="searchNew()">
+            <div class="input-group" style="width: 40%;">
+                <input type="text" class="form-control md" formControlName="keyword"
+                    placeholder="Search using Employee ID or First Name or Last Name" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary btn-lg">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+        <br>
+
+        <table class="table table-borderless table-hover">
+            <thead class="thead thead-light">
+                <tr>
+                    <th (click)="sort('employeeid')">Employee Id &nbsp;<i class="fa fa-sort"></i></th>
+                    <!-- <th (click)="sort('id')" style="width: 15%">Id&nbsp;<i class="fa fa-sort"></i></th> -->
+                    <th (click)="sort('title')">Title &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('firstName')">Name &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('u.role.roleName')">Role &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('date_of_birth')">Date of Joining &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('huser.user.email')">Email &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('isActive')">Status &nbsp;<i class="fa fa-sort"></i></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let huser of husers | orderBy: key: reverse| paginate: {itemsPerPage:9,currentPage:p};">
+                    <td>{{huser.employeeid}}</td>
+                    <td>{{huser.title}}</td>
+                    <td>{{huser.firstName}} {{huser.lastName}}</td>
+                    <td>{{huser.user.role.roleName}}</td>
+                    <td>{{huser.user.createDateAndTime | date: "dd.MMM.yyyy"}}</td>
+                    <td>{{huser.user.email}}</td>
+                    <td>{{huser.user.isActive}}</td>
+                    <td>
+                        <button class="btn btn-block btn-warning btn-lg" (click)="updateUser(huser.employeeid)">Update
+                            Status</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</body>

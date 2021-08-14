@@ -1,0 +1,141 @@
+<div class="login" align="center">
+
+    <form class="form-horizontal" [formGroup]="registerForm">
+
+        <div class="form-group">
+    
+            <h4><b>Patient Registration</b></h4> 
+            
+        <table>
+
+            <tr>
+                <td><label class="control-label " style="font-size: larger;" >Title &nbsp;&nbsp;<span style="color: #e32">*</span></label></td>
+           <div class="form-group " [class.is-invalid]="title.touched && title.invalid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  style="font-size: larger;" required  name="title" value="MR" formControlName="title"> Mr
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  style="font-size: larger;" name="title" value="MS" formControlName="title"> Ms
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  style="font-size: larger;" name="title" value="MRS" formControlName="title"> Mrs
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" style="font-size: larger;" name="title" value="DR" formControlName="title"> Dr
+                  <p class="text-danger" *ngIf="title.touched && title.invalid">
+                    Kindly select the title.</p>
+                </td>
+            </div>
+            </tr>
+
+            <tr>
+                <td><label class="control-label " style="font-size: larger;" >First Name <span style="color: #e32">*</span></label></td>
+                <div class="md-form">
+                <td><input mdbInput type="text" class="form-control form-control-lg w1 radx" id="t1"
+                    formControlName="fname" [class.is-invalid]="fname.touched && fname.invalid"  required/>
+                </div>
+                <p class="text-danger" *ngIf="fname.touched && fname.errors?.required">
+                    First name cannot be empty</p>
+                <p class="text-danger" *ngIf="fname.touched && fname.errors?.minlength">
+                    Please don’t use abbreviations
+                </p>
+             
+            </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Last Name <span style="color: #e32">*</span></label></td>
+                    <div class="md-form">
+                    <td><input class="form-control form-control-lg w1 radx" type="text"  id="t2"
+                        formControlName="lname" [class.is-invalid]="lname.touched && lname.invalid" required />
+                       
+             
+                   </td>
+                   </div>
+                   <p class="text-danger" *ngIf="lname.touched && lname.errors?.required">
+                    Last name cannot be empty</p>
+                <p class="text-danger" *ngIf="lname.touched && lname.errors?.minlength">
+                    Please don’t use abbreviations
+                </p>
+                </tr>
+
+                <tr>
+
+                    <td><label class="control-label" style="font-size: larger;">Email <span style="color: #e32">*</span></label></td>
+                    
+                    <div class="md-form">
+                    <td>
+                        <input class="form-control form-control-lg w1 radx" type="email"  id="t3" 
+                        formControlName="email" [class.is-invalid]="email.touched && email.invalid" required />
+                      
+                   </td>
+                   </div>
+                   <p class="text-danger" *ngIf="email.touched && email.errors?.required">
+                    Please enter your email address </p>
+                   <p class="text-danger" *ngIf="email.touched && email.errors?.pattern ">
+                    Please provide valid email.</p>
+
+                   <p *ngIf="emailAlredyExist != ''" class="text-danger">
+                    {{emailAlredyExist}} </p>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Date of Birth <span style="color: #e32">*</span></label></td>
+                    <div class="md-form">
+                    <td><input type="date" class="form-control form-control-lg w1 radx"  style="font-size: 2rem"
+                        onfocus="(this.type='date')" min="1970-01-01" max="{{maxDate}}" id="t4" formControlName="dob"
+                        [class.is-invalid]="dob.touched && dob.invalid"  required/>
+                       
+                   </td>
+                   </div>
+            
+
+                   <p class="text-danger" *ngIf="dob.touched && dob.errors?.required">
+                    Please enter a valid date DD/MM/YYYY</p>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Contact Number <span style="color: #e32">*</span></label></td>
+                    <div class="md-form">
+                    <td><input type="text" class="form-control form-control-lg w1 radx" id="t1"
+                        formControlName="contact" [class.is-invalid]="contact.touched && contact.invalid" required/>
+                        
+                   </td>
+                </div>
+                    <p class="text-danger" *ngIf="contact.touched && contact.errors?.required">
+                    Contact cannot be empty</p>
+                   <p class="text-danger" *ngIf="contact.touched && contact.errors?.pattern ">
+                    Please, Enter 10 digit Mobile Number</p>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Password <span style="color: #e32">*</span></label></td>
+                    
+                    <div class="md-form">
+                        <td><input type="password" class="form-control form-control-lg w1 radx"
+                        formControlName="pwd" [class.is-invalid]="pwd.touched && pwd.invalid" required/>
+                      
+                      
+                   </td>
+                </div>
+                <p class="text-danger" *ngIf="pwd.touched && pwd.errors?.required">
+                    This field cannot be empty</p>
+                   <p class="text-danger" *ngIf="pwd.touched && pwd.errors?.pattern">
+                    Password is weak. Please re-enter the password with a minimum of one Uppercase letter, one lowercase
+                    letter, one number and minimum length of 8 characters
+                   </p>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Confirm Password <span style="color: #e32">*</span></label></td>
+                    <div class="md-form"><td><input type="password" class="form-control form-control-lg w1 radx" 
+                        formControlName="cpwd" [class.is-invalid]="cpwd.touched && cpwd.invalid" required/>
+                    
+                        
+                   </td>
+                </div>
+                   <p class="text-danger" *ngIf="cpwd.touched && cpwd.errors?.required">
+                    This field cannot be empty</p>
+                   <p class="text-danger" *ngIf="cpwd.touched && cpwd.errors?.confirmedValidator">
+                    Passwords do not match. Please re-enter the password</p>
+                </tr>
+               
+            </table>
+        </div>
+            <button type="submit" class="btn btn-primary btn-lg" 
+            (click)="handleFormSubmit()">Sign Up</button><br><br>
+    </form>
+
+</div>

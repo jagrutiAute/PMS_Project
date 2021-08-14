@@ -1,5 +1,7 @@
 package com.citiustech.impact.pms.model;
 
+import java.util.Calendar;
+
 public class PatientDetailDTO {
 	
 	    private String firstName;
@@ -12,8 +14,18 @@ public class PatientDetailDTO {
 	    private String race;
 	    private String ethinicity;
 	    private String email;
-	    private String contactNumber;
+	    private Long contactNumber;
+	    private int mrnNumber;
+
 	    
+		public int getMrnNumber() {
+			return mrnNumber;
+		}
+
+		public void setMrnNumber(int mrnNumber) {
+			this.mrnNumber = mrnNumber;
+		}
+
 		public PatientDetailDTO() {
 			super();
 			// TODO Auto-generated constructor stub
@@ -35,6 +47,7 @@ public class PatientDetailDTO {
 			this.lastName = lastName;
 		}
 
+		
 		public String getDateOfBirth() {
 			return dateOfBirth;
 		}
@@ -43,7 +56,6 @@ public class PatientDetailDTO {
 			this.dateOfBirth = dateOfBirth;
 		}
 
-		
 		public int getAge() {
 			return age;
 		}
@@ -76,6 +88,10 @@ public class PatientDetailDTO {
 			this.homeAddress = homeAddress;
 		}
 
+		
+
+		
+
 		public String getRace() {
 			return race;
 		}
@@ -100,11 +116,11 @@ public class PatientDetailDTO {
 			this.email = email;
 		}
 
-		public String getContactNumber() {
+		public long getContactNumber() {
 			return contactNumber;
 		}
 
-		public void setContactNumber(String contactNumber) {
+		public void setContactNumber(Long contactNumber) {
 			this.contactNumber = contactNumber;
 		}
 

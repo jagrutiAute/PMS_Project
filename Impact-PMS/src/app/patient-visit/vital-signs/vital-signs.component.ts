@@ -1,3 +1,4 @@
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +15,8 @@ export class VitalSignsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service:VitalSignsService
+    private service:VitalSignsService,
+    private toaster: ToasterService1
   ) { }
 
   ngOnInit(): void {
@@ -42,8 +44,8 @@ export class VitalSignsComponent implements OnInit {
       data => {
 
         console.log("backent response " +data)
-      
-        alert("successfully added vital signs" + data)
+      this.toaster.Success("Vital Signs Added Successfully");
+       // alert("successfully added vital signs" + data)
        
        
 

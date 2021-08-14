@@ -1,8 +1,14 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AdminDashBoardService } from '../admin.service';
 import { Patient } from '../patient';
+import { User1 } from '../user1';
+
+
+
+
 
 @Component({
   selector: 'app-patient-users',
@@ -11,40 +17,81 @@ import { Patient } from '../patient';
 })
 export class PatientUsersComponent implements OnInit {
 
-  patients:Patient[];
-  @ViewChild('userForm') userForm:ElementRef;
-  constructor(private adminDashBoardService: AdminDashBoardService, private router:ActivatedRoute) { }
+ // patients: Observable<Patient[]>;
+  patients: Patient[];
+  user: User1;
+  firstName: any;
+  p: number = 1;
+  constructor(private adminDashBoardService: AdminDashBoardService,
+    private router: Router) {}
 
-  ngOnInit(){
-    //throw new Error('Method not implemented.');
-    this.adminDashBoardService.getPatient().subscribe(data => {
-        this.patients=data;
-      },
-      error => {
-        console.log(error);
-      })
-
-     
+  ngOnInit() {
+    this.reloadData();
+    console.log("hello oye")
+   // this.load();
   }
-@ViewChild('id') id:ElementRef;
+// load(){
+//   console.log("load")
+//   //this.patients.forEach(projet=>console.log(projet.id));
+//   for(var pat in this.patients){
+//     console.log("hello")
+//     console.log(this.patients[pat]);
+//   }
+// }
+  reloadData() {
+     this.adminDashBoardService.getPatient1().subscribe((data1) => {
+      this.patients= data1
+      console.log(data1)
+    /*  for(let data in this.patients){
+        this.patients[data];
+        console.log("hello")
+        console.log(this.patients[data])
+        for(let d in this.patients[data]){
+          d.match("user")
+          console.log(d)
+        }
 
-
-  editSubmit(index:number){
-    console.log(this.patients[index]);
-    this.id.nativeElement.value = this.patients[index].id;
-    /* this.patients[index].id;
-    firstName this.patients[index].firstName,
-    lastName: this.patients[index].lastName,
-    this.date_of_joining.nativeElement.value = this.patients[index].date_of_joining;
-    this.status.nativeElement.value = this.patients[index].status;
-    /*this.userForm.nativeElement({
+      } */
+      console.log(this.patients)
       
-      id: this.patients[index].id,
-      firstName: this.patients[index].firstName,
-      lastName: this.patients[index].lastName,
-      date_of_joining:this.patients[index].date_of_joining,
-      status: this.patients[index].status
-    })*/
-}
+    },
+    (error) => {
+      console.log(error)
+    })
+    // console.log(this.patients);
+  }
 
+
+  search(){
+    if(this.firstName == ""){
+      this.reloadData();
+    }else
+      this.patients = this.patients.filter(res=>{
+      return res.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+    }) 
+  }
+
+  key: string = 'id';
+  reverse:boolean = false;
+  sort(key: string){
+     this.key = key;
+     this.reverse = !this.reverse;
+  }
+ /* deletePatient(id: number) {
+    this.adminDashBoardService.deleteEmployee(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }*/
+
+  // employeeDetails(id: number){
+  //   this.router.navigate(['details', id]);
+  // }
+
+  updateStatus(id: number){
+    this.router.navigate(['admin-dashboard/patient-users/edit-patient-users', id]);
+  }
 }

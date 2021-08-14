@@ -58,6 +58,17 @@
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
 		
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.22</version><!--$NO-MVN-MAN-VER$ -->
+            <scope>provided</scope>
+        </dependency>
+        
 	</dependencies>
 
 	<dependencyManagement>

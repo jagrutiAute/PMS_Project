@@ -1,5 +1,7 @@
 package com.citiustech.impact.pms.model;
 
+import java.util.Calendar;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -49,23 +52,22 @@ public class PatientDetails {
 	@Column(name = "home_address")
 	private String homeAddress;
 
-	@JoinColumn(name = "users_id")
+
 
 	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "users_id")
 	private Users user;
-	
-	private String race;
-	private String ethinicity;
 
-	/*
-	 * @JoinColumn(name = "race_id")
-	 * 
-	 * @OneToOne(cascade = CascadeType.ALL) private Race race;
-	 * 
-	 * @JoinColumn(name = "ethinicity_id")
-	 * 
-	 * @OneToOne(cascade = CascadeType.ALL) private Ethinicity ethinicity;
-	 */
+
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "race_master_id")
+	private Race race;
+
+
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "ethnicity_master_id")
+	private Ethinicity ethinicity;
 
 }
