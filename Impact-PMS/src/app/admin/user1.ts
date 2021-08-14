@@ -6,7 +6,6 @@ export class User1 {
     id: number;
     email: String
     role: Role1;
-    // email:String;
     phoneNumber: number;
     isActive: String;
     createDateAndTime:Date

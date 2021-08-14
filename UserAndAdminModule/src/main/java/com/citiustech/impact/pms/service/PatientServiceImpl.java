@@ -59,7 +59,7 @@ public class PatientServiceImpl implements PatientService {
 		user.setPhoneNumber(p.getContact());
 		user.setPassword(pwd);
 		user.setIsActive(ISActive.ACTIVE);
-		user.setCreateDateAndTime(LocalDate.now());
+		//user.setCreateDateAndTime(LocalDate.);
 
 		PatientProfile patientProfile = new PatientProfile();
 		patientProfile.setTitle(p.getTitle());

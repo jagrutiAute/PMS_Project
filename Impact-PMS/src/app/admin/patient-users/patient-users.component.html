@@ -38,11 +38,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of patients | orderBy: key: reverse | paginate: {itemsPerPage:3,currentPage:p};">
+        <tr *ngFor="let patient of patients | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p};">
             <td>{{patient.id}}</td>
             <td>{{patient.title}}</td>
             <td> {{patient.firstName}} {{patient.lastName}}</td>
-            <td>{{patient.dateOfBirth}}</td>
+            <td>{{patient.user.createDateAndTime | date: "dd/MM/yyyy"}}</td>
             <td>{{patient.user.email}}</td>
             <td>{{patient.user.phoneNumber}}</td>
             <td>{{patient.user.isActive}}</td>

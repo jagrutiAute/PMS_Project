@@ -1,7 +1,7 @@
-export class user{
+// export class user{
     
-   email:String;
-   phoneNumber:number;
-   isActive:String;
+//    email:String;
+//    phoneNumber:number;
+//    isActive:String;
 
-}
+// }
