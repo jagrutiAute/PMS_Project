@@ -23,7 +23,7 @@ public class AppInfoController {
 		return "   " + appName + "  " + appAuthorEmail;
 	}
 	
-	@GetMapping("/some")
+	@GetMapping("/some/gajanan/123")
 	public String get() {
 		return "hello word12";
 	}
