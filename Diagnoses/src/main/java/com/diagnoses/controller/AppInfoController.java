@@ -23,11 +23,7 @@ public class AppInfoController {
 		return "   " + appName + "  " + appAuthorEmail;
 	}
 	
-<<<<<<< HEAD
-	@GetMapping("/some/gajanan/123")
-=======
 	@GetMapping("/some/shivraj/123")
->>>>>>> branch 'Login' of git@github.com:jagrutiAute/PMS_Project.git
 	public String get() {
 		return "hello word12";
 	}
