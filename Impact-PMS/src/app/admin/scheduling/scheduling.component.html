@@ -1,0 +1,72 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<h1 style="text-align: center;"><u><b>Scheduling</b></u></h1>
+<br>
+<!-- <a routerLink="add-patient-users" class="btn btn-lg btn-success mb-2">Add Patient</a> -->
+
+<!--<div class="search-container" style="text-align: right;">
+    <form action="#">
+      <input type="text" placeholder="Search.." name="firstName">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>..
+  </div>-->
+
+
+
+  <!-- <div class="search-container" >
+   
+    <label class="control-label" style="font-size: 100px;">Search: </label> -->
+    <!-- <input type="text" placeholder=" Search..." class="form-control" name="firstName"  [(ngModel)] = "firstName" (ngModelChange)="search()" > -->
+    <!--<button type="submit"><i class="fa fa-search"></i></button>-->
+
+<!--</div> -->
+
+<table class="table table-striped" style="font-size: 15px;">
+    <thead>
+        <tr style="background-color:royalblue; color: seashell;">
+            <th (click)="sort('id')" style="width: 24%">Id&nbsp;<i class="fa fa-sort"></i></th>
+            <!-- <th (click)="sort('title')" style="width: 8%">Title&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('firstName')" style="width: 15%">Name&nbsp;<i class="fa fa-sort"></i></th> -->
+            <th (click)="sort('dateOfBirth')" style="width: 34%">Date&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('dateOfBirth')" style="width: 25%">Time&nbsp;<i class="fa fa-sort"></i></th>
+            <!-- <th (click)="sort('email')" style="width: 15%">Email&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('phoneNumber')" style="width: 15%">Phone Number&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('Status')" style="width: 11%">Status&nbsp;<i class="fa fa-sort"></i></th> -->
+            <th style="width: 15%">Scheduling Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let schedule of scheduling | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p};">
+            <td>{{schedule.id}}</td>
+            <!-- <td>{{patient.title}}</td>
+            <td> {{patient.firstName}} {{patient.lastName}}</td> -->
+            <td>{{schedule.date | date: "dd/MM/yyyy"}}</td>
+            <td>{{schedule.date | date: "hh:mm:ss"}}</td>
+            <!-- <td>{{patient.user.email}}</td>
+            <td>{{patient.user.phoneNumber}}</td>
+            <td>{{patient.user.isActive}}</td> -->
+           <!--  <p *ngFor="let pat of patient ">
+            <td>{{pat.email}} </td>
+            <td>{{pat.phoneNumber}} </td>
+           </p> -->
+             <td class="buttonA">
+                 <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
+                <button (click)="updateStatus(schedule.id)" class="btn btn-primary btn-sm rounded-0" title="Add"><i class="fa fa-table"></i></button>&nbsp;&nbsp;
+                <button (click)="updateStatus(schedule.id)" class="btn btn-success btn-sm rounded-0" title="Edit"><i class="fa fa-edit"></i></button>&nbsp;&nbsp;
+                <button (click)="updateStatus(schedule.id)" class="btn btn-danger btn-sm rounded-0" title="Delete"><i class="fa fa-trash"></i></button>
+
+            </td>
+        </tr>
+
+    </tbody>
+   
+</table>
+<br><br><br>
+<div class="card" style="font-size: 17px;">
+    <div class="card-header">
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>

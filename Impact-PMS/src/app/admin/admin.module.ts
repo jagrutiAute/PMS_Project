@@ -21,6 +21,7 @@ import { AddMedicationComponent } from './add-medication/add-medication.componen
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { InputsModule } from '@progress/kendo-angular-inputs';
+import { SchedulingComponent } from './scheduling/scheduling.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
     UpdateHospitalUserComponent,
     MedicationComponent,
     PatientDetailsComponent,
-    AddMedicationComponent
+    AddMedicationComponent,
+    SchedulingComponent
     
   ],
   imports: [
