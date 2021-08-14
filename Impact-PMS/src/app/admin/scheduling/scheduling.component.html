@@ -28,33 +28,23 @@
     <thead>
         <tr style="background-color:royalblue; color: seashell;">
             <th (click)="sort('id')" style="width: 24%">Id&nbsp;<i class="fa fa-sort"></i></th>
-            <!-- <th (click)="sort('title')" style="width: 8%">Title&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('firstName')" style="width: 15%">Name&nbsp;<i class="fa fa-sort"></i></th> -->
+           
             <th (click)="sort('dateOfBirth')" style="width: 34%">Date&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('dateOfBirth')" style="width: 25%">Time&nbsp;<i class="fa fa-sort"></i></th>
-            <!-- <th (click)="sort('email')" style="width: 15%">Email&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('phoneNumber')" style="width: 15%">Phone Number&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('Status')" style="width: 11%">Status&nbsp;<i class="fa fa-sort"></i></th> -->
+           
             <th style="width: 15%">Scheduling Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let schedule of scheduling | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p};">
+        <tr *ngFor="let schedule of scheduling | orderBy: key: reverse | paginate: {itemsPerPage:2,currentPage:p};">
             <td>{{schedule.id}}</td>
-            <!-- <td>{{patient.title}}</td>
-            <td> {{patient.firstName}} {{patient.lastName}}</td> -->
+          
             <td>{{schedule.date | date: "dd/MM/yyyy"}}</td>
             <td>{{schedule.date | date: "hh:mm:ss"}}</td>
-            <!-- <td>{{patient.user.email}}</td>
-            <td>{{patient.user.phoneNumber}}</td>
-            <td>{{patient.user.isActive}}</td> -->
-           <!--  <p *ngFor="let pat of patient ">
-            <td>{{pat.email}} </td>
-            <td>{{pat.phoneNumber}} </td>
-           </p> -->
+           
              <td class="buttonA">
                  <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
-                <button (click)="updateStatus(schedule.id)" class="btn btn-primary btn-sm rounded-0" title="Add"><i class="fa fa-table"></i></button>&nbsp;&nbsp;
+                <button (click)="updateStatus(schedule.id)" class="btn btn-primary btn-sm rounded-0" title="Add"><i class="glyphicon glyphicon-plus"></i></button>&nbsp;&nbsp;
                 <button (click)="updateStatus(schedule.id)" class="btn btn-success btn-sm rounded-0" title="Edit"><i class="fa fa-edit"></i></button>&nbsp;&nbsp;
                 <button (click)="updateStatus(schedule.id)" class="btn btn-danger btn-sm rounded-0" title="Delete"><i class="fa fa-trash"></i></button>
 
