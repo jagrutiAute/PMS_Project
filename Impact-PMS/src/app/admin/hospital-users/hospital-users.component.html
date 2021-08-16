@@ -20,7 +20,7 @@
         </div>
         <br>
 
-        <form [formGroup]="searchForm" (ngSubmit)="searchNew()">
+        <!-- <form [formGroup]="searchForm" (ngSubmit)="searchNew()">
             <div class="input-group" style="width: 40%;">
                 <input type="text" class="form-control md" formControlName="keyword"
                     placeholder="Search using Employee ID or First Name or Last Name" />
@@ -30,27 +30,24 @@
                     </button>
                 </div>
             </div>
-        </form>
-
-        <br>
-        <br>
+        </form> 
+        <br> -->
 
         <table class="table table-borderless table-hover">
             <thead class="thead thead-light">
                 <tr>
                     <th (click)="sort('employeeid')">Employee Id &nbsp;<i class="fa fa-sort"></i></th>
-                    <!-- <th (click)="sort('id')" style="width: 15%">Id&nbsp;<i class="fa fa-sort"></i></th> -->
                     <th (click)="sort('title')">Title &nbsp;<i class="fa fa-sort"></i></th>
                     <th (click)="sort('firstName')">Name &nbsp;<i class="fa fa-sort"></i></th>
-                    <th (click)="sort('u.role.roleName')">Role &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('roleName')">Role &nbsp;<i class="fa fa-sort"></i></th>
                     <th (click)="sort('date_of_birth')">Date of Joining &nbsp;<i class="fa fa-sort"></i></th>
-                    <th (click)="sort('huser.user.email')">Email &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('email')">Email &nbsp;<i class="fa fa-sort"></i></th>
                     <th (click)="sort('isActive')">Status &nbsp;<i class="fa fa-sort"></i></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let huser of husers | orderBy: key: reverse| paginate: {itemsPerPage:9,currentPage:p};">
+                <tr *ngFor="let huser of husers | orderBy: key: reverse| paginate: {itemsPerPage:10,currentPage:p};">
                     <td>{{huser.employeeid}}</td>
                     <td>{{huser.title}}</td>
                     <td>{{huser.firstName}} {{huser.lastName}}</td>
@@ -59,8 +56,9 @@
                     <td>{{huser.user.email}}</td>
                     <td>{{huser.user.isActive}}</td>
                     <td>
-                        <button class="btn btn-block btn-warning btn-lg" (click)="updateUser(huser.employeeid)">Update
-                            Status</button>
+                        <button class="btn btn-block btn-warning btn-lg" (click)="updateUser(huser.employeeid)">
+                            Update Status
+                        </button>
                     </td>
                 </tr>
             </tbody>

@@ -43,28 +43,28 @@ export class HospitalUsersComponent implements OnInit {
     )
   }
 
-  searchNew() {
-    if (this.searchForm.value['keyword'].startsWith("CT")) {
-      this.service.getHospitalUserById(this.searchForm.value['keyword']).subscribe(
-        (data) => {
-          console.log(data)
-          this.husers = data
-        },
-        (error) => {
-          console.log(error)
-        }
-      )
-    } else {
-      this.service.getHospitalUserByName(this.searchForm.value['keyword']).subscribe(
-        (data) => {
-          this.husers = data
-        },
-        (error) => {
-          console.log(error)
-        }
-      )
-    }
-  }
+  // searchNew() {
+  //   if (this.searchForm.value['keyword'].startsWith("CT")) {
+  //     this.service.getHospitalUserById(this.searchForm.value['keyword']).subscribe(
+  //       (data) => {
+  //         console.log(data)
+  //         this.husers = data
+  //       },
+  //       (error) => {
+  //         console.log(error)
+  //       }
+  //     )
+  //   } else {
+  //     this.service.getHospitalUserByName(this.searchForm.value['keyword']).subscribe(
+  //       (data) => {
+  //         this.husers = data
+  //       },
+  //       (error) => {
+  //         console.log(error)
+  //       }
+  //     )
+  //   }
+  // }
 
   search() {
     if (this.firstName == "") {
