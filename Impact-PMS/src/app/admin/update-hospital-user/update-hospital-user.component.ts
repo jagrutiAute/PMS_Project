@@ -10,10 +10,10 @@ import { HospitalUser } from '../HospitalUser';
   styleUrls: ['./update-hospital-user.component.css']
 })
 export class UpdateHospitalUserComponent implements OnInit {
-  status: string[] = ["Active", "Blocked", "Inactive"];
+  status: string[] = ["ACTIVE", "BLOCK", "INACTIVE"];
 
-  id: number;
-  user: HospitalUser[]
+  employeeid: any
+  huser: HospitalUser
 
   constructor(
     private router: Router,
@@ -21,19 +21,36 @@ export class UpdateHospitalUserComponent implements OnInit {
     private service: HospitalUserService) { }
 
   ngOnInit(): void {
-    // this.user = new HospitalUser()
+    this.huser = new HospitalUser()
 
-    this.id = this.route.snapshot.params['uid'];
+    this.employeeid = this.route.snapshot.params['uid'];
 
-    this.service.getHospitalUserById(this.id).subscribe(
+    this.service.getHospitalUserById(this.employeeid).subscribe(
       (data) => {
-        console.log(data)
-        this.user = data
+        // console.log(data)
+        this.huser = data
       },
       (error) => {
         console.log(error)
       }
     )
+  }
+
+  submitForm() {
+    this.service.updateHospitalUserByUid(this.huser.user.id, this.huser.user.isActive).subscribe(
+      (data) => {
+        console.log("User updated succcessfully...")
+        console.log(data)
+        this.gotoList()
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
+
+  gotoList() {
+    this.router.navigate(['admin-dashboard/hospital-users']);
   }
 
   // submitForm() {

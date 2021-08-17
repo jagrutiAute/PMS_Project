@@ -25,10 +25,10 @@ public class PatientServiceImpl implements PatientService {
 	
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private PatientProfileRepository patientProfileRepository;
-	
+
 	@Autowired
 	private PatientProfileRepository userProfileRepository;
 
@@ -50,7 +50,6 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public String savePatient(PatientDTO p) {
 
-		
 		String pwd = encryption(p.getEmail(), p.getPwd());
 		System.out.println(pwd);
 
@@ -59,7 +58,10 @@ public class PatientServiceImpl implements PatientService {
 		user.setPhoneNumber(p.getContact());
 		user.setPassword(pwd);
 		user.setIsActive(ISActive.ACTIVE);
+<<<<<<< HEAD
+=======
 		//user.setCreateDateAndTime(LocalDate.);
+>>>>>>> bac4f8d606b12c6d0351782d43091475de1abdfb
 
 		PatientProfile patientProfile = new PatientProfile();
 		patientProfile.setTitle(p.getTitle());
@@ -68,27 +70,33 @@ public class PatientServiceImpl implements PatientService {
 		patientProfile.setDateOfBirth(p.getDob());
 		patientProfile.setRace(1);
 		patientProfile.setEthnicity(1);
+<<<<<<< HEAD
+
+		if (p.getTitle().equals("MS") || p.getTitle().equals("MRS"))
+=======
 		
 		
 		
 		if(p.getTitle().equals("MS") || p.getTitle().equals("MRS"))
+>>>>>>> bac4f8d606b12c6d0351782d43091475de1abdfb
 			patientProfile.setGender("Female");
-		else patientProfile.setGender("Male");
-		
-		 //create calendar object for birth day
+		else
+			patientProfile.setGender("Male");
+
+		// create calendar object for birth day
 		Calendar birthDay = p.getDob();
-		
-		//create calendar object for current day
-	      long currentTime = System.currentTimeMillis();
-	      Calendar now = Calendar.getInstance();
-	      now.setTimeInMillis(currentTime);
-	 
-	      //Get difference between years
-	     int years = now.get(Calendar.YEAR) - birthDay.get(Calendar.YEAR);
-	     
-	     patientProfile.setAge(years);
-	     
-	     patientProfile.setUser(user);
+
+		// create calendar object for current day
+		long currentTime = System.currentTimeMillis();
+		Calendar now = Calendar.getInstance();
+		now.setTimeInMillis(currentTime);
+
+		// Get difference between years
+		int years = now.get(Calendar.YEAR) - birthDay.get(Calendar.YEAR);
+
+		patientProfile.setAge(years);
+
+		patientProfile.setUser(user);
 
 		// user.setUserProfile(patientProfile);
 
@@ -111,25 +119,32 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public List<PatientProfile> gettingUserDetails() {
-		
-		return patientProfileRepository.findAll();	}
+
+		return patientProfileRepository.findAll();
+	}
 
 	@Override
 	public Users updatingStatus(int id, String status) {
+<<<<<<< HEAD
+
+		Users users = userRepository.findById((long) id).get();
+		System.out.println("113=" + users);
+		users.setIsActive(ISActive.valueOf(status));
+		System.out.println("115=" + users);
+=======
 		
 	Users users = userRepository.findById((long) id).get();	
 	System.out.println("113="+users);
 	users.setIsActive(ISActive.valueOf(status));
 	System.out.println("115="+users);
+>>>>>>> bac4f8d606b12c6d0351782d43091475de1abdfb
 		return userRepository.save(users);
 	}
 
 	@Override
 	public Optional<PatientProfile> gettinPatientById(int id) {
-		
+
 		return patientProfileRepository.findById((long) id);
 	}
-
-	
 
 }

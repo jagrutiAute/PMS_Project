@@ -7,6 +7,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -69,6 +71,7 @@ public class Users {
 	private LocalDateTime modifiedDateAndTime;
 
 	@Column(name = "is_active_role")
+	@Enumerated(EnumType.STRING)
 	private ISActive isActive;
 
 	@Column(name = "password_changed_status")
