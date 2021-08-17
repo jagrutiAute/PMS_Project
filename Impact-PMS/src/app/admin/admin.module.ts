@@ -38,6 +38,19 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatTreeModule } from '@angular/material/tree';
 
+import { PhysicanSidenavComponent } from '../components/physican-sidenav/physican-sidenav.component';
+import { PhysicanHeaderComponent } from '../components/physican-header/physican-header.component';
+import { PhysicianDashboardComponent } from './physician-dashboard/physician-dashboard.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { NurseDashboardComponent } from './nurse-dashboard/nurse-dashboard.component';
+import { NurseHeaderComponent } from '../components/nurse-header/nurse-header.component';
+import { NurseSidenavComponent } from '../components/nurse-sidenav/nurse-sidenav.component';
+
+
+
+
 
 
 @NgModule({
@@ -45,7 +58,9 @@ import { MatTreeModule } from '@angular/material/tree';
 
     AdminHeaderComponent,
     AdminSidenavComponent,
-
+    PhysicanHeaderComponent,
+    PhysicanSidenavComponent,
+    PhysicianDashboardComponent,
     HospitalUsersComponent,
     PatientUsersComponent,
     AdminDashboardComponent,
@@ -56,10 +71,18 @@ import { MatTreeModule } from '@angular/material/tree';
     MedicationComponent,
     PatientDetailsComponent,
     AddMedicationComponent,
-    SchedulingComponent
+    SchedulingComponent,
+    NurseDashboardComponent,
+    NurseHeaderComponent,
+    NurseSidenavComponent
+    
     
   ],
   imports: [
+
+    MatExpansionModule,
+    MatRadioModule,
+    MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -70,9 +93,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatDividerModule,
     MatListModule,
     MatTreeModule,
-    CommonModule,
-    
-    CommonModule,
+    CommonModule,   
     RouterModule.forChild(adminroutes),
     HttpClientModule,
     FormsModule,
@@ -93,7 +114,13 @@ import { MatTreeModule } from '@angular/material/tree';
     PatientUsersComponent,
     AdminDashboardComponent,
     AdminHeaderComponent,
-    AdminSidenavComponent
+    AdminSidenavComponent,
+    PhysicanHeaderComponent,
+    PhysicanSidenavComponent,
+    PhysicianDashboardComponent,
+    NurseDashboardComponent,
+    NurseHeaderComponent,
+    NurseSidenavComponent
    
   ],
   providers:[AdminDashBoardService, HospitalUserService]

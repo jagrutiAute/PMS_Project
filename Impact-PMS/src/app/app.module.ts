@@ -23,9 +23,10 @@ import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
 
 
+
 @NgModule({
   declarations: [
-    AppComponent  
+    AppComponent
   ],
   imports: [
 

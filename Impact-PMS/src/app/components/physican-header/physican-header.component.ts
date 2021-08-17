@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-physican-header',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhysicanHeaderComponent implements OnInit {
 
-  constructor() { }
+  @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
+    
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
+    usr =sessionStorage.getItem('username');
+ 
+  ngOnInit(): void {}
+   
+  toggleSidebar() {
+    this.toggleSidebarForMe.emit();
+  }
+  
+  logout(){
+    alert('You want to logout');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('role');
+    this.router.navigateByUrl('/login');
+  //    sessionStorage.removeItem('role');
   }
 
 }

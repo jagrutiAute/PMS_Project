@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-nurse-dashboard',
   templateUrl: './nurse-dashboard.component.html',
-  styleUrls: ['./nurse-dashboard.component.scss']
+  styleUrls: ['./nurse-dashboard.component.css']
 })
 export class NurseDashboardComponent implements OnInit {
 
@@ -12,4 +12,10 @@ export class NurseDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  title = 'admin-panel-layout';
+  sideBarOpen = true;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 }

@@ -12,4 +12,5 @@ export class PhysicanSidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  panelOpenState = false;
 }
