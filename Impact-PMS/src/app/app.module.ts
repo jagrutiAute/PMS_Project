@@ -18,6 +18,8 @@ import { ToasterService1 } from './toaster-service.service';
 import { ToastrModule } from 'ngx-toastr';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent  
@@ -35,6 +37,7 @@ import { ToastrModule } from 'ngx-toastr';
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     ToastrModule.forRoot(),
     BrowserAnimationsModule
+    
   ],
   providers: [ToasterService1],
   bootstrap: [AppComponent]

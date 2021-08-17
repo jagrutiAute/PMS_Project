@@ -18,10 +18,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MedicationComponent } from './medication/medication.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { AddMedicationComponent } from './add-medication/add-medication.component';
-import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-import { LabelModule } from '@progress/kendo-angular-label';
-import { InputsModule } from '@progress/kendo-angular-inputs';
+
 import { SchedulingComponent } from './scheduling/scheduling.component';
+import {MatInputModule} from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+import {OverlayModule} from '@angular/cdk/overlay';
+
 
 
 @NgModule({
@@ -46,7 +50,13 @@ import { SchedulingComponent } from './scheduling/scheduling.component';
     FormsModule,
     ReactiveFormsModule,
     Ng2OrderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatInputModule,
+    MatOptionModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    OverlayModule
+    
     
     
   ],
