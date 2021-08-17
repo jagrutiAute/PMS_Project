@@ -91,7 +91,7 @@ export class PatientUsersComponent implements OnInit {
   //   this.router.navigate(['details', id]);
   // }
 
-  updatePatient(id: number){
+  updateStatus(id: number){
     this.router.navigate(['admin-dashboard/patient-users/edit-patient-users', id]);
   }
 }

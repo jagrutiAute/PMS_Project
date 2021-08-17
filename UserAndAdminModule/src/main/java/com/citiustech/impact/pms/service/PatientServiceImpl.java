@@ -1,6 +1,7 @@
 
 package com.citiustech.impact.pms.service;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +21,8 @@ public class PatientServiceImpl implements PatientService {
 
 	static String sha256hexstr;
 
+	private LocalDate Date;
+	
 	@Autowired
 	private UserRepository userRepository;
 
@@ -55,6 +58,10 @@ public class PatientServiceImpl implements PatientService {
 		user.setPhoneNumber(p.getContact());
 		user.setPassword(pwd);
 		user.setIsActive(ISActive.ACTIVE);
+<<<<<<< HEAD
+=======
+		//user.setCreateDateAndTime(LocalDate.);
+>>>>>>> bac4f8d606b12c6d0351782d43091475de1abdfb
 
 		PatientProfile patientProfile = new PatientProfile();
 		patientProfile.setTitle(p.getTitle());
@@ -63,8 +70,15 @@ public class PatientServiceImpl implements PatientService {
 		patientProfile.setDateOfBirth(p.getDob());
 		patientProfile.setRace(1);
 		patientProfile.setEthnicity(1);
+<<<<<<< HEAD
 
 		if (p.getTitle().equals("MS") || p.getTitle().equals("MRS"))
+=======
+		
+		
+		
+		if(p.getTitle().equals("MS") || p.getTitle().equals("MRS"))
+>>>>>>> bac4f8d606b12c6d0351782d43091475de1abdfb
 			patientProfile.setGender("Female");
 		else
 			patientProfile.setGender("Male");
@@ -92,6 +106,7 @@ public class PatientServiceImpl implements PatientService {
 
 		} else {
 			userProfileRepository.save(patientProfile);
+			System.out.println("patientProfilr"+patientProfile);
 			return "user register successfully";
 
 		}
@@ -110,11 +125,19 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public Users updatingStatus(int id, String status) {
+<<<<<<< HEAD
 
 		Users users = userRepository.findById((long) id).get();
 		System.out.println("113=" + users);
 		users.setIsActive(ISActive.valueOf(status));
 		System.out.println("115=" + users);
+=======
+		
+	Users users = userRepository.findById((long) id).get();	
+	System.out.println("113="+users);
+	users.setIsActive(ISActive.valueOf(status));
+	System.out.println("115="+users);
+>>>>>>> bac4f8d606b12c6d0351782d43091475de1abdfb
 		return userRepository.save(users);
 	}
 

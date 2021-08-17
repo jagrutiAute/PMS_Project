@@ -1,0 +1,26 @@
+
+server:
+  port: 8904
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka 
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: Diagnosis-service
+        uri: lb://DIAGNOSIS-SERVICE1
+        predicates:
+        - Path=/api/v1/**,/some/**
+ 
+      discovery:
+        locator:
+          enabled: true
+  application:
+    name: api-gateway
+        
+       
+        
