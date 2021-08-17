@@ -12,4 +12,5 @@ export class NurseSidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  panelOpenState = false;
 }

@@ -94,7 +94,15 @@ export class LoginComponent {
         if(data == 'Admin'){
           this.router.navigateByUrl('/admin-dashboard/hospital-users');
         }
+
+        if(data == 'Physician'){
+          this.router.navigateByUrl('/physician-dashboard/patient-details');
+        }
         
+        if(data == 'Nurse'){
+          this.router.navigateByUrl('/nurse-dashboard/patient-details');
+        }
+
         console.log("Login successfully..")
         }
         if(data=="UsernamePass"){

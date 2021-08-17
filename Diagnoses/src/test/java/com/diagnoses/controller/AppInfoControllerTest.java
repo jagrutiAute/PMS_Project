@@ -19,7 +19,7 @@ class AppInfoControllerTest {
     @Test
     void getAppDetails() {
 
-            assertEquals();
+           // assertEquals();
 
     }
 }
