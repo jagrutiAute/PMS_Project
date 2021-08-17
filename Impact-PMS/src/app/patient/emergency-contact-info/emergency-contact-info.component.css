@@ -1,0 +1,9 @@
+.float-container {  padding: 20px; margin-top: 4%; margin-left: 15%; } 
+.float-child { width: 30%; float: left; padding: 0px; }
+
+
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+ 

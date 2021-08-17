@@ -12,7 +12,7 @@ import com.citiustech.impact.pms.repository.HospitalUserRepository;
 @Service
 public class HospitalUserServiceImpl implements HospitalUserService {
 
-	@Autowired
+	/*@Autowired
 	HospitalUserRepository adminRepo;
 
 	@Override
@@ -51,6 +51,6 @@ public class HospitalUserServiceImpl implements HospitalUserService {
 	@Override
 	public void removeHospitalUser(long id) {
 		adminRepo.deleteById(id);
-	}
+	}*/
 
 }

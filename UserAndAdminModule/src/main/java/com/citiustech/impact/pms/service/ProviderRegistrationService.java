@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.citiustech.impact.pms.DTO.ProviderRegistrationDTO;
+import com.citiustech.impact.pms.model.ISActive;
 import com.citiustech.impact.pms.model.ProviderRegistration;
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.repository.ProviderRegistrationRepository;
@@ -38,6 +39,7 @@ public class ProviderRegistrationService {
 			Users user = new Users();
 			user.setEmail(regProvider.getUsername());
 			user.setRole(role.getRoles().get(regProvider.getRole()));
+			user.setIsActive(ISActive.ACTIVE);
 			String generatedString = RandomStringUtils.random(10, true, true).concat("$");
 			
 			/*

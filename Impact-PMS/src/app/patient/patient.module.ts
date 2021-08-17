@@ -9,18 +9,54 @@ import { BodyLayoutComponent } from './body-layout/body-layout.component';
 import { patientroutes } from './patient.routes';
 import { AllergyDetailsComponent } from './allergy-details/allergy-details.component';
 import { VitalSignsComponent } from '../patient-visit/vital-signs/vital-signs.component';
+import {MatInputModule} from '@angular/material/input';
 
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatTreeModule } from '@angular/material/tree';
+import { SidenavComponent } from '../components/sidenav/sidenav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from '../app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { HeaderComponent } from '../components/header/header.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
-  declarations: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent],
+  declarations: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent,
+    HeaderComponent,SidenavComponent],
   imports: [
+    MatExpansionModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
+    MatSidenavModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    // * MATERIAL IMPORTS
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDividerModule,
+    MatListModule,
+    MatTreeModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forChild(patientroutes)
   ],
-  exports: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent, AllergyDetailsComponent]
+  exports: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent, AllergyDetailsComponent,HeaderComponent,SidenavComponent]
 })
 export class PatientModule { }

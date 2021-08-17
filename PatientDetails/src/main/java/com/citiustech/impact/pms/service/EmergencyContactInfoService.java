@@ -20,28 +20,28 @@ public class EmergencyContactInfoService {
 	@Autowired
 	PatientDetailsRepository patientDetailRepo;
 
-	public Optional<EmergencyContactInfo> getPatientEmergecyCntInfo(int id) {
+	public Optional<EmergencyContactInfo> getPatientEmergecyCntInfo(int mrnNumber) {
 
-		return emergencyContactInfoRepo.findById(id);
+		//return emergencyContactInfoRepo.findById(id);
+		return emergencyContactInfoRepo.findAllEmergencyContactInfoBymrnNumber(mrnNumber);
 	}
 
 	public EmergencyContactInfo updatePatientEmergencyCntInfo(EmergencyContactInfo patientEmergencyCntInfo) {
 		
 		
-		// pass dynamic MRN Number instead of hardcoded 1
-		Optional<PatientDetails> patient = patientDetailRepo.findById(1); 
+		EmergencyContactInfo emergenctContactInfo = new EmergencyContactInfo();
 		
-		patientEmergencyCntInfo.setId(1);
-		patientEmergencyCntInfo.setFirstName(patientEmergencyCntInfo.getFirstName());
-		patientEmergencyCntInfo.setLastName(patientEmergencyCntInfo.getLastName());
-		patientEmergencyCntInfo.setHomeAddress(patientEmergencyCntInfo.getHomeAddress());
-		patientEmergencyCntInfo.setEmergencyEmail(patientEmergencyCntInfo.getEmergencyEmail());
-		patientEmergencyCntInfo.setEmergencyContact(patientEmergencyCntInfo.getEmergencyContact());
-		patientEmergencyCntInfo.setPatientPortalAccess(patientEmergencyCntInfo.getPatientPortalAccess());
-		patientEmergencyCntInfo.setPatientDetails(patient.get());
+		emergenctContactInfo.setId(patientEmergencyCntInfo.getId());
+		emergenctContactInfo.setFirstName(patientEmergencyCntInfo.getFirstName());
+		emergenctContactInfo.setLastName(patientEmergencyCntInfo.getLastName());
+		emergenctContactInfo.setHomeAddress(patientEmergencyCntInfo.getHomeAddress());
+		emergenctContactInfo.setEmergencyEmail(patientEmergencyCntInfo.getEmergencyEmail());
+		emergenctContactInfo.setEmergencyContact(patientEmergencyCntInfo.getEmergencyContact());
+		emergenctContactInfo.setPatientPortalAccess(patientEmergencyCntInfo.getPatientPortalAccess());
+		emergenctContactInfo.setPatientDetails(patientEmergencyCntInfo.getPatientDetails());
 		
 		
-		return emergencyContactInfoRepo.save(patientEmergencyCntInfo);
+		return emergencyContactInfoRepo.save(emergenctContactInfo);
 	}
 
 }

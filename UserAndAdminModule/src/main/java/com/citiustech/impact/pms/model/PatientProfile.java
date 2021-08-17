@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "patient")
-public class PatientProfile implements Serializable {
+public class PatientProfile  {
 	@Id
 	@Column(name = "mrn")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

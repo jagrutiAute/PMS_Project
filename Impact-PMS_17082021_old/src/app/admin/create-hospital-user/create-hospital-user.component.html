@@ -1,0 +1,182 @@
+<!-- <div class="container" style="width: 40%; margin-top: 30px; font-size: 15px;">
+    <h4>Add User</h4>
+    <br>
+    <a href="#" routerLink="/admin-dashboard/hospital-users" class="btn btn-primary btn-lg">Back</a>
+    <br><br>
+    <form [formGroup]="userForm">
+        <div class="form-group">
+            <label class="form-label">First Name:</label>
+            <input type="text" formControlName="firstName" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Last Name:</label>
+            <input type="text" formControlName="lastName" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Date of Joining</label>
+            <input type="date" formControlName="dateOfJoining" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Status</label>
+            <select formControlName="status" class="form-control">
+                <option value="">--Select--</option>
+                <option *ngFor="let status of status" value="{{status}}">{{status}}</option>
+            </select>
+        </div>
+        <br>
+        <button class="btn btn-block btn-success btn-lg" (click)="submitForm()">
+            <i class="glyphicon glyphicon-ok-sign"></i>&nbsp;
+            Create User
+        </button>
+    </form>
+</div> -->
+<div align="center">
+    <form class="form-horizontal" [formGroup]="signUpFormProvider">
+        <div class="form-group">
+            <h4><b>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Provider Registration
+                </b>
+            </h4>
+
+            <table>
+                <tr>
+                    <td>
+                        <label class="control-label " style="font-size: larger;">Title &nbsp;&nbsp;
+                            <span style="color: #e32">*</span></label>
+                    </td>
+                    <div class="form-group" [class.is-invalid]="f.title.touched && f.title.invalid">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" required name="title"
+                                value="MR" formControlName="title"> Mr
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="title"
+                                value="MS" formControlName="title">
+                            Ms
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="title" value="MRS"
+                                formControlName="title">
+                            Mrs
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="title" value="DR"
+                                formControlName="title">
+                            Dr
+                            <p class="text-danger" *ngIf="f.title.touched && f.title.invalid">
+                                Kindly select the title.</p>
+                        </td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label " style="font-size: larger;">First Name <span
+                                style="color: #e32">*</span></label></td>
+                    <div class="md-form">
+                        <td><input mdbInput type="text" class="form-control form-control-lg w1 radx" id="t1"
+                                formControlName="firstName"
+                                [class.is-invalid]="f.firstName.touched && f.firstName.invalid" required />
+                        </td>
+                    </div>
+                    <p class="text-danger" *ngIf="f.firstName.touched && f.firstName.errors?.required">
+                        First name cannot be empty</p>
+                    <p class="text-danger" *ngIf="f.firstName.touched && f.firstName.errors?.minlength">
+                        This field contain at least two alphabet
+                    </p>
+
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Last Name <span
+                                style="color: #e32">*</span></label></td>
+                    <div class="md-form">
+                        <td><input class="form-control form-control-lg w1 radx" type="text" id="t2"
+                                formControlName="lastName" [class.is-invalid]="f.lastName.touched && f.lastName.invalid"
+                                required />
+                        </td>
+                    </div>
+                    <p class="text-danger" *ngIf="f.lastName.touched && f.lastName.errors?.required">
+                        Last name cannot be empty</p>
+                    <p class="text-danger" *ngIf="f.lastName.touched && f.lastName.errors?.minlength">
+                        This field contain at least two alphabet
+                    </p>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Email <span
+                                style="color: #e32">*</span></label>
+                    </td>
+                    <div class="md-form">
+                        <td><input class="form-control form-control-lg w1 radx " type="email" id="t3"
+                                formControlName="username" [class.is-invalid]="f.username.touched && f.username.invalid"
+                                required />
+                        </td>
+                    </div>
+                    <p class="text-danger " *ngIf="f.username.touched && f.username.errors?.required">
+                        Please enter email address </p>
+                    <p class="text-danger " *ngIf="f.username.touched && f.username.errors?.pattern ">
+                        Please provide valid email.</p>
+                    <p class="text-danger " *ngIf="statusofEmployeeId === 'EMAIL'">
+                        EMAIL Id already exist
+                    </p>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Date of Birth <span
+                                style="color: #e32">*</span></label>
+                    </td>
+                    <div class="md-form">
+                        <td><input type="date" class="form-control form-control-lg w1 radx" min="1970-01-01"
+                                max="{{maxDate}}" formControlName="date_of_birth" style="font-size: 15.5px"
+                                [class.is-invalid]="f.date_of_birth.touched && f.date_of_birth.invalid" required />
+                        </td>
+                    </div>
+                    <p class="text-danger" *ngIf="f.date_of_birth.touched && f.date_of_birth.errors?.required">
+                        Please enter a valid date</p>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Role <span
+                                style="color: #e32">*</span></label>
+                    </td>
+                    <div class="md-form">
+                        <td><select id="location" class="form-control form-control-lg w1 radx" formControlName="role"
+                                [class.is-invalid]="f.role.touched && f.role.invalid" required>
+
+                                <option value="">-------------Role-----------</option>
+
+                                <option *ngFor="let role of roles" value="{{role.id-1}}">
+                                    {{role.roleName}}
+                                </option>
+                            </select>
+
+                            <p class="text-danger" *ngIf="f.role.touched && f.role.errors?.required">
+                                This field cannot be empty
+                            </p>
+                        </td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <td><label class="control-label" style="font-size: larger;">Employee ID <span
+                                style="color: #e32">*</span></label>
+                    </td>
+                    <div class="md-form">
+                        <td><input type="text" class="form-control form-control-lg w1 radx" formControlName="employeeid"
+                                [class.is-invalid]="f.employeeid.touched && f.employeeid.invalid" required />
+                        </td>
+                    </div>
+                    <p class="text-danger" *ngIf="f.employeeid.touched && f.employeeid.errors?.required">
+                        This field cannot be empty</p>
+                    <p class="text-danger " *ngIf="statusofEmployeeId === 'EMPLOYEEID'">
+                        Employee Id already exist
+                    </p>
+                    <p class="text-danger " *ngIf="statusofEmployeeId === 'EMAIL_EMPLOYEEID'">
+                        Employee Id And EMAIL already exist
+                    </p>
+                </tr>
+            </table>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="signUpFormProvider.invalid"
+            (click)="regProviderSubmit()">Register</button><br><br>
+    </form>
+
+</div>

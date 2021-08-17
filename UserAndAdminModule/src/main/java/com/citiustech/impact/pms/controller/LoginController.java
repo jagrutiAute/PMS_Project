@@ -101,7 +101,10 @@ public class LoginController {
 				userService.updatefaildeLogin(loginResult);
 			}
 			logger.trace("User validate successfully");
-			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			
+			System.out.println("loginResult.getRole().getRoleName()  ::::  "+loginResult.getRole().getRoleName());
+			
+			return new ResponseEntity<String>(loginResult.getRole().getRoleName(), HttpStatus.OK);
 		}
 		
 

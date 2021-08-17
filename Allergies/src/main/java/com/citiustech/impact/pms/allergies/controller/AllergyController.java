@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.citiustech.impact.pms.allergies.model.Allergy;
-import com.citiustech.impact.pms.allergies.service.AllergyDetailService;
+import com.citiustech.impact.pms.allergies.service.AllergyService;
 
 @RestController
 @CrossOrigin(origins = "*")
 public class AllergyController {
 	
 	@Autowired
-	AllergyDetailService allergyDetailServie;
+	AllergyService allergyDetailServie;
 
 	@GetMapping("/getAllergyDetails/{id}")
 	public ResponseEntity<Allergy> getAllergyDetails(@PathVariable int id){

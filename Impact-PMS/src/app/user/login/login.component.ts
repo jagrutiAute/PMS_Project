@@ -2,7 +2,9 @@ import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 import { Login } from 'src/app/Login';
+import { PatientDetails } from 'src/app/patient/patientDetail';
 import { LoginService } from '../login.service';
 import { User } from '../user';
 
@@ -23,7 +25,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: LoginService
+   // private service: LoginService
+   private service: AuthService
   ) { }
 
 
@@ -59,6 +62,8 @@ export class LoginComponent {
 
     
     let login: Login = new Login();
+    
+   
     Object.assign(login, this.signUpForm.value);
     
     this.service.getLogin(login).subscribe(
@@ -68,12 +73,29 @@ export class LoginComponent {
         console.log("backend date " + data);
 
         //console.log(this.attempts);
-        if(data =="SUCCESS")
-        {
+
+        if(data != null){
           
+         // localStorage.setItem('role',data);
+
+          sessionStorage.setItem('role',data);
+          sessionStorage.setItem('username', login.email);
+          
+
+          console.log("username :: "+login.email);
+
           alert('Login successfully');
+
+          if(data =='Patient'){
+           
           this.router.navigateByUrl('app-body-layout/patient-details');
-          console.log("Login successfully..")
+        }
+        
+        if(data == 'Admin'){
+          this.router.navigateByUrl('/admin-dashboard/hospital-users');
+        }
+        
+        console.log("Login successfully..")
         }
         if(data=="UsernamePass"){
             this.attempts=6;

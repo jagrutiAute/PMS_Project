@@ -1,0 +1,101 @@
+<div class="container bootstrap snippet">
+
+    <div class="row">
+
+        <!--/col-3-->
+        <div class="col-sm-9">
+            <!-- <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" routerLink="/patient-details">Patient Details</a></li>
+                <li><a data-toggle="tab" routerLink="/emergency-contact-info">Emergency Contact Info</a></li>
+                <li><a data-toggle="tab" href="#settings">Allergy Details</a></li>
+            </ul> -->
+
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="home"></div>
+
+                <form [formGroup]="vitalForm">
+
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label class="control-label" style="font-size: larger;"> 
+                                <h4>Height</h4>
+                            </label>
+                            <input type="text" class="form-control" 
+                                  formControlName="Height" [class.is-invalid]="f.Height.touched && f.Height.invalid"  required>
+                                <p class="text-danger" *ngIf="f.Height.touched && f.Height.errors?.required">
+                                    Please provide Patient height in cms.</p>
+                        
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label class="control-label">
+                                <h4>Weight</h4>
+                            </label>
+                            <input type="text" class="form-control" 
+                                 formControlName="Weight" [class.is-invalid]="f.Weight.touched && f.Weight.invalid" required>
+                        </div>
+                        <p class="text-danger" *ngIf="f.Weight.touched && f.Weight.errors?.required">
+                            Please provide Patient’s Weight in Kgs</p>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label class="control-label">
+                                <h4>Blood Pressure</h4>
+                            </label>
+                            <input type="text" class="form-control" formControlName="Blood_Pressure" 
+                            [class.is-invalid]="f.Blood_Pressure.touched && f.Blood_Pressure.invalid" required >
+                            <p class="text-danger" *ngIf="f.Blood_Pressure.touched && f.Blood_Pressure.errors?.required">
+                                Please provide Patient’s Blood Pressure (systolic / diastolic)</p>
+                        </div>
+                        
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="control-label">
+                                <h4>Body Temperature</h4>
+                            </label>
+                            <input type="text" class="form-control" formControlName="Body_Temperature"
+                            [class.is-invalid]="f.Body_Temperature.touched && f.Body_Temperature.invalid" required >
+                                <p class="text-danger" *ngIf="f.Body_Temperature.touched && f.Body_Temperature.errors?.required">
+                                    Please provide Patient Body Temperature</p>
+                            </div>
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="control-label">
+                                <h4>Respiration Rate</h4>
+                            </label>
+                            <input type="text" class="form-control" formControlName="Respiration_Rate"
+                            [class.is-invalid]="f.Respiration_Rate.touched && f.Respiration_Rate.invalid"  required >
+                                <p class="text-danger" *ngIf="f.Respiration_Rate.touched && f.Respiration_Rate.errors?.required">
+                                    Please provide Patient’s Respiration Rate</p>
+                            </div>
+                        
+                    </div>
+
+                   
+
+                    
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <button class="btn btn-lg btn-success" type="submit" (click)="handleFormSubmit()"><i
+                                    class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>

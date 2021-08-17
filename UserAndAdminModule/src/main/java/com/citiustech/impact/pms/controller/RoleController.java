@@ -11,7 +11,6 @@ import com.citiustech.impact.pms.model.Role;
 import com.citiustech.impact.pms.service.RoleService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class RoleController {
 
 	@Autowired

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+<<<<<<< HEAD
 			<item value="D:\Project 379\PMS_Project\VitalSigns"/>
 			<item value="D:\Project 379\PMS_Project\Reports"/>
 			<item value="D:\Project 379\PMS_Project\PatientVisit"/>
@@ -12,7 +13,13 @@
 			<item value="D:\Project 379\PMS_Project\Diagnoses"/>
 			<item value="D:\Project 379\PMS_Project\AppointmentScheduling"/>
 			<item value="D:\Project 379\PMS_Project\Allergies"/>
+||||||| 9711931e
+			<item value="C:\Users\farheenb\Desktop\Angular8-SpringBoot-CRUD-Tutorial\springboot2-jpa-crud-example"/>
+=======
+>>>>>>> 3f27067f609cc4c1d05536928bf2dc9441cdf0e3
 			<item value="C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\UserAndAdminModule"/>
+			<item value="C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\eureka-server"/>
+			<item value="C:\Users\farheenb\Desktop\Angular8-SpringBoot-CRUD-Tutorial\springboot2-jpa-crud-example"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

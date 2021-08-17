@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,9 +16,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import com.citiustech.impact.pms.model.PatientProfile;
 import com.citiustech.impact.pms.model.PatientUser;
 import com.citiustech.impact.pms.service.PatientUserService;
+
+
 
 
 
@@ -32,7 +37,7 @@ public class PatientUserController {
 	
 	public static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(PatientUserController.class.getName());
 	
-	@GetMapping("/patient")
+	@GetMapping("/patient1")
 	public ResponseEntity<List<PatientUser>> getPatientDetails() {
 		
 		
@@ -42,7 +47,7 @@ public class PatientUserController {
 		return new ResponseEntity<List<PatientUser>>(patientDetails, HttpStatus.OK);
 	}
 	
-	@GetMapping("/patient/{id}")
+	/*	@GetMapping("/patient/{id}")
 	public Optional<PatientUser> getPatientDetailsById(@PathVariable int id) {
 		
 		System.out.println("Patient By Id");
@@ -72,5 +77,30 @@ public class PatientUserController {
 		
 		List<PatientUser> patientuser=patientUserService.gettingByLastnameOrFirstname(lastname,firstname);
 		return new ResponseEntity<List<PatientUser>>(patientuser, HttpStatus.OK);
+	} */
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	// calling userAndAdminModule microservices by rest template
+	@GetMapping("/admin/patient")
+	public ResponseEntity<List<PatientProfile>> getPatients() {
+		
+	PatientProfile[]	 response=restTemplate.getForObject("http://localhost:8088/patient",PatientProfile[].class);
+		
+		//PatientProfile[] patientProfile = response.getBody();
+		List<PatientProfile> ob = Arrays.asList(response);
+		
+		System.out.println(ob);
+		return new ResponseEntity<List<PatientProfile>>(ob, HttpStatus.OK);
+		
 	}
+	
+	@DeleteMapping("/admin/patient/{id}")
+	public void deletePatient(@PathVariable("id") int id,PatientProfile patient) {
+		patient.setId((long) id);
+		restTemplate.delete("http://localhost:8088/patient/"+id);
+	}
+	
+	
 }

@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.citiustech.impact.pms.model.HospitalUser;
 
 public interface HospitalUserService {
-	public Optional<HospitalUser> getHospitalUserById(long id);
+	/*public Optional<HospitalUser> getHospitalUserById(long id);
 
 	public List<HospitalUser> getAllHospitalUsers();
 
@@ -14,6 +14,6 @@ public interface HospitalUserService {
 
 	public String editHospitalUser(long id, HospitalUser h);
 
-	public void removeHospitalUser(long id);
+	public void removeHospitalUser(long id);  */
 
 }

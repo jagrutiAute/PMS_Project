@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmergencyContactInfo } from '../emergencyContactInfo';
 import { PatientDetailService } from '../patient.service';
+import { PatientDetails } from '../patientDetail';
 
 @Component({
   selector: 'app-emergency-contact-info',
@@ -12,6 +13,9 @@ import { PatientDetailService } from '../patient.service';
 export class EmergencyContactInfoComponent implements OnInit {
 
   emergencyContactInfo: EmergencyContactInfo;
+  patientDetails1:PatientDetails;
+  id : number;
+  
 
   constructor(
     private fb: FormBuilder,
@@ -20,13 +24,16 @@ export class EmergencyContactInfoComponent implements OnInit {
 
   ) { }
 
+  mrnId:string = sessionStorage.getItem('mrnNumber');
+
   ngOnInit(): void {
 
-    this.service.getPatientEmergencyCntDetails().subscribe(
+    this.service.getPatientEmergencyCntDetails(this.mrnId).subscribe(
       (data) => {
         console.log("getPatientEmergencyCntDetails() :::::  " + data)
         this.emergencyContactInfo=data;
-
+        this.patientDetails1= this.emergencyContactInfo.patientDetails;
+        this.id = this.emergencyContactInfo.id;
         
       }
     );
@@ -54,8 +61,9 @@ export class EmergencyContactInfoComponent implements OnInit {
     
     let emergencyCntInfo: EmergencyContactInfo = new EmergencyContactInfo();
 
-   // this.patientDetails.mrnNumber=1;
-    
+   emergencyCntInfo.patientDetails = this.patientDetails1;
+   emergencyCntInfo.id = this.id;
+
     Object.assign(emergencyCntInfo, this.emergencyCntInfo.value);
     
     this.service.updateEmergencyCntDetails(emergencyCntInfo).subscribe(
