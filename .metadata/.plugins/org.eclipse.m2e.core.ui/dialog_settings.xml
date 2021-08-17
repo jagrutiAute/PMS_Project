@@ -2,7 +2,16 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="C:\Users\farheenb\Desktop\Angular8-SpringBoot-CRUD-Tutorial\springboot2-jpa-crud-example"/>
+			<item value="D:\Project 379\PMS_Project\VitalSigns"/>
+			<item value="D:\Project 379\PMS_Project\Reports"/>
+			<item value="D:\Project 379\PMS_Project\PatientVisit"/>
+			<item value="D:\Project 379\PMS_Project\PatientDetails"/>
+			<item value="D:\Project 379\PMS_Project\Observations"/>
+			<item value="D:\Project 379\PMS_Project\Medications"/>
+			<item value="D:\Project 379\PMS_Project\eureka-server"/>
+			<item value="D:\Project 379\PMS_Project\Diagnoses"/>
+			<item value="D:\Project 379\PMS_Project\AppointmentScheduling"/>
+			<item value="D:\Project 379\PMS_Project\Allergies"/>
 			<item value="C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\UserAndAdminModule"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -13,5 +22,9 @@
 			<item value="[groupId].[artifactId]-[version]"/>
 			<item value="[name]"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 </section>
