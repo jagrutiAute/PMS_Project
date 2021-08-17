@@ -1,4 +1,5 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,9 +18,11 @@ import { Race } from '../race';
 export class PatientDetailsComponent implements OnInit {
 
    patientDetails: PatientDetails ;
+    
    races:Race[];  
    ethinicities: Ethinicity[];
   
+   username : string =  sessionStorage.getItem('username');
 
   constructor(
     private fb: FormBuilder,
@@ -30,12 +33,15 @@ export class PatientDetailsComponent implements OnInit {
 
   ngOnInit() {
     
-    this.service.getPatientDetails().subscribe(
+    this.service.getPatientDetails(this.username).subscribe(
       (data) => {
         console.log("getPatientDetails() :::::  " + data)
         this.patientDetails=data;
-
-        
+      
+        sessionStorage.setItem('mrnNumber',''+this.patientDetails.mrnNumber);
+       
+       
+      
       }
     );
 
@@ -64,7 +70,7 @@ export class PatientDetailsComponent implements OnInit {
 
 
   patientDetailsForm = this.fb.group({
-
+    
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     dateOfBirth: ['', Validators.required],
@@ -83,26 +89,29 @@ export class PatientDetailsComponent implements OnInit {
     return this.patientDetailsForm.controls;
   }
 
- 
+  
 
   updatePatientDetails() {
 
-    console.log("inside method");
+
+   
 
     let patientDetails: PatientDetails = new PatientDetails();
 
-    this.patientDetails.mrnNumber=9;
+    this.patientDetails.mrnNumber= parseInt( sessionStorage.getItem('mrnNumber'));
     
-    Object.assign(patientDetails, this.patientDetailsForm.value);
+    Object.assign(this.patientDetails, this.patientDetailsForm.value);
     console.log("above subscribe");
-    this.service.updatePatientDetails(patientDetails).subscribe(
+    this.service.updatePatientDetails(this.patientDetails).subscribe(
      
+      
       data => {
        
+        sessionStorage.setItem('patient', JSON.stringify( this.patientDetails)); 
         console.log("patientDetails data is" + data);
       
        
-    }
+    }    
 
     );
 

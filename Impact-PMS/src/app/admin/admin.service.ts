@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Medication } from "./admin-dashboard/medication-master";
+import { Medication } from "./medication-master";
+
 import { Patient } from "./patient";
 
 

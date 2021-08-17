@@ -25,11 +25,27 @@ import { MatOptionModule } from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { AdminHeaderComponent } from '../components/admin-header/admin-header.component';
+import { AdminSidenavComponent } from '../components/admin-sidenav/admin-sidenav.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from '../app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 
 @NgModule({
   declarations: [
+
+    AdminHeaderComponent,
+    AdminSidenavComponent,
+
     HospitalUsersComponent,
     PatientUsersComponent,
     AdminDashboardComponent,
@@ -44,6 +60,18 @@ import {OverlayModule} from '@angular/cdk/overlay';
     
   ],
   imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDividerModule,
+    MatListModule,
+    MatTreeModule,
+    CommonModule,
+    
     CommonModule,
     RouterModule.forChild(adminroutes),
     HttpClientModule,
@@ -63,7 +91,9 @@ import {OverlayModule} from '@angular/cdk/overlay';
    exports: [
     HospitalUsersComponent,
     PatientUsersComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdminHeaderComponent,
+    AdminSidenavComponent
    
   ],
   providers:[AdminDashBoardService, HospitalUserService]

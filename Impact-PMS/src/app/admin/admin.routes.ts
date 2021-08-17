@@ -1,4 +1,4 @@
-import { NotesComponent } from './../user/notes/notes.component';
+
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { HospitalUsersComponent } from './hospital-users/hospital-users.component';
@@ -14,12 +14,16 @@ import { MedicationComponent } from './medication/medication.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { AddMedicationComponent } from './add-medication/add-medication.component';
 import { SchedulingComponent } from './scheduling/scheduling.component';
+import { AdminGuard } from '../admin.guard';
+import { NotesComponent } from '../user/notes/notes.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
+
+
 export var adminroutes: Route[] = [
 
     {
-        path: 'admin-dashboard', component: AdminDashboardComponent,
+        path: 'admin-dashboard', canActivate:[AdminGuard], component: AdminDashboardComponent,
 
         children: [
 
@@ -36,13 +40,11 @@ export var adminroutes: Route[] = [
                 path: 'patient-users',
                 children: [
                     { path: '', component: PatientUsersComponent },
-                    { path: 'edit-patient-users/:id', component: EditPatientUsersComponent }
-
-                    // { path: 'add-patient-users', component: AddPatientUsersComponent }
+                    { path: 'edit-patient-users/:id', component: EditPatientUsersComponent },
+                    { path: 'add-patient-users', component: AddPatientUsersComponent }
                 ]
 
-            },
-            {
+            }, {
                 path: 'medication',
                 children: [
                     { path: '', component: MedicationComponent }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Medication } from '../admin-dashboard/medication-master';
+
 import { AdminDashBoardService } from '../admin.service';
 
 @Component({

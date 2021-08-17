@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToasterService1 } from 'src/app/toaster-service.service';
-import { Medication } from '../admin-dashboard/medication-master';
+
 import { AdminDashBoardService } from '../admin.service';
+import { Medication } from '../medication-master';
 
 import { User1 } from '../user1';
 
