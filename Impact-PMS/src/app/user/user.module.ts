@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
 import { RouterModule } from '@angular/router';
 import{userroutes } from './user.routes';
-import { NotesComponent } from './notes/notes.component'
+import { NotesComponent } from './notes/notes.component';
+import { UpcomingAppointmentComponent } from './upcoming-appointment/upcoming-appointment.component'
 
 
 
@@ -22,7 +23,8 @@ import { NotesComponent } from './notes/notes.component'
     RegistrationPatientComponent,
     ChangePasswordComponent,
     ForgotPasswordComponent,
-    NotesComponent
+    NotesComponent,
+    UpcomingAppointmentComponent
   ],
   providers: [LoginService,ToasterService1],
   imports: [

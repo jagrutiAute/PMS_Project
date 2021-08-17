@@ -1,38 +1,43 @@
-<form class="form" [formGroup]="" action="##" method="post" id="notesForm">
+<form class="form" [formGroup]="notesForm" action="##" method="post" id="notesForm">
     <div class="form-group">
 
-            <label for="first_name">
-                <h4>To</h4>
-            </label> 
-            <input type="text" class="form-control" [ngStyle]="{'color':'black', 'font-size':'17px'}" 
-                formControlName="To" placeholder="To"  />
-        </div>
-    
-<br>
+        <label for="first_name">
+            <h4>To</h4>
+        </label>
+        <input type="text" class="form-control" [ngStyle]="{'color':'black', 'font-size':'17px'}"
+            formControlName="reciever" placeholder="To" />
+    </div>
+
+    <br>
     <div class="form-group">
 
-            <label for="subject">
-                <h4>Subject</h4>
-            </label>
-            <input type="textarea" class="form-control" name="subject" 
-            [ngStyle]="{'color':'black', 'font-size':'17px'}"  formControlName="subject"
-                placeholder="enter subject" title="enter your last name if any." >
-        </div>
-    
+        <label for="subject">
+            <h4>Subject</h4>
+        </label>
+        <input type="textarea" class="form-control" name="subject" [ngStyle]="{'color':'black', 'font-size':'17px'}"
+            formControlName="subject" placeholder="enter subject" title="enter your last name if any.">
+    </div>
+
     <br>
 
     <div class="form-group">
 
-            <label for="phone">
-                <h4>Message</h4>
-            </label>
-            <textarea id="w3review" name="w3review" rows="4" cols="50" class="form-control" name="message" placeholder="enter message"
-            [ngStyle]="{'color':'black', 'font-size':'17px'}"   formControlName="message"
-                title="message" ></textarea>
-        </div>
-    
-        <button type="submit" class="btn btn-primary btn-lg" 
-        (click)="sendNote()">Send Notes</button><br><br>
-        </form>
+        <label for="message">
+            <h4>Message</h4>
+        </label>
+        <textarea id="w3review" name="w3review" rows="4" cols="50" class="form-control" name="message"
+            placeholder="enter message" [ngStyle]="{'color':'black', 'font-size':'17px'}" formControlName="message"
+            title="message"></textarea>
+    </div>
+    <label for="urgency">
+        <h4>Note Urgency </h4>
+    </label>
+    <div class="form-group">
+        <input type="radio" id="urgent" name="noteUrgent" value="true" formControlName="isUrgent">
+        <label for=" ">Urgent</label>&nbsp; &nbsp;&nbsp;&nbsp;
+        <input type="radio" id="noturgent" name="noteUrgent" value="false" formControlName="isUrgent">
+        <label for=" ">Not Urgent</label><br>
+    </div>
 
-   
+    <button type="submit" class="btn btn-primary btn-lg" (click)="sendNote()">Send Notes</button><br><br>
+</form>

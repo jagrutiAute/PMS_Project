@@ -1,3 +1,4 @@
+import { UpcomingAppointmentComponent } from './../user/upcoming-appointment/upcoming-appointment.component';
 import { NotesComponent } from './../user/notes/notes.component';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
@@ -37,7 +38,8 @@ export var adminroutes: Route[] = [
                 ]
 
             },
-            { path: 'notes',component:NotesComponent  }
+            { path: 'notes',component:NotesComponent  },
+            { path: 'upcoming-appointment',component:UpcomingAppointmentComponent  }
 
         ]
     }

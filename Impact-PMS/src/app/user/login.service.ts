@@ -1,3 +1,4 @@
+import { Notes } from './notes';
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -13,6 +14,7 @@ export class LoginService {
   private regProviderUrl = 'http://localhost:8088/registerProvider';
   private rolesUrl = 'http://localhost:8088/getRoles';
   private baseUrl="http://localhost:8088";
+  private notesUrl="http://localhost:8088/notes";
   constructor(private _http: HttpClient) { }
 
   getLogin(login: Login): Observable<any> {
@@ -49,5 +51,14 @@ export class LoginService {
     console.log('show:::::::' + this._http.post(`${this.baseUrl}/forgotPass/${email}`, { responseType: 'text' as 'json' }));
     return this._http.get(`${this.baseUrl}/forgotPass/${email}`, { responseType: 'text' });
     // return this._http.post(`${this.baseUrl}`,{responseType: 'text' as 'json'});
+  }
+
+  addNotes(note: Notes):Observable<any> {
+
+    console.log("inside notes service" );
+    let result=this._http.post(`${this.notesUrl}`, note, { responseType: 'text' });
+   // return this._http.post(`${this.notesUrl}`, note, { responseType: 'text' });
+   console.log("result "+result);
+   return result;
   }
 }
