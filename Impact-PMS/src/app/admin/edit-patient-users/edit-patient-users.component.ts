@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AdminDashBoardService } from '../admin.service';
 import { Patient } from '../patient';
+import { User1 } from '../user1';
 
 
 @Component({
@@ -15,9 +16,10 @@ import { Patient } from '../patient';
 })
 export class EditPatientUsersComponent implements OnInit {
 
-  status: string[] = ["Active", "Blocked", "Disable"];
+  status: string[] = ["ACTIVE", "BLOCK"];
   id: number;
   patient: Patient;
+  user: User1;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private adminDashBoardService: AdminDashBoardService) { }
@@ -35,7 +37,7 @@ export class EditPatientUsersComponent implements OnInit {
   }
 
   updateEmployee() {
-    this.adminDashBoardService.updatePatintById(this.id, this.patient)
+    this.adminDashBoardService.updatePatintById(this.patient.user.id, this.patient.user.isActive)
       .subscribe(data => {
         console.log(data);
         this.patient = new Patient();
@@ -51,3 +53,5 @@ export class EditPatientUsersComponent implements OnInit {
     this.router.navigate(['admin-dashboard/patient-users']);
   }
 }
+
+

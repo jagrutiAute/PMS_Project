@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.citiustech.impact.pms.model.ProviderRegistration"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityListeners"/>
+<fullyQualifiedTypeName name="org.springframework.data.jpa.domain.support.AuditingEntityListener"/>
+<fullyQualifiedTypeName name="org.springframework.data.annotation.CreatedBy"/>
+<fullyQualifiedTypeName name="org.springframework.data.annotation.CreatedDate"/>
+<fullyQualifiedTypeName name="javax.persistence.Temporal"/>
+<fullyQualifiedTypeName name="javax.persistence.TemporalType"/>
+<fullyQualifiedTypeName name="org.springframework.data.annotation.LastModifiedBy"/>
+<fullyQualifiedTypeName name="org.springframework.data.annotation.LastModifiedDate"/>
+<fullyQualifiedTypeName name="java.util.Optional"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.config.EnableJpaAuditing"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+<fullyQualifiedTypeName name="org.springframework.data.domain.AuditorAware"/>
+<fullyQualifiedTypeName name="com.citiustech.impact.pms.audit.AuditorAwareImpl"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.citiustech.impact.pms.repository.UserRepository"/>
+<fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+<fullyQualifiedTypeName name="com.citiustech.impact.pms.model.Users"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+</qualifiedTypeNameHistroy>

@@ -1,3 +1,4 @@
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
@@ -9,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
 import { RouterModule } from '@angular/router';
-import{userroutes } from './user.routes'
+import{userroutes } from './user.routes';
+import { NotesComponent } from './notes/notes.component'
 
 
 
@@ -19,9 +21,10 @@ import{userroutes } from './user.routes'
     RegistrationProviderComponent,
     RegistrationPatientComponent,
     ChangePasswordComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    NotesComponent
   ],
-  providers: [LoginService],
+  providers: [LoginService,ToasterService1],
   imports: [
     CommonModule,
     FormsModule,

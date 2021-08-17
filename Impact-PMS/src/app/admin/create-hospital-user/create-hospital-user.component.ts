@@ -1,3 +1,4 @@
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,7 +21,9 @@ export class CreateHospitalUserComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    private service: HospitalUserService) { }
+    private service: HospitalUserService,
+    private toaster: ToasterService1
+    ) { }
 
   ngOnInit(): void {
     this.futureDateDisable();
@@ -90,7 +93,8 @@ export class CreateHospitalUserComponent implements OnInit {
         console.log("data is " + data);
         this.statusofEmployeeId = data;
         if (this.statusofEmployeeId === 'SUCCESS') {
-          alert('registration successful');
+          this.toaster.Success(" Registration Successful");
+         // alert('registration successful');
           window.location.reload();
         }
         console.log("this.statusofEmployeeId  ::  " + this.statusofEmployeeId)

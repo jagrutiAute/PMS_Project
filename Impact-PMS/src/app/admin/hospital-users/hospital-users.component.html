@@ -1,105 +1,68 @@
-<div class="container" style="font-size: 15px;">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-    <h3>Hospital Users</h3>
+<body>
+    <div class="container" style="font-size: 15px;">
 
-    <p style="text-align: right;">
-        <a routerLink="create-user" class="btn btn-success btn-lg">Add Hospital User</a>
-    </p>
-    <br>
-    <table class="table table-bordeles table-hover">
-        <thead class="thead thead-light">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Date of Joining</th>
-                <th>Status</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
-                <td>{{user.firstName}} {{user.lastName}}</td>
-                <td>{{user.dateOfJoining}}</td>
-                <td>{{user.status}}</td>
-                <td>
-                    <button class="btn btn-block btn-primary btn-lg" (click)="updateUser(user.id)">Edit</button>
-                </td>
-                <td>
-                    <button (click)="updateUser1(user.id)" class="btn btn-block btn-primary btn-lg" data-toggle="modal"
-                        data-target="#myModal">Update</button>
-                </td>
-                <td>
-                    <button class="btn btn-block btn-danger btn-lg" (click)="deleteUser(user.id)">Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <h3 style="text-align: center; font-size: 25px;">Hospital Users</h3>
+        <p style="text-align: right;">
+            <a routerLink="create-user" class="btn btn-success btn-lg">Add Hospital User</a>
+        </p>
+        <br>
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Add User
-    </button> -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <!-- <form (ngSubmit)="updateForm()"> -->
-                    <form>
-
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="exampleModalLongTitle">Update Hopital User</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class=" form-group">
-                            <label class="form-label">Id:</label>
-                            <input type="text" class="form-control" id="id" required [(ngModel)]="user.id" name="id"
-                                readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">First Name:</label>
-                            <input type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName"
-                                name="firstName">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Last Name:</label>
-                            <input type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName"
-                                name="lastName">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Date of Joining</label>
-                            <input type="date" class="form-control" id="dateOfJoining" required
-                                [(ngModel)]="user.dateOfJoining" name="dateOfJoining ">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Status</label>
-                            <select class="form-control" id="status" required [(ngModel)]="user.status" name="status ">
-                                <option value="">--Select--</option>
-                                <option *ngFor="let status of status" value="{{status}}">{{status}}</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success btn-lg" (click)="updateForm()">
-                            <i class=" glyphicon glyphicon-ok-sign"></i>&nbsp;
-                            Update User
-                        </button>
-                    </div>
-                </form>
-            </div>
+        <!-- <input class="form-control" type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()"
+            placeholder="Search using Employee ID or Name"> -->
+        <div class="search-container" style="width: 40%;">
+            <!-- <label class="control-label" style="font-size: 100px;">Search: </label> -->
+            <input type="text" placeholder=" Search using Employee First Name" class="form-control" name="firstName"
+                [(ngModel)]="firstName" (ngModelChange)="search()">
         </div>
+        <br>
+
+        <!-- <form [formGroup]="searchForm" (ngSubmit)="searchNew()">
+            <div class="input-group" style="width: 40%;">
+                <input type="text" class="form-control md" formControlName="keyword"
+                    placeholder="Search using Employee ID or First Name or Last Name" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary btn-lg">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form> 
+        <br> -->
+
+        <table class="table table-borderless table-hover">
+            <thead class="thead thead-light">
+                <tr>
+                    <th (click)="sort('employeeid')">Employee Id &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('title')">Title &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('firstName')">Name &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('roleName')">Role &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('date_of_birth')">Date of Joining &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('email')">Email &nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('isActive')">Status &nbsp;<i class="fa fa-sort"></i></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let huser of husers | orderBy: key: reverse| paginate: {itemsPerPage:10,currentPage:p};">
+                    <td>{{huser.employeeid}}</td>
+                    <td>{{huser.title}}</td>
+                    <td>{{huser.firstName}} {{huser.lastName}}</td>
+                    <td>{{huser.user.role.roleName}}</td>
+                    <td>{{huser.user.createDateAndTime | date: "dd.MMM.yyyy"}}</td>
+                    <td>{{huser.user.email}}</td>
+                    <td>{{huser.user.isActive}}</td>
+                    <td>
+                        <button class="btn btn-block btn-warning btn-lg" (click)="updateUser(huser.employeeid)">
+                            Update Status
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
-</div>
+</body>

@@ -1,7 +1,10 @@
+import { User1 } from "./user1"
+
 export class HospitalUser {
-    id: number;
+    employeeid: String
+    title: String
     firstName: String
     lastName: String
-    dateOfJoining: Date
-    status: String
+    date_of_birth: String
+    user: User1
 }

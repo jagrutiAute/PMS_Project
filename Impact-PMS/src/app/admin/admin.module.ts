@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HospitalUsersComponent } from './hospital-users/hospital-users.component';
 import { PatientUsersComponent } from './patient-users/patient-users.component';
@@ -13,6 +13,20 @@ import { AddPatientUsersComponent } from './add-patient-users/add-patient-users.
 import { CreateHospitalUserComponent } from './create-hospital-user/create-hospital-user.component';
 import { UpdateHospitalUserComponent } from './update-hospital-user/update-hospital-user.component';
 import { HospitalUserService } from './hospital-user.service';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MedicationComponent } from './medication/medication.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { AddMedicationComponent } from './add-medication/add-medication.component';
+
+import { SchedulingComponent } from './scheduling/scheduling.component';
+import {MatInputModule} from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+import {OverlayModule} from '@angular/cdk/overlay';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +36,11 @@ import { HospitalUserService } from './hospital-user.service';
     EditPatientUsersComponent,
     AddPatientUsersComponent,
     CreateHospitalUserComponent,
-    UpdateHospitalUserComponent
+    UpdateHospitalUserComponent,
+    MedicationComponent,
+    PatientDetailsComponent,
+    AddMedicationComponent,
+    SchedulingComponent
     
   ],
   imports: [
@@ -30,7 +48,17 @@ import { HospitalUserService } from './hospital-user.service';
     RouterModule.forChild(adminroutes),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2OrderModule,
+    NgxPaginationModule,
+    MatInputModule,
+    MatOptionModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    OverlayModule
+    
+    
+    
   ],
    exports: [
     HospitalUsersComponent,

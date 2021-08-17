@@ -22,6 +22,7 @@ import com.citiustech.impact.pms.service.HospitalUserService;
 @CrossOrigin(origins = "*")
 public class HospitalUserController {
 
+	/*
 	@Autowired
 	HospitalUserService adminService;
 
@@ -55,4 +56,6 @@ public class HospitalUserController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
+
+*/
 }
