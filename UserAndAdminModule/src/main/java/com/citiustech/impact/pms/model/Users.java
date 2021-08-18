@@ -1,22 +1,35 @@
 package com.citiustech.impact.pms.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class Users {
 
 	@Id
@@ -38,19 +51,27 @@ public class Users {
 	@Column(name = "enrolled")
 	private Enrolled enrolled;
 
-	@Column(name = "created_by")
+	@Column(name = "created_by", nullable = false, updatable = false)
+	@CreatedBy
 	private String createdBy;
 
-	@Column(name = "created_date_time")
-	private LocalDate createDateAndTime;
+	@Column(name = "created_date_time", nullable = false, updatable = false)
+	@CreatedDate
+//	@Temporal(TemporalType.TIMESTAMP)
+	private LocalDateTime createDateAndTime;
+//	private LocalDateTime createDateAndTime;
 
-	@Column(name = "modified_by")
+	@Column(name = "modified_by", nullable = false)
+	@LastModifiedBy
 	private String modifiedBy;
 
-	@Column(name = "modified_date_time")
-	private LocalDate modifiedDateAndTime;
+	@Column(name = "modified_date_time", nullable = false)
+	@LastModifiedDate
+//	@Temporal(TemporalType.TIMESTAMP)
+	private LocalDateTime modifiedDateAndTime;
 
 	@Column(name = "is_active_role")
+	//@Enumerated(EnumType.STRING)
 	private ISActive isActive;
 
 	@Column(name = "password_changed_status")
@@ -121,11 +142,11 @@ public class Users {
 		this.createdBy = createdBy;
 	}
 
-	public LocalDate getCreateDateAndTime() {
+	public LocalDateTime getCreateDateAndTime() {
 		return createDateAndTime;
 	}
 
-	public void setCreateDateAndTime(LocalDate createDateAndTime) {
+	public void setCreateDateAndTime(LocalDateTime createDateAndTime) {
 		this.createDateAndTime = createDateAndTime;
 	}
 
@@ -137,11 +158,11 @@ public class Users {
 		this.modifiedBy = modifiedBy;
 	}
 
-	public LocalDate getModifiedDateAndTime() {
+	public LocalDateTime getModifiedDateAndTime() {
 		return modifiedDateAndTime;
 	}
 
-	public void setModifiedDateAndTime(LocalDate modifiedDateAndTime) {
+	public void setModifiedDateAndTime(LocalDateTime modifiedDateAndTime) {
 		this.modifiedDateAndTime = modifiedDateAndTime;
 	}
 

@@ -12,35 +12,39 @@
     <mat-icon>dashboard</mat-icon> Dashboard
   </a> -->
 
-  
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item>Fronend</button>
+    <button mat-menu-item>Backend</button>
+    </mat-menu>
+    <button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
 
-  <a  mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/admin/admin-dashboard">
+  <a  mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" >
     <mat-icon>dashboard</mat-icon> Admin Home
     
   </a>
 
   <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/admin/admin-dashboard/hospital-users">
-    <mat-icon>dashboard</mat-icon> Hospital user
+     Hospital user
   </a>
   <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/admin/admin-dashboard/patient-users">
-    <mat-icon>dashboard</mat-icon> Patient User
+     Patient User
   </a>
 
 
-  <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/patient/app-body-layout">
+  <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" >
     <mat-icon>dashboard</mat-icon> Patient Profile
   </a>
 
   <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/patient/app-body-layout/patient-details">
-    <mat-icon>dashboard</mat-icon> Patient Patient Details
+     Patient Patient Details
   </a>
 
   <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/patient/app-body-layout/emergency-contact-info">
-    <mat-icon>dashboard</mat-icon> Emergency Contact Info
+     Emergency Contact Info
   </a>
 
   <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/patient/app-body-layout/allergy-details">
-    <mat-icon>dashboard</mat-icon> Allergy Details
+     Allergy Details
   </a>
 
   

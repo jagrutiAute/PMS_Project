@@ -26,6 +26,7 @@ import com.mysql.cj.log.LogFactory;
 */
 
 @RestController
+@CrossOrigin(origins = "*")
 public class LoginController {
 
 	private static Logger logger = Logger.getLogger(LoginController.class);
@@ -100,7 +101,10 @@ public class LoginController {
 				userService.updatefaildeLogin(loginResult);
 			}
 			logger.trace("User validate successfully");
-			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			
+			System.out.println("loginResult.getRole().getRoleName()  ::::  "+loginResult.getRole().getRoleName());
+			
+			return new ResponseEntity<String>(loginResult.getRole().getRoleName(), HttpStatus.OK);
 		}
 		
 

@@ -1,0 +1,165 @@
+
+<nav class=" navbar navbar-expand-lg navbar-dark " style="background-color: #2f4b7c;color:white;">
+
+    <img src="./assets/images/MicrosoftTeams-image (1).png" style="height: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;
+    <h3>CT General Hospital</h3>
+  
+  </nav>
+  
+  <mat-nav-list >
+  
+    <div >
+      <img src="./assets/images/Nurse.jfif" alt="Company Logo" style="height: 140px; width: 260px;" />
+    </div>
+   
+  
+    
+    <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/patient/app-body-layout">
+      <mat-icon>dashboard</mat-icon> Nurse Dashboard
+    </a>
+  
+   
+  
+  
+  
+  
+    <mat-accordion>
+   
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        
+        <mat-expansion-panel-header class="specific-class">
+          <mat-panel-title style="color: white;">
+            Visit Details
+          </mat-panel-title>
+     
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/patient-details">
+          vital sign
+        </a>
+      
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/emergency-contact-info">
+          Diagnosis
+        </a>
+      
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/allergy-details">
+          procedure
+        </a>
+        
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="medication">
+          Medication
+       </a>
+    
+       <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="notes">
+        Notes
+     </a>
+    
+     <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="patient-details">
+      Patient Details
+    </a>
+    
+    
+      </mat-expansion-panel>
+     
+    </mat-accordion>
+  
+  </mat-nav-list>
+  
+  <mat-nav-list >
+  
+    <mat-accordion>
+   
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        
+        <mat-expansion-panel-header class="specific-class">
+          <mat-panel-title style="color: white;">
+            Appointment
+          </mat-panel-title>
+     
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/patient-details">
+          Notification
+        </a>
+      
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/emergency-contact-info">
+          Upcoming
+        </a>
+      
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="scheduling">
+          Scheduling
+        </a>
+       
+      </mat-expansion-panel>
+      </mat-accordion>
+    </mat-nav-list>
+  
+  
+      <mat-nav-list >
+  
+      <mat-accordion>
+   
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          
+          <mat-expansion-panel-header class="specific-class">
+            <mat-panel-title style="color: white;">
+              Visits
+            </mat-panel-title>
+       
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/patient-details">
+            Visit History
+          </a>
+        
+         
+        
+         
+        </mat-expansion-panel>
+     
+    </mat-accordion>
+    </mat-nav-list>
+
+    <mat-nav-list >
+  
+      <mat-accordion>
+   
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          
+          <mat-expansion-panel-header class="specific-class">
+            <mat-panel-title style="color: white;">
+              Patient Details
+            </mat-panel-title>
+       
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/patient-details">
+            Visit History
+          </a>
+         
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/patient-details">
+            Demographics
+          </a>
+        
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/emergency-contact-info">
+             Emergency Contact
+          </a>
+        
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/allergy-details">
+             Allergies
+          </a>
+         
+        
+         
+        </mat-expansion-panel>
+     
+    </mat-accordion>
+    </mat-nav-list>
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  

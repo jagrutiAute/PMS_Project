@@ -12,17 +12,27 @@ import { AdminModule } from './admin/admin.module';
 
 import { PatientVisitModule } from './patient-visit/patient-visit.module';
 import { NbThemeModule } from '@nebular/theme';
+//import { CalendarModule, DateAdapter } from 'angular-calendar';
+//import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ToasterService1 } from './toaster-service.service';
 import { ToastrModule } from 'ngx-toastr';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent  
+    AppComponent
   ],
   imports: [
+
+    BrowserAnimationsModule,
+    BackButtonDisableModule.forRoot(),
+
     BrowserModule,
     AppRoutingModule,
     UserModule,
@@ -31,10 +41,13 @@ import { ToastrModule } from 'ngx-toastr';
     AdminModule,
     PatientVisitModule,
     PatientModule,
+   // NbThemeModule.forRoot(),
+    //CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
     NbThemeModule.forRoot(),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     ToastrModule.forRoot(),
     BrowserAnimationsModule
+    
   ],
   providers: [ToasterService1],
   bootstrap: [AppComponent]

@@ -28,10 +28,11 @@ public class PatientDetailsService {
 	@Autowired
 	RaceRepository raceRepo;
 
-	public Optional<PatientDetails> getPatientDetails(int id) {
+	public Optional<PatientDetails> getPatientDetails(String username) {
 
-		Optional<PatientDetails> patientDetailsSer = patientDetailsRepo.findById(id);
-
+		//Optional<PatientDetails> patientDetailsSer = patientDetailsRepo.findById(id);
+		Optional<PatientDetails> patientDetailsSer = patientDetailsRepo.findAllPatientDetailsByUsername(username);
+		
 		System.out.println("patientDetailsSer::::::" + patientDetailsSer);
 
 		return patientDetailsSer;
@@ -49,13 +50,15 @@ public class PatientDetailsService {
 		
 		System.out.println("ethinicity ::: "+ethinicity.get()+"  race  ::   "+race.get());
 
+		String email =  patient.getEmail();
+		
 		RestTemplate rest = new RestTemplate();
-		Users user = rest.getForObject("http://localhost:8088/getUser/gaurav.abale@gmail.com", Users.class);
+		Users user = rest.getForObject("http://localhost:8088/getUser/"+email, Users.class);
 
 		System.out.println("user  :::::  " + user);
 
 		// pass dynamic MRN Number instead of hardcoded 1
-		patientDetails.setMrnNumber(9);
+		patientDetails.setMrnNumber(patient.getMrnNumber());
 		patientDetails.setFirstName(patient.getFirstName());
 		patientDetails.setLastName(patient.getLastName());
 		patientDetails.setDateOfBirth(patient.getDateOfBirth());

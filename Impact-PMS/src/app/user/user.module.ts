@@ -13,8 +13,11 @@ import { RouterModule } from '@angular/router';
 import{userroutes } from './user.routes';
 import { NotesComponent } from './notes/notes.component';
 import { UpcomingAppointmentComponent } from './upcoming-appointment/upcoming-appointment.component'
-
-
+import {MatInputModule} from '@angular/material/input';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { UpcomingAppointmentComponent } from './upcoming-appointment/upcoming-ap
   ],
   providers: [LoginService,ToasterService1],
   imports: [
+    MatRadioModule,
+    TextFieldModule,
+    MatInputModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-
   status: String;
   constructor(
     private service: LoginService,

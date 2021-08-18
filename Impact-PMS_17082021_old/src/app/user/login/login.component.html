@@ -1,0 +1,80 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <!-- <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">-->
+        <img src="assets/images/dr.jpg" style="width: 100%;">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
+        <form [formGroup]="signUpForm">
+          <!-- Email input -->
+          <div class="form-outline mb-1">
+            <label class="form-label" for="form1Example13">Email ID</label>
+            <input type="email" id="form1Example13" class="form-control form-control-lg" formControlName="email"
+              [class.is-invalid]="f.email.touched && f.email.invalid" />
+
+            <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.required">
+              This field cannot be empty
+            </p>
+            <p class="text-danger" *ngIf="f.email.touched && f.email.errors?.pattern ">
+              Please provide valid email.
+            </p>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-6">
+            <label class="form-label" for="form1Example23">Password</label>
+            <input type="password" id="form1Example23" class="form-control form-control-lg" formControlName="password"
+              [class.is-invalid]="password.touched && password.invalid" />
+
+            <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.required">
+              This field cannot be empty
+            </p>
+            <p class="text-danger" *ngIf="f.password.touched && f.password.errors?.pattern && this.passwordFlag">
+              Password entry does not meet criteria
+            </p>
+            <p class="text-danger" *ngIf="attempts > 0 && attempts < 3">
+              {{3-attempts}} login attempts remaining
+            </p>
+            <p class="text-danger" *ngIf="attempts > 3">
+              Your account has been locked. Please call helpdesk on 123456 for more information.
+            </p>
+            <p class="text-danger" *ngIf="attempts==6">
+              Username and Password not matched
+            </p>
+          </div>
+
+          <div class="d-flex center-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+            <a routerLink="/forgot-password">Forgot password?</a>
+            <!-- <a routerLink="/forgot-password">Forgot password?</a>&nbsp;&nbsp;&nbsp;
+            <a routerLink="/change-password">Change password?</a> -->
+
+          </div>
+
+
+          <!-- Submit button apply-->
+          <diV>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="handleFormSubmit()">Login</button>
+          </diV>
+          <br>
+          <div class="d-flex center-content-around align-items-center mb-2">
+            For a new member?&nbsp;&nbsp;<a routerLink="/patient-registration">Patient Signup</a>
+          </div>
+<<<<<<< HEAD
+          <a routerLink="/app-registration-provider">Provider Signup</a>&nbsp;&nbsp;&nbsp;
+          <!-- <a routerLink="/app-body-layout/patient-details">Patient Dashboard</a> &nbsp;&nbsp;&nbsp; -->
+          <a routerLink="/admin-dashboard/hospital-users">Admin Dashboard</a>
+=======
+          <a routerLink="/app-registration-provider">ProviderSignup</a>&nbsp;&nbsp;&nbsp;
+           <a routerLink="/app-body-layout/patient-details">Patient Dashboard</a> &nbsp;&nbsp;&nbsp;
+          <a routerLink="/admin-dashboard">Admin Dashboard</a>
+>>>>>>> bac4f8d606b12c6d0351782d43091475de1abdfb
+          <!-- <a routerLink="/dashboard">Admin Dashboard</a> -->
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import com.citiustech.impact.pms.model.PatientProfile;
 import com.citiustech.impact.pms.model.Users;
 
-public interface UserRepository extends JpaRepository<Users, Long>{
+public interface UserRepository extends JpaRepository<Users, Long> {
 
-	 Users findByEmail(String email);
-	 Users findByEmailAndPassword(String email,String password);
-	 
-	
+	Users findByEmail(String email);
+
+	Users findByEmailAndPassword(String email, String password);
+
 }

@@ -57,6 +57,7 @@ public class AccountController {
 
 	}
 
+	/*
 	@GetMapping("/patient")
 	public ResponseEntity<List<PatientProfile>> getUserDetails() {
 
@@ -70,14 +71,14 @@ public class AccountController {
 		
 		System.out.println("Patient By Id");
 		return this.patientService.gettinPatientById(id);
-	}
+	} */
 
-	@DeleteMapping("patient/{id}")
-	public void deletePatient(@PathVariable("id") int id, PatientProfile patientProfile) {
-		patientProfile.setId((long) id);
-		patientProfileRepository.deleteById((long) id);
-	}
-
+	/*
+	 * @DeleteMapping("patient/{id}") public void deletePatient(@PathVariable("id")
+	 * int id, PatientProfile patientProfile) { patientProfile.setId((long) id);
+	 * patientProfileRepository.deleteById((long) id); }
+	 */
+/*
 	@PutMapping("/patient/{id}/{status}")
 	public Users updateStatusPatientById(@PathVariable int id, @PathVariable String status) {
 		System.out.println(id);
@@ -87,7 +88,7 @@ public class AccountController {
 		patientService.updatingStatus(id, status);
 		return null;
 	}
-	
+	*/
 	
 
 }

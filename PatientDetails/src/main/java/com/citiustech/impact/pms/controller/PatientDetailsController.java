@@ -29,10 +29,10 @@ public class PatientDetailsController {
 	@Autowired
 	EmergencyContactInfoService emergencyContactInfoService;
 
-	@GetMapping("/getPatientDetails/{id}")
-	public Optional<Optional<PatientDetails>> getPatientDetails(@PathVariable int id) {
+	@GetMapping("/getPatientDetails/{username}")
+	public Optional<Optional<PatientDetails>> getPatientDetails(@PathVariable String username) {
 
-		Optional<PatientDetails> patientDetails = patientDetailsService.getPatientDetails(id);
+		Optional<PatientDetails> patientDetails = patientDetailsService.getPatientDetails(username);
 
 		return Optional.of(patientDetails);
 	}
@@ -40,7 +40,8 @@ public class PatientDetailsController {
 	@PostMapping("/updatePatientDetails")
 	public ResponseEntity<PatientDetails> updatePatientDetails(@RequestBody PatientDetailDTO patient) {
 		
-		System.out.println("patient DTO    ::::::  "+patient);
+		System.out.println("patient DTO    ::::::  "+patient.toString());
+		
 		
 		PatientDetails updatedpatientDetails = patientDetailsService.updatePatientDetails(patient);
 		

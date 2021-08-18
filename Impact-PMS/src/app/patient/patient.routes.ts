@@ -6,10 +6,11 @@ import { EmergencyContactInfoComponent } from './emergency-contact-info/emergenc
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { ChangePasswordComponent } from '../user/change-password/change-password.component';
 import { VitalSignsComponent } from '../patient-visit/vital-signs/vital-signs.component';
+import { AuthGuard } from '../auth.guard';
 
 export var patientroutes:Route[]=[
     
-    {path:'app-body-layout', component:BodyLayoutComponent,
+    {path:'app-body-layout', canActivate:[AuthGuard], component:BodyLayoutComponent,
 
     children:[
 
