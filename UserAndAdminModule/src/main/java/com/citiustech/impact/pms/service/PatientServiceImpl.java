@@ -39,8 +39,11 @@ public class PatientServiceImpl implements PatientService {
 
 	public String login(String email, String password) {
 
+		log.debug("inside login() method of PatientServiceImpl class");
 		String pwd = encryption(email, password);
 		System.out.println(pwd);
+		
+		log.debug("calling findByEmailAndPassword() method of UserRepository interface");
 
 		Users user = userRepository.findByEmailAndPassword(email, pwd);
 
@@ -125,7 +128,9 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public List<PatientProfile> gettingUserDetails() {
-
+		
+		log.debug("inside gettingUserDetails() method");
+		log.debug("calling findAll() method of PatientProfileRepository interface");
 		return patientProfileRepository.findAll();
 	}
 
@@ -143,6 +148,9 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public Optional<PatientProfile> gettinPatientById(int id) {
+		
+		log.debug("inside gettinPatientById() method of PatientServiceImpl");
+		log.debug("calling findById() method of PatientProfileRepository interface");
 
 		return patientProfileRepository.findById((long) id);
 	}

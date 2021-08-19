@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,9 @@ import com.citiustech.impact.pms.service.ProviderRegistrationService;
 @RestController
 public class ProviderRegistrationController {
 
+	
+	static Logger log = Logger.getLogger(ProviderRegistrationController.class.getName());
+
 	@Autowired
 	ProviderRegistrationService providerRegService;
 
@@ -21,8 +25,8 @@ public class ProviderRegistrationController {
 	@PostMapping("/registerProvider")
 	public ResponseEntity<String> registerProvider(@RequestBody ProviderRegistrationDTO regProvider) {
 
-	
-		
+		log.debug("inside registerProvider() method");
+
 		String status = providerRegService.registerProvider(regProvider, regProvider.getUsername());
 
 		return new ResponseEntity<String>(status, HttpStatus.OK);

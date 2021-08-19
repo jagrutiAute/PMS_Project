@@ -1,5 +1,6 @@
 package com.patientvisit.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +17,18 @@ import com.patientvisit.service.VitalSignsService;
 @CrossOrigin(origins = "*")
 public class VitalSignsController {
 
+	static Logger log = Logger.getLogger(VitalSignsController.class.getName());
+
 	@Autowired
 	VitalSignsService vitalSignsService;
 
 	@PostMapping("/vitalsigns")
     public ResponseEntity<VitalSigns> addVitalSigns(@RequestBody VitalSignsDTO vitalSingsDTO)
     {
-		System.out.println(" vital sings dto " + vitalSingsDTO);
+		//System.out.println(" vital sings dto " + vitalSingsDTO);
+		log.debug("inside addVitalSigns() method of VitalSignsController class");
+		log.debug("calling updateVitalSigns() method of VitalSignsService class");
+		
 		VitalSigns vtlSigns=vitalSignsService.updateVitalSigns(vitalSingsDTO);
 		
 		return new ResponseEntity<VitalSigns>(vtlSigns,HttpStatus.CREATED);
