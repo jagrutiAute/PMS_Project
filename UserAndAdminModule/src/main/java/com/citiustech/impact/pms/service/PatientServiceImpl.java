@@ -6,10 +6,12 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.citiustech.impact.pms.DTO.PatientDTO;
+import com.citiustech.impact.pms.controller.AccountController;
 import com.citiustech.impact.pms.model.ISActive;
 import com.citiustech.impact.pms.model.PatientProfile;
 import com.citiustech.impact.pms.model.Users;
@@ -20,6 +22,9 @@ import com.citiustech.impact.pms.repository.UserRepository;
 public class PatientServiceImpl implements PatientService {
 
 	static String sha256hexstr;
+	
+	static Logger log = Logger.getLogger(PatientServiceImpl.class.getName());
+
 
 	private LocalDate Date;
 	
@@ -50,8 +55,12 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public String savePatient(PatientDTO p) {
 
-		String pwd = encryption(p.getEmail(), p.getPwd());
-		System.out.println(pwd);
+		log.debug("inside savePatient() method of PatientServiceImpl");
+		log.debug("calling static encryption() method of PatientServiceImpl class");
+		
+		String pwd = encryption(p.getEmail(), p.getPwd());	
+		
+		log.debug("Encryption password " + pwd);
 
 		Users user = new Users();
 		user.setEmail(p.getEmail());
@@ -79,7 +88,7 @@ public class PatientServiceImpl implements PatientService {
 		else
 			patientProfile.setGender("Male");
 
-		// create calendar object for birth day
+		// create calendar object for birth date
 		Calendar birthDay = p.getDob();
 
 		// create calendar object for current day
@@ -95,12 +104,13 @@ public class PatientServiceImpl implements PatientService {
 		patientProfile.setUser(user);
 
 		// user.setUserProfile(patientProfile);
-
+		log.debug("calling findByEmail() method of UserRepository interface");
 		Users user1 = userRepository.findByEmail(user.getEmail());
 		if (user1 != null) {
 			return "user already exist";
 
 		} else {
+		log.debug("calling save() method of UserRepository interface");
 			userProfileRepository.save(patientProfile);
 			System.out.println("patientProfilr"+patientProfile);
 			return "user register successfully";
