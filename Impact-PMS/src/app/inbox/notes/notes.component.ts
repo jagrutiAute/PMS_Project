@@ -1,7 +1,8 @@
+import { User } from '../../admin/user';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ToasterService1 } from './../../toaster-service.service';
-import { Notes } from './../notes';
-import { LoginService } from './../login.service';
+import { ToasterService1 } from '../../toaster-service.service';
+import { Notes } from '../../user/notes';
+import { LoginService } from '../../user/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
   status: String;
+  user:User;
   constructor(
     private service: LoginService,
     private toaster: ToasterService1,
@@ -26,7 +28,6 @@ export class NotesComponent implements OnInit {
       Validators.required
     ],
 
-    subject: ['', Validators.required],
     message: ['', Validators.required],
     isUrgent: ['', Validators.required]
   });
@@ -37,19 +38,19 @@ export class NotesComponent implements OnInit {
 
   sendNote() {
     console.log("inside sendNotes method");
-    let note:Notes=new Notes();
+    let note: Notes = new Notes();
+    let email = "abc1@gmail.com";
     Object.assign(note, this.notesForm.value);
-    console.log("Hello")
-    this.service.addNotes(note).subscribe(
+    this.service.addNotes(note, email).subscribe(
       data => {
         console.log("data " + data);
         this.status = data;
         console.log("status  " + this.status);
-        if (this.status == "Success") {
+        
           this.toaster.Success(" Notes Send Successfully");
           // alert('Your password reset successfully');
           // this.router.navigate(['/login']);
-        }
+        
       },
       error => {
         console.log(error);

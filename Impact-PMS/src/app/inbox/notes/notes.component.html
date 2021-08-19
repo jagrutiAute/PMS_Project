@@ -1,35 +1,40 @@
 <form class="form" [formGroup]="notesForm" action="##" method="post" id="notesForm">
-    <div class="float-child">
-       
+    <div class="float-container">
+
+        <div class="float-child">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>To</mat-label>
             <input matInput [ngStyle]="{'color':'black', 'font-size':'15px'}"
                  placeholder="To" formControlName="reciever">
         </mat-form-field>
     </div>
+</div>
 
-    <div class="float-child">
-       
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Subject</mat-label>
-            <input matInput [ngStyle]="{'color':'black', 'font-size':'15px'}"
-                 placeholder="Subject" formControlName="subject">
-        </mat-form-field>
-    </div>
-    <div class="float-child">
-       
+    <div class="float-container">
+
+        <div class="float-child">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Message</mat-label>
             <textarea matInput  placeholder="message" formControlName="message" placeholder="Enter message here"></textarea>
             </mat-form-field>
     </div>
-    <div>
-    <mat-radio-group class="example-full-width">
+    </div><br>
+    <div class="float-container">
+
+        <div class="float-child">
+        <input type="radio" id="urgent" name="noteUrgent" value="true" formControlName="isUrgent">
+        <label for=" ">Urgent</label>&nbsp; &nbsp;&nbsp;&nbsp;
+        <input type="radio" id="noturgent" name="noteUrgent" value="false" formControlName="isUrgent">
+        <label for=" ">Not Urgent</label><br>
+      </div>
+   </div>
+
+    <!-- <mat-radio-group class="example-full-width">
         <mat-label>Urgency Level </mat-label><br>
         <mat-radio-button value=true  formControlName="isUrgent" >Urgent</mat-radio-button>
         <mat-radio-button value=false formControlName="isUrgent" >Not Urgent</mat-radio-button>
       </mat-radio-group>
-    </div>
+    </div> -->
 
     <!-- <div class="form-group">
 
@@ -71,6 +76,10 @@
         <label for=" ">Not Urgent</label><br>
     </div>
      -->
+     <div class="float-container">
+        <div class="float-child">
 
     <button type="submit" class="btn btn-primary btn-lg" (click)="sendNote()">Send Notes</button><br><br>
+</div>
+</div>
 </form>

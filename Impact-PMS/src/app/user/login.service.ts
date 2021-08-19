@@ -53,10 +53,10 @@ export class LoginService {
     // return this._http.post(`${this.baseUrl}`,{responseType: 'text' as 'json'});
   }
 
-  addNotes(note: Notes):Observable<any> {
+  addNotes(note: Notes,email:String):Observable<any> {
 
     console.log("inside notes service" );
-    let result=this._http.post(`${this.notesUrl}`, note, { responseType: 'text' });
+    let result=this._http.post(`${this.notesUrl}`+'/'+`${email}`, note, { responseType: 'text' });
    // return this._http.post(`${this.notesUrl}`, note, { responseType: 'text' });
    console.log("result "+result);
    return result;

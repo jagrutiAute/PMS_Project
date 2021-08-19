@@ -1,5 +1,7 @@
 package com.citiustech.impact.pms.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,8 +22,12 @@ public class Notes {
 	private Long id;
 	
 	private String reciever;
-	private String subject;
 	private String message;
 	private Boolean isUrgent;
+	private LocalDateTime sentTime;
+	private LocalDateTime recieveTime;	
+	private String sender;
+	
+	
 	
 }
