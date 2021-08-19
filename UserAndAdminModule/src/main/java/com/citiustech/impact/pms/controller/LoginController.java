@@ -100,15 +100,28 @@ public class LoginController {
 				loginResult.setLoginAttempts(0);
 				userService.updatefaildeLogin(loginResult);
 			}
+			
+		 	if(loginResult.getPassowrdChangedStatus()==1) {
+          	  	
+           	   return new ResponseEntity<String>("status_change",HttpStatus.OK);
+           	
+              }
+			
 			logger.trace("User validate successfully");
 			if(loginResult.getRole() == null) {
-	               
+				
+				
+				
+			
+				
+				
+				
                 return new ResponseEntity<String>("Patient", HttpStatus.OK);
                
             }else {
-               
+            		
                 System.out.println("loginResult.getRole().getRoleName()  ::::  "+loginResult.getRole().getRoleName());
-                               
+           
                 return new ResponseEntity<String>(loginResult.getRole().getRoleName(), HttpStatus.OK);
                
             }
@@ -116,5 +129,9 @@ public class LoginController {
 		
 
 	}
+	
+			
+	
+	
 
 }

@@ -34,14 +34,14 @@ public class LoginService {
 		log.debug("calling findByEmail() method of UserRepository interface");
 		Users user =repo.findByEmail(email);
 		//System.out.println("status is "+user.getPassword().equals(pwd));
-		
+			
 			return user;
 		//}
-		
-		
-
-
 	}
+	
+	
+	
+	
 
 	public Users updatefaildeLogin(Users loginResult) {
 		// TODO Auto-generated method stub
