@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.allergies.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,15 @@ public class AllergyController {
 		Optional<Allergy> allergy =  allergyDetailServie.getAllergyDetails(id);
 	
 		return new ResponseEntity<Allergy>(allergy.get(),HttpStatus.OK);
+		
+	}
+	
+	@GetMapping("/getAllergyDetails")
+	public ResponseEntity<List<Allergy>> getAllergyDetailsList(){
+		
+		Optional< List<Allergy>> allergy =  allergyDetailServie.getAllergyList();
+	
+		return new ResponseEntity<List<Allergy>>(allergy.get(),HttpStatus.OK);
 		
 	}
 	
