@@ -19,6 +19,39 @@
     </a>
   
    
+    <mat-nav-list >
+  
+      <mat-accordion>
+   
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          
+          <mat-expansion-panel-header class="specific-class">
+            <mat-panel-title style="color: white;">
+              Inbox
+            </mat-panel-title>
+       
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="upcoming-appointments">
+            Upcoming Appointments
+          </a>
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="notes">
+            Send Note
+          </a>
+         
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="recieved-notes">
+            Recieved Notes
+          </a>
+        
+          <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="sent-notes">
+              Sent Notes
+          </a>
+        
+        
+         
+        </mat-expansion-panel>
+     
+    </mat-accordion>
+    </mat-nav-list>
   
   
   
@@ -26,6 +59,7 @@
     <mat-accordion>
    
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        
         
         <mat-expansion-panel-header class="specific-class">
           <mat-panel-title style="color: white;">
@@ -48,10 +82,6 @@
         <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="medication">
           Medication
        </a>
-    
-       <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="notes">
-        Notes
-     </a>
     
      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="patient-details">
       Patient Details
@@ -80,10 +110,7 @@
           Notification
         </a>
       
-        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/emergency-contact-info">
-          Upcoming
-        </a>
-      
+
         <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="scheduling">
           Scheduling
         </a>

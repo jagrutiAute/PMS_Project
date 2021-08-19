@@ -2,6 +2,7 @@ package com.citiustech.impact.pms.allergies.controller;
 
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,12 +20,19 @@ import com.citiustech.impact.pms.allergies.service.AllergyDetailService;
 @CrossOrigin(origins = "*")
 public class PatientAllergyDetailCoontroller {
 
+	static Logger log = Logger.getLogger(PatientAllergyDetailCoontroller.class.getName());
+
+	
 	@Autowired
 	AllergyDetailService allergyDetailService;
 
 	@PostMapping("savePatientAllergyDetails")
 	public ResponseEntity<AllergyDetails> savePatientAllergyDetails(@RequestBody AllergyDetails allergyDetails) {
 
+		log.debug("inside savePatientAllergyDetails() method of PatientAllergyDetailCoontroller class");
+		log.debug("calling addPatientAllergy() method of AllergyDetailService class");
+		
+		
 		AllergyDetails allergyDetail = allergyDetailService.addPatientAllergy(allergyDetails);
 
 		return new ResponseEntity<AllergyDetails>(allergyDetail, HttpStatus.OK);
@@ -33,6 +41,10 @@ public class PatientAllergyDetailCoontroller {
 	
 	@GetMapping("/getPatientAllergyDetails/{id}")
 	public ResponseEntity<AllergyDetails> getPatientAllergyDetails(@PathVariable int id){
+		
+		log.debug("inside getPatientAllergyDetails() method of PatientAllergyDetailCoontroller class");
+		log.debug("calling fetchPatientAllergyDetails() method of AllergyDetailService class");
+		
 		
 	Optional<AllergyDetails> allergyDetails = allergyDetailService.fetchPatientAllergyDetails(id);
 		

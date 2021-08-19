@@ -5,6 +5,29 @@
     
     <mat-drawer mode="side" [opened]="sideBarOpen">
 
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a routerLink="hospital-users" class="nav-link align-middle px-0 text-property">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Hospital Users</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="patient-users" class="nav-link align-middle px-0 text-property">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Patient Users</span>
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a routerLink="notes" class="nav-link align-middle px-0 text-property">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"> Notes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="upcoming-appointment" class="nav-link align-middle px-0 text-property">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"> Upcoming-Appointment</span>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
         <app-admin-sidenav></app-admin-sidenav>
     </mat-drawer>
     <mat-drawer-content>

@@ -1,9 +1,11 @@
 package com.patientvisit.service;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.patientvisit.controller.VitalSignsController;
 import com.patientvisit.dto.VitalSignsDTO;
 import com.patientvisit.model.Users;
 import com.patientvisit.model.VitalSigns;
@@ -13,6 +15,9 @@ import com.patientvisit.repository.VitalSignsRepository;
 @Service
 public class VitalSignsServiceImpl implements VitalSignsService {
 
+	static Logger log = Logger.getLogger(VitalSignsServiceImpl.class.getName());
+
+	
 	@Autowired 
 	private UserRepository userRepo;
 	
@@ -22,6 +27,9 @@ public class VitalSignsServiceImpl implements VitalSignsService {
 	
 	@Override
 	public VitalSigns updateVitalSigns(VitalSignsDTO vtdto) {
+		
+		log.debug("inside updateVitalSigns() method of VitalSignsServiceImpl class");
+		log.debug("calling findByEmail() method of UserRepository interface");
 		
 		Users user=userRepo.findByEmail(vtdto.getUserID());
 		Users patient=userRepo.findByEmail(vtdto.getPatientID());
@@ -34,6 +42,8 @@ public class VitalSignsServiceImpl implements VitalSignsService {
 		vtlsigns.setRespirationRate(vtdto.getRespirationRate());
 		vtlsigns.setUser(user);
 		vtlsigns.setPatient(patient);
+		
+		log.debug("calling save() method of VitalSignsRepository interface");
 		
 		 return vitlrepo.save(vtlsigns);
 		 
