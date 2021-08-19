@@ -10,16 +10,18 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
 	
 	
-	
+	static Logger log = Logger.getLogger(EmailService.class.getName());
+
 	public  void sendEmail(final String from, final String password, String to, String sub, String msg) {
 		// Get properties object
-		System.out.println("inside send() method");
+		log.debug("inside sendEmail() method of EmailService class");
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.socketFactory.port", "465");
@@ -42,7 +44,7 @@ public class EmailService {
 			message.setText(msg);
 			// send message
 			Transport.send(message);
-			System.out.println("message sent successfully");
+			log.debug("message sent successfully");
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}

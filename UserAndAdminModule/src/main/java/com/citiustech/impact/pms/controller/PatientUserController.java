@@ -3,6 +3,7 @@ package com.citiustech.impact.pms.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,8 @@ import com.citiustech.impact.pms.service.PatientService;
 @RestController
 public class PatientUserController {
 
+	static Logger log = Logger.getLogger(PatientUserController.class.getName());
+ 
 	@Autowired
 	private PatientService patientService;
 
@@ -29,7 +32,9 @@ public class PatientUserController {
 
 	@GetMapping("/patient")
 	public ResponseEntity<List<PatientProfile>> getUserDetails() {
-
+		
+		log.debug("inside getUserDetails() method of PatientUserController");
+		log.debug("calling gettingUserDetails() method of PatientService");
 		List<PatientProfile> patientProfile = this.patientService.gettingUserDetails();
 		return new ResponseEntity<List<PatientProfile>>(patientProfile, HttpStatus.OK);
 

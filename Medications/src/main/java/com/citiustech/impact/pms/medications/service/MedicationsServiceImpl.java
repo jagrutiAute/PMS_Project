@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.citiustech.impact.pms.controller.AccountController;
 import com.citiustech.impact.pms.medications.dto.MedicationsPatientDTO;
 import com.citiustech.impact.pms.medications.model.Medications;
 import com.citiustech.impact.pms.medications.model.PatientMedications;
@@ -18,6 +20,8 @@ import com.citiustech.impact.pms.medications.repository.UserRepository;
 
 @Service
 public class MedicationsServiceImpl implements MedicationsService{
+
+	static Logger log = Logger.getLogger(MedicationsServiceImpl.class.getName());
 
 	@Autowired
 	PatientMedicationsRepository patientMedRepo;
@@ -38,13 +42,16 @@ public class MedicationsServiceImpl implements MedicationsService{
 	public Optional<Medications> getAllMedications(Integer medID) 
 	{
 	//	Optional<Medications> med=medRepo.findById(medID);
-		
+		log.debug("inside getAllMedications() method of MedicationsServiceImpl class");
+
 		return null;
 	}
 
 	@Override
 	public ResponseEntity<PatientMedications> loadPatientMedications(MedicationsPatientDTO dto) {
 
+		log.debug("inside loadPatientMedications() method of MedicationsServiceImpl class");
+		log.debug("calling findByEmail() method of UserRepository interface ");
 		
 		Users user=userRepo.findByEmail(dto.getPid());
 		Users patient=userRepo.findByEmail(dto.getPhid());
@@ -60,7 +67,8 @@ public class MedicationsServiceImpl implements MedicationsService{
 			pmedlist.add(pmed);
 		}
 		
-		
+		log.debug("calling saveAll() method of PatientMedicationsRepository interface ");
+
 		patientMedRepo.saveAll(pmedlist);
 		
 		
