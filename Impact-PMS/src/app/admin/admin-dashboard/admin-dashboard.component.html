@@ -1,43 +1,22 @@
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-primary">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+<mat-drawer-container class="parent">
+    
+    <mat-drawer mode="side" [opened]="sideBarOpen">
 
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                   
-                    <li>
-
-                        <p class="nav-link align-middle px-0 text-property">
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="glyphicon glyphicon-plus"></i> <span class="ms-1 d-none d-sm-inline"> </span>
-                        </p>
-                    </li>
-                   
                     <li class="nav-item">
                         <a routerLink="hospital-users" class="nav-link align-middle px-0 text-property">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Hospital Users</span>
                         </a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a routerLink="patient-users" class="nav-link align-middle px-0 text-property">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Patient Users</span>
                         </a>
-                    </li>
+                    </li> 
                     <li class="nav-item">
-
-                        <a routerLink="medication" class="nav-link align-middle px-0 text-property">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Medication</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a routerLink="patient-details" class="nav-link align-middle px-0 text-property">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Patient Details</span>
-                        </a>
-                    </li>
-                    <li>
-
                         <a routerLink="notes" class="nav-link align-middle px-0 text-property">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"> Notes</span>
                         </a>
@@ -47,16 +26,23 @@
 
                         <a routerLink="scheduling" class="nav-link align-middle px-0 text-property">
                              <span class="ms-1 d-none d-sm-inline"> Scheduling</span>
+                             </a></li>
+                    <li class="nav-item">
+                        <a routerLink="upcoming-appointment" class="nav-link align-middle px-0 text-property">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"> Upcoming-Appointment</span>
                         </a>
                     </li>
-                   
                 </ul>
                 <hr>
+        <app-admin-sidenav></app-admin-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-admin-header (toggleSidebarForMe)="sideBarToggler()"></app-admin-header>
 
-            </div>
-        </div>
-        <div class="col py-3">
+        
             <router-outlet></router-outlet>
-        </div>
-    </div>
-</div>
+        
+
+    </mat-drawer-content>
+
+</mat-drawer-container>

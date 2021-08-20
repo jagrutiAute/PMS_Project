@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToasterService1 } from 'src/app/toaster-service.service';
-import { Medication } from '../admin-dashboard/medication-master';
+import { Medication } from '../medication-master';
+
 import { MedicationService } from '../medication.service';
 
 import { User1 } from '../user1';

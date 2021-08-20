@@ -26,12 +26,42 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { MedicationService } from './medication.service';
+import { AdminHeaderComponent } from '../components/admin-header/admin-header.component';
+import { AdminSidenavComponent } from '../components/admin-sidenav/admin-sidenav.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from '../app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatTreeModule } from '@angular/material/tree';
+
+import { PhysicanSidenavComponent } from '../components/physican-sidenav/physican-sidenav.component';
+import { PhysicanHeaderComponent } from '../components/physican-header/physican-header.component';
+import { PhysicianDashboardComponent } from './physician-dashboard/physician-dashboard.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { NurseDashboardComponent } from './nurse-dashboard/nurse-dashboard.component';
+import { NurseHeaderComponent } from '../components/nurse-header/nurse-header.component';
+import { NurseSidenavComponent } from '../components/nurse-sidenav/nurse-sidenav.component';
+
+
 
 
 
 
 @NgModule({
   declarations: [
+
+    AdminHeaderComponent,
+    AdminSidenavComponent,
+    PhysicanHeaderComponent,
+    PhysicanSidenavComponent,
+    PhysicianDashboardComponent,
     HospitalUsersComponent,
     PatientUsersComponent,
     AdminDashboardComponent,
@@ -42,11 +72,29 @@ import { MedicationService } from './medication.service';
     MedicationComponent,
     PatientDetailsComponent,
     AddMedicationComponent,
-    SchedulingComponent
+    SchedulingComponent,
+    NurseDashboardComponent,
+    NurseHeaderComponent,
+    NurseSidenavComponent
+    
     
   ],
   imports: [
-    CommonModule,
+
+    MatExpansionModule,
+    MatRadioModule,
+    MatButtonModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDividerModule,
+    MatListModule,
+    MatTreeModule,
+    CommonModule,   
     RouterModule.forChild(adminroutes),
     HttpClientModule,
     FormsModule,
@@ -65,7 +113,15 @@ import { MedicationService } from './medication.service';
    exports: [
     HospitalUsersComponent,
     PatientUsersComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdminHeaderComponent,
+    AdminSidenavComponent,
+    PhysicanHeaderComponent,
+    PhysicanSidenavComponent,
+    PhysicianDashboardComponent,
+    NurseDashboardComponent,
+    NurseHeaderComponent,
+    NurseSidenavComponent
    
   ],
   providers:[AdminDashBoardService, HospitalUserService, MedicationService]

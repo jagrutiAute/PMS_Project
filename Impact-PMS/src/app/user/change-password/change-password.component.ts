@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/auth.service';
+import { Login } from 'src/app/Login';
 import { ConfirmedValidator } from './confirmed-equal.validator';
 
 @Component({
@@ -9,7 +11,7 @@ import { ConfirmedValidator } from './confirmed-equal.validator';
 })
 export class ChangePasswordComponent {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private service: AuthService) { }
 
   changePasswordForm = this.fb.group({
     password: ['', Validators.required],
@@ -25,6 +27,12 @@ export class ChangePasswordComponent {
   get confirm_password() { return this.changePasswordForm.get('confirm_password') }
 
   handleFormSubmit() {
-    console.log(this.changePasswordForm.value)  
+    //console.log(this.changePasswordForm.value) 
+    console.log(this.new_password.value)
+
+     let logindetails:Login;
+      logindetails.email=sessionStorage.getItem('username');
+      logindetails.password=this.new_password.value;
+      this.service.getLogin(logindetails);
   }
 }

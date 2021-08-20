@@ -2,6 +2,7 @@ package com.citiustech.impact.pms.allergies.controller;
 
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +18,16 @@ import com.citiustech.impact.pms.allergies.service.AllergyService;
 @CrossOrigin(origins = "*")
 public class AllergyController {
 	
+	static Logger log = Logger.getLogger(AllergyController.class.getName());
+
 	@Autowired
 	AllergyService allergyDetailServie;
 
 	@GetMapping("/getAllergyDetails/{id}")
 	public ResponseEntity<Allergy> getAllergyDetails(@PathVariable int id){
+		
+		log.debug("inside getAllergyDetails() method of AllergyController class");
+		log.debug("calling getAllergyDetails() method of AllergyService class");
 		
 		Optional<Allergy> allergy =  allergyDetailServie.getAllergyDetails(id);
 	

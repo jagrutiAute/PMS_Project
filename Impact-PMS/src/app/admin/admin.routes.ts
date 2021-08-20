@@ -1,5 +1,6 @@
-import { NotesComponent } from './../user/notes/notes.component';
-import { NgModule } from '@angular/core';
+import { UpcomingAppointmentComponent } from './../user/upcoming-appointment/upcoming-appointment.component';
+
+import { NgModule, Component } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { HospitalUsersComponent } from './hospital-users/hospital-users.component';
 import { PatientUsersComponent } from './patient-users/patient-users.component';
@@ -14,12 +15,25 @@ import { MedicationComponent } from './medication/medication.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { AddMedicationComponent } from './add-medication/add-medication.component';
 import { SchedulingComponent } from './scheduling/scheduling.component';
+import { AdminGuard } from '../admin.guard';
+
+import { PhysicianGuard } from '../physician.guard';
+import { PhysicianDashboardComponent } from './physician-dashboard/physician-dashboard.component';
+import { NurseDashboardComponent } from './nurse-dashboard/nurse-dashboard.component';
+import { NurseGuard } from '../nurse.guard';
+import { NotesComponent } from '../inbox/notes/notes.component';
+import { UpcomingAppointmentsComponent } from '../inbox/upcoming-appointments/upcoming-appointments.component';
+import { RecievedNotesComponent } from '../inbox/recieved-notes/recieved-notes.component';
+import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
+
+
 export var adminroutes: Route[] = [
 
     {
-        path: 'admin-dashboard', component: AdminDashboardComponent,
+        path: 'admin-dashboard', canActivate: [AdminGuard], component: AdminDashboardComponent,
+
 
         children: [
 
@@ -36,10 +50,36 @@ export var adminroutes: Route[] = [
                 path: 'patient-users',
                 children: [
                     { path: '', component: PatientUsersComponent },
-                    { path: 'edit-patient-users/:id', component: EditPatientUsersComponent }
-
-                    // { path: 'add-patient-users', component: AddPatientUsersComponent }
+                    { path: 'edit-patient-users/:id', component: EditPatientUsersComponent },
+                    { path: 'add-patient-users', component: AddPatientUsersComponent }
                 ]
+
+            }
+
+
+        ],
+
+
+
+    },
+    {
+        path: 'physician-dashboard', canActivate: [PhysicianGuard], component: PhysicianDashboardComponent,
+        children: [
+            {
+                path: 'notes', component: NotesComponent
+
+            },
+            { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
+            { path: 'recieved-notes', component: RecievedNotesComponent },
+            { path: 'sent-notes', component: SentNotesComponent },
+            {
+                path: 'patient-details', component: PatientDetailsComponent
+
+
+
+            },
+            {
+                path: 'scheduling', component: SchedulingComponent
 
             },
             {
@@ -50,35 +90,37 @@ export var adminroutes: Route[] = [
 
 
                 ]
-            },
-
+            }
+        ]
+    },
+    {
+        path: 'nurse-dashboard', canActivate: [NurseGuard], component: NurseDashboardComponent,
+        children: [
             {
                 path: 'notes', component: NotesComponent
 
             },
+            { path: 'notes', component: NotesComponent },
+            { path: 'upcoming-appointment', component: UpcomingAppointmentComponent },
             {
-                path: 'patient-details',
-                children: [
-                    { path: '', component: PatientDetailsComponent }
+                path: 'patient-details', component: PatientDetailsComponent
 
-
-                ]
 
 
             },
             {
                 path: 'scheduling', component: SchedulingComponent
 
+            },
+            {
+                path: 'medication',
+                children: [
+                    { path: '', component: MedicationComponent }
+                    // { path: 'add-medication', component: AddMedicationComponent }
+
+
+                ]
             }
         ]
     }
-    // {
-    //          path: 'admin-dashboard', component: AdminDashboardComponent,
-    //          children: [
-    // { path: '', redirectTo: 'patient-users', pathMatch: 'full' },
-    // { path: 'patient-users', component: PatientUsersComponent },
-    // { path: 'add-patient-users', component: AddPatientUsersComponent },
-    // { path: 'edit-patient-users/:id', component: EditPatientUsersComponent }
-    //          ]
-    //         }
 ];
