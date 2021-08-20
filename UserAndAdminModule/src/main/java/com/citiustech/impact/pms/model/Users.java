@@ -71,11 +71,7 @@ public class Users {
 	private LocalDateTime modifiedDateAndTime;
 
 	@Column(name = "is_active_role")
-<<<<<<< HEAD
-//	@Enumerated(EnumType.STRING)
-=======
-	//@Enumerated(EnumType.STRING)
->>>>>>> c753c2bda0dec8cbddd8929e6cf77016ab699222
+	// @Enumerated(EnumType.STRING)
 	private ISActive isActive;
 
 	@Column(name = "password_changed_status")
