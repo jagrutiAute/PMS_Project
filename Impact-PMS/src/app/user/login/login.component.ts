@@ -85,7 +85,10 @@ export class LoginComponent {
           console.log("username :: "+login.email);
 
           alert('Login successfully');
-
+          if(data=='status_change'){
+            
+            this.router.navigateByUrl('change-password');
+        }
           if(data =='Patient'){
            
           this.router.navigateByUrl('app-body-layout/patient-details');
@@ -94,6 +97,8 @@ export class LoginComponent {
         if(data == 'Admin'){
           this.router.navigateByUrl('/admin-dashboard/hospital-users');
         }
+
+      
 
         if(data == 'Physician'){
           this.router.navigateByUrl('/physician-dashboard/patient-details');
