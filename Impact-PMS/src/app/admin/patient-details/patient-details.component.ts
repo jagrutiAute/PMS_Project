@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {startWith, map} from 'rxjs/operators';
+import { MedicationService } from '../medication.service';
+import { Medication1 } from '../medication1';
+
 
 
 @Component({
@@ -10,22 +10,25 @@ import {startWith, map} from 'rxjs/operators';
   styleUrls: ['./patient-details.component.css']
 })
 export class PatientDetailsComponent implements OnInit {
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
-
+  
+  medications: Medication1[];
+  constructor(private medicationService: MedicationService){}
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
+    this.reload();
+    
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+ reload(){
 
- 
+  this.medicationService.getAddedMedication().subscribe((data)=>{
+    this.medications=data;
+    console.log("inside patient-details: reload")
+    console.log(data)
+  },
+  (error)=>{
+    console.log(error)
+  })
+ }
 }

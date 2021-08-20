@@ -25,6 +25,8 @@ import { MatOptionModule } from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { MedicationService } from './medication.service';
+
 
 
 
@@ -66,6 +68,6 @@ import {OverlayModule} from '@angular/cdk/overlay';
     AdminDashboardComponent
    
   ],
-  providers:[AdminDashBoardService, HospitalUserService]
+  providers:[AdminDashBoardService, HospitalUserService, MedicationService]
 })
 export class AdminModule { }

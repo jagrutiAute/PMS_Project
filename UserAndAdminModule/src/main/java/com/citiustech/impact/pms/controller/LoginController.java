@@ -104,6 +104,7 @@ public class LoginController {
 			
 			System.out.println("loginResult.getRole().getRoleName()  ::::  "+loginResult.getRole().getRoleName());
 			
+			
 			return new ResponseEntity<String>(loginResult.getRole().getRoleName(), HttpStatus.OK);
 		}
 		
