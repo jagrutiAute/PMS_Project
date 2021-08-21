@@ -2,11 +2,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <mat-drawer-container class="parent">
-    
-    <mat-drawer mode="side" [opened]="sideBarOpen">
 
-        <app-admin-sidenav></app-admin-sidenav>
-    </mat-drawer>
     <mat-drawer-content>
         <app-admin-header (toggleSidebarForMe)="sideBarToggler()"></app-admin-header>
 

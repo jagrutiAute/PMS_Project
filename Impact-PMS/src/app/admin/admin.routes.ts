@@ -1,5 +1,6 @@
+import { UpcomingAppointmentComponent } from './../user/upcoming-appointment/upcoming-appointment.component';
 
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { HospitalUsersComponent } from './hospital-users/hospital-users.component';
 import { PatientUsersComponent } from './patient-users/patient-users.component';
@@ -15,12 +16,15 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
 import { AddMedicationComponent } from './add-medication/add-medication.component';
 import { SchedulingComponent } from './scheduling/scheduling.component';
 import { AdminGuard } from '../admin.guard';
-import { NotesComponent } from '../user/notes/notes.component';
 
 import { PhysicianGuard } from '../physician.guard';
 import { PhysicianDashboardComponent } from './physician-dashboard/physician-dashboard.component';
 import { NurseDashboardComponent } from './nurse-dashboard/nurse-dashboard.component';
 import { NurseGuard } from '../nurse.guard';
+import { NotesComponent } from '../inbox/notes/notes.component';
+import { UpcomingAppointmentsComponent } from '../inbox/upcoming-appointments/upcoming-appointments.component';
+import { RecievedNotesComponent } from '../inbox/recieved-notes/recieved-notes.component';
+import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 
@@ -52,22 +56,25 @@ export var adminroutes: Route[] = [
 
             }
 
-           
+
         ],
 
 
 
     },
     {
-        path: 'physician-dashboard',canActivate:[PhysicianGuard], component: PhysicianDashboardComponent,
+        path: 'physician-dashboard', canActivate: [PhysicianGuard], component: PhysicianDashboardComponent,
         children: [
             {
                 path: 'notes', component: NotesComponent
 
             },
+            { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
+            { path: 'recieved-notes', component: RecievedNotesComponent },
+            { path: 'sent-notes', component: SentNotesComponent },
             {
                 path: 'patient-details', component: PatientDetailsComponent
-                
+
 
 
             },
@@ -87,15 +94,17 @@ export var adminroutes: Route[] = [
         ]
     },
     {
-        path: 'nurse-dashboard',canActivate:[NurseGuard], component: NurseDashboardComponent,
+        path: 'nurse-dashboard', canActivate: [NurseGuard], component: NurseDashboardComponent,
         children: [
             {
                 path: 'notes', component: NotesComponent
 
             },
+            { path: 'notes', component: NotesComponent },
+            { path: 'upcoming-appointment', component: UpcomingAppointmentComponent },
             {
                 path: 'patient-details', component: PatientDetailsComponent
-                
+
 
 
             },

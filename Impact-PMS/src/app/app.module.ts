@@ -19,6 +19,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ToasterService1 } from './toaster-service.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+import { InboxModule } from './inbox/inbox.module';
 
 
 
@@ -33,6 +34,7 @@ import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
     BrowserAnimationsModule,
     BackButtonDisableModule.forRoot(),
 
+    InboxModule,
     BrowserModule,
     AppRoutingModule,
     UserModule,
@@ -41,13 +43,13 @@ import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
     AdminModule,
     PatientVisitModule,
     PatientModule,
-   // NbThemeModule.forRoot(),
+    // NbThemeModule.forRoot(),
     //CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
     NbThemeModule.forRoot(),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     ToastrModule.forRoot(),
     BrowserAnimationsModule
-    
+
   ],
   providers: [ToasterService1],
   bootstrap: [AppComponent]

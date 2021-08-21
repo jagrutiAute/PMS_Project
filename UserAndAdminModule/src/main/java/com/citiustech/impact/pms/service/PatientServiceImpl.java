@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,9 @@ import com.citiustech.impact.pms.repository.UserRepository;
 public class PatientServiceImpl implements PatientService {
 
 	static String sha256hexstr;
+	
+	static Logger log = Logger.getLogger(PatientServiceImpl.class.getName());
+
 
 	private LocalDate Date;
 	
@@ -39,8 +43,11 @@ public class PatientServiceImpl implements PatientService {
 
 	public String login(String email, String password) {
 
+		log.debug("inside login() method of PatientServiceImpl class");
 		String pwd = encryption(email, password);
 		System.out.println(pwd);
+		
+		log.debug("calling findByEmailAndPassword() method of UserRepository interface");
 
 		Users user = userRepository.findByEmailAndPassword(email, pwd);
 
@@ -56,11 +63,18 @@ public class PatientServiceImpl implements PatientService {
 	public String savePatient(PatientDTO p) {
 
 		String pwd = encryption(p.getEmail(), p.getPwd());
-		System.out.println(pwd);
+		//System.out.println(pwd);
 		
 		
         
 		
+		log.debug("inside savePatient() method of PatientServiceImpl");
+		log.debug("calling static encryption() method of PatientServiceImpl class");
+		
+		//String pwd = encryption(p.getEmail(), p.getPwd());	
+		
+		log.debug("Encryption password " + pwd);
+
 		Users user = new Users();
 		user.setEmail(p.getEmail());
 		user.setPhoneNumber(p.getContact());
@@ -88,7 +102,7 @@ public class PatientServiceImpl implements PatientService {
 		else
 			patientProfile.setGender("Male");
 
-		// create calendar object for birth day
+		// create calendar object for birth date
 		Calendar birthDay = p.getDob();
 
 		// create calendar object for current day
@@ -106,12 +120,13 @@ public class PatientServiceImpl implements PatientService {
 		
 
 		// user.setUserProfile(patientProfile);
-
+		log.debug("calling findByEmail() method of UserRepository interface");
 		Users user1 = userRepository.findByEmail(user.getEmail());
 		if (user1 != null) {
 			return "user already exist";
 
 		} else {
+		log.debug("calling save() method of UserRepository interface");
 			userProfileRepository.save(patientProfile);
 			System.out.println("patientProfilr"+patientProfile);
 			
@@ -130,7 +145,9 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public List<PatientProfile> gettingUserDetails() {
-
+		
+		log.debug("inside gettingUserDetails() method");
+		log.debug("calling findAll() method of PatientProfileRepository interface");
 		return patientProfileRepository.findAll();
 	}
 
@@ -148,6 +165,9 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public Optional<PatientProfile> gettinPatientById(int id) {
+		
+		log.debug("inside gettinPatientById() method of PatientServiceImpl");
+		log.debug("calling findById() method of PatientProfileRepository interface");
 
 		return patientProfileRepository.findById((long) id);
 	}

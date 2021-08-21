@@ -2,6 +2,7 @@ package com.citiustech.impact.pms.diagnoses.controller;
 
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +18,17 @@ import com.citiustech.impact.pms.diagnoses.service.DiagnosisService;
 @CrossOrigin(origins = "*")
 public class DiagnosisController {
 	
+	static Logger log = Logger.getLogger(DiagnosisController.class.getName());
+
+	
 	@Autowired
 	DiagnosisService diagnosisService;
 	
 	@GetMapping("/getDiagnosisDetails/{id}")
 	public ResponseEntity<Diagnoses> getDiagnosisDetails(@PathVariable int id) {
+		
+		log.debug("inside getDiagnosisDetails() method of DiagnosisController class");
+		log.debug("calling getDiagnosisDetails() method of DiagnosisService class");
 		
 		Optional<Diagnoses> diagnosis = diagnosisService.getDiagnosisDetails(id);
 		

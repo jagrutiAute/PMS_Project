@@ -16,6 +16,7 @@ export var userroutes:Route[]=[
     {path:'forgot-password', component:ForgotPasswordComponent},
     {path:'patient-registration', component:RegistrationPatientComponent},
     {path:'app-registration-provider', component:RegistrationProviderComponent},
-    {path:'admin-dashboard', component:AdminDashboardComponent}
+    {path:'admin-dashboard', component:AdminDashboardComponent},
+    {path:'change-password',component:ChangePasswordComponent}
 ]
 

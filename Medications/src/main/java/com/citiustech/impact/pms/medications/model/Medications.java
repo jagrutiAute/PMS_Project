@@ -5,11 +5,11 @@ import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
-//@Entity
-@Component
+@Entity
+//@Component
 public class Medications {
 
-	//@Id
+	@Id
 	private Integer appNo;
 	private Long productNo;
 	private String from;

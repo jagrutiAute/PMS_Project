@@ -37,26 +37,24 @@ public class LoginController {
 	@PostMapping("/login")
 	public ResponseEntity<String> check(@RequestBody LoginDTO log) {
 		PropertyConfigurator.configure(System.getProperty("user.dir") + File.separator + "log4j.properties");
-
+		
 		logger.trace("Calling check() method of LoginController Class");
 		logger.trace("Calling encryption() method of PatientServiceImpl class to encrypt password");
 
 		String pwd = PatientServiceImpl.encryption(log.getEmail(), log.getPassword());
 
-	
 		logger.trace("Calling login() method of LoginService class");
 		Users loginResult = userService.login(log.getEmail(), pwd);
-		
-		logger.info("Check wether user exist in system or not" );
+
+		logger.info("Check wether user exist in system or not");
 
 		if (loginResult == null) {
 			logger.error("User doesn't exist in system");
 			return new ResponseEntity<String>("UsernamePass", HttpStatus.OK);
 
 		}
-		
-		
-		logger.info("Check wether user already blocked or not" );
+
+		logger.info("Check wether user already blocked or not");
 		if (loginResult.getIsActive() == ISActive.BLOCK) {
 
 			logger.warn("user status is blocked");
@@ -70,15 +68,14 @@ public class LoginController {
 
 		logger.trace("Check the password is wrong or not");
 		if (!loginResult.getPassword().equals(pwd)) {
-		logger.debug("Wrong attempt count" + n);
+			logger.debug("Wrong attempt count" + n);
 			if (n == 2) {
 				logger.info("3 wrong attempt , user status set as block");
 				loginResult.setIsActive(ISActive.BLOCK);
 				logger.trace("Calling blockUser() method to block ther user");
 				userService.blockUser(loginResult);
-				
+
 				logger.error("Account has blocked due to 3 time wrong attempts");
-			
 
 				return new ResponseEntity<String>("BLOCKED", HttpStatus.OK);
 
@@ -96,10 +93,17 @@ public class LoginController {
 
 		else {
 			logger.trace("Calling getLoginAttempts() method  to check loginattempts>0 or not");
-			if(loginResult.getLoginAttempts()>0) {
+			if (loginResult.getLoginAttempts() > 0) {
 				loginResult.setLoginAttempts(0);
 				userService.updatefaildeLogin(loginResult);
 			}
+
+			if (loginResult.getPassowrdChangedStatus() == 1) {
+
+				return new ResponseEntity<String>("status_change", HttpStatus.OK);
+
+			}
+
 			logger.trace("User validate successfully");
 			
 			
@@ -116,8 +120,8 @@ public class LoginController {
 			}
 			
 			
+			
 		}
-		
 
 	}
 
