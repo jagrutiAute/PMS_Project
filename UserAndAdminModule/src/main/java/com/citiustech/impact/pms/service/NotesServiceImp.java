@@ -15,7 +15,7 @@ import com.citiustech.impact.pms.repository.NotesRepository;
 
 @Service
 public class NotesServiceImp implements NotesService {
-	
+
 	static Logger log = Logger.getLogger(AccountController.class.getName());
 
 	@Autowired
@@ -29,7 +29,7 @@ public class NotesServiceImp implements NotesService {
 
 	public List<Notes> getRecievedMessages(String reciever) {
 
-		if (reciever ==null) {
+		if (reciever == null) {
 			throw new InvalidRecieverException("Requested Reciever is invalid");
 		} else {
 
@@ -60,4 +60,11 @@ public class NotesServiceImp implements NotesService {
 			}
 		}
 	}
+
+	@Override
+	public String deleteNoteById(long id) {
+		noteRepo.deleteById(id);
+		return "Note deleted successfully";
+	}
+
 }

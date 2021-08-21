@@ -41,13 +41,13 @@ import { InboxModule } from './inbox/inbox.module';
     AdminModule,
     PatientVisitModule,
     PatientModule,
-   // NbThemeModule.forRoot(),
+    // NbThemeModule.forRoot(),
     //CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
     NbThemeModule.forRoot(),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     ToastrModule.forRoot(),
     BrowserAnimationsModule
-    
+
   ],
   providers: [ToasterService1],
   bootstrap: [AppComponent]

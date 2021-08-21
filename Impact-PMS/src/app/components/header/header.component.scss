@@ -40,4 +40,19 @@ mat-toolbar {
  color: white;
 }
 
+.mat-menu-panel.myMenu {
+  min-width: 35px;
+  max-width: 280px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(100vh - 48px);
+  border-radius: 2px;
+  outline: 0;
+  background: transparent;
+  padding-left: 10px !important;
+}
 
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

@@ -1,0 +1,16 @@
+com\citiustech\impact\pms\repository\PatientDetailsRepository.class
+com\citiustech\impact\pms\model\AllergyMaster.class
+com\citiustech\impact\pms\model\PatientDetails.class
+com\citiustech\impact\pms\repository\EmergencyContactInfoRepository.class
+com\citiustech\impact\pms\service\EmergencyContactInfoService.class
+com\citiustech\impact\pms\model\EmergencyContactInfo.class
+com\citiustech\impact\pms\repository\RaceRepository.class
+com\citiustech\impact\pms\PatientDetails.class
+com\citiustech\impact\pms\controller\PatientDetailsController.class
+com\citiustech\impact\pms\controller\EthinicityController.class
+com\citiustech\impact\pms\model\Ethinicity.class
+com\citiustech\impact\pms\repository\EthinicityRepository.class
+com\citiustech\impact\pms\controller\RaceController.class
+com\citiustech\impact\pms\service\PatientDetailsService.class
+com\citiustech\impact\pms\model\PatientDetailDTO.class
+com\citiustech\impact\pms\model\Race.class

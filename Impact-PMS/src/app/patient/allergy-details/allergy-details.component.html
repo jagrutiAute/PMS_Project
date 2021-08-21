@@ -1,87 +1,136 @@
-<form class="form" action="##" method="post" id="registrationForm">
-    <div class="float-container">
-
-        <div class="float-child">
-            <!-- <label for="allergy_name">
-                                    <h4>Allergy Name</h4>
-                                </label>
-                                <select id="AllergyName" name="AllergyName">
-                                    <option value="selectAllergyName">--Allergy Name--</option>
-                                </select> -->
-
-            <mat-form-field appearance="fill">
-                <mat-label>Allergy Name</mat-label>
-                <mat-select id="AllergyName" name="AllergyName">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
 
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
-                    </mat-option>
+<br>
+<h1 style="text-align: center;"><u><b>Allergy Details</b></u></h1>
+<br>
+<!-- <a routerLink="add-patient-users" class="btn btn-lg btn-success mb-2">Add Patient</a> -->
 
-                </mat-select>
-            </mat-form-field>
-        </div>
+<!--<div class="search-container" style="text-align: right;">
+    <form action="#">
+      <input type="text" placeholder="Search.." name="firstName">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>..
+  </div>-->
+ <h4 class="search-container"><b> Is patient has known allergies ?</b> </h4>
+  <form [formGroup]="formAllergy" (change) = "getAllergy()" class="search-container">
+    <label>
+      <input type="radio" value="true" formControlName="status">
+        <span>&nbsp;Yes</span>&nbsp;&nbsp;
+    </label>
+    <label>
+      <input type="radio" value="false" formControlName="status">
+        <span>&nbsp;No</span>
+    </label>
+ </form>
 
-
-        <div class="float-child">
-            <!-- <label for="allergyType">
-                <h4>Choose Allergy Type &nbsp;</h4>
-            </label>
-            <select id="allergyType" name="allergyType">
-                <option value="allergy Type">--Allergy Type--</option>
-            </select> -->
-            <mat-form-field appearance="fill">
-                <mat-label>Choose Allergy Type</mat-label>
-                <mat-select id="allergyType" name="allergyType">
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
+<div *ngIf = "tmp=='true'">
+  <div class="search-container" >
    
+    <!-- <label class="control-label" style="font-size: 100px;">Search: </label> -->
+    <input type="text" placeholder=" Search..." class="form-control" name="name" [(ngModel)]="name"
+    (ngModelChange)="search()">
+    <!--<button type="submit"><i class="fa fa-search"></i></button>-->
+
+</div>
+
+<h3 class="search-container" style="color: green;"><b> Number of allergies added  <P style="color: red;">{{map.size}}</P></b> </h3>
+<table class="table table-striped" style="font-size: 15px;">
+
+    <thead>
+        <tr style="background-color:#2f4b7c; color: seashell;">
+            <th  style="width: 8%">Id&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="width: 8%">Type&nbsp;<i class="fa fa-sort"></i></th>
+            <th  style="width: 15%">Name&nbsp;<i class="fa fa-sort"></i></th>
+            <th  style="width: 18%">Source&nbsp;<i class="fa fa-sort"></i></th>
+            <th  style="width: 15%">Isoforms&nbsp;<i class="fa fa-sort"></i></th>
+            <th  style="width: 15%">Allerginicity&nbsp;<i class="fa fa-sort"></i></th>
+            
+            <th style="width: 30%">Action</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let allergy of allergies | paginate: {itemsPerPage:5,currentPage:p};">
+            <td>{{allergy.id}}</td>
+            <td>{{allergy.type}}</td>
+            <td> {{allergy.name}} </td>
+            <td>{{allergy.source}}</td>
+            <td>{{allergy.isoForms}}</td>
+            <td>{{allergy.allerginiCity}}</td>
+          
+            <td>
+                <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
+                <button (click)="addAllergy(allergy)"  mat-raised-button color="accent" >Add Allergy</button>
+                <!-- <button class="btn btn-primary me-3" (click)="addAllergy(allergy)">{{btnVal}}</button> -->
+                  
+            </td>
+
+           
+            
+            
+            
+        </tr>
+
+               
+
+    </tbody>
+   
+</table>
+<br><br><br>
+<div class="card" style="font-size: 15px;">
+    <div class="card-header">
+<pagination-controls ></pagination-controls>
+</div>
+</div>
 
 
-
-    
-
-        <div class="float-child">
-            <!-- <label for="clinicalInfo">&nbsp;
-                <h4>Allergy Clinical Information</h4>
-            </label>
-            <select id="AllergyClinicalInfo" name="allergyClinicalInfo">
-                <option value="Allergy clinical info">--Allergy Clinical Info--</option>
-            </select> -->
-
-            <mat-form-field appearance="fill">
-                <mat-label>Allergy Clinical Information</mat-label>
-                <mat-select id="AllergyClinicalInfo" name="allergyClinicalInfo" >
-
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
-                    </mat-option>
-
-                </mat-select>
-            </mat-form-field>
-        </div>
-    </div>
-
-        <div class="float-container" >
-
-        <div class="float-child" >
-            <!-- <label for="allergy_desc">&nbsp;
-                <h4>Allergy Description</h4>
-            </label>
-            <input type="text" class="form-control" name="allergy_desc" id="allergy_desc"
-                placeholder="Allergy Description" title=" "> -->
-
-                <mat-form-field appearance="fill" style="font-size: 20px;width: 400px;">
-                    <mat-label>Allergy Description</mat-label>
-                    <textarea matInput ></textarea>
-                  </mat-form-field>
-        </div>
-    </div>
+<div class="table table-striped" style="font-size: 20px;">
+   
+    <!-- <table class="table table-striped" style="font-size: 15px;">
+        <thead>
+            <tr style="background-color:#2f4b7c; color: seashell;">
+                <th  style="width: 8%">Id&nbsp;<i class="fa fa-sort"></i></th>
+                <th style="width: 8%">Type&nbsp;<i class="fa fa-sort"></i></th>
+                <th  style="width: 15%">Name&nbsp;<i class="fa fa-sort"></i></th>
+                <th  style="width: 18%">Source&nbsp;<i class="fa fa-sort"></i></th>
+                <th  style="width: 15%">Isoforms&nbsp;<i class="fa fa-sort"></i></th>
+                <th  style="width: 15%">Allerginicity&nbsp;<i class="fa fa-sort"></i></th>
+                
+                <th style="width: 30%">Action</th>
+            </tr>
+        </thead>
 
 
-    
-</form>
+    <tbody>
+       
+        
+        <tr *ngFor="let recipient of map | keyvalue">
+           
+        <td>{{recipient.value.id}}</td>
+        <td>{{recipient.value.type}}</td>
+        <td> {{recipient.value.name}}</td>
+        <td>{{recipient.value.source}}</td>
+        <td>{{recipient.value.isoForms}}</td>
+        <td>{{recipient.value.allerginiCity}}</td>
+        
+        <td style="width: 0%">
+           
+            <button (click)="deleteAllergy(recipient.value.id)" mat-raised-button color="warn">Delete</button>
+            
+
+        </td>
+      
+        </tr>
+
+       
+
+</tbody> -->
+<br>
+<div>
+   
+<button (click)="saveAllergy()" class="btn btn-lg search-container" style="background-color: #2f4b7c; color: white;" [disabled]="map.size==0"> Save </button>
+</div>
+
+
