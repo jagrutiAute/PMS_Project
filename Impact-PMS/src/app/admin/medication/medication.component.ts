@@ -137,7 +137,7 @@ export class MedicationComponent implements OnInit {
     })
     
 
-    this.router.navigate(['admin-dashboard/patient-details'])
+    this.router.navigate(['physician-dashboard/patient-details'])
   }
   else
   console.log("same page")
