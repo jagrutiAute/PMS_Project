@@ -39,8 +39,9 @@ export class NotesComponent implements OnInit {
   sendNote() {
     console.log("inside sendNotes method");
     let note: Notes = new Notes();
-    let email = "abc1@gmail.com";
-    Object.assign(note, this.notesForm.value);
+    let email = sessionStorage.getItem('username');
+    console.log("session email "+email);
+        Object.assign(note, this.notesForm.value);
     this.service.addNotes(note, email).subscribe(
       data => {
         console.log("data " + data);
