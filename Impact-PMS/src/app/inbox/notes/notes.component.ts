@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
   status: String;
-  user:User;
+  user: User;
   constructor(
     private service: LoginService,
     private toaster: ToasterService1,
@@ -39,18 +39,18 @@ export class NotesComponent implements OnInit {
   sendNote() {
     console.log("inside sendNotes method");
     let note: Notes = new Notes();
-    let email = "abc1@gmail.com";
+    let email = sessionStorage.getItem('username');
     Object.assign(note, this.notesForm.value);
     this.service.addNotes(note, email).subscribe(
       data => {
         console.log("data " + data);
         this.status = data;
         console.log("status  " + this.status);
-        
-          this.toaster.Success(" Notes Send Successfully");
-          // alert('Your password reset successfully');
-          // this.router.navigate(['/login']);
-        
+
+        this.toaster.Success(" Notes Send Successfully");
+        // alert('Your password reset successfully');
+        // this.router.navigate(['/login']);
+
       },
       error => {
         console.log(error);

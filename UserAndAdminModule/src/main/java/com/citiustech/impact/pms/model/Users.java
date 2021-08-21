@@ -72,6 +72,7 @@ public class Users {
 
 	@Column(name = "is_active_role")
 	//@Enumerated(EnumType.STRING)
+	
 	private ISActive isActive;
 
 	@Column(name = "password_changed_status")

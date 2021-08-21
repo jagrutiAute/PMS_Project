@@ -1,15 +1,18 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Allergy } from "./allergy";
+
 import { EmergencyContactInfo } from "./emergencyContactInfo";
 import { Ethinicity } from "./ethinicity";
 import { PatientDetails } from "./patientDetail";
+
 import { Race } from "./race";
 
 @Injectable({ providedIn: 'root' })
 export class PatientDetailService {
 
-    
+  
 
 
     private baseurl = "http://localhost:8094/updatePatientDetails";
@@ -18,9 +21,29 @@ export class PatientDetailService {
     private ethinicityUrl = "http://localhost:8094/getEthinicityList";
     private emergencyCntInfoUrl = "http://localhost:8094/getPatientEmergencoCntInfo/"
     private updateEmergencyInfoUrl = "http://localhost:8094/updatePatientEmergencyContactInfo"
+    private getallAllergyList = "http://localhost:8084/getAllergyDetails"
+
+    private savePatientAllergyUrl = "http://localhost:8084/savePatientAllergyDetails"
+
 
     constructor(private _http: HttpClient) { }
 
+    
+    addAllergyPatient(allergyObject: Allergy[]): Observable<any> {
+       
+       // let pid=11;
+       let pid=sessionStorage.getItem("mrnNumber");
+         //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
+         return this._http.post<any>(`${this.savePatientAllergyUrl}/${pid}`,allergyObject);
+     
+       }
+
+    getAllergyList(): Observable<Allergy[]> {
+        
+        console.log("Allergy List::::::" + this._http.get(`${this.getallAllergyList}`, { responseType: 'text' as 'json'}))
+
+        return this._http.get<Allergy[]>(`${this.getallAllergyList}`);
+    }
 
     updatePatientDetails(patientDetails: PatientDetails): Observable<any> {
 

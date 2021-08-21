@@ -50,7 +50,7 @@ public class ProviderRegistrationService {
 			user.setRole(role.getRoles().get(regProvider.getRole()));
 			user.setIsActive(ISActive.ACTIVE);
 			String generatedString = RandomStringUtils.random(10, true, true).concat("$");
-
+			System.out.println("password== "+generatedString);
 			/*
 			 * emailService.sendEmail("impactpmsjavabatch1@gmail.com", "amit@1234",
 			 * regProvider.getUsername(), "Reset Pasword OTP ", "Your one time password is "

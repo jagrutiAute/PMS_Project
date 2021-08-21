@@ -29,18 +29,18 @@
 <table class="table table-striped" style="font-size: 15px;">
     <thead>
         <tr style="background-color:royalblue; color: seashell;">
-            <th (click)="sort('id')" style="width: 12%">appNo&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('title')" style="width: 12%">ProductNo&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('firstName')" style="width: 12%">form&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('id')" style="width: 8%">appNo&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('title')" style="width: 11%">ProductNo&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('firstName')" style="width: 10%">form&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('dateOfBirth')" style="width: 12%">strengthString&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('email')" style="width: 12%">referenceDrug&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('phoneNumber')" style="width: 14%">activeIngredient&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('Status')" style="width: 14%">referenceStandard&nbsp;<i class="fa fa-sort"></i></th>
-            <th style="width: 30%">Action</th>
+            <th (click)="sort('Status')" style="width: 16%">referenceStandard&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="width: 25%">Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let medication of medications | orderBy: key: reverse | paginate: {itemsPerPage:1,currentPage:p};">
+        <tr *ngFor="let medication of medications | orderBy: key: reverse | paginate: {itemsPerPage:3,currentPage:p};">
             <td>{{medication.applNo}}</td>
             <td>{{medication.productNo}}</td>
             <td> {{medication.form}}</td>
@@ -69,21 +69,21 @@
     </div>
 </div>
 <br>
-<div class="table table-striped" style="font-size: 20px;">
+<div class="table table-striped" style="font-size: 15px;">
 
   
     <tbody>
-        <tr *ngFor="let recipient of map | keyvalue">
-        <td style="width: 8%">{{recipient.value.applNo}}</td>
-        <td style="width: 8%">{{recipient.value.productNo}}</td>
-        <td style="width: 8%"> {{recipient.value.form}}</td>
-        <td style="width: 8%">{{recipient.value.strength}}</td>
-        <td style="width: 8%">{{recipient.value.referenceDrug}}</td>
-        <td style="width: 8%">{{recipient.value.activeIngredient}}</td>
-        <td style="width: 8%">{{recipient.value.referenceStandard}}</td>
+        <tr *ngFor="let medicationObject of map | keyvalue">
+        <td style="width: 8%">{{medicationObject.value.applNo}}</td>
+        <td style="width: 8%">{{medicationObject.value.productNo}}</td>
+        <td style="width: 8%"> {{medicationObject.value.form}}</td>
+        <td style="width: 8%">{{medicationObject.value.strength}}</td>
+        <td style="width: 8%">{{medicationObject.value.referenceDrug}}</td>
+        <td style="width: 8%">{{medicationObject.value.activeIngredient}}</td>
+        <td style="width: 8%">{{medicationObject.value.referenceStandard}}</td>
         <td style="width: 0%">
             <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
-            <button (click)="deleteMedication(recipient.value.applNo)" class="btn btn-primary btn-lg">Delete</button>
+            <button (click)="deleteMedication(medicationObject.value.applNo)" class="btn btn-primary btn-lg">Delete</button>
             
 
         </td>

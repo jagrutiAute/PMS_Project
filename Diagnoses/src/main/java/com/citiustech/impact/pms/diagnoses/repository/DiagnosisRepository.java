@@ -2,8 +2,9 @@ package com.citiustech.impact.pms.diagnoses.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.citiustech.impact.pms.diagnoses.model.Diagnoses;
+import com.citiustech.impact.pms.diagnoses.model.DiagnosisModel;
 
-public interface DiagnosisRepository extends JpaRepository<Diagnoses, Integer> {
+
+public interface DiagnosisRepository extends JpaRepository<DiagnosisModel, String>{ 
 
 }

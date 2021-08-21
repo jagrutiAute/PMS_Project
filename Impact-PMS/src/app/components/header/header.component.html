@@ -4,30 +4,47 @@
       <mat-icon>menu</mat-icon>
 
     </button>
-    <div class="row mr-2 ml-auto">
+    <!-- <div class="row mr-2 ml-auto">
 
       <ul class="row m-0 align-items-center">
-
-
-        <li>
-          <br>
-          
+         <li>
+          <br>          
           <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
-
-            
+           
             <img src="./assets/user.jpg" alt="" class="user-image mr-1 p-2" />
 
             <p style="color: white;">{{usr}}</p>
             <mat-icon class="user-image-icon ml-1" style="color: white;">keyboard_arrow_down</mat-icon>
           </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)='logout()'>
+          <mat-menu #menu="matMenu"  class="mat-menu-panel myMenu">
+            <button mat-menu-item (click)='logout()' >
               <mat-icon>exit_to_app</mat-icon>
               Logout
             </button>
           </mat-menu>
         </li>
       </ul>
-    </div>
+     
+    </div> -->
+
+    <mat-accordion >
+      
+         
+      <!-- #enddocregion basic-panel -->
+        <mat-expansion-panel  style="background-color:#000080" disabled hideToggle>
+          <mat-expansion-panel-header>
+            
+              <p style="color: white; font-size: larger;">{{usr}}</p>
+              <button (click)='logout()' style="color: white;">
+                <mat-icon style="color: white;">exit_to_app</mat-icon>
+               
+              </button>
+           
+            
+          </mat-expansion-panel-header>
+         
+        </mat-expansion-panel>
+      </mat-accordion>
+
   </mat-toolbar-row>
 </mat-toolbar>

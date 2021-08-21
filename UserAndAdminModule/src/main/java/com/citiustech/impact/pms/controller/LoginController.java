@@ -110,17 +110,22 @@ public class LoginController {
 			}
 
 			logger.trace("User validate successfully");
-			if (loginResult.getRole() == null) {
-
+			
+			
+			if(loginResult.getRole() == null) {
+				
 				return new ResponseEntity<String>("Patient", HttpStatus.OK);
-
-			} else {
-
-				System.out.println("loginResult.getRole().getRoleName()  ::::  " + loginResult.getRole().getRoleName());
-
+				
+			}else {
+				
+				System.out.println("loginResult.getRole().getRoleName()  ::::  "+loginResult.getRole().getRoleName());
+								
 				return new ResponseEntity<String>(loginResult.getRole().getRoleName(), HttpStatus.OK);
-
+				
 			}
+			
+			
+			
 		}
 
 	}
