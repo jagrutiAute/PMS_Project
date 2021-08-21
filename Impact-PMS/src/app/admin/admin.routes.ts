@@ -25,6 +25,7 @@ import { NotesComponent } from '../inbox/notes/notes.component';
 import { UpcomingAppointmentsComponent } from '../inbox/upcoming-appointments/upcoming-appointments.component';
 import { RecievedNotesComponent } from '../inbox/recieved-notes/recieved-notes.component';
 import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
+import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 
@@ -32,8 +33,8 @@ import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 export var adminroutes: Route[] = [
 
     {
-        path: 'admin-dashboard', canActivate: [AdminGuard], component: AdminDashboardComponent,
-
+        path: 'admin-dashboard', component: AdminDashboardComponent,
+        //, canActivate: [AdminGuard]
 
         children: [
 
@@ -63,7 +64,7 @@ export var adminroutes: Route[] = [
 
     },
     {
-        path: 'physician-dashboard', canActivate: [PhysicianGuard], component: PhysicianDashboardComponent,
+        path: 'physician-dashboard', component: PhysicianDashboardComponent,
         children: [
             {
                 path: 'notes', component: NotesComponent
@@ -90,11 +91,15 @@ export var adminroutes: Route[] = [
 
 
                 ]
+            },
+            {
+                path: 'diagnosis', component: DiagnosisComponent
+
             }
         ]
     },
     {
-        path: 'nurse-dashboard', canActivate: [NurseGuard], component: NurseDashboardComponent,
+        path: 'nurse-dashboard', component: NurseDashboardComponent,
         children: [
             {
                 path: 'notes', component: NotesComponent

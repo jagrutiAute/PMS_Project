@@ -48,6 +48,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NurseDashboardComponent } from './nurse-dashboard/nurse-dashboard.component';
 import { NurseHeaderComponent } from '../components/nurse-header/nurse-header.component';
 import { NurseSidenavComponent } from '../components/nurse-sidenav/nurse-sidenav.component';
+import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 
 
 
@@ -75,7 +76,8 @@ import { NurseSidenavComponent } from '../components/nurse-sidenav/nurse-sidenav
     SchedulingComponent,
     NurseDashboardComponent,
     NurseHeaderComponent,
-    NurseSidenavComponent
+    NurseSidenavComponent,
+    DiagnosisComponent
     
     
   ],
