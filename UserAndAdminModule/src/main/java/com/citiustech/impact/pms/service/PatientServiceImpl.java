@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.citiustech.impact.pms.DTO.PatientDTO;
+import com.citiustech.impact.pms.model.EmergencyContactInfo;
 import com.citiustech.impact.pms.model.ISActive;
 import com.citiustech.impact.pms.model.PatientProfile;
 import com.citiustech.impact.pms.model.Users;
+import com.citiustech.impact.pms.repository.EmergencyContactInfoRepository;
 import com.citiustech.impact.pms.repository.PatientProfileRepository;
 import com.citiustech.impact.pms.repository.UserRepository;
 
@@ -31,6 +33,9 @@ public class PatientServiceImpl implements PatientService {
 
 	@Autowired
 	private PatientProfileRepository userProfileRepository;
+	
+	@Autowired
+	EmergencyContactInfoRepository emergencyContactInfoRepo;
 
 	public String login(String email, String password) {
 
@@ -52,7 +57,10 @@ public class PatientServiceImpl implements PatientService {
 
 		String pwd = encryption(p.getEmail(), p.getPwd());
 		System.out.println(pwd);
-
+		
+		
+        
+		
 		Users user = new Users();
 		user.setEmail(p.getEmail());
 		user.setPhoneNumber(p.getContact());
@@ -69,7 +77,8 @@ public class PatientServiceImpl implements PatientService {
 		patientProfile.setEthnicity(1);
 
 
-
+		EmergencyContactInfo emergencyCntInfo = new EmergencyContactInfo();
+		
 		
 		
 		
@@ -93,6 +102,8 @@ public class PatientServiceImpl implements PatientService {
 		patientProfile.setAge(years);
 
 		patientProfile.setUser(user);
+		
+		
 
 		// user.setUserProfile(patientProfile);
 
@@ -103,6 +114,10 @@ public class PatientServiceImpl implements PatientService {
 		} else {
 			userProfileRepository.save(patientProfile);
 			System.out.println("patientProfilr"+patientProfile);
+			
+			emergencyCntInfo.setMrnNumber(patientProfile.getId());
+			emergencyContactInfoRepo.save(emergencyCntInfo);
+			
 			return "user register successfully";
 
 		}

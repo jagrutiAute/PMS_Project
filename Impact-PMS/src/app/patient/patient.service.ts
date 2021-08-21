@@ -21,13 +21,22 @@ export class PatientDetailService {
     private ethinicityUrl = "http://localhost:8094/getEthinicityList";
     private emergencyCntInfoUrl = "http://localhost:8094/getPatientEmergencoCntInfo/"
     private updateEmergencyInfoUrl = "http://localhost:8094/updatePatientEmergencyContactInfo"
-    private getallAllergyList = "http://localhost:8084//getAllergyDetails"
+    private getallAllergyList = "http://localhost:8084/getAllergyDetails"
+
+    private savePatientAllergyUrl = "http://localhost:8084/savePatientAllergyDetails"
 
 
     constructor(private _http: HttpClient) { }
 
     
-    
+    addAllergyPatient(allergyObject: Allergy[]): Observable<any> {
+       
+       // let pid=11;
+       let pid=sessionStorage.getItem("mrnNumber");
+         //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
+         return this._http.post<any>(`${this.savePatientAllergyUrl}/${pid}`,allergyObject);
+     
+       }
 
     getAllergyList(): Observable<Allergy[]> {
         

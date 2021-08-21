@@ -1,5 +1,7 @@
 package com.citiustech.impact.pms.allergies.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.citiustech.impact.pms.allergies.model.Allergy;
 import com.citiustech.impact.pms.allergies.model.AllergyDetails;
 import com.citiustech.impact.pms.allergies.service.AllergyDetailService;
 
@@ -22,23 +25,41 @@ public class PatientAllergyDetailCoontroller {
 	@Autowired
 	AllergyDetailService allergyDetailService;
 
-	@PostMapping("savePatientAllergyDetails")
-	public ResponseEntity<AllergyDetails> savePatientAllergyDetails(@RequestBody AllergyDetails allergyDetails) {
-
-		AllergyDetails allergyDetail = allergyDetailService.addPatientAllergy(allergyDetails);
-
-		return new ResponseEntity<AllergyDetails>(allergyDetail, HttpStatus.OK);
-
-	}
 	
+	@PostMapping("/savePatientAllergyDetails/{pid}")
+	public String addMedicationForPatient(@RequestBody List<Allergy> allergyObject, @PathVariable String pid ) {
+		
+		System.out.println("pid="+pid);
+		
+		List<AllergyDetails> allergies = new ArrayList<>();
+		
+		for(Allergy m: allergyObject) {
+			
+			AllergyDetails m1 = new AllergyDetails();
+			
+			m1.setId(m.getId());
+			m1.setAllergyName(m.getName());
+			m1.setType(m.getType());
+			m1.setSource(m.getSource());
+			m1.setIsoForms(m.getIsoForms());
+			m1.setAllerginiCity(m.getAllerginiCity());
+			m1.setPid(pid);
+			allergies.add(m1);
+		}
+		
+		allergies.stream().forEach(x->System.out.println(x));
+		
+		allergyDetailService.addPatientAllergy(allergies);
+		return "save";
+		
+	}
 	@GetMapping("/getPatientAllergyDetails/{id}")
-	public ResponseEntity<AllergyDetails> getPatientAllergyDetails(@PathVariable int id){
-		
-	Optional<AllergyDetails> allergyDetails = allergyDetailService.fetchPatientAllergyDetails(id);
-		
-	return new ResponseEntity<AllergyDetails>(allergyDetails.get(),HttpStatus.OK);
-		
+	public ResponseEntity<AllergyDetails> getPatientAllergyDetails(@PathVariable int id) {
+
+		Optional<AllergyDetails> allergyDetails = allergyDetailService.fetchPatientAllergyDetails(id);
+
+		return new ResponseEntity<AllergyDetails>(allergyDetails.get(), HttpStatus.OK);
+
 	}
-	
-	
+
 }

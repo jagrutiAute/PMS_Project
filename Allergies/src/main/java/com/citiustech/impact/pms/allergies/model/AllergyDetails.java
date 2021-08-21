@@ -1,6 +1,7 @@
 package com.citiustech.impact.pms.allergies.model;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -23,20 +24,26 @@ public class AllergyDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	private String pid;
 	private String allergyName;
-	private String allergyDesc;
+	private String type;
 	private String createdBy;
 	private Calendar createdDateNTime;
 	private String modifiedBy;
 	private Calendar modifiedDateNtime;
-	private Boolean isAllergyActive;
 	
-	@JoinColumn(name = "allergy_id")
-	@OneToOne(cascade = CascadeType.ALL)
-	private Allergy allergy;
+	private String source;
+	private String isoForms;
+	private String allerginiCity;
+	
+	
+	//@JoinColumn(name = "allergy_id")
+	//@OneToOne(cascade = CascadeType.ALL)
+	//private List<Allergy> allergy;
 	
 	//@JoinColumn(name = "id")
 	//@OneToOne(cascade = CascadeType.ALL)
-	private Integer patientVisit;
+	//private Integer patientVisit;
 
 }

@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.allergies.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,9 @@ public class AllergyDetailService {
 	@Autowired
 	AllergyDetailsRepository allergyDetailsRepo;
 	
-	public AllergyDetails addPatientAllergy(AllergyDetails allergyDetails) {
+	public List<AllergyDetails> addPatientAllergy(List<AllergyDetails> allergies) {
 						
-		return allergyDetailsRepo.save(allergyDetails);
+		return allergyDetailsRepo.saveAll(allergies);
 			
 	}
 
