@@ -1,1 +1,80 @@
-<p>upcoming-appointments works!</p>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<h1 style="text-align: center;"><u><b>Upcoming appoinmets</b></u></h1>
+<br>
+<!-- <a routerLink="add-patient-users" class="btn btn-lg btn-success mb-2">Add Patient</a> -->
+
+<!--<div class="search-container" style="text-align: right;">
+    <form action="#">
+      <input type="text" placeholder="Search.." name="firstName">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>..
+  </div>-->
+
+
+
+<div class="search-container">
+
+    <!-- <label class="control-label" style="font-size: 100px;">Search: </label> -->
+    <!-- <input type="text" placeholder=" Search..." class="form-control" name="applno" [(ngModel)]="applno"
+        (ngModelChange)="search()"> -->
+    <!--<button type="submit"><i class="fa fa-search"></i></button>-->
+
+
+</div>
+<br>
+
+<table class="table table-striped" style="font-size: 15px;">
+    <thead>
+        <!-- <tr style="background-color:royalblue; color: seashell;">
+            <th (click)="sort('id')" style="width: 8%">appNo&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('title')" style="width: 11%">ProductNo&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('firstName')" style="width: 10%">form&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('dateOfBirth')" style="width: 12%">strengthString&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('email')" style="width: 12%">referenceDrug&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('phoneNumber')" style="width: 14%">activeIngredient&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('Status')" style="width: 16%">referenceStandard&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="width: 25%">Action</th>
+        </tr> -->
+    </thead>
+    <tbody>
+        <tr *ngFor="let upcmgapts of appoinmets | orderBy: key: reverse | paginate: {itemsPerPage:3,currentPage:p};">
+            <td>{{upcmgapts.id}}</td>
+            <td>{{upcmgapts.date}}</td>
+            <td> {{upcmgapts.time}}</td>
+
+            <td>{{upcmgapts.pid}}</td>
+            <!--  <p *ngFor="let pat of patient ">
+            <td>{{pat.email}} </td>
+            <td>{{pat.phoneNumber}} </td>
+           </p> -->
+            <td>
+                <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
+                 <button (click)="canceleAppoitment(upcmgapts)" class="btn btn-primary btn-lg">Cancel</button>
+
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
+<br><br><br>
+<div class="card" style="font-size: 17px;">
+    <div class="card-header">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+<br>
+<div class="table table-striped" style="font-size: 15px;">
+
+  
+   
+<br>
+<div>
+</div>
+</div>
+
+
