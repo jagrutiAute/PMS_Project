@@ -10,7 +10,8 @@ public interface NotesService {
 	
 	public List<Notes> getRecievedMessages(String reciever);
 	
-
 	public List<Notes> getSentMessages(String sender);
+	
+	public String deleteNoteById(long id);
 
 }

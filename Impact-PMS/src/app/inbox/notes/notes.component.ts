@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
   status: String;
-  user:User;
+  user: User;
   constructor(
     private service: LoginService,
     private toaster: ToasterService1,
@@ -47,11 +47,11 @@ export class NotesComponent implements OnInit {
         console.log("data " + data);
         this.status = data;
         console.log("status  " + this.status);
-        
-          this.toaster.Success(" Notes Send Successfully");
-          // alert('Your password reset successfully');
-          // this.router.navigate(['/login']);
-        
+
+        this.toaster.Success(" Notes Send Successfully");
+        // alert('Your password reset successfully');
+        // this.router.navigate(['/login']);
+
       },
       error => {
         console.log(error);
