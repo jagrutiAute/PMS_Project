@@ -13,11 +13,15 @@ import { SentNotesComponent } from './sent-notes/sent-notes.component';
 import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-appointments.component';
 //import { inboxroutes } from './inbox.routes';
 import { RouterModule } from '@angular/router';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoteSortPipe } from './note-sort.pipe';
+import { NoteIsurgentPipe } from './note-isurgent.pipe';
 
 
 
 @NgModule({
-  declarations: [NotesComponent, RecievedNotesComponent, SentNotesComponent, UpcomingAppointmentsComponent],
+  declarations: [NotesComponent, RecievedNotesComponent, SentNotesComponent, UpcomingAppointmentsComponent, NoteSortPipe, NoteIsurgentPipe],
   providers: [ToasterService1],
   imports: [
     CommonModule,
@@ -29,6 +33,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatExpansionModule
   //  RouterModule.forChild(inboxroutes),
   ]
 })

@@ -1,7 +1,7 @@
 import { User } from '../../admin/user';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToasterService1 } from '../../toaster-service.service';
-import { Notes } from '../../user/notes';
+import { Notes } from '../notes';
 import { LoginService } from '../../user/login.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -48,6 +48,7 @@ export class NotesComponent implements OnInit {
         console.log("status  " + this.status);
 
         this.toaster.Success(" Notes Send Successfully");
+        window.location.reload();
         // alert('Your password reset successfully');
         // this.router.navigate(['/login']);
 

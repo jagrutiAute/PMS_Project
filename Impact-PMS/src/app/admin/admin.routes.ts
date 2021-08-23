@@ -104,7 +104,9 @@ export var adminroutes: Route[] = [
             {
                 path: 'notes', component: NotesComponent
 
-            },
+            }, { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
+            { path: 'recieved-notes', component: RecievedNotesComponent },
+            { path: 'sent-notes', component: SentNotesComponent },
             { path: 'notes', component: NotesComponent },
             { path: 'upcoming-appointment', component: UpcomingAppointmentComponent },
             {
