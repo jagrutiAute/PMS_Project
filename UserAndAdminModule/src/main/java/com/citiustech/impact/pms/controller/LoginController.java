@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.citiustech.impact.pms.DTO.LoginDTO;
 import com.citiustech.impact.pms.model.ISActive;
 import com.citiustech.impact.pms.model.Users;
+import com.citiustech.impact.pms.repository.UserRepository;
 import com.citiustech.impact.pms.service.LoginService;
 import com.citiustech.impact.pms.service.PatientServiceImpl;
 import com.mysql.cj.log.LogFactory;
@@ -33,6 +35,9 @@ public class LoginController {
 
 	@Autowired
 	private LoginService userService;
+	
+	@Autowired
+	private UserRepository userrepo;
 
 	@PostMapping("/login")
 	public ResponseEntity<String> check(@RequestBody LoginDTO log) {
@@ -124,5 +129,19 @@ public class LoginController {
 		}
 
 	}
+	
+	
+		@PostMapping("/update/password_status/{username}/{pass}")
+		public ResponseEntity<String> updatePasswordStatus(@PathVariable String username,@PathVariable String pass) {
+			Users loginResult = userService.findByUsername(username);
+			String pwd = PatientServiceImpl.encryption(username, pass);
+			System.out.println("we are updating password status"+username+"  "+pass);
+			loginResult.setPassowrdChangedStatus(0);
+			loginResult.setPassword(pwd);
+			userrepo.save(loginResult);
+			return new ResponseEntity<String>("Update",HttpStatus.OK);
+		}
+	
+	
 
 }

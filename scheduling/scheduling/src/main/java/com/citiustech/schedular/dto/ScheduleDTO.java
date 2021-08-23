@@ -1,10 +1,12 @@
 package com.citiustech.schedular.dto;
 
+import java.time.LocalDate;
+
 public class ScheduleDTO {
 		
 		String phid;
 		String time;
-		String date;
+		LocalDate date;
 		String pid;
 		public String getPid() {
 			return pid;
@@ -24,12 +26,17 @@ public class ScheduleDTO {
 		public void setTime(String time) {
 			this.time = time;
 		}
-		public String getDate() {
+		public LocalDate getDate() {
 			return date;
 		}
-		public void setDate(String date) {
+		public void setDate(LocalDate date) {
 			this.date = date;
 		}
+		@Override
+		public String toString() {
+			return "ScheduleDTO [phid=" + phid + ", time=" + time + ", date=" + date + ", pid=" + pid + "]";
+		}
+		
 	
 		
 }
