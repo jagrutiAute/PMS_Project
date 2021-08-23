@@ -9,6 +9,7 @@ import { VitalSignsComponent } from '../patient-visit/vital-signs/vital-signs.co
 import { AuthGuard } from '../auth.guard';
 import { MedicationComponent } from '../admin/medication/medication.component';
 import { BookAppointmentComponent } from '../admin/book-appointment/book-appointment.component';
+import { PatientAllergyDetailsComponent } from './patient-allergy-details/patient-allergy-details.component';
 
 export var patientroutes:Route[]=[
     
@@ -22,7 +23,8 @@ export var patientroutes:Route[]=[
         {path:'change-password',component:ChangePasswordComponent},
        {path:'vital-signs',component:VitalSignsComponent},
       { path: 'medication',component: MedicationComponent },
-      { path: 'book-appointment',component: BookAppointmentComponent }
+      { path: 'book-appointment',component: BookAppointmentComponent },
+      { path: 'app-patient-allergy-details',component: PatientAllergyDetailsComponent }
        
 
     ]

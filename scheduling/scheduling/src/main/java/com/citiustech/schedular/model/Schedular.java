@@ -81,6 +81,16 @@ public class Schedular {
 	public void setBooked(boolean booked) {
 		this.booked = booked;
 	}
+	
+	
+
+	public boolean isCancelled() {
+		return iscancelled;
+	}
+
+	public void setCancelled(boolean isCancelled) {
+		this.iscancelled = isCancelled;
+	}
 
 	@Override
 	public String toString() {

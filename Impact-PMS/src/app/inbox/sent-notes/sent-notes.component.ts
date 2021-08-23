@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Notes } from 'src/app/user/notes';
-//import { InboxService } from '../inbox.service';
+import { Router } from '@angular/router';
+import { Notes } from 'src/app/inbox/notes';
+import { InboxService } from '../inbox.service';
 
 @Component({
   selector: 'app-sent-notes',
@@ -9,23 +10,31 @@ import { Notes } from 'src/app/user/notes';
 })
 export class SentNotesComponent implements OnInit {
 
+  panelOpenState = false;
   sender = sessionStorage.getItem('username')
   notes: Notes[]
 
-  //constructor(private service: InboxService) { }
+  constructor(private service: InboxService, private router: Router) { }
 
   ngOnInit(): void {
-    // console.log(sessionStorage.getItem('username'));
-    // this.service.getAllSentNotes(this.sender).subscribe(
-    //   (data) => {
-    //     console.log(data)
-    //     this.notes=data
-    //   },
-    //   (error) => {
-    //     console.log(error)
-    //   }
-    // )
+    console.log(sessionStorage.getItem('username'));
+    this.service.getAllSentNotes(this.sender).subscribe(
+      (data) => {
+        console.log(data)
+        this.notes=data
+        // for(let d in this.notes){
+        //   if( d.isUrgent )
+        // }
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
 
   }
+
+  // onClick(){
+  //   this.router.navigateByUrl("/physician-dashboard/notes")
+  // }
 
 }

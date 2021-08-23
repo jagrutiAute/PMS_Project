@@ -1,18 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UpcomingAppointmentDetails } from '../inbox/upcoming-appointments/upcomingapppoitments';
 import { GetSchedule } from './getSchedule';
 import { Schedule1 } from './schedule1';
 import { ScheduleBook } from './schedulebook';
 
+import { Scheduling } from './scheduling';
+import { ScheduleDTO } from './scheduling/scheduledto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SchedulingService {
+ 
 
   private baseUrl = 'http://localhost:8087';  
-  
   constructor(private _http: HttpClient) { }
 
   // getPatient(): Observable<Patient[]> {
@@ -38,5 +41,24 @@ export class SchedulingService {
     return this._http.post<any>(this.baseUrl+'/patient/book',schedule, { responseType: 'text' as 'json' });
   }
 
+  getallUpcomingAppointments():Observable<UpcomingAppointmentDetails[]> {
+    //if role is physician then call this method
+      let phyid=11;
+      
+      return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/appointments/physicans/'+ `${phyid}`)
+
+    //if role is patient call this method
+
+}
+
+  canceelapppoitment(apt:ScheduleDTO):Observable<String>{
+          //console.log("inside the cancel appointments"+apt);
+          
+            
+          console.log("inside service class tmp"+apt);
+        let tmp1= this._http.post<String>(`${this.baseUrl}`+'/appointments/cancelappoitment/',apt,{ responseType: 'text' as 'json' });
+          console.log(apt);
+          return tmp1; 
+  }
 }
 

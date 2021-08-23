@@ -6,18 +6,25 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NotesComponent } from './notes/notes.component';
 import { RecievedNotesComponent } from './recieved-notes/recieved-notes.component';
 import { SentNotesComponent } from './sent-notes/sent-notes.component';
 import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-appointments.component';
 //import { inboxroutes } from './inbox.routes';
 import { RouterModule } from '@angular/router';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoteSortPipe } from './note-sort.pipe';
+import { NoteIsurgentPipe } from './note-isurgent.pipe';
 
 
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
-  declarations: [NotesComponent, RecievedNotesComponent, SentNotesComponent, UpcomingAppointmentsComponent],
+  declarations: [NotesComponent, RecievedNotesComponent, SentNotesComponent, UpcomingAppointmentsComponent, NoteSortPipe, NoteIsurgentPipe],
   providers: [ToasterService1],
   imports: [
     CommonModule,
@@ -29,7 +36,13 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
-  //  RouterModule.forChild(inboxroutes),
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    NgxPaginationModule,
+    Ng2OrderModule,
+    MatDatepickerModule
+
+    //  RouterModule.forChild(inboxroutes),
   ]
 })
 export class InboxModule { }

@@ -27,6 +27,8 @@
  </form>
 
 <div *ngIf = "tmp=='true'">
+
+    
   <div class="search-container" >
    
     <!-- <label class="control-label" style="font-size: 100px;">Search: </label> -->
@@ -36,7 +38,7 @@
 
 </div>
 
-<h3 class="search-container" style="color: green;"><b> Number of allergies added  <P style="color: red;">{{map.size}}</P></b> </h3>
+<h3 class="search-container" style="color: green;"><b> Number of allergies added  <span style="color: red;">{{map.size}}</span></b> </h3>
 <table class="table table-striped" style="font-size: 15px;">
 
     <thead>
@@ -52,7 +54,7 @@
         </tr>
     </thead>
     <tbody >
-        <tr *ngFor="let allergy of allergies | paginate: {itemsPerPage:5,currentPage:p};">
+        <tr *ngFor="let allergy of allergies | paginate: {itemsPerPage:2,currentPage:p};">
             <td>{{allergy.id}}</td>
             <td>{{allergy.type}}</td>
             <td> {{allergy.name}} </td>
@@ -62,7 +64,7 @@
           
             <td>
                 <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
-                <button (click)="addAllergy(allergy)"  mat-raised-button color="accent" >Add Allergy</button>
+                <button (click)="addAllergy(allergy)"  mat-raised-button color="accent" >Add</button>
                 <!-- <button class="btn btn-primary me-3" (click)="addAllergy(allergy)">{{btnVal}}</button> -->
                   
             </td>
@@ -81,7 +83,7 @@
 <br><br><br>
 <div class="card" style="font-size: 15px;">
     <div class="card-header">
-<pagination-controls ></pagination-controls>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 </div>
 
@@ -130,7 +132,7 @@
 <br>
 <div>
    
-<button (click)="saveAllergy()" class="btn btn-lg search-container" style="background-color: #2f4b7c; color: white;" [disabled]="map.size==0"> Save </button>
+<button  (click)="saveAllergy()" class="btn btn-lg search-container" style="background-color: #2f4b7c; color: white;" [disabled]="map.size==0"> Save </button>
 </div>
 
 
