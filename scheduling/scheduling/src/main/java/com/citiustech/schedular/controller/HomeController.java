@@ -10,6 +10,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -98,17 +100,23 @@ public class HomeController {
 		 */
 				
 				
-			LocalDate date= LocalDate.parse(scdto.getDate());
+			//LocalDate date= LocalDate.parse(scdto.getDate());
 			String phid=scdto.getPhid();
 			String time=scdto.getTime();
-		System.out.println(phid+" "+date+" "+scdto.getTime());
-		Schedular sc=repo.findByPhyidAndDateAndTime(phid, date, time);
-		PhysicianSchedule ph= phyrepo.findByPhyidAndDate(phid, date);
+		System.out.println(phid+" "+scdto.getDate()+" "+scdto.getTime());
+		Schedular sc=repo.findByPhyidAndDateAndTime(phid, scdto.getDate(), time);
+		PhysicianSchedule ph= phyrepo.findByPhyidAndDate(phid, scdto.getDate());
 		
 			if(ph==null) {
 				return "You entered wrong data";
 			}
 		
+			if((repo.findByPidAndTimeAndDate(scdto.getPid(), time,scdto.getDate()))!=null) {
+				
+				return "You cannot book for same time with different physicion ";
+			}
+			
+			
 		if(ph.isEvening()==false  &&   (Double.parseDouble(time) >= 16 && Double.parseDouble(time) <= 20)) {
 			return "physician not available";
 		}
@@ -121,11 +129,12 @@ public class HomeController {
 			System.out.println("booking appountment");
 			Schedular sc1=new Schedular();
 			sc1.setBooked(true);
-			sc1.setDate(date);
+			sc1.setDate(scdto.getDate());
 			sc1.setPhyid(phid);
 			sc1.setTime(time);
+			sc1.setCancelled(false);
 			repo.save(sc1);
-			return "booked appointmetn on"+date+"at"+time;
+			return "booked appointmetn on"+scdto.getDate()+"at"+time;
 		}else {
 			return "slot already booked";
 		}
@@ -145,7 +154,8 @@ public class HomeController {
 		
 			LocalDate date1=LocalDate.parse(details.getDate());
 			//booked
-			 List<Schedular> result= repo.findByPhyidAndDateAndBooked(details.getPhyid(), date1, true);
+			System.out.println(details.getPhyid()+"date"+date1);
+			 List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true,true);
 			PhysicianSchedule psc= phyrepo.findByPhyidAndDate(details.getPhyid(), date1);
 			System.out.println(result);
 			System.out.println(psc);
@@ -174,15 +184,23 @@ public class HomeController {
 				evening.add("19.00");
 				evening.add("19.30");
 				
-				if(psc.isEvening()==false && psc.isMorning()==false) {
-					return null;
-				}
+			
+				
+				
+				if(psc!=null) {
+				
+					if(psc.isEvening()==false && psc.isMorning()==false ) {
+						return null;
+					}
+				
+				
+				
 				
 					
 				
 				
 				
-				if(psc.isMorning() ) {
+				//if(psc.isMorning() ) {
 				
 					for(Schedular sc:result) {
 						
@@ -238,11 +256,42 @@ public class HomeController {
 					return rs;
 				}
 			
-			
-			//return morning;
-			
+				//}
+				//return null;
 		
 	}
+	
+	@GetMapping("/appointments/physicans/{phyId}")
+	public ResponseEntity<List<Schedular>> getAllUpcomingAppointmentsforPhysician(@PathVariable String phyId){
+			
+				System.out.println("inside the appointments");
+				LocalDate date=LocalDate.now().minusDays(4);
+				System.out.println(date+"   "+phyId);
+				List<Schedular> upcomingschedule=repo.findAllWithDateAfter(date, phyId,false);
+				upcomingschedule.forEach(x->System.out.println(x));
+			   //return new ResponseEntity<List<Schedular>>( repo.findAllWithDateAfter(date, phyId),HttpStatus.OK);
+				return new ResponseEntity<List<Schedular>>(upcomingschedule,HttpStatus.OK);
+	}
+	
+	
+	@PostMapping("/appointments/cancelappoitment")
+	public ResponseEntity<String> cancelAppointmet(@RequestBody ScheduleDTO scheduleDTO){
+			System.out.println("inside cancel"+scheduleDTO);
+	//LocalDate d=LocalDate.parse(scheduleDTO.getDate());
+				LocalDate d=scheduleDTO.getDate();
+			
+		Schedular sc=	repo.findByPhyidAndDateAndPidAndTime(scheduleDTO.getPhid(), d,scheduleDTO.getPid(), scheduleDTO.getTime());
+			System.out.println("Inside sc"+sc);
+			if(sc!=null) {
+			sc.setCancelled(true);
+			repo.save(sc);
+			//call email service
+			return new ResponseEntity<String>("Success",HttpStatus.OK);
+			}
+			else {
+					return new ResponseEntity<String>("Failed",HttpStatus.OK);
+			}
+			}
 	
 	
 	

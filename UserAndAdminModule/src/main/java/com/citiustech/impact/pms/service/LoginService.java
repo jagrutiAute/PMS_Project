@@ -53,6 +53,15 @@ public class LoginService {
 		
 			return repo.save(user);
 	}
+
+
+
+
+
+	public Users findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return repo.findByEmail(username);
+	}
 	
 
 }

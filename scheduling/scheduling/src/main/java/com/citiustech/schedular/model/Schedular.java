@@ -26,6 +26,9 @@ public class Schedular {
 	
 	private String pid;
 	
+	@Column(columnDefinition="tinyint(1) default 0")
+	private boolean iscancelled;
+	
 	public String getPid() {
 		return pid;
 	}
@@ -69,6 +72,16 @@ public class Schedular {
 
 	public void setBooked(boolean booked) {
 		this.booked = booked;
+	}
+	
+	
+
+	public boolean isCancelled() {
+		return iscancelled;
+	}
+
+	public void setCancelled(boolean isCancelled) {
+		this.iscancelled = isCancelled;
 	}
 
 	@Override

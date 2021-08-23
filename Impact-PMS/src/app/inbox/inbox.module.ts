@@ -13,8 +13,9 @@ import { SentNotesComponent } from './sent-notes/sent-notes.component';
 import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-appointments.component';
 //import { inboxroutes } from './inbox.routes';
 import { RouterModule } from '@angular/router';
-
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [NotesComponent, RecievedNotesComponent, SentNotesComponent, UpcomingAppointmentsComponent],
@@ -29,6 +30,10 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
+    NgxPaginationModule,
+    Ng2OrderModule,
+    MatDatepickerModule
+
   //  RouterModule.forChild(inboxroutes),
   ]
 })

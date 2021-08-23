@@ -37,13 +37,13 @@ public class ForgotPassService {
 			 * "Reset Pasword OTP ", "Your one time password is " + generatedString);
 			 */
 			log.debug("calling sendEmail() method of EmailService class");
-			emailService.sendEmail("impactpmsjavabatch1@gmail.com","amit@1234",email,"Reset Pasword OTP ", "Your one time password is " + generatedString);
+			//emailService.sendEmail("impactpmsjavabatch1@gmail.com","amit@1234",email,"Reset Pasword OTP ", "Your one time password is " + generatedString);
 		    
 			log.debug("calling static encryption() method of PatientServiceImpl class");
 			String pwd=PatientServiceImpl.encryption(email,generatedString);
 			user.setPassword(pwd);
 			user.setPassowrdChangedStatus(1);
-
+			log.info(generatedString);
 			log.debug("calling save() method of UserRepository interface");
 			userRepo.save(user);
 
