@@ -115,11 +115,7 @@ public class HomeController {
 			sc1.setTime(time);
 			sc1.setCancelled(false);
 			repo.save(sc1);
-<<<<<<< HEAD
 			return "booked";
-=======
-			return "booked appointmetn on"+scdto.getDate()+"at"+time;
->>>>>>> b5519706cd1d73738d2b824947ca545b254bf346
 		}else {
 			return "slot already booked";
 		}
@@ -141,7 +137,6 @@ public class HomeController {
 			
 			System.out.println("details="+details);
 			//booked
-<<<<<<< HEAD
 			// List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true,true);
 			//List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true, true);
 			List<Schedular> result= repo.findByPhyidAndDateAndBooked(details.getPhyid(), date1, true);
@@ -151,13 +146,6 @@ public class HomeController {
 			 
 			//System.out.println(result);
 			//System.out.println(psc);
-=======
-			System.out.println(details.getPhyid()+"date"+date1);
-			 List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true,true);
-			PhysicianSchedule psc= phyrepo.findByPhyidAndDate(details.getPhyid(), date1);
-			System.out.println(result);
-			System.out.println(psc);
->>>>>>> b5519706cd1d73738d2b824947ca545b254bf346
 				//result.stream().filter(x->x.getDate()).findAny();
 				List<Schedule1DTO> rs=new ArrayList<>();
 				Set<String> morning=new TreeSet<String>();
@@ -260,10 +248,8 @@ public class HomeController {
 				//}
 				//return null;
 		
-<<<<<<< HEAD
 //	}else
 //		return null;
-=======
 	}
 	
 	@GetMapping("/appointments/physicans/{phyId}")
@@ -298,7 +284,6 @@ public class HomeController {
 			}
 			}
 	
->>>>>>> b5519706cd1d73738d2b824947ca545b254bf346
 	
 	}
 	
