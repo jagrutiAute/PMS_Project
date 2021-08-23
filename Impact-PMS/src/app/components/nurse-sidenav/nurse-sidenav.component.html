@@ -2,7 +2,6 @@
 
   <img src="./assets/images/MicrosoftTeams-image (1).png" style="height: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;
   <h3>CT General Hospital</h3>
-
 </nav>
 
 <mat-nav-list>
@@ -11,46 +10,40 @@
     <img src="./assets/images/Nurse.jfif" alt="Company Logo" style="height: 140px; width: 260px;" />
   </div>
 
-
-
   <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/patient/app-body-layout">
     <mat-icon>dashboard</mat-icon> Nurse Dashboard
   </a>
 
+  <mat-nav-list>
 
+    <mat-accordion>
 
-  <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header class="specific-class">
+          <mat-panel-title style="color: white;">
+            Inbox
+          </mat-panel-title>
 
-      <mat-expansion-panel-header class="specific-class">
-        <mat-panel-title style="color: white;">
-          Inbox
-        </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
+          routerLink="upcoming-appointments">
+          Upcoming Appointments
+        </a>
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="notes">
+          Send Note
+        </a>
 
-      </mat-expansion-panel-header>
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="upcoming-appointments">
-        Upcoming Appointments
-      </a>
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="notes">
-        Send Note
-      </a>
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="recieved-notes">
+          Recieved Notes
+        </a>
 
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="recieved-notes">
-        Recieved Notes
-      </a>
-
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="sent-notes">
-        Sent Notes
-      </a>
-
-
-
-    </mat-expansion-panel>
-
-  </mat-accordion>
-
+        <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="sent-notes">
+          Sent Notes
+        </a>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-nav-list>
 
   <mat-accordion>
 
@@ -88,12 +81,8 @@
       <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="patient-details">
         Patient Details
       </a>
-
-
     </mat-expansion-panel>
-
   </mat-accordion>
-
 </mat-nav-list>
 
 <mat-nav-list>
@@ -121,7 +110,6 @@
       <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="scheduling">
         Scheduling
       </a>
-
     </mat-expansion-panel>
   </mat-accordion>
 </mat-nav-list>
@@ -143,12 +131,7 @@
         routerLink="/app-body-layout/patient-details">
         Visit History
       </a>
-
-
-
-
     </mat-expansion-panel>
-
   </mat-accordion>
 </mat-nav-list>
 
@@ -183,10 +166,6 @@
         routerLink="/app-body-layout/allergy-details">
         Allergies
       </a>
-
-
-
     </mat-expansion-panel>
-
   </mat-accordion>
 </mat-nav-list>

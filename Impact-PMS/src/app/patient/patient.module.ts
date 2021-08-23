@@ -32,13 +32,16 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2OrderModule } from 'ng2-order-pipe';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PatientAllergyDetailsComponent } from './patient-allergy-details/patient-allergy-details.component';
 
 
 
 @NgModule({
   declarations: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent,
-    HeaderComponent,SidenavComponent],
+    HeaderComponent,SidenavComponent, PatientAllergyDetailsComponent,PatientAllergyDetailsComponent],
   imports: [
+    MatDialogModule,
     Ng2OrderModule,
     NgxPaginationModule,
    MatFormFieldModule,    
@@ -66,6 +69,6 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
     HttpClientModule,
     RouterModule.forChild(patientroutes)
   ],
-  exports: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent, AllergyDetailsComponent,HeaderComponent,SidenavComponent]
+  exports: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent, AllergyDetailsComponent,HeaderComponent,SidenavComponent,PatientAllergyDetailsComponent]
 })
 export class PatientModule { }

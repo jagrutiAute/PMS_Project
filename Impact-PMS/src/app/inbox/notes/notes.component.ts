@@ -11,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-  status: String;
   user: User;
   constructor(
     private service: LoginService,
@@ -40,13 +39,11 @@ export class NotesComponent implements OnInit {
     console.log("inside sendNotes method");
     let note: Notes = new Notes();
     let email = sessionStorage.getItem('username');
-    Object.assign(note, this.notesForm.value);
+    console.log("session email "+email);
+        Object.assign(note, this.notesForm.value);
     this.service.addNotes(note, email).subscribe(
       data => {
         console.log("data " + data);
-        this.status = data;
-        console.log("status  " + this.status);
-
         this.toaster.Success(" Notes Send Successfully");
         window.location.reload();
         // alert('Your password reset successfully');

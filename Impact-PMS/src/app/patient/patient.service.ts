@@ -24,9 +24,24 @@ export class PatientDetailService {
     private getallAllergyList = "http://localhost:8084/getAllergyDetails"
 
     private savePatientAllergyUrl = "http://localhost:8084/savePatientAllergyDetails"
+    private getaddedAllergiesUrl = "http://localhost:8084/getPatientAllergyDetails"
+    private deleteAllergyUrl = "http://localhost:8084/deletePatientAllergyDetails"
 
 
     constructor(private _http: HttpClient) { }
+
+
+    deleteAllergies(id:number): Observable<any>{
+
+        let pid=sessionStorage.getItem("mrnNumber");
+        //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
+        return this._http.delete<any>(`${this.deleteAllergyUrl}/${pid}/${id}`);
+    }
+
+    getAddeAllergies(): Observable<Allergy[]> {
+        let pid=sessionStorage.getItem("mrnNumber");
+        return this._http.get<Allergy[]>(`${this.getaddedAllergiesUrl}/${pid}`);
+      }
 
     
     addAllergyPatient(allergyObject: Allergy[]): Observable<any> {
