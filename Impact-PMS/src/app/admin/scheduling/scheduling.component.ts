@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDashBoardService } from '../admin.service';
+import { GetSchedule } from '../getSchedule';
 import { Patient } from '../patient';
 import { Scheduling } from '../scheduling';
 import { SchedulingService } from '../scheduling.service';
@@ -12,10 +13,13 @@ import { User1 } from '../user1';
   styleUrls: ['./scheduling.component.css']
 })
 export class SchedulingComponent implements OnInit {
-  scheduling: Scheduling[];
+ scheduling: Scheduling[];
+ //str:string;
+ //getScheduling: GetSchedule;
  // user: User1;
   //firstName: any;
   p: number = 1;
+ // getSchedule:GetSchedule
   constructor(private schedulingService: SchedulingService,
     private router: Router) {}
 
@@ -33,8 +37,11 @@ export class SchedulingComponent implements OnInit {
 //   }
 // }
   reloadData() {
-     this.schedulingService.getScheduling().subscribe((data) => {
-      this.scheduling= data
+    let getSchedule = new GetSchedule();
+     getSchedule.phyid="12";
+     getSchedule.date="2021-08-18";
+     this.schedulingService.getScheduling(getSchedule).subscribe((data) => {
+      this.scheduling = data;
       console.log(data)
     /*  for(let data in this.patients){
         this.patients[data];
@@ -46,7 +53,7 @@ export class SchedulingComponent implements OnInit {
         }
 
       } */
-      console.log(this.scheduling)
+     // console.log(this.scheduling)
       
     },
     (error) => {

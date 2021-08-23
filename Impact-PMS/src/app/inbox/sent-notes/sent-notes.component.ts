@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Notes } from 'src/app/user/notes';
-import { InboxService } from '../inbox.service';
+//import { InboxService } from '../inbox.service';
 
 @Component({
   selector: 'app-sent-notes',
@@ -12,19 +12,19 @@ export class SentNotesComponent implements OnInit {
   sender = sessionStorage.getItem('username')
   notes: Notes[]
 
-  constructor(private service: InboxService) { }
+  //constructor(private service: InboxService) { }
 
   ngOnInit(): void {
-    console.log(sessionStorage.getItem('username'));
-    this.service.getAllSentNotes(this.sender).subscribe(
-      (data) => {
-        console.log(data)
-        this.notes=data
-      },
-      (error) => {
-        console.log(error)
-      }
-    )
+    // console.log(sessionStorage.getItem('username'));
+    // this.service.getAllSentNotes(this.sender).subscribe(
+    //   (data) => {
+    //     console.log(data)
+    //     this.notes=data
+    //   },
+    //   (error) => {
+    //     console.log(error)
+    //   }
+    // )
 
   }
 

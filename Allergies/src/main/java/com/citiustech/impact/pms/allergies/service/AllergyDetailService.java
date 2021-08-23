@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.allergies.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
@@ -17,21 +18,23 @@ public class AllergyDetailService {
 	@Autowired
 	AllergyDetailsRepository allergyDetailsRepo;
 	
-	public AllergyDetails addPatientAllergy(AllergyDetails allergyDetails) {
+	public List<AllergyDetails> addPatientAllergy(List<AllergyDetails> allergies) {
 						
+		
 		log.debug("inside addPatientAllergy() method of AllergyDetailService class");
 		log.debug("calling save() method of AllergyDetailsRepository interface");
 		
-		return allergyDetailsRepo.save(allergyDetails);
+		return allergyDetailsRepo.saveAll(allergies);
+		//return allergyDetailsRepo.save(allergyDetails);
 			
 	}
 
-	public Optional<AllergyDetails> fetchPatientAllergyDetails(int id) {
+	public Optional<AllergyDetails> fetchPatientAllergyDetails(int pid) {
 		
 		log.debug("inside fetchPatientAllergyDetails() method of AllergyDetailService class");
 		log.debug("calling findById() method of AllergyDetailsRepository interface");
 		
-		return allergyDetailsRepo.findById(id);
+		return allergyDetailsRepo.findById(pid);
 	
 	}
 

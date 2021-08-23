@@ -11,7 +11,7 @@ import { NotesComponent } from './notes/notes.component';
 import { RecievedNotesComponent } from './recieved-notes/recieved-notes.component';
 import { SentNotesComponent } from './sent-notes/sent-notes.component';
 import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-appointments.component';
-import { inboxroutes } from './inbox.routes';
+//import { inboxroutes } from './inbox.routes';
 import { RouterModule } from '@angular/router';
 
 
@@ -29,7 +29,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    RouterModule.forChild(inboxroutes),
+  //  RouterModule.forChild(inboxroutes),
   ]
 })
 export class InboxModule { }

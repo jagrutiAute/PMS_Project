@@ -25,6 +25,7 @@ import { MatOptionModule } from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { MedicationService } from './medication.service';
 import { AdminHeaderComponent } from '../components/admin-header/admin-header.component';
 import { AdminSidenavComponent } from '../components/admin-sidenav/admin-sidenav.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,6 +48,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NurseDashboardComponent } from './nurse-dashboard/nurse-dashboard.component';
 import { NurseHeaderComponent } from '../components/nurse-header/nurse-header.component';
 import { NurseSidenavComponent } from '../components/nurse-sidenav/nurse-sidenav.component';
+import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 
 
 
@@ -74,7 +76,8 @@ import { NurseSidenavComponent } from '../components/nurse-sidenav/nurse-sidenav
     SchedulingComponent,
     NurseDashboardComponent,
     NurseHeaderComponent,
-    NurseSidenavComponent
+    NurseSidenavComponent,
+    DiagnosisComponent
     
     
   ],
@@ -123,6 +126,6 @@ import { NurseSidenavComponent } from '../components/nurse-sidenav/nurse-sidenav
     NurseSidenavComponent
    
   ],
-  providers:[AdminDashBoardService, HospitalUserService]
+  providers:[AdminDashBoardService, HospitalUserService, MedicationService]
 })
 export class AdminModule { }

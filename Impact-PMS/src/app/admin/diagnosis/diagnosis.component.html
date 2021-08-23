@@ -1,0 +1,102 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<h1 style="text-align: center;"><u><b>Diagnosis Details</b></u></h1>
+<br>
+<!-- <a routerLink="add-patient-users" class="btn btn-lg btn-success mb-2">Add Patient</a> -->
+
+<!--<div class="search-container" style="text-align: right;">
+    <form action="#">
+      <input type="text" placeholder="Search.." name="firstName">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>..
+  </div>-->
+
+
+
+<div class="search-container">
+    <input type="text" placeholder=" Search..." class="form-control" name="applno" [(ngModel)]="applno"
+        (ngModelChange)="search()">
+   
+
+</div>
+<br>
+
+<table class="table table-striped" style="font-size: 15px;">
+    <thead>
+        <tr style="background-color:royalblue; color: seashell;">
+            <th (click)="sort('id')" style="width: 12%">diagnosis_code&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('title')" style="width: 18%">diagnosis_description&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('firstName')" style="width: 10%">diagnosis_is_deprecated&nbsp;<i class="fa fa-sort"></i></th>
+            <!-- <th (click)="sort('dateOfBirth')" style="width: 12%">strengthString&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('email')" style="width: 12%">referenceDrug&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('phoneNumber')" style="width: 14%">activeIngredient&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('Status')" style="width: 16%">referenceStandard&nbsp;<i class="fa fa-sort"></i></th>   -->
+            <th style="width: 0%">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medication of diagnosis | orderBy: key: reverse | paginate: {itemsPerPage:3,currentPage:p};">
+            <td>{{medication.diagnosis_code}}</td>
+            <td>{{medication.diagnosis_description}}</td>
+            <td> {{medication.diagnosis_is_deprecated}}</td>
+            <!-- <td>{{medication.strength}}</td>
+            <td>{{medication.referenceDrug}}</td>
+            <td>{{medication.activeIngredient}}</td>
+            <td>{{medication.referenceStandard}}</td> -->
+            <!--  <p *ngFor="let pat of patient ">
+            <td>{{pat.email}} </td>
+            <td>{{pat.phoneNumber}} </td>
+           </p> -->
+            <td>
+                <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
+                <button (click)="addMedication(medication)" class="btn btn-primary btn-lg">Add Diagnosis</button>
+
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
+<br><br><br>
+<div class="card" style="font-size: 17px;">
+    <div class="card-header">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+<br>
+<div class="table table-striped" style="font-size: 15px;">
+
+  
+    <tbody>
+        <tr *ngFor="let medicationObject of map | keyvalue">
+        <td style="width: 8%">{{medicationObject.value.applNo}}</td>
+        <td style="width: 8%">{{medicationObject.value.productNo}}</td>
+        <td style="width: 8%"> {{medicationObject.value.form}}</td>
+        <td style="width: 8%">{{medicationObject.value.strength}}</td>
+        <td style="width: 8%">{{medicationObject.value.referenceDrug}}</td>
+        <td style="width: 8%">{{medicationObject.value.activeIngredient}}</td>
+        <td style="width: 8%">{{medicationObject.value.referenceStandard}}</td>
+        <td style="width: 0%">
+            <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
+            <button (click)="deleteMedication(medicationObject.value.applNo)" class="btn btn-primary btn-lg">Delete</button>
+            
+
+        </td>
+      
+        </tr>
+
+       
+
+</tbody>
+<br>
+<div>
+   
+<button (click)="saveMedication()" class="btn btn-primary btn-lg" [disabled]="map.size==0"> Save </button>
+</div>
+</div>
+
+

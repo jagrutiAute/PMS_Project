@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.allergies.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
@@ -24,6 +25,11 @@ public class AllergyService {
 		
 		return allergyDetailsRepo.findById(id);
 		
+	}
+
+	public Optional<List<Allergy>> getAllergyList() {
+		// TODO Auto-generated method stub
+		return Optional.of(allergyDetailsRepo.findAll());
 	}
 
 }

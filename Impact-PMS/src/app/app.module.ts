@@ -12,8 +12,6 @@ import { AdminModule } from './admin/admin.module';
 
 import { PatientVisitModule } from './patient-visit/patient-visit.module';
 import { NbThemeModule } from '@nebular/theme';
-//import { CalendarModule, DateAdapter } from 'angular-calendar';
-//import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ToasterService1 } from './toaster-service.service';

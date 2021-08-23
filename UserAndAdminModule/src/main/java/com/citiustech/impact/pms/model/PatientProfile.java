@@ -39,10 +39,28 @@ public class PatientProfile  {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_of_birth")
 	private Calendar dateOfBirth;
+	
+	
+	@Column(name = "gender")
+	private String gender;
+
+	@JoinColumn(name = "users_id")
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private Users user;
+	
+	
+
+	@Column(name = "ethnicity_master_id")
+	private int ethnicity;
+
+	@Column(name = "race_master_id")
+	private int race;
 
 	@Column(name = "age")
 	private int age;
-
+	
+	
+	
 	public int getAge() {
 		return age;
 	}
@@ -59,18 +77,7 @@ public class PatientProfile  {
 		this.gender = gender;
 	}
 
-	@Column(name = "gender")
-	private String gender;
-
-	@JoinColumn(name = "users_id")
-	@OneToOne(cascade = CascadeType.PERSIST)
-	private Users user;
-
-	@Column(name = "ethnicity_master_id")
-	private int ethnicity;
-
-	@Column(name = "race_master_id")
-	private int race;
+	
 
 	public int getEthnicity() {
 		return ethnicity;

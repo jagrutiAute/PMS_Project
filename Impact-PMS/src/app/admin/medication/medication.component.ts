@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToasterService1 } from 'src/app/toaster-service.service';
-
-import { AdminDashBoardService } from '../admin.service';
 import { Medication } from '../medication-master';
+
+import { MedicationService } from '../medication.service';
 
 import { User1 } from '../user1';
 
@@ -15,15 +14,15 @@ import { User1 } from '../user1';
 })
 export class MedicationComponent implements OnInit {
 
- // patients: Patient[];
   medications: Medication[];
   user: User1;
   applno: any;
   p: number = 1;
-  patientsMedication: Medication[];
+ // patientsMedication: Medication[];
    map =new Map();
-  constructor(private medicationService: AdminDashBoardService, private toaster: ToasterService1,
-    private router: Router) {}
+   finalMedication: Medication[];
+  constructor(private toaster: ToasterService1,
+    private router: Router, private medicationService: MedicationService) {}
 
   ngOnInit() {
     this.reloadData();
@@ -119,8 +118,28 @@ export class MedicationComponent implements OnInit {
   let r =  confirm("are you sure to save? ")
 
   if(r==true){
-    this.router.navigate(['admin-dashboard/patient-users'])
-  }else
+    console.log("hello")
+    // for (let value of this.map.values()) {   
+    //     //  this.finalMedication.push(value);
+        
+    //    console.log(value);  
+
+    //   }
+
+    let keys = Array.from( this.map.values());
+   
+    this.medicationService.addMedicationForPatient(keys).subscribe((data) =>{
+      data;
+      console.log(data);
+    },
+    (error) => {
+      console.log(error)
+    })
+    
+
+    this.router.navigate(['physician-dashboard/patient-details'])
+  }
+  else
   console.log("same page")
     
   }
