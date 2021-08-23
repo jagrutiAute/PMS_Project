@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.citiustech.impact.pms.diagnoses.model.DiagnosisModel;
+import com.citiustech.impact.pms.diagnoses.model.DiagnosisSave;
+import com.citiustech.impact.pms.diagnoses.repository.DiagnosisSaveRepository;
 import com.citiustech.impact.pms.diagnoses.repository.DiagnosisRepository;
 
 
@@ -19,6 +21,9 @@ public class DiagnosisService {
 	@Autowired
 	private DiagnosisRepository diagnosisRepository;
 	
+	@Autowired
+	private DiagnosisSaveRepository diagnosisSaveArrayListRepository;
+	
 	public List<DiagnosisModel> getDiagnosis() 
 	{
 	
@@ -26,5 +31,15 @@ public class DiagnosisService {
 
 		return diagnosisRepository.findAll();
 	}
-	
+
+	public void addDiagnosis(List<DiagnosisSave> diagnosisSaveArrayList) {
+		
+		diagnosisSaveArrayList.stream().forEach(a->System.out.println(a));
+		diagnosisSaveArrayListRepository.saveAll(diagnosisSaveArrayList);
+	}
+
+	public List<DiagnosisSave> gettingAddedDiagnosis() {
+		
+		return diagnosisSaveArrayListRepository.findAll();
+	}
 }

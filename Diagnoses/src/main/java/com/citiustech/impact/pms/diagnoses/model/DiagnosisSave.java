@@ -9,12 +9,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name="diagnosis_master")
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiagnosisModel {
+@Table(name="diagnosis_save")
+public class DiagnosisSave {
 
 	@Id
 	private String diagnosis_code;
@@ -22,5 +22,10 @@ public class DiagnosisModel {
 	
 	@Column(columnDefinition="tinyint(1) default 1")
 	private boolean diagnosis_is_deprecated;
+	
+	private String pid;
+	private String phyid;
+	
+	
 	
 }

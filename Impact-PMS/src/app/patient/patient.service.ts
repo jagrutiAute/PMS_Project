@@ -16,7 +16,7 @@ export class PatientDetailService {
 
 
     private baseurl = "http://localhost:8094/updatePatientDetails";
-    private baseurl1 = "http://localhost:8094/getPatientDetails/";
+    private baseurl1 = "http://localhost:8094/getPatientDetails";
     private raceUrl = "http://localhost:8094/getRaceList";
     private ethinicityUrl = "http://localhost:8094/getEthinicityList";
     private emergencyCntInfoUrl = "http://localhost:8094/getPatientEmergencoCntInfo/"
