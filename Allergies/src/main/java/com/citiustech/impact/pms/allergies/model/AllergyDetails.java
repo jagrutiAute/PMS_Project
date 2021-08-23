@@ -26,7 +26,7 @@ public class AllergyDetails {
 	private Integer id;
 	
 	private String pid;
-	private String allergyName;
+	private String name;
 	private String type;
 	private String createdBy;
 	private Calendar createdDateNTime;

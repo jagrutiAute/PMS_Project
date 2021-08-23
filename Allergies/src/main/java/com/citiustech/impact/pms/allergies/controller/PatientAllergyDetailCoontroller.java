@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +44,7 @@ public class PatientAllergyDetailCoontroller {
 			AllergyDetails m1 = new AllergyDetails();
 			
 			m1.setId(m.getId());
-			m1.setAllergyName(m.getName());
+			m1.setName(m.getName());
 			m1.setType(m.getType());
 			m1.setSource(m.getSource());
 			m1.setIsoForms(m.getIsoForms());
@@ -65,12 +66,23 @@ public class PatientAllergyDetailCoontroller {
 	}
 	
 	@GetMapping("/getPatientAllergyDetails/{id}")
-	public ResponseEntity<AllergyDetails> getPatientAllergyDetails(@PathVariable int id) {
+	public ResponseEntity<List<AllergyDetails>> getPatientAllergyDetails(@PathVariable String id) {
 
-		Optional<AllergyDetails> allergyDetails = allergyDetailService.fetchPatientAllergyDetails(id);
+		Optional<List<AllergyDetails>> allergyDetails = allergyDetailService.fetchPatientAllergyDetails(id);
 
-		return new ResponseEntity<AllergyDetails>(allergyDetails.get(), HttpStatus.OK);
+		return new ResponseEntity<List<AllergyDetails>>(allergyDetails.get(), HttpStatus.OK);
 
 	}
 
+	@DeleteMapping("/deletePatientAllergyDetails/{pid}/{id}")
+	public void deletePatientAllergyDetails(@PathVariable String pid,@PathVariable Integer id) {
+
+		System.out.println("PID ::: "+pid+" ID :: "+id);
+		allergyDetailService.deleteAllergies(pid,id);
+		
+		
+
+		//return new ResponseEntity<AllergyDetails>(allergyDetails.get(), HttpStatus.OK);
+
+	}
 }

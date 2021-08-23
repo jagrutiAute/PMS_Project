@@ -110,7 +110,8 @@ export class AllergyDetailsComponent implements OnInit {
         (error) => {
           console.log(error)
         })
-      this.router.navigate(['/app-body-layout/patient-details'])
+     // this.router.navigate(['/app-body-layout/app-patient-allergy-details'])
+     location.href = "/app-body-layout/app-patient-allergy-details";
     } else {
       console.log("same page")
       this.router.navigate(['/app-body-layout/allergy-details'])
@@ -121,6 +122,7 @@ export class AllergyDetailsComponent implements OnInit {
 
   }
 
+ 
 
   deleteAllergy(applNo: string) {
     this.map.delete(applNo)

@@ -1,0 +1,54 @@
+
+  <div class="card">
+    <div class="card-header" style="text-align: center;">
+      <h1>Allergies</h1>
+    </div>
+      <div class="card-body">
+        <table class="table table-striped" style="font-size: 15px;">
+        <thead>
+            <tr style="background-color:#2f4b7c; color: seashell;">
+                
+                <th style="width: 8%">Type&nbsp;<i class="fa fa-sort"></i></th>
+                <th  style="width: 15%">Name&nbsp;<i class="fa fa-sort"></i></th>
+                <th  style="width: 18%">Source&nbsp;<i class="fa fa-sort"></i></th>
+                <th  style="width: 15%">Isoforms&nbsp;<i class="fa fa-sort"></i></th>
+                <th  style="width: 15%">Allerginicity&nbsp;<i class="fa fa-sort"></i></th>
+                
+                <th style="width: 30%">Action</th>
+            </tr>
+        </thead>
+
+
+    <tbody>
+       
+        
+        <tr *ngFor="let allergy of allergies">
+           
+          
+          <td>{{allergy.type}}</td>
+          <td> {{allergy.name}} </td>
+          <td>{{allergy.source}}</td>
+          <td>{{allergy.isoForms}}</td>
+          <td>{{allergy.allerginiCity}}</td>
+        
+        <td style="width: 0%">
+           
+            <button (click)="reloadCurrentPage()" (click)="deleteAllergy(allergy.id)" mat-raised-button color="warn">Delete</button>
+            
+
+        </td>
+      
+        </tr>
+
+       
+
+</tbody> 
+  
+  
+         
+      </table>
+    </div>
+  </div>
+
+  
+  
