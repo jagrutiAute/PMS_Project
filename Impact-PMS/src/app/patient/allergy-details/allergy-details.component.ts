@@ -86,10 +86,15 @@ export class AllergyDetailsComponent implements OnInit {
       this.count = this.count+1;
 
       console.log("count ::  "+this.count);
+      
+    } else{
 
-    } else
-    
       this.map.set(allergy.id, allergy)
+
+      this.toaster.Success("allergy added")
+    }
+    
+     
   }
 
 
@@ -106,16 +111,23 @@ export class AllergyDetailsComponent implements OnInit {
       this.service.addAllergyPatient(keys).subscribe((data) => {
         data;
         console.log(data);
+        
       },
         (error) => {
           console.log(error)
+          
         })
      // this.router.navigate(['/app-body-layout/app-patient-allergy-details'])
+    
+     this.toaster.Success("Allegy saved")
      location.href = "/app-body-layout/app-patient-allergy-details";
+     
+
     } else {
       console.log("same page")
+      this.toaster.Error("Allergies not saved")
       this.router.navigate(['/app-body-layout/allergy-details'])
-
+     
     }
 
 

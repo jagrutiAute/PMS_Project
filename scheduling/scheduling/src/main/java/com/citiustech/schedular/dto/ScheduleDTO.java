@@ -36,7 +36,6 @@ public class ScheduleDTO {
 		public String toString() {
 			return "ScheduleDTO [phid=" + phid + ", time=" + time + ", date=" + date + ", pid=" + pid + "]";
 		}
-		
 	
 		
 }

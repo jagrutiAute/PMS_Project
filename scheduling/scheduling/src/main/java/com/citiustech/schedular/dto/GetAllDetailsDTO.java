@@ -1,10 +1,12 @@
 package com.citiustech.schedular.dto;
 
+import java.time.LocalDate;
+
 public class GetAllDetailsDTO {
 
 		private String phyid;
 		
-		private String date;
+		private LocalDate date;
 
 		public String getPhyid() {
 			return phyid;
@@ -14,12 +16,19 @@ public class GetAllDetailsDTO {
 			this.phyid = phyid;
 		}
 
-		public String getDate() {
+		
+
+		public LocalDate getDate() {
 			return date;
 		}
 
-		public void setDate(String date) {
+		public void setDate(LocalDate date) {
 			this.date = date;
+		}
+
+		@Override
+		public String toString() {
+			return "GetAllDetailsDTO [phyid=" + phyid + ", date=" + date + "]";
 		}
 		
 		

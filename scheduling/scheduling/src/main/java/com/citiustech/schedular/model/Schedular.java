@@ -29,6 +29,8 @@ public class Schedular {
 	@Column(columnDefinition="tinyint(1) default 0")
 	private boolean iscancelled;
 	
+	
+
 	public String getPid() {
 		return pid;
 	}
@@ -87,8 +89,16 @@ public class Schedular {
 	@Override
 	public String toString() {
 		return "Schedular [id=" + id + ", date=" + date + ", time=" + time + ", phyid=" + phyid + ", pid=" + pid
-				+ ", booked=" + booked + "]";
+				+ ", iscancelled=" + iscancelled + ", booked=" + booked + "]";
 	}
+
+	
+
+	
+
+
+	
+
 	
 
 }

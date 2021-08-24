@@ -1,0 +1,53 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<h1 style="text-align: center;"><u><b>Book Appontment</b></u></h1>
+<br>
+
+<input type="date" placeholder="Choose a date" (change)="onChangeEvent($event)" >&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+<select name="phid" id="phid" (change)="selectOption($event)"> 
+    <option value="">------select-----</option>
+    <option *ngFor="let pid of physicianId" value="{{pid}}">
+
+        {{pid}} </option>
+    
+  </select>
+<br>
+<br>
+
+
+<table class="table table-striped" style="font-size: 15px;">
+    <thead>
+        <tr style="background-color:royalblue; color: seashell;">
+            <th style="width: 24%">Time</th>
+           
+          
+            <th style="width: 10%">Scheduling Action</th> 
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of schedule | paginate: {itemsPerPage:5,currentPage:p};">
+            
+           <td> {{s.schedule}}  </td>
+           
+           
+             <td class="buttonA">
+               <!--  <button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
+                <button (click)="bookappointment(s.schedule)" class="btn btn-primary btn-sm rounded-0" title="Add">Book Appointment</button>
+               
+            </td> 
+        </tr>
+
+    </tbody>
+   
+</table>
+<br><br><br>
+ <div class="card" style="font-size: 17px;">
+    <div class="card-header">
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div> 
+
+

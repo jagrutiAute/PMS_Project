@@ -12,7 +12,6 @@ import { RecievedNotesComponent } from './recieved-notes/recieved-notes.componen
 import { SentNotesComponent } from './sent-notes/sent-notes.component';
 import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-appointments.component';
 //import { inboxroutes } from './inbox.routes';
-import { RouterModule } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoteSortPipe } from './note-sort.pipe';
@@ -40,9 +39,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatExpansionModule,
     NgxPaginationModule,
     Ng2OrderModule,
-    MatDatepickerModule
+     MatDatepickerModule
+
 
     //  RouterModule.forChild(inboxroutes),
   ]
+
 })
 export class InboxModule { }

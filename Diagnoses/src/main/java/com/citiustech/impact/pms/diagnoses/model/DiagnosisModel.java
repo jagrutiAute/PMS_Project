@@ -22,4 +22,5 @@ public class DiagnosisModel {
 	
 	@Column(columnDefinition="tinyint(1) default 1")
 	private boolean diagnosis_is_deprecated;
+	
 }

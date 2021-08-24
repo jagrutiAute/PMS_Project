@@ -2,6 +2,7 @@ package com.citiustech.schedular.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.citiustech.schedular.dto.GetAllDetailsDTO;
 import com.citiustech.schedular.dto.PhysicianUpdateDTO;
@@ -34,9 +36,14 @@ public class HomeController {
 
 	@Autowired
 	SchedularRepo repo;
+	
+	
 
 	@Autowired
 	PhysicianScehduleRepo phyrepo;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@GetMapping("/")
 	public String getdata() {
@@ -78,44 +85,23 @@ public class HomeController {
 	@PostMapping("/patient/book")
 	public String bookappointment(@RequestBody ScheduleDTO scdto) {
 
-		/*
-		 * List<Schedular> result = repo.findAll(); System.out.println(phid + "  " +
-		 * time); // System.out.println(result); Optional<Schedular> rs =
-		 * result.stream().filter(x -> x.getPhy_id().equals(phid) &&
-		 * x.getTime().equals(time)) .findAny();
-		 * 
-		 * PhysicianSchedule phyresult = phyrepo.findByPhyidAndDate(phid, date);
-		 * 
-		 * System.out.println(phyresult);
-		 * 
-		 * if (phyresult.isEvening() == false && (Integer.parseInt(time) >= 16 &&
-		 * Integer.parseInt(time) <= 20)) { return "Physician not available"; }
-		 * 
-		 * if (phyresult.isMorning() == false && (Integer.parseInt(time) >= 8 &&
-		 * Integer.parseInt(time) <= 15)) { return "Physician not available"; }
-		 * 
-		 * if (rs.isPresent()) { return "slot is already booked"; } else {
-		 * 
-		 * return "booked successfully"; }
-		 */
+		System.out.println("scdto="+scdto);
 				
-				
+			LocalDate date = scdto.getDate();
 			//LocalDate date= LocalDate.parse(scdto.getDate());
 			String phid=scdto.getPhid();
 			String time=scdto.getTime();
-		System.out.println(phid+" "+scdto.getDate()+" "+scdto.getTime());
-		Schedular sc=repo.findByPhyidAndDateAndTime(phid, scdto.getDate(), time);
-		PhysicianSchedule ph= phyrepo.findByPhyidAndDate(phid, scdto.getDate());
 		
+		Schedular sc=repo.findByPhyidAndDateAndTime(phid, date, time);
+		PhysicianSchedule ph= phyrepo.findByPhyidAndDate(phid, date);
+		System.out.println("ph="+ph);
 			if(ph==null) {
 				return "You entered wrong data";
 			}
 		
-			if((repo.findByPidAndTimeAndDate(scdto.getPid(), time,scdto.getDate()))!=null) {
-				
-				return "You cannot book for same time with different physicion ";
+			if(repo.findByPidAndTimeAndDate(scdto.getPid(), time, scdto.getDate())!=null) {
+				return "You cannot book for same time with different physicion";
 			}
-			
 			
 		if(ph.isEvening()==false  &&   (Double.parseDouble(time) >= 16 && Double.parseDouble(time) <= 20)) {
 			return "physician not available";
@@ -134,7 +120,7 @@ public class HomeController {
 			sc1.setTime(time);
 			sc1.setCancelled(false);
 			repo.save(sc1);
-			return "booked appointmetn on"+scdto.getDate()+"at"+time;
+			return "booked";
 		}else {
 			return "slot already booked";
 		}
@@ -152,13 +138,19 @@ public class HomeController {
 	@PostMapping("patient/schedule")
 	public List<Schedule1DTO> getAllUnbookedappointmet(@RequestBody GetAllDetailsDTO details){
 		
-			LocalDate date1=LocalDate.parse(details.getDate());
+			//LocalDate date1=LocalDate.parse(details.getDate());
+			LocalDate date1 = details.getDate();
+			System.out.println("details="+details);
 			//booked
-			System.out.println(details.getPhyid()+"date"+date1);
-			 List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true,true);
-			PhysicianSchedule psc= phyrepo.findByPhyidAndDate(details.getPhyid(), date1);
-			System.out.println(result);
-			System.out.println(psc);
+			// List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true,true);
+			//List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true, true);
+			List<Schedular> result= repo.findByPhyidAndDateAndBooked(details.getPhyid(), date1, true);
+			System.out.println("helo");
+			result.stream().forEach(a->System.out.println(a));
+			 PhysicianSchedule psc= phyrepo.findByPhyidAndDate(details.getPhyid(), date1);
+			 
+			//System.out.println(result);
+			//System.out.println(psc);
 				//result.stream().filter(x->x.getDate()).findAny();
 				List<Schedule1DTO> rs=new ArrayList<>();
 				Set<String> morning=new TreeSet<String>();
@@ -198,7 +190,9 @@ public class HomeController {
 				
 					
 				
-				
+				//if(result!=null) {
+					
+			
 				
 				//if(psc.isMorning() ) {
 				
@@ -259,7 +253,23 @@ public class HomeController {
 				//}
 				//return null;
 		
+//	}else
+//		return null;
 	}
+	
+	@GetMapping("/patient/physician/id")
+	public ResponseEntity<List<Object>> getPatients() {
+		
+		Object[] restCall = restTemplate.getForObject("http://localhost:8088/patient/physicans/phid",Object[].class);
+		
+		//PatientProfile[] patientProfile = response.getBody();
+		List<Object> ob = Arrays.asList(restCall);
+		
+		System.out.println(ob);
+		return new ResponseEntity<List<Object>>(ob, HttpStatus.OK);
+		
+	}
+	
 	
 	@GetMapping("/appointments/physicans/{phyId}")
 	public ResponseEntity<List<Schedular>> getAllUpcomingAppointmentsforPhysician(@PathVariable String phyId){
@@ -294,5 +304,6 @@ public class HomeController {
 			}
 	
 	
+	}
 	
-}
+

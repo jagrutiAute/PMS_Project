@@ -18,7 +18,7 @@
 
 
 <div class="search-container">
-    <input type="text" placeholder=" Search..." class="form-control" name="applno" [(ngModel)]="applno"
+    <input type="text" placeholder=" Search..." class="form-control" name="diagnosis_code" [(ngModel)]="diagnosis_code"
         (ngModelChange)="search()">
    
 
@@ -43,17 +43,11 @@
             <td>{{medication.diagnosis_code}}</td>
             <td>{{medication.diagnosis_description}}</td>
             <td> {{medication.diagnosis_is_deprecated}}</td>
-            <!-- <td>{{medication.strength}}</td>
-            <td>{{medication.referenceDrug}}</td>
-            <td>{{medication.activeIngredient}}</td>
-            <td>{{medication.referenceStandard}}</td> -->
-            <!--  <p *ngFor="let pat of patient ">
-            <td>{{pat.email}} </td>
-            <td>{{pat.phoneNumber}} </td>
-           </p> -->
+            
+          
             <td>
                 <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
-                <button (click)="addMedication(medication)" class="btn btn-primary btn-lg">Add Diagnosis</button>
+                <button (click)="addDiagnosis(medication)" class="btn btn-primary btn-lg">Add Diagnosis</button>
 
             </td>
         </tr>
@@ -73,19 +67,19 @@
   
     <tbody>
         <tr *ngFor="let medicationObject of map | keyvalue">
-        <td style="width: 8%">{{medicationObject.value.applNo}}</td>
-        <td style="width: 8%">{{medicationObject.value.productNo}}</td>
-        <td style="width: 8%"> {{medicationObject.value.form}}</td>
-        <td style="width: 8%">{{medicationObject.value.strength}}</td>
+        <td style="width: 8%">{{medicationObject.value.diagnosis_code}}</td>
+        <td style="width: 8%">{{medicationObject.value.diagnosis_description}}</td>
+        <td style="width: 8%"> {{medicationObject.value.diagnosis_is_deprecated}}</td>
+        <!-- <td style="width: 8%">{{medicationObject.value.strength}}</td>
         <td style="width: 8%">{{medicationObject.value.referenceDrug}}</td>
         <td style="width: 8%">{{medicationObject.value.activeIngredient}}</td>
-        <td style="width: 8%">{{medicationObject.value.referenceStandard}}</td>
-        <td style="width: 0%">
+        <td style="width: 8%">{{medicationObject.value.referenceStandard}}</td> -->
+        <td style="width: 0%"> 
             <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
-            <button (click)="deleteMedication(medicationObject.value.applNo)" class="btn btn-primary btn-lg">Delete</button>
+            <button (click)="deleteDiagnosis(medicationObject.value.applNo)" class="btn btn-primary btn-lg">Delete</button>
             
-
-        </td>
+</td>
+       
       
         </tr>
 
@@ -95,7 +89,7 @@
 <br>
 <div>
    
-<button (click)="saveMedication()" class="btn btn-primary btn-lg" [disabled]="map.size==0"> Save </button>
+<button (click)="saveDiagnosis()" class="btn btn-primary btn-lg" [disabled]="map.size==0"> Save </button>
 </div>
 </div>
 

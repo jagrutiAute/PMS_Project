@@ -11,7 +11,9 @@ import com.citiustech.schedular.model.Schedular;
 public interface SchedularRepo extends JpaRepository<Schedular, Integer> {
 		
 		Schedular findByPhyidAndDateAndTime(String phy_id,LocalDate date,String time);
-		List<Schedular> findByPhyidAndDateAndBookedAndIscancelled(String phid,LocalDate date,boolean book_status,boolean isCancelled );
+		//List<Schedular> findByPhyidAndDateAndBookedAndIscancelled(String phid,LocalDate date,boolean book_status,boolean iscancelled);
+		List<Schedular> findByPhyidAndDateAndBooked(String phid,LocalDate date,boolean book_status);
+		//List<Schedular> findByPhyidAndDateAndBookedAndIscancelled(String phid,LocalDate date,boolean book_status,boolean isCancelled );
 		//List<Schedular> findByPhyidAndDateAndBooked(String phid,LocalDate date,boolean book_status);
 		@Query("select a from Schedular a where a.date >=:date and phyid=:pid and isCancelled=:st ")
 		List<Schedular> findAllWithDateAfter(LocalDate date,String pid,boolean st);

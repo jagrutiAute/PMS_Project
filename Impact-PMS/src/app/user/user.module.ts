@@ -11,12 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
 import { RouterModule } from '@angular/router';
 import{userroutes } from './user.routes';
-import { NotesComponent } from '../inbox/notes/notes.component';
 import { UpcomingAppointmentComponent } from './upcoming-appointment/upcoming-appointment.component'
 import {MatInputModule} from '@angular/material/input';
 import {TextFieldModule} from '@angular/cdk/text-field';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({

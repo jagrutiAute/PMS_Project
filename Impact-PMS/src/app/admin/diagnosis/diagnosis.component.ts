@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import { ToasterService1 } from 'src/app/toaster-service.service';
 import { AdminDashBoardService } from '../admin.service';
 import { Diagnosis } from '../diagnosis';
-import { Medication } from '../medication-master';
-import { MedicationService } from '../medication.service';
-import { User1 } from '../user1';
+import { DiagnosisService } from '../diagnosis.service';
+
 
 @Component({
   selector: 'app-diagnosis',
@@ -14,33 +13,27 @@ import { User1 } from '../user1';
 })
 export class DiagnosisComponent implements OnInit {
 
- // medications: Medication[];
+  //medications: Medication[];
   diagnosis: Diagnosis[];
-  user: User1;
-  applno: any;
+  //user: User1;
+ // applno: any;
+ diagnosis_code: any;
   p: number = 1;
  // patientsMedication: Medication[];
    map =new Map();
-   finalMedication: Medication[];
+   //finalMedication: Medication[];
   constructor(private toaster: ToasterService1,
-    private router: Router, private medicationService: AdminDashBoardService) {}
+    private router: Router, private diagnosisService: DiagnosisService) {}
 
   ngOnInit() {
     this.reloadData();
     console.log("hello oye")
-   // this.load();
+   
   }
-// load(){
-//   console.log("load")
-//   //this.patients.forEach(projet=>console.log(projet.id));
-//   for(var pat in this.patients){
-//     console.log("hello")
-//     console.log(this.patients[pat]);
-//   }
-// }
+
   reloadData() {
     console.log("inside reload")
-     this.medicationService.getDiagnosis().subscribe((data1) => {
+     this.diagnosisService.getDiagnosis().subscribe((data1) => {
       this.diagnosis= data1
       
       console.log(data1)
@@ -65,12 +58,12 @@ export class DiagnosisComponent implements OnInit {
 
 
   search(){
-    if(this.applno == ""){
+    if(this.diagnosis_code == ""){
       //this.reloadData();
     }else
     console.log("inside search else")
       this.diagnosis = this.diagnosis.filter(res=>{
-      return res.diagnosis_code.toLocaleLowerCase().match(this.applno.toLocaleLowerCase());
+      return res.diagnosis_code.toLocaleLowerCase().match(this.diagnosis_code.toLocaleLowerCase());
     }) 
   }
 
@@ -95,54 +88,49 @@ export class DiagnosisComponent implements OnInit {
   //   this.router.navigate(['details', id]);
   // }
 
-  
-  addMedication(medication: Medication){
-    //this.router.navigate(['admin-dashboard/patient-users/edit-patient-users', id]);
-   if(this.map.has(medication.applNo)){
-    this.toaster.Warning("already added")
+  // add Diagnosis for patient
+  addDiagnosis(diagnosis: Diagnosis){
 
+   if(this.map.has(diagnosis.diagnosis_code)){
+    //this.toaster.Warning("already added")
+     alert("Already you have added")
    } else
   
-    this.map.set(medication.applNo, medication)
+    this.map.set(diagnosis.diagnosis_code, diagnosis)
 
-    // getPatientIdFromSession
+  
   }
 
   
-  deleteMedication(applNo: string){
-    this.map.delete(applNo)
+  deleteDiagnosis(diagnosis_code: string){
+    this.map.delete(diagnosis_code)
   }
 
 
-   // saveMedication
-  saveMedication(){
+   // saveDiagnosis
+  saveDiagnosis(){
   let r =  confirm("are you sure to save? ")
 
   if(r==true){
     console.log("hello")
-    // for (let value of this.map.values()) {   
-    //     //  this.finalMedication.push(value);
-        
-    //    console.log(value);  
 
-    //   }
 
-    // let keys = Array.from( this.map.values());
+    let keys = Array.from( this.map.values());
    
-    // this.medicationService.addMedicationForPatient(keys).subscribe((data) =>{
-    //   data;
-    //   console.log(data);
-    // },
-    // (error) => {
-    //   console.log(error)
-    // })
+    this.diagnosisService.addDiagnosisForPatient(keys).subscribe((data) =>{
+      data;
+      console.log(data);
+    },
+    (error) => {
+      console.log(error)
+    })
     
 
-    this.router.navigate(['admin-dashboard/patient-details'])
+    this.router.navigate(['physician-dashboard/patient-details'])
   }
   else
-  console.log("same page")
-    
+  //console.log("same page")
+    alert("not save diagnosis")
   }
 
 }

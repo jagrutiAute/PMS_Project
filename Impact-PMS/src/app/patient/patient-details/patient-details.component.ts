@@ -1,8 +1,10 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { stringify } from '@angular/compiler/src/util';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { Ethinicity } from '../ethinicity';
 import { PatientDetailService } from '../patient.service';
 
@@ -27,11 +29,18 @@ export class PatientDetailsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: PatientDetailService
+    private service: PatientDetailService,
+    private toaster:ToasterService1,
+   
 
   ) { }
 
+ 
+  
+
   ngOnInit() {
+
+   
     
     this.service.getPatientDetails(this.username).subscribe(
       (data) => {
@@ -50,6 +59,7 @@ export class PatientDetailsComponent implements OnInit {
         console.log("data Race :::::  " + data)
         this.races = data;
 
+        
       },
       error => {
         console.log(error);
@@ -109,7 +119,7 @@ export class PatientDetailsComponent implements OnInit {
        
         sessionStorage.setItem('patient', JSON.stringify( this.patientDetails)); 
         console.log("patientDetails data is" + data);
-      
+      this.toaster.Success("details saved successfully")
        
     }    
 
@@ -117,6 +127,8 @@ export class PatientDetailsComponent implements OnInit {
 
 
   }
+
+
 
   
 }

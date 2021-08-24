@@ -12,5 +12,6 @@ public interface PhysicianScehduleRepo extends JpaRepository<PhysicianSchedule, 
 		public PhysicianSchedule findByPhyidAndDate(String phyid,LocalDate date);
 		public List<PhysicianSchedule> findByPhyid(String phyid);
 		//public PhysicianSchedule findByDate(LocalDate date);
+		
 	
 }

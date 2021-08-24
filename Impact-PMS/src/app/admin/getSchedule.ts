@@ -1,4 +1,5 @@
 export class GetSchedule{
     phyid: string;
-    date: String;
+    date: Date;
+   // iscancelled: boolean;
 }
