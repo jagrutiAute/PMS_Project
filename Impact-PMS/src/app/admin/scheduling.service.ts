@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UpcomingAppointmentDetails } from '../inbox/upcoming-appointments/upcomingapppoitments';
 import { GetSchedule } from './getSchedule';
+import { PhysicianId } from './physicianId';
 import { Schedule1 } from './schedule1';
 import { ScheduleBook } from './schedulebook';
 
@@ -40,6 +41,12 @@ export class SchedulingService {
 
     return this._http.post<any>(this.baseUrl+'/patient/book',schedule, { responseType: 'text' as 'json' });
   }
+  
+  getAllPhysicianId():Observable<PhysicianId[]> {
+    
+      return this._http.get<PhysicianId[]>(`${this.baseUrl}`+'/patient/physician/id');
+
+}
 
   getallUpcomingAppointments():Observable<UpcomingAppointmentDetails[]> {
     //if role is physician then call this method

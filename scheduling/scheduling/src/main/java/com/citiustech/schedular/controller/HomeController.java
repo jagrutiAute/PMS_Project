@@ -2,6 +2,7 @@ package com.citiustech.schedular.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.citiustech.schedular.dto.GetAllDetailsDTO;
 import com.citiustech.schedular.dto.PhysicianUpdateDTO;
@@ -39,6 +41,9 @@ public class HomeController {
 
 	@Autowired
 	PhysicianScehduleRepo phyrepo;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@GetMapping("/")
 	public String getdata() {
@@ -133,8 +138,8 @@ public class HomeController {
 	@PostMapping("patient/schedule")
 	public List<Schedule1DTO> getAllUnbookedappointmet(@RequestBody GetAllDetailsDTO details){
 		
-			LocalDate date1=LocalDate.parse(details.getDate());
-			
+			//LocalDate date1=LocalDate.parse(details.getDate());
+			LocalDate date1 = details.getDate();
 			System.out.println("details="+details);
 			//booked
 			// List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true,true);
@@ -252,6 +257,20 @@ public class HomeController {
 //		return null;
 	}
 	
+	@GetMapping("/patient/physician/id")
+	public ResponseEntity<List<Object>> getPatients() {
+		
+		Object[] restCall = restTemplate.getForObject("http://localhost:8088/patient/physicans/phid",Object[].class);
+		
+		//PatientProfile[] patientProfile = response.getBody();
+		List<Object> ob = Arrays.asList(restCall);
+		
+		System.out.println(ob);
+		return new ResponseEntity<List<Object>>(ob, HttpStatus.OK);
+		
+	}
+	
+	
 	@GetMapping("/appointments/physicans/{phyId}")
 	public ResponseEntity<List<Schedular>> getAllUpcomingAppointmentsforPhysician(@PathVariable String phyId){
 			
@@ -287,4 +306,4 @@ public class HomeController {
 	
 	}
 	
-}
+

@@ -29,13 +29,7 @@ public class Schedular {
 	@Column(columnDefinition="tinyint(1) default 0")
 	private boolean iscancelled;
 	
-	public boolean iscancelled() {
-		return iscancelled;
-	}
-
-	public void setCancelled(boolean iscancelled) {
-		this.iscancelled = iscancelled;
-	}
+	
 
 	public String getPid() {
 		return pid;

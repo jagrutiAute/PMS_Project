@@ -38,8 +38,9 @@ export class SchedulingComponent implements OnInit {
 // }
   reloadData() {
     let getSchedule = new GetSchedule();
+    let d: Date = new Date("2021-08-17");
      getSchedule.phyid="11";
-     getSchedule.date="2021-08-17";
+     getSchedule.date=d;
      this.schedulingService.getAllUnbookedappointmet(getSchedule).subscribe((data) => {
       this.scheduling = data;
 

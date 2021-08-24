@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import com.citiustech.impact.pms.DTO.PhysicianNameDTO;
 import com.citiustech.impact.pms.model.ProviderRegistration;
 
 public interface HospitalUserRepository extends JpaRepository<ProviderRegistration, Integer> {
@@ -18,5 +20,13 @@ public interface HospitalUserRepository extends JpaRepository<ProviderRegistrati
 	List<ProviderRegistration> findByFirstNameOrLastName(String fname, String lname);
 	
 	List<ProviderRegistration> findByFirstNameAndLastName(String fname, String lname);
+
+	@Query(value="select pr.employee_id from pms.provider pr join pms.users pu on pr.users_id=pu.id AND pu.role_master_id=2;", nativeQuery = true)
+	List<String> findAllId();
+
+	@Query(value="select firstName, lastName from ProviderRegistration where employeeid=:phyid")
+	List<PhysicianNameDTO> findById(@Param("phyid") String phyid);
+	
+	
 
 }
