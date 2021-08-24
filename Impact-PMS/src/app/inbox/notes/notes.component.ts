@@ -35,6 +35,8 @@ export class NotesComponent implements OnInit {
     return this.notesForm.controls;
   }
 
+  
+
   sendNote() {
     console.log("inside sendNotes method");
     let note: Notes = new Notes();

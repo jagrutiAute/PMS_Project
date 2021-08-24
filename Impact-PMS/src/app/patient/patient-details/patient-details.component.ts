@@ -1,7 +1,7 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { stringify } from '@angular/compiler/src/util';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ToasterService1 } from 'src/app/toaster-service.service';
@@ -30,11 +30,17 @@ export class PatientDetailsComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private service: PatientDetailService,
-    private notifyService:ToasterService1
+    private notifyService:ToasterService1,
+   
 
   ) { }
 
+ 
+  
+
   ngOnInit() {
+
+   
     
     this.service.getPatientDetails(this.username).subscribe(
       (data) => {
@@ -53,6 +59,7 @@ export class PatientDetailsComponent implements OnInit {
         console.log("data Race :::::  " + data)
         this.races = data;
 
+        
       },
       error => {
         console.log(error);
@@ -121,6 +128,7 @@ export class PatientDetailsComponent implements OnInit {
 
   }
 
+ 
 
   showToasterSuccess(){
     this.notifyService.Success("Data shown successfully !!", "ItSolutionStuff.com")
