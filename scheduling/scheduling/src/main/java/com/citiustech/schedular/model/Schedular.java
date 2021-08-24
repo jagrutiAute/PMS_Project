@@ -89,12 +89,6 @@ public class Schedular {
 		return "Schedular [id=" + id + ", date=" + date + ", time=" + time + ", phyid=" + phyid + ", pid=" + pid
 				+ ", booked=" + booked + "]";
 	}
-
-	
-
-
-	
-
 	
 
 }
