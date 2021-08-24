@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^12.0.5",
+    "@angular/animations": "^12.2.2",
     "@angular/cdk": "^12.2.1",
     "@angular/common": "~12.0.4",
     "@angular/compiler": "~12.0.4",
@@ -32,7 +32,9 @@
     "ngx-pagination": "^5.1.1",
     "ngx-toastr": "^14.1.0",
     "npm": "^7.21.0",
+    "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
+    "toastr": "^2.1.4",
     "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
   },

@@ -60,6 +60,7 @@ export class RegistrationPatientComponent implements OnInit {
     this.service.getPatientRegister(patient1).subscribe(
       data => {
        console.log("data "+data);
+       
       
         if(data=='user already exist')
         {
@@ -73,7 +74,7 @@ export class RegistrationPatientComponent implements OnInit {
    
           this.router.navigate(['']);
         }
-
+        
       },
       error => {
         console.log(error);

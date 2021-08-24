@@ -15,10 +15,10 @@ export class PatientAllergyDetailsComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.reload1();
+    this.reload();
   }
 
-  reload1(){
+  reload(){
 
     
     this.service.getAddeAllergies().subscribe((data)=>{

@@ -152,7 +152,7 @@
                 <mat-select formControlName="race" [ngStyle]="{'color':'black', 'font-size':'17px'}"
                     [(ngModel)]="patientDetails.race.id">
                     <mat-option *ngFor="let race of races" value="{{race.id}}">
-                        {{race.name}}
+                        {{race?.name}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -258,6 +258,8 @@
         <div class="float-child">
           <button mat-raised-button style="background-color: #2f4b7c; color: white; font-size: 20px;"
                     (click)="updatePatientDetails()">Save</button>
+
+               
         </div>
     </div>
 </form>
