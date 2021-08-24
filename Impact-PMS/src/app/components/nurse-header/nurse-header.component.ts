@@ -20,12 +20,16 @@ export class NurseHeaderComponent implements OnInit {
     this.toggleSidebarForMe.emit();
   }
   
-  logout(){
-    alert('You want to logout');
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('role');
-    this.router.navigateByUrl('/login');
-  //    sessionStorage.removeItem('role');
+  logout() {
+
+    if (confirm('You want to logout') == true) {
+
+      sessionStorage.removeItem('username');
+      sessionStorage.removeItem('role');
+      this.router.navigateByUrl('/login');
+
+    }
+
   }
 
 }

@@ -10,22 +10,28 @@ export class AdminHeaderComponent implements OnInit {
 
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  usr =sessionStorage.getItem('username');
+  usr = sessionStorage.getItem('username');
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   toggleSidebar() {
     this.toggleSidebarForMe.emit();
   }
 
-  logout(){
-    alert('You want to logout');
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('role');
-    this.router.navigateByUrl('/login');
-  //    sessionStorage.removeItem('role');
+
+
+  logout() {
+
+    if (confirm('You want to logout') == true) {
+
+      sessionStorage.removeItem('username');
+      sessionStorage.removeItem('role');
+      this.router.navigateByUrl('/login');
+
+    }
+
   }
 
 }

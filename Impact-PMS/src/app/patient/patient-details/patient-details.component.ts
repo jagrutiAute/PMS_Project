@@ -30,7 +30,7 @@ export class PatientDetailsComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private service: PatientDetailService,
-    private notifyService:ToasterService1,
+    private toaster:ToasterService1,
    
 
   ) { }
@@ -119,7 +119,7 @@ export class PatientDetailsComponent implements OnInit {
        
         sessionStorage.setItem('patient', JSON.stringify( this.patientDetails)); 
         console.log("patientDetails data is" + data);
-      
+      this.toaster.Success("details saved successfully")
        
     }    
 
@@ -128,11 +128,7 @@ export class PatientDetailsComponent implements OnInit {
 
   }
 
- 
 
-  showToasterSuccess(){
-    this.notifyService.Success("Data shown successfully !!", "ItSolutionStuff.com")
-}
 
   
 }
