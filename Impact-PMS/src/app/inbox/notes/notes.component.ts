@@ -36,7 +36,7 @@ export class NotesComponent implements OnInit {
   }
 
   sendNote() {
-    console.log("inside sendNotes method");
+     console.log("inside sendNotes method");
     let note: Notes = new Notes();
     let email = sessionStorage.getItem('username');
     console.log("session email "+email);
@@ -45,6 +45,7 @@ export class NotesComponent implements OnInit {
       data => {
         console.log("data " + data);
         this.toaster.Success(" Notes Send Successfully");
+        console.log("after toaster");
         window.location.reload();
         // alert('Your password reset successfully');
         // this.router.navigate(['/login']);
