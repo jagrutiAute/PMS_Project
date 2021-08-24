@@ -19,10 +19,10 @@
                     formControlName="firstName" [class.is-invalid]="f.firstName.touched && f.firstName.invalid"
                     readonly />
             </mat-form-field>
-        
-    </div>
 
- 
+        </div>
+
+
 
         <div class="float-child">
             <!-- <label for="last_name">
@@ -57,7 +57,7 @@
     </div>
 
 
-   
+
 
     <div class="float-container">
 
@@ -74,10 +74,10 @@
                     formControlName="age" title="Age" readonly>
             </mat-form-field>
         </div>
-    
 
 
-    
+
+
         <div class="float-child">
             <!-- <label for="mobile">
                                     <h4>Gender </h4>
@@ -97,11 +97,11 @@
             </mat-form-field>
 
         </div>
-    
 
 
 
-    <!-- <div class="form-group">
+
+        <!-- <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="password">
@@ -112,7 +112,7 @@
                                     placeholder="Language" title="Language Known.">
                             </div>
                         </div> -->
-    
+
         <div class="float-child">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Language Known</mat-label>
@@ -147,23 +147,36 @@
 
 
 
-            <mat-form-field appearance="fill">
+             <!-- <mat-form-field appearance="fill">
                 <mat-label>Race</mat-label>
                 <mat-select formControlName="race" [ngStyle]="{'color':'black', 'font-size':'17px'}"
                     [(ngModel)]="patientDetails.race.id">
                     <mat-option *ngFor="let race of races" value="{{race.id}}">
-                        {{race?.name}}
+                        {{race.name}}
                     </mat-option>
+                    
                 </mat-select>
+            </mat-form-field>  -->
+
+
+            <mat-form-field appearance="fill">
+                <mat-label>Race</mat-label>
+                <select matNativeControl formControlName="race" [ngStyle]="{'color':'black', 'font-size':'17px'}"
+                [(ngModel)]="patientDetails.race.id" required>
+                   
+                    <option *ngFor="let race of races" value="{{race.id}}">{{race.name}}
+                    </option>
+
+                </select>
             </mat-form-field>
 
 
 
         </div>
-    
-    
 
-  
+
+
+
 
         <div class="float-child">
             <!-- <label for="password2">
@@ -185,7 +198,7 @@
                                 </select> -->
 
 
-            <mat-form-field appearance="fill">
+            <!-- <mat-form-field appearance="fill">
                 <mat-label>Ethinicity</mat-label>
                 <mat-select formControlName="ethinicity" [ngStyle]="{'color':'black', 'font-size':'17px'}"
                     [(ngModel)]="patientDetails.ethinicity.id">
@@ -193,10 +206,23 @@
                         {{ethinicity.name}}
                     </mat-option>
                 </mat-select>
+            </mat-form-field> -->
+
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ethinicity</mat-label>
+                <select matNativeControl formControlName="ethinicity" [ngStyle]="{'color':'black', 'font-size':'17px'}"
+                    [(ngModel)]="patientDetails.ethinicity.id" required>
+                   
+                    <option *ngFor="let ethinicity of ethinicities" value="{{ethinicity.id}}">{{ethinicity.name}}
+                    </option>
+
+                </select>
             </mat-form-field>
 
+
         </div>
-    
+
 
         <div class="float-child">
             <!-- <label for="email">
@@ -213,7 +239,7 @@
             </mat-form-field>
         </div>
     </div>
-   
+
 
     <div class="float-container">
 
@@ -231,7 +257,7 @@
                     [(ngModel)]="patientDetails.homeAddress" formControlName="homeAddress" title="enter a location">
             </mat-form-field>
         </div>
-    
+
         <div class="float-child">
             <!-- <label for="mobile">
                                     <h4>Contact Number</h4>
@@ -249,17 +275,17 @@
             </mat-form-field>
         </div>
     </div>
-    
 
 
-<div></div>
+
+    <div></div>
 
     <div class="float-container">
         <div class="float-child">
-          <button mat-raised-button style="background-color: #2f4b7c; color: white; font-size: 20px;"
-                    (click)="updatePatientDetails()">Save</button>
+            <button mat-raised-button style="background-color: #2f4b7c; color: white; font-size: 20px;"
+                (click)="updatePatientDetails()">Save</button>
 
-               
+
         </div>
     </div>
 </form>
