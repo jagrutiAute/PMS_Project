@@ -1,33 +1,35 @@
+<h3 style="text-align: center;"><b>Create Note</b></h3><br>
 <form class="form" [formGroup]="notesForm" action="##" method="post" id="notesForm">
     <div class="float-container">
 
         <div class="float-child">
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>To</mat-label>
-            <input matInput [ngStyle]="{'color':'black', 'font-size':'15px'}"
-                 placeholder="To" formControlName="reciever">
-        </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>To</mat-label>
+                <input matInput [ngStyle]="{'color':'black', 'font-size':'15px'}" placeholder="To"
+                    formControlName="reciever">
+            </mat-form-field>
+        </div>
     </div>
-</div>
 
     <div class="float-container">
 
         <div class="float-child">
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Message</mat-label>
-            <textarea matInput  placeholder="message" formControlName="message" placeholder="Enter message here"></textarea>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Message</mat-label>
+                <textarea matInput placeholder="message" formControlName="message"
+                    placeholder="Enter message here"></textarea>
             </mat-form-field>
-    </div>
+        </div>
     </div><br>
     <div class="float-container">
 
         <div class="float-child">
-        <input type="radio" id="urgent" name="noteUrgent" value="true" formControlName="isUrgent">
-        <label for=" ">Urgent</label>&nbsp; &nbsp;&nbsp;&nbsp;
-        <input type="radio" id="noturgent" name="noteUrgent" value="false" formControlName="isUrgent">
-        <label for=" ">Not Urgent</label><br>
-      </div>
-   </div>
+            <input type="radio" id="urgent" value="true" formControlName="isUrgent">
+            <label for=" ">Urgent</label>&nbsp; &nbsp;&nbsp;&nbsp;
+            <input type="radio" id="noturgent" value="false" formControlName="isUrgent">
+            <label for=" ">Not Urgent</label><br>
+        </div>
+    </div>
 
     <!-- <mat-radio-group class="example-full-width">
         <mat-label>Urgency Level </mat-label><br>
@@ -76,10 +78,17 @@
         <label for=" ">Not Urgent</label><br>
     </div>
      -->
-     <div class="float-container">
+    <!-- <div class="float-container">
+        <input type="radio" id="urgent" value="true" formControlName="isUrgent">
+        <label for=" ">Urgent</label>&nbsp; &nbsp;&nbsp;&nbsp;
+        <input type="radio" id="noturgent" value="false" formControlName="isUrgent">
+        <label for=" ">Not Urgent</label><br>
+    </div>
+    </div> -->
+    <div class="float-container">
         <div class="float-child">
 
-    <button type="submit" class="btn btn-primary btn-lg" (click)="sendNote()">Send Notes</button><br><br>
-</div>
-</div>
+            <button type="submit" class="btn btn-primary btn-lg" (click)="sendNote()">Send Notes</button><br><br>
+        </div>
+    </div>
 </form>

@@ -21,6 +21,11 @@ public class GetAllDetailsDTO {
 		public void setDate(String date) {
 			this.date = date;
 		}
+
+		@Override
+		public String toString() {
+			return "GetAllDetailsDTO [phyid=" + phyid + ", date=" + date + "]";
+		}
 		
 		
 }

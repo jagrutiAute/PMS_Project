@@ -6,6 +6,5 @@ export class Notes {
     message: string;
     isUrgent: boolean;
     sentTime: Date;
-    receiveTime: Date;
-
+    recieveTime: Date;
 }

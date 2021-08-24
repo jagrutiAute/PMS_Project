@@ -26,6 +26,7 @@ import { UpcomingAppointmentsComponent } from '../inbox/upcoming-appointments/up
 import { RecievedNotesComponent } from '../inbox/recieved-notes/recieved-notes.component';
 import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
+import { AddedDiagnosisComponent } from './added-diagnosis/added-diagnosis.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 
@@ -73,16 +74,9 @@ export var adminroutes: Route[] = [
             { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
             { path: 'recieved-notes', component: RecievedNotesComponent },
             { path: 'sent-notes', component: SentNotesComponent },
-            {
-                path: 'patient-details', component: PatientDetailsComponent
-
-
-
-            },
-            {
-                path: 'scheduling', component: SchedulingComponent
-
-            },
+            {path: 'patient-details', component: PatientDetailsComponent},
+            {path: 'scheduling', component: SchedulingComponent},
+            {path : 'added-diagnosis', component: AddedDiagnosisComponent},
             {
                 path: 'medication',
                 children: [
@@ -104,7 +98,9 @@ export var adminroutes: Route[] = [
             {
                 path: 'notes', component: NotesComponent
 
-            },
+            }, { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
+            { path: 'recieved-notes', component: RecievedNotesComponent },
+            { path: 'sent-notes', component: SentNotesComponent },
             { path: 'notes', component: NotesComponent },
             { path: 'upcoming-appointment', component: UpcomingAppointmentComponent },
             {

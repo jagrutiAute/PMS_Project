@@ -12,7 +12,7 @@ export class AdminDashBoardService {
 
     
   private baseUrl = 'http://localhost:8088';
-  private baseUrlDiagnosis = "http://localhost:8082";  
+ // private baseUrlDiagnosis = "http://localhost:8082";  
   
   constructor(private _http: HttpClient) { }
 
@@ -45,16 +45,24 @@ console.log(id+"    "+status);
     return this._http.delete(`${this.baseUrl}/admin/patient/${id}`, { responseType: 'text' });
   }
 
-  getDiagnosis(): Observable<Diagnosis[]> {
+
+ /*getDiagnosis(): Observable<Diagnosis[]> {
     //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
     return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + '/physician/diagnosis');
   }
 
-  // addMedicationForPatient(medicationObject: Diagnosis[]): Observable<any> {
-  //   let id: Number = 1;
-  //   let phyid: Number = 12;
+  addDiagnosisForPatient(diadnosisObject: Diagnosis[]): Observable<any> {
+    let id: Number = 1;
+    let phyid: Number = 12;
 
-  //   return this._http.post<any>(`${this.baseUrl}/physician/diagnosis/${id}/${phyid}`,medicationObject);
+    return this._http.post<any>(`${this.baseUrlDiagnosis}/physician/addDiagnosis/${id}/${phyid}`,diadnosisObject);
+  }
+
+  getAddedDiagnosis(): Observable<Diagnosis[]> {
+    return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + '/physician/getAddedDiagnosis');
+  } */
+
+
 
   /*gerMedication(): Observable<Medication[]> {
     console.log("inside adminDashBoardservice")

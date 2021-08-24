@@ -49,7 +49,10 @@ import { NurseDashboardComponent } from './nurse-dashboard/nurse-dashboard.compo
 import { NurseHeaderComponent } from '../components/nurse-header/nurse-header.component';
 import { NurseSidenavComponent } from '../components/nurse-sidenav/nurse-sidenav.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
-
+import { DiagnosisService } from './diagnosis.service';
+import { AddedDiagnosisComponent } from './added-diagnosis/added-diagnosis.component';
+import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
@@ -77,7 +80,9 @@ import { DiagnosisComponent } from './diagnosis/diagnosis.component';
     NurseDashboardComponent,
     NurseHeaderComponent,
     NurseSidenavComponent,
-    DiagnosisComponent
+    DiagnosisComponent,
+    AddedDiagnosisComponent,
+    BookAppointmentComponent
     
     
   ],
@@ -107,7 +112,8 @@ import { DiagnosisComponent } from './diagnosis/diagnosis.component';
     MatOptionModule,
     MatAutocompleteModule,
     MatSelectModule,
-    OverlayModule
+    OverlayModule,
+    MatDatepickerModule
     
     
     
@@ -126,6 +132,6 @@ import { DiagnosisComponent } from './diagnosis/diagnosis.component';
     NurseSidenavComponent
    
   ],
-  providers:[AdminDashBoardService, HospitalUserService, MedicationService]
+  providers:[AdminDashBoardService, HospitalUserService, MedicationService, DiagnosisService]
 })
 export class AdminModule { }

@@ -1,20 +1,30 @@
-<div class="conatiner">
-    <div class="card" *ngFor="let note of notes">
-        <div class="card-header">
-            <p>{{note.reciever}}</p>
-        </div>
-        <div class="card-body">
-            <p>{{note.message}}</p>
-            <!-- <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's
-                content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a> -->
-        </div>
-    </div>
-</div>
-<!-- <div *ngFor="let note of notes">
-    <p>{{note.reciever}}</p>
-</div> -->
+<h3 style="text-align: center;"><b>Sent Notes</b></h3><br>
+
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Receiver
+            </mat-panel-title>
+            <mat-panel-title class="right-aligned">
+                Date & Time
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        *ngFor="let note of notes | noteSort: 'sentTime'">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{note.reciever}}
+            </mat-panel-title>
+            <mat-panel-description class="right-aligned">
+                {{note.sentTime | date:'medium' }}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{note.message}}<br>
+        </p>
+    </mat-expansion-panel>
+</mat-accordion>
