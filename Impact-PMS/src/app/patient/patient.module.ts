@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from '../components/header/header.component';
-import {MatSelectModule} from '@angular/material/select';
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -34,13 +34,19 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PatientAllergyDetailsComponent } from './patient-allergy-details/patient-allergy-details.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ToasterService1 } from '../toaster-service.service';
+import { MatSelectModule } from '@angular/material/select';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 
 @NgModule({
   declarations: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent,
-    HeaderComponent,SidenavComponent, PatientAllergyDetailsComponent,PatientAllergyDetailsComponent],
+    HeaderComponent,SidenavComponent, PatientAllergyDetailsComponent],
   imports: [
+    OverlayModule,
+    ToastrModule.forRoot(),
     MatDialogModule,
     Ng2OrderModule,
     NgxPaginationModule,
@@ -69,6 +75,7 @@ import { PatientAllergyDetailsComponent } from './patient-allergy-details/patien
     HttpClientModule,
     RouterModule.forChild(patientroutes)
   ],
+  providers: [ToasterService1],
   exports: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent, AllergyDetailsComponent,HeaderComponent,SidenavComponent,PatientAllergyDetailsComponent]
 })
 export class PatientModule { }

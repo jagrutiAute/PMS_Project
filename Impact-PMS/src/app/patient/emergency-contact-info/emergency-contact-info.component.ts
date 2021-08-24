@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { EmergencyContactInfo } from '../emergencyContactInfo';
 import { PatientDetailService } from '../patient.service';
 import { PatientDetails } from '../patientDetail';
@@ -20,8 +21,8 @@ export class EmergencyContactInfoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: PatientDetailService
-
+    private service: PatientDetailService,
+    private toaster:ToasterService1
   ) { }
 
   mrnId:string = sessionStorage.getItem('mrnNumber');
@@ -72,6 +73,7 @@ export class EmergencyContactInfoComponent implements OnInit {
        
         console.log("emergencyCntInfo data is" + data);
       
+        this.toaster.Success("Emergency Contact Details Saved")
        
     }
 

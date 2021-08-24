@@ -34,7 +34,7 @@ public class ForgotPassService {
 
 			/*
 			 * send("impactpmsjavabatch1@gmail.com", "amit@1234", email,
-			 * "Reset Pasword OTP ", "Your one time password is " + generatedString);
+			 Reset Pasword OTP ", "Your one time password is " + generatedString);
 			 */
 			log.debug("calling sendEmail() method of EmailService class");
 			//emailService.sendEmail("impactpmsjavabatch1@gmail.com","amit@1234",email,"Reset Pasword OTP ", "Your one time password is " + generatedString);

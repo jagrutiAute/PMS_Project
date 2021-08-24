@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { Login } from 'src/app/Login';
 import { PatientDetails } from 'src/app/patient/patientDetail';
+import { ToasterService1 } from 'src/app/toaster-service.service';
 import { LoginService } from '../login.service';
 import { User } from '../user';
 
@@ -26,7 +27,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private router: Router,
    // private service: LoginService
-   private service: AuthService
+   private service: AuthService,
+   private toaster: ToasterService1 
   ) { }
 
 
@@ -85,6 +87,7 @@ export class LoginComponent {
           console.log("username :: "+login.email);
 
           alert('Login successfully');
+          this.toaster.Success("Login successfully");
           if(data=='status_change'){
             
             this.router.navigateByUrl('change-password');
