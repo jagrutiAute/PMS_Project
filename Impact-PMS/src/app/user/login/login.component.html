@@ -1,9 +1,8 @@
-
 <nav class=" navbar navbar-expand-lg navbar-dark " style="background-color: #2f4b7c; color: white;">
 
-  <img src="../assets/images/MicrosoftTeams-image (1).png" style="height: 50px;" >&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../assets/images/MicrosoftTeams-image (1).png" style="height: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;
   <h1>CT General Hospital</h1>
-   
+
 
 </nav>
 <section class="vh-100">
@@ -30,6 +29,8 @@
             </p>
           </div>
 
+          <br>
+
           <!-- Password input -->
           <div class="form-outline mb-6">
             <label class="form-label" for="form1Example23">Password</label>
@@ -46,7 +47,8 @@
               {{3-attempts}} login attempts remaining
             </p>
             <p class="text-danger" *ngIf="attempts > 3">
-              Your account has been locked. Please contact the hospital administrator or call helpdesk on 123456 for more information.
+              Your account has been locked. Please contact the hospital administrator or call helpdesk on 123456 for
+              more information.
             </p>
             <p class="text-danger" *ngIf="attempts==6">
               Username and Password not matched
@@ -68,11 +70,11 @@
           </diV>
           <br>
           <div class="d-flex center-content-around align-items-center mb-2">
-            For a new member?&nbsp;&nbsp;&nbsp; <a routerLink="/patient-registration">PatientSignup</a>
+            For a new member?&nbsp;&nbsp;&nbsp; <a routerLink="/patient-registration">Patient Signup</a>
           </div>
-          <a routerLink="/app-registration-provider">ProviderSignup</a>&nbsp;&nbsp;&nbsp;
-           <a routerLink="/app-body-layout/patient-details">Patient Dashboard</a> &nbsp;&nbsp;&nbsp;
-          <a routerLink="/admin-dashboard">Admin Dashboard</a>
+          <!-- <a routerLink="/app-registration-provider">ProviderSignup</a>&nbsp;&nbsp;&nbsp;
+          <a routerLink="/app-body-layout/patient-details">Patient Dashboard</a> &nbsp;&nbsp;&nbsp;
+          <a routerLink="/admin-dashboard">Admin Dashboard</a> -->
           <!-- <a routerLink="/dashboard">Admin Dashboard</a> -->
         </form>
 
@@ -85,14 +87,15 @@
 
 <table class="table table-striped" style="font-size: 15px;">
   <thead>
-    
-      <tr style="background-color:#2f4b7c; color: seashell; bottom: 0; position: fixed;width:100%; height:80px;">
-        <br>
-        <p style=" text-align: center;">Board Line: +912066819998 | For appointments ( between 9am-1pm to 3pm-6pm) call: +912066819968 / +912066819968 / +912066819967 | CT Hospital +919607961648</p> 
-        <p style=" text-align: center;">32, airport Road, Pune - 411001, India | Email: info@cthospital.com | Privacy Policy | Terms & Conditions</p>
-         </tr>
-        <br>
-        
-        </thead>
+
+    <tr style="background-color:#2f4b7c; color: seashell; bottom: 0; position: fixed;width:100%; height:80px;">
+      <br>
+      <p style=" text-align: center;">Board Line: +91 2066819998 | For Appointment (Between 9 AM - 1 PM and 3 PM - 6
+        PM) Call: +91 2066819968 / +91 2066819968 / +91 2066819967 | CT Hospital +91 9607961648</p>
+      <p style=" text-align: center;">32, Airport Road, Pune - 411001, India | Email: info@cthospital.com | Privacy
+        Policy | Terms & Conditions</p>
+    </tr>
+    <br>
+
+  </thead>
 </table>
-        

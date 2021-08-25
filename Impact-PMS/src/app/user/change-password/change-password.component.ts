@@ -91,7 +91,7 @@ export class ChangePasswordComponent {
                   },
                   error => {
                     console.log('error');
-                    
+                    alert('error while loging');
                     console.log("backend date " + JSON.parse(data));
                     console.log("data stringfy"+JSON.stringify(data));
                   }
