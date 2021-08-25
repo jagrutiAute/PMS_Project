@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UpcomingAppointmentDetails } from '../inbox/upcoming-appointments/upcomingapppoitments';
 import { GetSchedule } from './getSchedule';
 import { PhysicianId } from './physicianId';
+import { PhysicianName } from './PhysicianName';
 import { Schedule1 } from './schedule1';
 import { ScheduleBook } from './schedulebook';
 
@@ -16,7 +17,8 @@ import { ScheduleDTO } from './scheduling/scheduledto';
 export class SchedulingService {
  
 
-  private baseUrl = 'http://localhost:8087';  
+  private baseUrl = 'http://localhost:8087'; 
+  private baseUrlName = 'http://localhost:8088'; 
   constructor(private _http: HttpClient) { }
 
   // getPatient(): Observable<Patient[]> {
@@ -41,10 +43,15 @@ export class SchedulingService {
 
     return this._http.post<any>(this.baseUrl+'/patient/book',schedule, { responseType: 'text' as 'json' });
   }
-  
+
   getAllPhysicianId():Observable<PhysicianId[]> {
     
       return this._http.get<PhysicianId[]>(`${this.baseUrl}`+'/patient/physician/id');
+
+}
+getPhysicianNameById(selectoption: PhysicianId):Observable<PhysicianName[]> {
+    
+  return this._http.get<PhysicianName[]>(`${this.baseUrlName}`+'/patient/physicans/name/'+selectoption);
 
 }
 

@@ -270,6 +270,19 @@ public class HomeController {
 		
 	}
 	
+	@GetMapping("/patient/physicans/name/{phid}")
+	public ResponseEntity<List<Object>> getAllPatients(@PathVariable String phid) {
+		System.out.println("1");
+		Object[] restCall = restTemplate.getForObject("http://localhost:8088/patient/physicans/name/"+phid,Object[].class);
+		System.out.println("2");
+		//PatientProfile[] patientProfile = response.getBody();
+		List<Object> ob = Arrays.asList(restCall);
+		
+		System.out.println(ob);
+		return new ResponseEntity<List<Object>>(ob, HttpStatus.OK);
+		
+	}
+	
 	
 	@GetMapping("/appointments/physicans/{phyId}")
 	public ResponseEntity<List<Schedular>> getAllUpcomingAppointmentsforPhysician(@PathVariable String phyId){

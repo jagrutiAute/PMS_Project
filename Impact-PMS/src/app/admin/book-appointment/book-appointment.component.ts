@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetSchedule } from '../getSchedule';
 import { PhysicianId } from '../physicianId';
+import { PhysicianName } from '../PhysicianName';
 import { Schedule1 } from '../schedule1';
 import { ScheduleBook } from '../schedulebook';
 import { SchedulingService } from '../scheduling.service';
@@ -17,6 +18,7 @@ export class BookAppointmentComponent implements OnInit {
   //scheduling: Scheduling[];
   //str:string;
   physicianId: PhysicianId[];
+  physicianName: PhysicianName[];
   schedule: Schedule1[];
   // user: User1;
    //firstName: any;
@@ -24,6 +26,7 @@ export class BookAppointmentComponent implements OnInit {
   // getSchedule:GetSchedule
 
   tempDate: Date;
+  selectoption: PhysicianId;
    constructor(private schedulingService: SchedulingService,
      private router: Router) {}
  
@@ -36,6 +39,10 @@ export class BookAppointmentComponent implements OnInit {
       console.log("hiiiiiiiiiiiii")
       console.log(data);
     })
+    console.log("out")
+
+    
+    
    }
  // load(){
  //   console.log("load")
@@ -128,10 +135,19 @@ export class BookAppointmentComponent implements OnInit {
     selectOption(event: any) {
     //console.log(event)
     //console.log("value")
+    this.selectoption = event.target.value;
     console.log(event.target.value)
+    //this.reloadData();
+
+    this.schedulingService.getPhysicianNameById(this.selectoption).subscribe((data)=>{
+      this.physicianName = data;
+      console.log("patietName")
+      console.log(data);
+    })
+   
     }
 
-
+    
  
    updateStatus(id: number){
      this.router.navigate(['admin-dashboard/patient-users/edit-patient-users', id]);

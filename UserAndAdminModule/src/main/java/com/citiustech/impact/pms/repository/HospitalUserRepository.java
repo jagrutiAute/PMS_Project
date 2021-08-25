@@ -24,8 +24,8 @@ public interface HospitalUserRepository extends JpaRepository<ProviderRegistrati
 	@Query(value="select pr.employee_id from pms.provider pr join pms.users pu on pr.users_id=pu.id AND pu.role_master_id=2;", nativeQuery = true)
 	List<String> findAllId();
 
-	@Query(value="select firstName, lastName from ProviderRegistration where employeeid=:phyid")
-	List<PhysicianNameDTO> findById(@Param("phyid") String phyid);
+	@Query("select firstName, lastName from ProviderRegistration where employeeid =:phyid")
+	List<Object> findByEmployeeId(String phyid);
 	
 	
 
