@@ -25,15 +25,7 @@ export var patientroutes:Route[]=[
         {path:'emergency-contact-info', component:EmergencyContactInfoComponent},
         {path:'allergy-details',component:AllergyDetailsComponent},
         { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
-        { path: 'recieved-notes', component: RecievedNotesComponent },
-        { path: 'sent-notes', component: SentNotesComponent },
-        { path: 'notes', component: NotesComponent },
-
-
-
-
-       {path:'vital-signs',component:VitalSignsComponent},
-      { path: 'medication',component: MedicationComponent },
+     
       { path: 'book-appointment',component: BookAppointmentComponent },
       { path: 'app-patient-allergy-details',component: PatientAllergyDetailsComponent }
        
