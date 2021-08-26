@@ -2,6 +2,7 @@
 package com.citiustech.impact.pms.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.citiustech.impact.pms.DTO.PatientDTO;
 import com.citiustech.impact.pms.DTO.PhysicianNameDTO;
+import com.citiustech.impact.pms.model.ProviderRegistration;
 import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.repository.HospitalUserRepository;
 import com.citiustech.impact.pms.repository.PatientProfileRepository;
@@ -100,13 +102,16 @@ public class AccountController {
 				return new ResponseEntity<List<String>>(phid,HttpStatus.OK);
 	}
 	
-	@GetMapping("/patient/physicans/name")
-	public ResponseEntity<List<PhysicianNameDTO>> getAllPhysicianName(){
+	@GetMapping("/patient/physicans/name/{phid}")
+	public ResponseEntity<List<Object>> getAllPhysicianName(@PathVariable String phid){
 			
 		System.out.println("inside first name and last name controller");
 				
-				//List<PhysicianNameDTO> phid1 = hospitalUserRepository.findById(phid);
-				//return new ResponseEntity<List<PhysicianNameDTO>>(phid1,HttpStatus.OK);
-		return null;
+				List<Object> phid1 = hospitalUserRepository.findByEmployeeId(phid);
+				
+				for(Object o:phid1) {
+					System.out.println("o="+o.getClass().getName());
+				}
+				return new ResponseEntity<List<Object>>(phid1,HttpStatus.OK);
 	}
 }

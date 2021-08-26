@@ -43,7 +43,6 @@ export class ChangePasswordComponent {
 
         alert("Your account blocked");
         this.router.navigateByUrl('login');
-
       }
 
       if (data == 'status_change') {
@@ -60,45 +59,95 @@ export class ChangePasswordComponent {
         //       (error)=>{
         //           console.log('in the error')
         //       }
-
-
-        //          );
-
+        // );
 
         this.service.updatechangedstatus(user, pass).subscribe(
 
           data => {
 
-
-
             console.log("backend date " + JSON.parse(data));
             console.log("data stringfy" + JSON.stringify(data));
 
-
             //console.log(this.attempts);
 
-
-
             if (data = "Update") {
-
               alert('Login successfully');
 
+              if (data == 'status_change') {
+                let user = sessionStorage.getItem('username');
+                let pass = this.new_password.value;
+                // this.service.updatechangedstatus(user,pass).subscribe(
+                //   (data1)=>{
+                //               console.log(data1);
+                //                 if(data1=="Update"){
+                //                 alert('Your password changed successfully');
+                //                 this.router.navigateByUrl('login');
+                //                 }
+                //          },
+                //       (error)=>{
+                //           console.log('in the error')
+                //       }
+
+
+                //          );
+
+
+                this.service.updatechangedstatus(user, pass).subscribe(
+
+                  data => {
+
+
+
+                    console.log("backend date " + JSON.parse(data));
+                    console.log("data stringfy" + JSON.stringify(data));
+
+
+                    //console.log(this.attempts);
+
+
+
+                    if (data = "Update") {
+
+                      alert('Login successfully');
+
+
+
+                    }
+
+
+                  },
+                  error => {
+                    console.log('error');
+                    alert('error while loging');
+                    console.log("backend date " + JSON.parse(data));
+                    console.log("data stringfy" + JSON.stringify(data));
+                  }
+                );
+
+
+              }
 
 
             }
+            //     ,
+            //     error => {
+            //       console.log(error);
+
+            //       console.log("backend date " + JSON.parse(data));
+            //       console.log("data stringfy" + JSON.stringify(data));
+            //     }
+            // );
 
 
           },
           error => {
-            console.log(error);
-
-            console.log("backend date " + JSON.parse(data));
-            console.log("data stringfy" + JSON.stringify(data));
+            console.log(error)
           }
-        );
-
-
+        )
       }
-    })
+    }, error => {
+      console.log(error)
+    }
+    )
   }
 }

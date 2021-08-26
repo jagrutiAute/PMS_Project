@@ -21,14 +21,14 @@ export class LoginComponent {
 
   user: User;
 
-  attempts :number;
+  attempts: number;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-   // private service: LoginService
-   private service: AuthService,
-   private toaster: ToasterService1 
+    // private service: LoginService
+    private service: AuthService,
+    private toaster: ToasterService1
   ) { }
 
 
@@ -54,78 +54,79 @@ export class LoginComponent {
 
 
   handleFormSubmit() {
-    
-    
+
+
     if (this.password.invalid) {
-     
+
       this.passwordFlag = true;
       return;
     }
 
-    
+
     let login: Login = new Login();
-    
-   
+
+
     Object.assign(login, this.signUpForm.value);
-    
+
     this.service.getLogin(login).subscribe(
-      
+
       data => {
 
         console.log("backend date " + data);
 
         //console.log(this.attempts);
 
-        if(data != null){
-          
-         // localStorage.setItem('role',data);
+        if (data != null) {
 
-          sessionStorage.setItem('role',data);
+          // localStorage.setItem('role',data);
+
+          sessionStorage.setItem('role', data);
           sessionStorage.setItem('username', login.email);
-          
 
-          console.log("username :: "+login.email);
 
-          alert('Login successfully');
+          console.log("username :: " + login.email);
+
+          // alert('Login successfully');
           this.toaster.Success("Login successfully");
-          if(data=='status_change'){
-            
+          if (data == 'status_change') {
+
             this.router.navigateByUrl('change-password');
+          }
+          if (data == 'Patient') {
+
+            this.router.navigateByUrl('app-body-layout/patient-details');
+          }
+
+          if (data == 'Admin') {
+            this.router.navigateByUrl('/admin-dashboard/hospital-users');
+          }
+
+
+
+          if (data == 'Physician') {
+            // this.router.navigateByUrl('/physician-dashboard/patient-details');
+            this.router.navigateByUrl('/physician-dashboard/recieved-notes');
+          }
+
+          if (data == 'Nurse') {
+            this.router.navigateByUrl('/nurse-dashboard/recieved-notes');
+          }
+
+          console.log("Login successfully..")
         }
-          if(data =='Patient'){
-           
-          this.router.navigateByUrl('app-body-layout/patient-details');
-        }
-        
-        if(data == 'Admin'){
-          this.router.navigateByUrl('/admin-dashboard/hospital-users');
+        if (data == "UsernamePass") {
+          this.attempts = 6;
         }
 
-      
+        if (data == "BLOCKED") {
 
-        if(data == 'Physician'){
-          this.router.navigateByUrl('/physician-dashboard/patient-details');
-        }
-        
-        if(data == 'Nurse'){
-          this.router.navigateByUrl('/nurse-dashboard/patient-details');
+          this.attempts = 4;
+          return;
         }
 
-        console.log("Login successfully..")
-        }
-        if(data=="UsernamePass"){
-            this.attempts=6;
-        }
+        this.attempts = data;
 
-        if(data=="BLOCKED"){
 
-          this.attempts =4;
-          return ;
-        }
-        
-      this.attempts = data;
-
-      
       },
       error => {
         console.log(error);
