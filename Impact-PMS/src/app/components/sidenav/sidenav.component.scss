@@ -34,11 +34,11 @@
   }
 }
 .list-item-active {
-  // background: blue !important;
-  // border-radius: 0 2rem 2rem 0;
-  // &:hover {
-  //   background: blue;
-  // }
+  background: #007bff !important;
+  border-radius: 0 2rem 2rem 0;
+  &:hover {
+    background: #007bff;
+  }
 
   color: #f2f5f7 !important;
   ::ng-deep {
