@@ -9,16 +9,24 @@
 <input type="date" placeholder="Choose a date" (change)="onChangeEvent($event)" >&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
 <select name="phid" id="phid" (change)="selectOption($event)"> 
     <option value="">------select-----</option>
-    <option *ngFor="let pid of physicianId" value="{{pid}}">
+    <option *ngFor="let pid of physicianIdAndName" value=" {{pid.phyid}} ">
 
-        {{pid}} </option>
+        {{pid.firstName}} {{pid.lastName}}</option>
     
   </select>
-  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {{physicianName}}
+   <!-- <p *ngFor="let p of physicianName">
+
+   <br> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; {{p.firstName}}
+  {{p.lastName}}
+
+  </p>
   
 <br>
+<br> -->
 <br>
-
+<br>
 
 <table class="table table-striped" style="font-size: 15px;">
     <thead>

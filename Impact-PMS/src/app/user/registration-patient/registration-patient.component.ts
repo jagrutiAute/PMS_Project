@@ -57,6 +57,7 @@ export class RegistrationPatientComponent implements OnInit {
 
     Object.assign(patient1, this.registerForm.value);
 
+   if(this.pwd==this.cpwd){
     this.service.getPatientRegister(patient1).subscribe(
       data => {
        console.log("data "+data);
@@ -80,6 +81,7 @@ export class RegistrationPatientComponent implements OnInit {
         console.log(error);
       }
     );
+  }
   }
 
 

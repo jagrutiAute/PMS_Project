@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 //import com.citiustech.impact.pms.DTO.MedicationDTO;
 import com.citiustech.impact.pms.model.Medication;
+import com.citiustech.impact.pms.model.MedicationSave;
 //import com.citiustech.impact.pms.model.MedicationSave;
 import com.citiustech.impact.pms.repository.MedicationRepo;
+import com.citiustech.impact.pms.service.MedicationService;
 //import com.citiustech.impact.pms.repository.MedicationSaveRepository;
 //import com.citiustech.impact.pms.service.MedicationService;
 
@@ -31,8 +33,8 @@ public class MedicationController {
 	@Autowired
 	private MedicationRepo medicationRepo;
 	
-//	@Autowired
-//	private MedicationService medicationService;
+	@Autowired
+	private MedicationService medicationService;
 	
 	@GetMapping("physician/medication")
 	public ResponseEntity<List<Medication>> getMedicationDetails(){
@@ -46,44 +48,44 @@ public class MedicationController {
 		return new ResponseEntity<List<Medication>>(medication, HttpStatus.OK);
 	}
 	
-//	@PostMapping("physician/addmedication/{pid}/{phyid}")
-//	public String addMedicationForPatient(@RequestBody List<MedicationSave> medicationObject, @PathVariable String pid, @PathVariable String phyid){
-//		
-//		System.out.println("pid="+pid);
-//		System.out.println("phyid="+phyid);
-//		List<MedicationSave> medicationSaves = new ArrayList<>();
-//		for(MedicationSave m: medicationObject) {
-//			
-//		    MedicationSave m1 = new MedicationSave();
-//		    m1.setApplNo(m.getApplNo());
-//		    m1.setProductNo(m.getProductNo());
-//		    m1.setForm(m.getForm());
-//		    m1.setStrength(m.getStrength());
-//		    m1.setReferenceDrug(m.getReferenceDrug());
-//		    m1.setDrugName(m.getDrugName());
-//		    m1.setActiveIngredient(m.getActiveIngredient());
-//		    m1.setReferenceStandard(m.getReferenceStandard());
-//		    m1.setPid(pid);
-//		    m1.setPhyid(phyid);
-//		    m1.setDate(LocalDate.now());
-//		    medicationSaves.add(m1);
-//		}
-//		medicationSaves.stream().forEach(x->System.out.println(x));
-//		
-//		//medicationObject.add(m1);
-//		//System.out.println(medicationObject);
-//		//System.out.println();
-//		//medicationObject.stream().forEach(a -> System.out.println(a));
-//		//List<Medication> medication = medicationRepo.findAllMedication();
-//	    medicationService.addMedication(medicationSaves);
-//		//return new ResponseEntity<List<Medication>>(medication, HttpStatus.OK);
-//		return "save";
-//	}
-//	
-//	@GetMapping("physician/getAddedMedication")
-//	public ResponseEntity<List<MedicationSave>> getAddedMedication(){
-//		List<MedicationSave> medicationSave = medicationService.gettingAddedMedication();
-//		
-//		return new ResponseEntity<List<MedicationSave>>(medicationSave, HttpStatus.OK);
-//	}
+	@PostMapping("physician/addmedication/{pid}/{phyid}")
+	public String addMedicationForPatient(@RequestBody List<MedicationSave> medicationObject, @PathVariable String pid, @PathVariable String phyid){
+		
+		System.out.println("pid="+pid);
+		System.out.println("phyid="+phyid);
+		List<MedicationSave> medicationSaves = new ArrayList<>();
+		for(MedicationSave m: medicationObject) {
+			
+		    MedicationSave m1 = new MedicationSave();
+		    m1.setApplNo(m.getApplNo());
+		    m1.setProductNo(m.getProductNo());
+		    m1.setForm(m.getForm());
+		    m1.setStrength(m.getStrength());
+		    m1.setReferenceDrug(m.getReferenceDrug());
+		    m1.setDrugName(m.getDrugName());
+		    m1.setActiveIngredient(m.getActiveIngredient());
+		    m1.setReferenceStandard(m.getReferenceStandard());
+		    m1.setPid(pid);
+		    m1.setPhyid(phyid);
+		    m1.setDate(LocalDate.now());
+		    medicationSaves.add(m1);
+		}
+		medicationSaves.stream().forEach(x->System.out.println(x));
+		
+		//medicationObject.add(m1);
+		System.out.println(medicationObject);
+		System.out.println();
+		medicationObject.stream().forEach(a -> System.out.println(a));
+		List<Medication> medication = medicationRepo.findAllMedication();
+	    medicationService.addMedication(medicationSaves);
+		//return new ResponseEntity<List<Medication>>(medication, HttpStatus.OK);
+		return "save";
+	}
+	
+	@GetMapping("physician/getAddedMedication")
+	public ResponseEntity<List<MedicationSave>> getAddedMedication(){
+		List<MedicationSave> medicationSave = medicationService.gettingAddedMedication();
+		
+		return new ResponseEntity<List<MedicationSave>>(medicationSave, HttpStatus.OK);
+	}
 }
