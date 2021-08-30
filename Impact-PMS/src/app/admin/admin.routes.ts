@@ -28,6 +28,8 @@ import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 import { AddedDiagnosisComponent } from './added-diagnosis/added-diagnosis.component';
 import { VitalSignsComponent } from '../patient-visit/vital-signs/vital-signs.component';
+import { ProcedureComponent } from './procedure/procedure.component';
+import { PatientProcedureDetailsComponent } from './patient-procedure-details/patient-procedure-details.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 
@@ -79,6 +81,8 @@ export var adminroutes: Route[] = [
             {path: 'scheduling', component: SchedulingComponent},
             {path : 'added-diagnosis', component: AddedDiagnosisComponent},
             {path : 'vital-sign', component: VitalSignsComponent},
+            {path : 'procedure', component: ProcedureComponent},
+            {path : 'procedure-details', component: PatientProcedureDetailsComponent},
             {
                 path: 'medication',
                 children: [

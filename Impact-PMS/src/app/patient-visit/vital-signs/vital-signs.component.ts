@@ -12,6 +12,8 @@ import { VitalSignsService } from '../vitalsigns.service';
 })
 export class VitalSignsComponent implements OnInit {
 
+   vital:Vital;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -20,6 +22,21 @@ export class VitalSignsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    let pid ="22";
+
+    this.service.fetchVitalSigns(pid).subscribe(
+      data => {
+
+        this.vital = data; 
+       console.log("vital Sign Fetch ....."+data)
+
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
   }
 
   vitalForm = this.fb.group({

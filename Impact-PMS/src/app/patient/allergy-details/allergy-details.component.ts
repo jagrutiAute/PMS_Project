@@ -53,16 +53,27 @@ export class AllergyDetailsComponent implements OnInit {
 
   ngOnInit() {
 
+    if(localStorage.getItem('allergies').length != 0){
+      this.allergies = JSON.parse(localStorage.getItem('allergies'));
+    }else{    
 
-    this.service.getAllergyList().subscribe(
+      this.service.getAllergyList().subscribe(
 
-      (data) => {
-        console.log("getAllergyList() :::::  " + data)
+        (data) => {
+          console.log("getAllergyList() :::::  " + data)
+  
+          this.allergies = data;
+         localStorage.setItem('allergies',JSON.stringify(data));
+          
+        }
+      );
 
-        this.allergies = data;
+  
+    }
+      
+    
 
-      }
-    );
+    
 
   }
 

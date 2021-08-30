@@ -6,9 +6,16 @@ import { Vital } from "./vital";
 @Injectable({ providedIn: 'root'})
 export class VitalSignsService {
 
-    private baseUrl1 = 'http://localhost:8081/vitalsigns';  
+    private baseUrl1 = 'http://localhost:8092/vitalsigns';
+    private getVitalsignUrl = 'http://localhost:8092/getvitalsigns';  
 
     constructor(private _http: HttpClient) { }
+
+    fetchVitalSigns(pid:string ): Observable<any> {       
+
+        return this._http.get(`${this.getVitalsignUrl}/${pid}`);
+        
+    } 
 
     addVitalSigns(vital:Vital ): Observable<any> {
 

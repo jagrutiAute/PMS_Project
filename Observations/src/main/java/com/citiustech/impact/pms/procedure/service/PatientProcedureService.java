@@ -1,10 +1,12 @@
 package com.citiustech.impact.pms.procedure.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import com.citiustech.impact.pms.procedure.controller.ProcedureController;
 import com.citiustech.impact.pms.procedure.model.PatientProcedure;
@@ -27,14 +29,25 @@ public class PatientProcedureService {
 		return patientProcedureRepo.save(patientProcedure);
 	}
 
-	public Optional<PatientProcedure> fetchPatientProcedure(Integer id) {
+	public Optional<List<PatientProcedure>> fetchPatientProcedure(String pid) {
 		
 		log.debug("inside fetchPatientProcedure() method of PatientProcedureService class");
 		log.debug("calling findById() method of PatientProcedureRepository interface");
 		
 		
-		return patientProcedureRepo.findById(id);
+		//return patientProcedureRepo.findById(id);
+		return patientProcedureRepo.getAllPatientProcedure(pid);
 		
+	}
+
+	
+	
+	public List<PatientProcedure> addPatientProcedure(List<PatientProcedure> procedures) {
+
+		
+		return patientProcedureRepo.saveAll(procedures);
+		// return allergyDetailsRepo.save(allergyDetails);
+
 	}
 	
 	

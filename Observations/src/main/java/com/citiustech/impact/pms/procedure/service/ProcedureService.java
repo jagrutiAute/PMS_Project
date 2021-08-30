@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.procedure.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
@@ -18,12 +19,18 @@ public class ProcedureService {
 	@Autowired
 	ProcedureRepository procedureRepo;
 	
-	public Optional<Procedure> getProcedureDetails(int proceCode) {
-		
-		log.debug("inside getProcedureDetails() method of ProcedureService class");
-		log.debug("calling findById() method of ProcedureRepository interface");
-		
-		return procedureRepo.findById(proceCode);
+	/*
+	 * public Optional<Procedure> getProcedureDetails(int proceCode) {
+	 * 
+	 * log.debug("inside getProcedureDetails() method of ProcedureService class");
+	 * log.debug("calling findById() method of ProcedureRepository interface");
+	 * 
+	 * return procedureRepo.findById(proceCode); }
+	 */
+
+	public Optional<List<Procedure>> getprocedureList() {
+		// TODO Auto-generated method stub
+		return Optional.of(procedureRepo.findAll());
 	}
 
 }

@@ -17,10 +17,14 @@ public class Allergy {
 	@Id
 	@Column(name = "id")
 	
-	private Integer id;
+	private String id;
 	private String type;
 	private String name;
 	private String source;
+	
+	@Column(name="isoforms")
 	private String isoForms;
+	
+	@Column(name="allerginicity")
 	private String allerginiCity;
 }

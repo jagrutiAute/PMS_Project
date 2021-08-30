@@ -43,7 +43,7 @@ public class PatientAllergyDetailCoontroller {
 			
 			AllergyDetails m1 = new AllergyDetails();
 			
-			m1.setId(m.getId());
+			//m1.setId(m.getId());
 			m1.setName(m.getName());
 			m1.setType(m.getType());
 			m1.setSource(m.getSource());

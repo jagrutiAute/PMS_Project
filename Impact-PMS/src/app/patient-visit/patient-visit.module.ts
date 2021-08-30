@@ -5,6 +5,8 @@ import { VitalSignsComponent } from './vital-signs/vital-signs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -14,6 +16,8 @@ import { BrowserModule } from '@angular/platform-browser';
     VitalSignsComponent
   ],
   imports: [
+    MatFormFieldModule,
+    MatInputModule,
    
     CommonModule,
     FormsModule,

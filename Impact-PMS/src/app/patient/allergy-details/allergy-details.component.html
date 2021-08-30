@@ -54,7 +54,7 @@
         </tr>
     </thead>
     <tbody >
-        <tr *ngFor="let allergy of allergies | paginate: {itemsPerPage:2,currentPage:p};">
+        <tr *ngFor="let allergy of allergies | paginate: {itemsPerPage:7,currentPage:p};">
             <td>{{allergy.id}}</td>
             <td>{{allergy.type}}</td>
             <td> {{allergy.name}} </td>

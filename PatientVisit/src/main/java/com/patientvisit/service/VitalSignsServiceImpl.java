@@ -1,5 +1,7 @@
 package com.patientvisit.service;
 
+import java.util.Optional;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -40,8 +42,8 @@ public class VitalSignsServiceImpl implements VitalSignsService {
 		vtlsigns.setBloodPressure(vtdto.getBloodPressure());
 		vtlsigns.setBodyTemperature(vtdto.getBodyTemperature());
 		vtlsigns.setRespirationRate(vtdto.getRespirationRate());
-		vtlsigns.setUser(user);
-		vtlsigns.setPatient(patient);
+		//vtlsigns.setUser(user);
+		//vtlsigns.setPatient(patient);
 		
 		log.debug("calling save() method of VitalSignsRepository interface");
 		
@@ -50,4 +52,10 @@ public class VitalSignsServiceImpl implements VitalSignsService {
 	
 	}
 
+	
+	public Optional<VitalSigns> getVitalSigns(String pid) {
+		
+		 return vitlrepo.findByPatientID(pid);
+		 	
+	}
 }

@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Diagnosis } from "./diagnosis";
 import { Patient } from "./patient";
+import { Procedure } from "./procedure";
 
 
 @Injectable()
@@ -12,9 +13,35 @@ export class AdminDashBoardService {
 
     
   private baseUrl = 'http://localhost:8088';
+  private procedureUrl = 'http://localhost:8096/getProcedureDetails'
+  private saveProcedureUrl = 'http://localhost:8096/savePatientProcedure'
+  private getAddedProceUrl = 'http://localhost:8096/getPatientProcedure'
  // private baseUrlDiagnosis = "http://localhost:8082";  
   
   constructor(private _http: HttpClient) { }
+
+  getAddeProcedures(): Observable<Procedure[]> {
+    //let pid=sessionStorage.getItem("mrnNumber");
+    let pid = 22;
+    return this._http.get<Procedure[]>(`${this.getAddedProceUrl}/${pid}`);
+  }
+  
+  
+  addProcedurePatient(produre: Procedure[]): Observable<any> {
+       
+    let pid = 22;
+    //let pid=sessionStorage.getItem("mrnNumber");
+      
+      return this._http.post<any>(`${this.saveProcedureUrl}/${pid}`,produre);
+  
+    }
+
+  getProcedureList(): Observable<Procedure[]> {
+      //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
+      return this._http.get<Procedure[]>(this.procedureUrl);
+    }
+
+
 
   // getPatient(): Observable<Patient[]> {
   //   //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123

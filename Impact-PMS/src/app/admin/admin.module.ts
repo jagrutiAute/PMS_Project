@@ -53,6 +53,8 @@ import { DiagnosisService } from './diagnosis.service';
 import { AddedDiagnosisComponent } from './added-diagnosis/added-diagnosis.component';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ProcedureComponent } from './procedure/procedure.component';
+import { PatientProcedureDetailsComponent } from './patient-procedure-details/patient-procedure-details.component';
 
 
 
@@ -82,7 +84,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     NurseSidenavComponent,
     DiagnosisComponent,
     AddedDiagnosisComponent,
-    BookAppointmentComponent
+    BookAppointmentComponent,
+    ProcedureComponent,
+    PatientProcedureDetailsComponent
     
     
   ],
