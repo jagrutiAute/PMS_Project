@@ -51,7 +51,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let huser of husers | orderBy: key: reverse| paginate: {itemsPerPage:10,currentPage:p};">
+                <tr *ngFor="let huser of husers | orderBy: key: reverse| paginate: {itemsPerPage:8,currentPage:p};">
                     <td>{{huser.employeeid}}</td>
                     <td>{{huser.title}}</td>
                     <td>{{huser.firstName}} {{huser.lastName}}</td>
