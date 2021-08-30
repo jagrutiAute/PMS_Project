@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetSchedule } from '../getSchedule';
-import { PhysicianId } from '../physicianId';
-import { PhysicianName } from '../PhysicianName';
+import {PhysicianIdAndName } from '../physicianId';
+import { PhysicianName } from '../physicianName';
+
 import { Schedule1 } from '../schedule1';
 import { ScheduleBook } from '../schedulebook';
 import { SchedulingService } from '../scheduling.service';
@@ -17,8 +18,8 @@ export class BookAppointmentComponent implements OnInit {
 
   //scheduling: Scheduling[];
   //str:string;
-  physicianId: PhysicianId[];
-  physicianName: PhysicianName[];
+  physicianIdAndName: PhysicianIdAndName[];
+ // physicianName: PhysicianName[];
   schedule: Schedule1[];
   // user: User1;
    //firstName: any;
@@ -26,7 +27,7 @@ export class BookAppointmentComponent implements OnInit {
   // getSchedule:GetSchedule
 
   tempDate: Date;
-  selectoption: PhysicianId;
+  selectoption: any;
    constructor(private schedulingService: SchedulingService,
      private router: Router) {}
  
@@ -34,8 +35,8 @@ export class BookAppointmentComponent implements OnInit {
      this.reloadData();
      console.log("hello oye")
     // this.load();
-    this.schedulingService.getAllPhysicianId().subscribe((data)=>{
-      this.physicianId = data;
+    this.schedulingService.getAllPhysicianIdAndName().subscribe((data)=>{
+      this.physicianIdAndName = data;
       console.log("hiiiiiiiiiiiii")
       console.log(data);
     })
@@ -44,22 +45,21 @@ export class BookAppointmentComponent implements OnInit {
     
     
    }
- // load(){
- //   console.log("load")
- //   //this.patients.forEach(projet=>console.log(projet.id));
- //   for(var pat in this.patients){
- //     console.log("hello")
- //     console.log(this.patients[pat]);
- //   }
- // }
+ 
    reloadData() {
      let getSchedule = new GetSchedule();
-  //  let getschedule = new Patient1();
-  //let d: Date = new Date("2021-08-17");
-      getSchedule.phyid="12";
+     //  let getschedule = new Patient1();
+     //let d: Date = new Date("2021-08-17");
+     // getSchedule.phyid="CT0003";
+      getSchedule.phyid= this.selectoption;
+      console.log(getSchedule.phyid)
+
       getSchedule.date = this.tempDate;
+      console.log(getSchedule.date)
+
       console.log("inside reload")
       console.log(this.tempDate);
+      if(getSchedule.phyid!=null && getSchedule.date!=null){
       this.schedulingService.getAllUnbookedappointmet(getSchedule).subscribe((data) => {
        this.schedule = data;
        console.log(data)
@@ -69,6 +69,7 @@ export class BookAppointmentComponent implements OnInit {
      (error) => {
        console.log(error)
      })
+    }
      // console.log(this.patients);
    }
  
@@ -109,11 +110,12 @@ export class BookAppointmentComponent implements OnInit {
      
      let scheduleBook = new ScheduleBook();
      //let date1: Date = new Date("2021-08-17");
-     scheduleBook.phid = "12";
+    // scheduleBook.phid = "CT0003";
+     scheduleBook.phid =this.selectoption;
      scheduleBook.time = time;
      scheduleBook.date = this.tempDate;
     
-     scheduleBook.pid = "1";
+     scheduleBook.pid = "5";
   
      this.schedulingService.bookappointment(scheduleBook).subscribe((data)=>{
      // location.reload();
@@ -137,13 +139,13 @@ export class BookAppointmentComponent implements OnInit {
     //console.log("value")
     this.selectoption = event.target.value;
     console.log(event.target.value)
-    //this.reloadData();
+    this.reloadData();
 
-    this.schedulingService.getPhysicianNameById(this.selectoption).subscribe((data)=>{
-      this.physicianName = data;
-      console.log("patietName")
-      console.log(data);
-    })
+    // this.schedulingService.getPhysicianNameById(this.selectoption).subscribe((data)=>{
+    //   this.physicianName = data;
+    //   console.log("patietName")
+    //   console.log(this.physicianName);
+    // })
    
     }
 

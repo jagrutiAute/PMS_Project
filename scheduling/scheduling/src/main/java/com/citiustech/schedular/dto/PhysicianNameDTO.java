@@ -1,4 +1,4 @@
-package com.citiustech.impact.pms.DTO;
+package com.citiustech.schedular.dto;
 
 
 public class PhysicianNameDTO {

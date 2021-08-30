@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UpcomingAppointmentDetails } from '../inbox/upcoming-appointments/upcomingapppoitments';
 import { GetSchedule } from './getSchedule';
-import { PhysicianId } from './physicianId';
-import { PhysicianName } from './PhysicianName';
+import {PhysicianIdAndName } from './physicianId';
+import { PhysicianName } from './physicianName';
 import { Schedule1 } from './schedule1';
 import { ScheduleBook } from './schedulebook';
 
@@ -33,9 +33,11 @@ export class SchedulingService {
   // }
 
   getAllUnbookedappointmet(unbookAPT: GetSchedule): Observable<Schedule1[]>{
-    console.log("unbookAPT "+unbookAPT)
+    console.log(unbookAPT.phyid)
+    console.log(unbookAPT.date)
    
     //return this._http.post<Schedule1[]>(this.baseUrl+'/patient/schedule',unbookAPT);
+    console.log(this._http.post<Schedule1[]>(this.baseUrl+'/patient/schedule',unbookAPT));
     return this._http.post<Schedule1[]>(this.baseUrl+'/patient/schedule',unbookAPT);
   }
 
@@ -44,16 +46,16 @@ export class SchedulingService {
     return this._http.post<any>(this.baseUrl+'/patient/book',schedule, { responseType: 'text' as 'json' });
   }
 
-  getAllPhysicianId():Observable<PhysicianId[]> {
+  getAllPhysicianIdAndName():Observable<PhysicianIdAndName[]> {
     
-      return this._http.get<PhysicianId[]>(`${this.baseUrl}`+'/patient/physician/id');
+      return this._http.get<PhysicianIdAndName[]>(`${this.baseUrl}`+'/patient/physician/id');
 
 }
-getPhysicianNameById(selectoption: PhysicianId):Observable<PhysicianName[]> {
+// getPhysicianNameById(selectoption: PhysicianId):Observable<PhysicianName[]> {
     
-  return this._http.get<PhysicianName[]>(`${this.baseUrlName}`+'/patient/physicans/name/'+selectoption);
+//   return this._http.get<PhysicianName[]>(`${this.baseUrlName}`+'/patient/physicans/name/'+selectoption);
 
-}
+// }
 
   getallUpcomingAppointments():Observable<UpcomingAppointmentDetails[]> {
     //if role is physician then call this method

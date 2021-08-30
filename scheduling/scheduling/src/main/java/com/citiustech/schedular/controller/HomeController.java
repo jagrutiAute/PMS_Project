@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.citiustech.schedular.dto.GetAllDetailsDTO;
+import com.citiustech.schedular.dto.PhysicianNameDTO;
 import com.citiustech.schedular.dto.PhysicianUpdateDTO;
 import com.citiustech.schedular.dto.Schedule1DTO;
 import com.citiustech.schedular.dto.ScheduleDTO;
@@ -138,6 +139,7 @@ public class HomeController {
 	@PostMapping("patient/schedule")
 	public List<Schedule1DTO> getAllUnbookedappointmet(@RequestBody GetAllDetailsDTO details){
 		
+		//System.out.println();
 			//LocalDate date1=LocalDate.parse(details.getDate());
 			LocalDate date1 = details.getDate();
 			System.out.println("details="+details);
@@ -258,15 +260,15 @@ public class HomeController {
 	}
 	
 	@GetMapping("/patient/physician/id")
-	public ResponseEntity<List<Object>> getPatients() {
+	public ResponseEntity<List<PhysicianNameDTO>> getPatients() {
 		
-		Object[] restCall = restTemplate.getForObject("http://localhost:8088/patient/physicans/phid",Object[].class);
+		PhysicianNameDTO[] restCall = restTemplate.getForObject("http://localhost:8088/patient/physicans/phid",PhysicianNameDTO[].class);
 		
 		//PatientProfile[] patientProfile = response.getBody();
-		List<Object> ob = Arrays.asList(restCall);
+		List<PhysicianNameDTO> ob = Arrays.asList(restCall);
 		
 		System.out.println(ob);
-		return new ResponseEntity<List<Object>>(ob, HttpStatus.OK);
+		return new ResponseEntity<List<PhysicianNameDTO>>(ob, HttpStatus.OK);
 		
 	}
 	

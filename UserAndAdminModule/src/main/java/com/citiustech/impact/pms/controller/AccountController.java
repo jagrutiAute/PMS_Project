@@ -1,6 +1,7 @@
 
 package com.citiustech.impact.pms.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -94,24 +95,59 @@ public class AccountController {
 	*/
 	
 	@GetMapping("/patient/physicans/phid")
-	public ResponseEntity<List<String>> getAllPhysicianId(){
+	public ResponseEntity<List<PhysicianNameDTO>> getAllPhysicianId(){
 			
 				System.out.println("inside the appointments");
 				
-				List<String> phid = hospitalUserRepository.findAllId();
-				return new ResponseEntity<List<String>>(phid,HttpStatus.OK);
+				List<ProviderRegistration> phid = hospitalUserRepository.findAllId();
+				phid.stream().forEach(a->System.out.println(a));
+				
+				
+				List<PhysicianNameDTO> physicianNameDTOList = new ArrayList<>();
+				for(ProviderRegistration p:phid) {
+					PhysicianNameDTO physicianNameDTO = new PhysicianNameDTO();
+					physicianNameDTO.setPhyid(p.getEmployeeid());
+					physicianNameDTO.setFirstName(p.getFirstName());
+					physicianNameDTO.setLastName(p.getLastName());
+					
+					physicianNameDTOList.add(physicianNameDTO);
+				}
+				//physicianNameDTOList.add(physicianNameDTO);
+				return new ResponseEntity<List<PhysicianNameDTO>>(physicianNameDTOList,HttpStatus.OK);
 	}
 	
-	@GetMapping("/patient/physicans/name/{phid}")
-	public ResponseEntity<List<Object>> getAllPhysicianName(@PathVariable String phid){
-			
-		System.out.println("inside first name and last name controller");
-				
-				List<Object> phid1 = hospitalUserRepository.findByEmployeeId(phid);
-				
-				for(Object o:phid1) {
-					System.out.println("o="+o.getClass().getName());
-				}
-				return new ResponseEntity<List<Object>>(phid1,HttpStatus.OK);
-	}
+//	@GetMapping("/patient/physicans/name/{phid}")
+//	public ResponseEntity<List<PhysicianNameDTO>> getAllPhysicianName(@PathVariable String phid){
+//			
+//		System.out.println("inside first name and last name controller");
+//				
+//		Optional<ProviderRegistration> phid1 = hospitalUserRepository.findByEmployeeid(phid);
+//		
+//		List<PhysicianNameDTO> p = new ArrayList<>();
+//		PhysicianNameDTO physicianNameDTO = new PhysicianNameDTO();
+//				if(phid1.isPresent()) {
+//					physicianNameDTO.setPhyid(phid1.get().getEmployeeid());
+//					physicianNameDTO.setFirstName(phid1.get().getFirstName());
+//					physicianNameDTO.setLastName(phid1.get().getLastName());
+//					p.add(physicianNameDTO);
+//				}
+////				for(Object o:phid1) {
+////					System.out.println("o="+o.getClass().getName());
+////				}
+//				return new ResponseEntity<List<PhysicianNameDTO>>(p,HttpStatus.OK);
+//	}
+	
+//	@GetMapping("/patient/physicans/name1/{phid}")
+//	public ResponseEntity<List<Object>> getAllPhysicianName1(@PathVariable String phid){
+//			
+//		System.out.println("inside first name and last name controller");
+//				
+//		List<Object> phid1 = hospitalUserRepository.findByEmployeeId(phid);
+//		
+//		
+////				for(Object o:phid1) {
+////					System.out.println("o="+o.getClass().getName());
+////				}
+//				return new ResponseEntity<List<Object>>(phid1,HttpStatus.OK);
+//	}
 }
