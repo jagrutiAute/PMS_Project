@@ -38,7 +38,8 @@ export class ChangePasswordComponent {
     //console.log ('change password'+this.service.getLogin(logindetails));
     this.service.getLogin(logindetails).subscribe(data => {
       this.attempts = data;
-      console.log("password changed status");
+      console.log(data)
+      // console.log("password changed status");
       if (data == "BLOCKED") {
 
         alert("Your account blocked");
@@ -71,61 +72,61 @@ export class ChangePasswordComponent {
             //console.log(this.attempts);
 
             if (data = "Update") {
-              alert('Login successfully');
+              window.alert('Login successfully');
 
-              if (data == 'status_change') {
-                let user = sessionStorage.getItem('username');
-                let pass = this.new_password.value;
-                // this.service.updatechangedstatus(user,pass).subscribe(
-                //   (data1)=>{
-                //               console.log(data1);
-                //                 if(data1=="Update"){
-                //                 alert('Your password changed successfully');
-                //                 this.router.navigateByUrl('login');
-                //                 }
-                //          },
-                //       (error)=>{
-                //           console.log('in the error')
-                //       }
-
-
-                //          );
+              // if (data == 'status_change') {
+              //   let user = sessionStorage.getItem('username');
+              //   let pass = this.new_password.value;
+              // this.service.updatechangedstatus(user,pass).subscribe(
+              //   (data1)=>{
+              //               console.log(data1);
+              //                 if(data1=="Update"){
+              //                 alert('Your password changed successfully');
+              //                 this.router.navigateByUrl('login');
+              //                 }
+              //          },
+              //       (error)=>{
+              //           console.log('in the error')
+              //       }
 
 
-                this.service.updatechangedstatus(user, pass).subscribe(
-
-                  data => {
+              //          );
 
 
+              // this.service.updatechangedstatus(user, pass).subscribe(
 
-                    console.log("backend date " + JSON.parse(data));
-                    console.log("data stringfy" + JSON.stringify(data));
-
-
-                    //console.log(this.attempts);
+              //   data => {
 
 
 
-                    if (data = "Update") {
-
-                      alert('Login successfully');
-
+              //     console.log("backend date " + JSON.parse(data));
+              //     console.log("data stringfy" + JSON.stringify(data));
 
 
-                    }
+              //console.log(this.attempts);
 
 
-                  },
-                  error => {
-                    console.log('error');
-                    alert('error while loging');
-                    console.log("backend date " + JSON.parse(data));
-                    console.log("data stringfy" + JSON.stringify(data));
-                  }
-                );
+
+              //       if (data = "Update") {
+
+              //         alert('Login successfully');
 
 
-              }
+
+              // //       }
+
+
+              // //     },
+              // //     error => {
+              // //       console.log('error');
+              // //       alert('error while loging');
+              // //       console.log("backend date " + JSON.parse(data));
+              // //       console.log("data stringfy" + JSON.stringify(data));
+              // //     }
+              // //   );
+
+
+              // // }
 
 
             }
@@ -142,6 +143,7 @@ export class ChangePasswordComponent {
           },
           error => {
             console.log(error)
+            this.router.navigateByUrl("/login")
           }
         )
       }
