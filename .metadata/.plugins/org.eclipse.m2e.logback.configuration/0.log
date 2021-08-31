@@ -2693,3 +2693,42 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2021-08-26 16:43:52,333 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-08-26 16:43:52,333 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\scheduling\scheduling\src\test\resources
 2021-08-26 16:57:02,671 [Worker-10: Launching PatientDetails - PatientDetailsApp] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier null to /UserAndAdminModule/target/classes
+2021-08-27 12:50:46,285 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-08-27 12:52:18,140 [Worker-5: Check for devtools] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier  to /UserAndAdminModule/target/classes
+2021-08-27 12:53:27,926 [Worker-11: Launching PatientDetails - PatientDetailsApp] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier null to /UserAndAdminModule/target/classes
+2021-08-27 15:30:30,052 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-27 15:30:30,075 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-27 15:30:30,189 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-27 15:30:30,192 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-27 15:30:30,193 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\UserAndAdminModule\src\test\resources
+2021-08-27 15:35:28,744 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-27 15:35:28,747 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-27 15:35:28,750 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-27 15:35:28,753 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-27 15:35:28,753 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\UserAndAdminModule\src\test\resources
+2021-08-30 11:10:16,963 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-08-30 11:11:15,575 [Worker-13: Launching PatientDetails - PatientDetailsApp] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier  to /UserAndAdminModule/target/classes
+2021-08-30 11:11:15,764 [Worker-13: Launching PatientDetails - PatientDetailsApp] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier null to /UserAndAdminModule/target/classes
+2021-08-30 17:33:51,359 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-08-30 17:43:28,426 [Worker-8: Launching PatientDetails - PatientDetailsApp] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier  to /UserAndAdminModule/target/classes
+2021-08-30 17:43:28,621 [Worker-8: Launching PatientDetails - PatientDetailsApp] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier null to /UserAndAdminModule/target/classes
+2021-08-31 11:16:07,262 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-08-31 11:17:41,384 [Worker-6: Launching PatientDetails - PatientDetailsApp] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier  to /UserAndAdminModule/target/classes
+2021-08-31 11:17:41,586 [Worker-6: Launching PatientDetails - PatientDetailsApp] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/UserAndAdminModule: com.citiustech:UserAndAdminModule:0.0.1-SNAPSHOT with classifier null to /UserAndAdminModule/target/classes
+2021-08-31 19:33:44,350 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-31 19:33:44,356 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-31 19:33:44,370 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-31 19:33:44,373 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-31 19:33:44,373 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\UserAndAdminModule\src\test\resources
+2021-08-31 19:33:49,545 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-31 19:33:49,546 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-31 19:33:49,601 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-31 19:33:49,603 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-31 19:33:49,603 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\PatientDetails\src\test\resources
+2021-08-31 19:34:09,556 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-31 19:34:09,556 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-08-31 19:34:09,557 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-08-31 19:34:09,576 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-08-31 19:34:09,578 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-08-31 19:34:09,578 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-08-31 19:34:09,579 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\FarheenBaig\SelfLearnings\Projct_Team1\Project_PMS\PMS_Project\scheduling\scheduling\src\test\resources
