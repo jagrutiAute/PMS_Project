@@ -16,6 +16,8 @@ import com.citiustech.impact.pms.model.Title;
 import com.citiustech.impact.pms.repository.PatientProfileRepository;
 import com.citiustech.impact.pms.repository.UserRepository;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+@EnableSwagger2
 @SpringBootApplication
 public class UserAndAdminModuleApplication {
 

@@ -17,6 +17,7 @@ export class RecievedNotesComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(sessionStorage.getItem('username'));
+   // let employeeId = sessionStorage.setItem('')
     this.loadNotes()
   }
 

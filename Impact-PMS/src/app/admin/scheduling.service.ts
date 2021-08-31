@@ -60,9 +60,14 @@ export class SchedulingService {
 
   getallUpcomingAppointments():Observable<UpcomingAppointmentDetails[]> {
     //if role is physician then call this method
-      let phyid="CT0003";
-      
-      return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/physicans/appointments/'+ `${phyid}`)
+    
+      let phyid: string;
+     this.getEmployeeId().subscribe((data)=>{
+        phyid = data;
+       console.log(data)
+       sessionStorage.setItem('employeeid',phyid);
+     })
+      return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/appointments/physicans/'+ `${phyid}`)
 
     //if role is patient call this method
    
@@ -79,6 +84,15 @@ getallUpcomingAppointmentsforpatient():Observable<UpcomingAppointmentDetails[]> 
 }
 
 
+getEmployeeId():Observable<string> {
+  //if role is physician then call this method
+   // let phyid="CT0003";
+    let phyid = sessionStorage.getItem('username');
+    let EmployeeId1 = this._http.get<string>(`${this.baseUrl}`+'/physician/employeeid/'+ `${phyid}`)
+  //sessionStorage.setItem('EmployeeId1',EmployeeId1);
+  //if role is patient call this method
+return EmployeeId1;
+}
 
   canceelapppoitment(apt:ScheduleDTO):Observable<String>{
           //console.log("inside the cancel appointments"+apt);
