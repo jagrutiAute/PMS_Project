@@ -59,6 +59,7 @@ export class PatientVitalSignComponent implements OnInit {
      
 
        let  pid = this.selectoption;
+       sessionStorage.setItem('pidforvisit',pid);
         this.service.fetchVitalSigns(pid).subscribe(
           data => {
     
