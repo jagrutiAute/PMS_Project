@@ -292,7 +292,8 @@ public class HomeController {
 	public ResponseEntity<List<Schedular>> getAllUpcomingAppointmentsforPhysician(@PathVariable String phyId){
 			
 				System.out.println("inside the appointments");
-				LocalDate date=LocalDate.now().minusDays(4);
+				//LocalDate date=LocalDate.now().minusDays(4);
+				LocalDate date= LocalDate.of(2021, 8, 19);
 				System.out.println(date+"   "+phyId);
 				List<Schedular> upcomingschedule=repo.findAllWithDateAfter(date, phyId,false);
 				upcomingschedule.forEach(x->System.out.println(x));

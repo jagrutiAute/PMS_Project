@@ -59,7 +59,7 @@ export class SchedulingService {
 
   getallUpcomingAppointments():Observable<UpcomingAppointmentDetails[]> {
     //if role is physician then call this method
-      let phyid=11;
+      let phyid="CT0003";
       
       return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/appointments/physicans/'+ `${phyid}`)
 
