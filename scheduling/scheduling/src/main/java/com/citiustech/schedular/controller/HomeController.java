@@ -120,6 +120,7 @@ public class HomeController {
 			sc1.setPhyid(phid);
 			sc1.setTime(time);
 			sc1.setCancelled(false);
+			sc1.setPid(scdto.getPid());
 			repo.save(sc1);
 			return "booked";
 		}else {
@@ -320,6 +321,14 @@ public class HomeController {
 					return new ResponseEntity<String>("Failed",HttpStatus.OK);
 			}
 			}
+	
+	@GetMapping("/physician/employeeid/{phyid}")
+	public ResponseEntity<String> getEmployeeId(@PathVariable String phyid){
+		
+		String str = restTemplate.getForObject("http://localhost:8088/physicans/name/"+phyid, String.class);
+		
+		return new ResponseEntity<String>(str, HttpStatus.OK);
+	}
 	
 	
 	}

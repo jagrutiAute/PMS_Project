@@ -121,7 +121,8 @@ export class BookAppointmentComponent implements OnInit {
      scheduleBook.time = time;
      scheduleBook.date = this.tempDate;
     
-     scheduleBook.pid = "5";
+     scheduleBook.pid = sessionStorage.getItem('mrnNumber');
+     console.log(scheduleBook.pid)
   
      this.schedulingService.bookappointment(scheduleBook).subscribe((data)=>{
      // location.reload();

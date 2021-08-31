@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.citiustech.impact.pms.DTO.PhysicianNameDTO;
 import com.citiustech.impact.pms.model.ProviderRegistration;
+import com.citiustech.impact.pms.model.Users;
 
 public interface HospitalUserRepository extends JpaRepository<ProviderRegistration, Integer> {
 
@@ -23,6 +24,9 @@ public interface HospitalUserRepository extends JpaRepository<ProviderRegistrati
 
 	@Query(value="select * from pms.provider pr join pms.users pu on pr.users_id=pu.id AND pu.role_master_id=2;", nativeQuery = true)
 	List<ProviderRegistration> findAllId();
+
+	@Query(value="select employee_id from pms.provider where users_id=?1", nativeQuery = true)
+	String findByEmployeeId(Long id);
 
 //	@Query("select pr from ProviderRegistration pr where pr.employeeid =:phyid")
 //	List<Object> findByEmployeeId(String phyid);
