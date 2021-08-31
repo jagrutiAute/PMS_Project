@@ -11,8 +11,9 @@
 
 <mat-form-field appearance="fill">
     <mat-label>Patient</mat-label>
-    <select matNativeControl formControlName="patientID"  >
+    <select matNativeControl formControlName="patientID" (change)="selectOption($event)"   >
        
+        <option value="0">--select--</option>
         <option *ngFor="let patient of patientIdAndName" value="{{patient.mrnNumber}}"> {{patient.firstName}} {{patient.lastName}} {{patient.mrnNumber}} 
         </option>
 
