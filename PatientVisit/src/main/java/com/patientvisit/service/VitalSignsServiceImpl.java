@@ -1,5 +1,6 @@
 package com.patientvisit.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
@@ -9,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.patientvisit.controller.VitalSignsController;
 import com.patientvisit.dto.VitalSignsDTO;
+import com.patientvisit.model.PatientProfile;
 import com.patientvisit.model.Users;
 import com.patientvisit.model.VitalSigns;
+import com.patientvisit.repository.PatientProfileRepository;
 import com.patientvisit.repository.UserRepository;
 import com.patientvisit.repository.VitalSignsRepository;
 
@@ -26,6 +29,9 @@ public class VitalSignsServiceImpl implements VitalSignsService {
 	@Autowired
 	private VitalSignsRepository vitlrepo;
 	
+	@Autowired
+	PatientProfileRepository patientRepo;
+	
 	
 	@Override
 	public VitalSigns updateVitalSigns(VitalSignsDTO vtdto) {
@@ -33,8 +39,8 @@ public class VitalSignsServiceImpl implements VitalSignsService {
 		log.debug("inside updateVitalSigns() method of VitalSignsServiceImpl class");
 		log.debug("calling findByEmail() method of UserRepository interface");
 		
-		Users user=userRepo.findByEmail(vtdto.getUserID());
-		Users patient=userRepo.findByEmail(vtdto.getPatientID());
+		//Users user=userRepo.findByEmail(vtdto.getUserID());
+		//Users patient=userRepo.findByEmail(vtdto.getPatientID());
 		
 		VitalSigns vtlsigns=new VitalSigns();
 		vtlsigns.setHeight(vtdto.getHeight());
@@ -42,6 +48,7 @@ public class VitalSignsServiceImpl implements VitalSignsService {
 		vtlsigns.setBloodPressure(vtdto.getBloodPressure());
 		vtlsigns.setBodyTemperature(vtdto.getBodyTemperature());
 		vtlsigns.setRespirationRate(vtdto.getRespirationRate());
+		vtlsigns.setPatientID(vtdto.getMrnNumebr());
 		//vtlsigns.setUser(user);
 		//vtlsigns.setPatient(patient);
 		
@@ -58,4 +65,7 @@ public class VitalSignsServiceImpl implements VitalSignsService {
 		 return vitlrepo.findByPatientID(pid);
 		 	
 	}
+
+
+	
 }

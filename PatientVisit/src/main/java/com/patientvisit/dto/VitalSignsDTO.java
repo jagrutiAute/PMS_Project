@@ -8,8 +8,8 @@ public class VitalSignsDTO {
 	private Double bloodPressure;
 	private Double bodyTemperature;
 	private Double respirationRate;
-	private String userID;
-	private String patientID;
+	
+	private String mrnNumebr;
 	
 	
 	public VitalSignsDTO() {
@@ -18,15 +18,15 @@ public class VitalSignsDTO {
 
 
 	public VitalSignsDTO(Double height, Double weight, Double bloodPressure, Double bodyTemperature,
-			Double respirationRate, String userID, String patientID) {
+			Double respirationRate, String mrnNumebr) {
 		super();
 		this.height = height;
 		this.weight = weight;
 		this.bloodPressure = bloodPressure;
 		this.bodyTemperature = bodyTemperature;
 		this.respirationRate = respirationRate;
-		this.userID = userID;
-		this.patientID = patientID;
+		
+		this.mrnNumebr = mrnNumebr;
 	}
 
 
@@ -80,31 +80,22 @@ public class VitalSignsDTO {
 	}
 
 
-	public String getUserID() {
-		return userID;
+
+	public String getMrnNumebr() {
+		return mrnNumebr;
 	}
 
 
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
-
-
-	public String getPatientID() {
-		return patientID;
-	}
-
-
-	public void setPatientID(String patientID) {
-		this.patientID = patientID;
+	public void setMrnNumebr(String mrnNumebr) {
+		this.mrnNumebr = mrnNumebr;
 	}
 
 
 	@Override
 	public String toString() {
 		return "VitalSignsDTO [height=" + height + ", weight=" + weight + ", bloodPressure=" + bloodPressure
-				+ ", bodyTemperature=" + bodyTemperature + ", respirationRate=" + respirationRate + ", userID=" + userID
-				+ ", patientID=" + patientID + "]";
+				+ ", bodyTemperature=" + bodyTemperature + ", respirationRate=" + respirationRate + 
+				", mrnNumebr=" + mrnNumebr + "]";
 	}
 
 

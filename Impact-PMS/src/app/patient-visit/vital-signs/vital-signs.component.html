@@ -1,7 +1,28 @@
+<mat-form-field appearance="fill">
+    <mat-label>Patient</mat-label>
+    <select matNativeControl formControlName="patientID" (change)="selectOption($event)" >
+       
+        <option *ngFor="let patient of patientIdAndName" value="{{patient.mrnNumber}}"> {{patient.firstName}} {{patient.lastName}} {{patient.mrnNumber}} 
+        </option>
 
+    </select>
+</mat-form-field>
+             
               
 
                 <form [formGroup]="vitalForm">
+
+                    <!-- <select formControlName="mrnNumber" (change)="selectOption($event)" (change)="onChangeEvent($event)"> 
+                        <option value="">------select-----</option>
+                        <option *ngFor="let patient of patientIdAndName" [value]="patient.mrnNumber" >
+                    
+                            {{patient.firstName}} {{patient.lastName}} </option>
+                        
+                      </select> -->
+
+                    
+
+                    
 
                     <div class="float-container">
 

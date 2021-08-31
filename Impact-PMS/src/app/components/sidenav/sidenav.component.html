@@ -25,7 +25,7 @@
 
       <mat-expansion-panel-header class="specific-class">
         <mat-panel-title style="color: white;">
-          Patient Information
+          Patient Details
         </mat-panel-title>
 
       </mat-expansion-panel-header>
@@ -66,10 +66,7 @@
         </mat-panel-title>
 
       </mat-expansion-panel-header>
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/app-body-layout/patient-details">
-        Notification
-      </a>
+     
 
       <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
         routerLink="upcoming-appointments">
@@ -78,7 +75,7 @@
 
       <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
         routerLink="/app-body-layout/book-appointment">
-        Book Appointment
+        Book 
       </a>
 
 
@@ -92,20 +89,34 @@
 
   <mat-accordion>
 
-    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+
 
       <mat-expansion-panel-header class="specific-class">
         <mat-panel-title style="color: white;">
-          Visits
+          Visit Details
         </mat-panel-title>
 
       </mat-expansion-panel-header>
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/app-body-layout/patient-details">
-        Visit History
+      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="patient-vital-sign">
+        vital sign
+      </a>
+    
+      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="diagnosis">
+        Diagnosis
+      </a>
+      
+      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="medication">
+        Medication
       </a>
 
+      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="procedure">
+        Procedure
+      </a>
 
+      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="patient-details">
+        Patient Details
+      </a>
 
 
     </mat-expansion-panel>

@@ -1,5 +1,6 @@
 package com.patientvisit.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.patientvisit.dto.VitalSignsDTO;
+import com.patientvisit.model.PatientProfile;
 import com.patientvisit.model.VitalSigns;
 import com.patientvisit.service.VitalSignsService;
 
@@ -48,5 +50,7 @@ public class VitalSignsController {
 		return new ResponseEntity<VitalSigns>(vtlSigns.get(),HttpStatus.OK);
     	
     }
+	
+	
 	
 }

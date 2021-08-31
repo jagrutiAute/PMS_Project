@@ -7,13 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { PatientVitalSignComponent } from './patient-vital-sign/patient-vital-sign.component';
 
 
 
 @NgModule({
   declarations: [
     VisitDetailsComponent,
-    VitalSignsComponent
+    VitalSignsComponent,
+    PatientVitalSignComponent
   ],
   imports: [
     MatFormFieldModule,
