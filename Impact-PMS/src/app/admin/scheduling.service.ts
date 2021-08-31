@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UpcomingAppointmentDetails } from '../inbox/upcoming-appointments/upcomingapppoitments';
+import { Cancelappointments } from '../patient/cancelappoitment';
 import { GetSchedule } from './getSchedule';
 import { PhysicianId } from './physicianId';
 import { Schedule1 } from './schedule1';
@@ -50,13 +51,25 @@ export class SchedulingService {
 
   getallUpcomingAppointments():Observable<UpcomingAppointmentDetails[]> {
     //if role is physician then call this method
-      let phyid=11;
+      let phyid=11; 
       
-      return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/appointments/physicans/'+ `${phyid}`)
+      return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/physicans/appointments/'+ `${phyid}`)
 
     //if role is patient call this method
-
+   
 }
+
+getallUpcomingAppointmentsforpatient():Observable<UpcomingAppointmentDetails[]> {
+  //if role is patient then call this method
+    //let pid=11; 
+    let pid=sessionStorage.getItem('mrnnumber');
+    return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/patient/appointments/'+ `${pid}`)
+
+    //if role is patient call this method
+ 
+}
+
+
 
   canceelapppoitment(apt:ScheduleDTO):Observable<String>{
           //console.log("inside the cancel appointments"+apt);
@@ -67,5 +80,15 @@ export class SchedulingService {
           console.log(apt);
           return tmp1; 
   }
+
+    getAllCancelAppoitmetns(pid:string):Observable<Cancelappointments[]>
+    {
+        
+        let result=this._http.get<Cancelappointments[]>(`${this.baseUrl}`+'/patient/cancelledappoitments/'+`${pid}`);
+        return result;
+
+    }
+
+
 }
 

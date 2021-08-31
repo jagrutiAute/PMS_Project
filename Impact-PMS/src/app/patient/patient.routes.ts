@@ -14,10 +14,13 @@ import { UpcomingAppointmentsComponent } from '../inbox/upcoming-appointments/up
 import { RecievedNotesComponent } from '../inbox/recieved-notes/recieved-notes.component';
 import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 import { NotesComponent } from '../inbox/notes/notes.component';
+import { CancelappointmentsComponent } from './cancelappointments/cancelappointments.component';
+import { PatientUpcomingAppoitmentsComponent } from '../inbox/patient-upcoming-appoitments/patient-upcoming-appoitments.component';
 
 export var patientroutes:Route[]=[
     
-    {path:'app-body-layout', canActivate:[AuthGuard], component:BodyLayoutComponent,
+    {path:'app-body-layout', component:BodyLayoutComponent,
+    //, canActivate:[AuthGuard]
 
     children:[
 
@@ -28,6 +31,8 @@ export var patientroutes:Route[]=[
         { path: 'recieved-notes', component: RecievedNotesComponent },
         { path: 'sent-notes', component: SentNotesComponent },
         { path: 'notes', component: NotesComponent },
+        {path:'cancelled-appoitments',component:CancelappointmentsComponent},
+        {path:'patient-upcoming-appoitments',component:PatientUpcomingAppoitmentsComponent},
 
 
 

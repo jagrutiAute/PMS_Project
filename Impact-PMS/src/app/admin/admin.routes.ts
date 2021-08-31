@@ -27,6 +27,7 @@ import { RecievedNotesComponent } from '../inbox/recieved-notes/recieved-notes.c
 import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 import { AddedDiagnosisComponent } from './added-diagnosis/added-diagnosis.component';
+import { PatientVisitHistoryComponent } from '../patient-visit/patient-visit-history/patient-visit-history.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 
@@ -77,6 +78,7 @@ export var adminroutes: Route[] = [
             {path: 'patient-details', component: PatientDetailsComponent},
             {path: 'scheduling', component: SchedulingComponent},
             {path : 'added-diagnosis', component: AddedDiagnosisComponent},
+            {path:'visit-history',component:PatientVisitHistoryComponent},
             {
                 path: 'medication',
                 children: [

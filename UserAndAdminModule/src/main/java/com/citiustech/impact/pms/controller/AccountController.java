@@ -49,7 +49,7 @@ public class AccountController {
 
 	}
 
-	@GetMapping("/getUser/{email}")
+	@GetMapping("/getUser/{email}" )
 	public ResponseEntity<Users> getUser(@PathVariable String email) {
 		
 		log.debug("inside getUser() method");

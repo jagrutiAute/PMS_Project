@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.citiustech.schedular.dto.CancelledAppoitmentDTO;
 import com.citiustech.schedular.dto.GetAllDetailsDTO;
 import com.citiustech.schedular.dto.PhysicianUpdateDTO;
 import com.citiustech.schedular.dto.Schedule1DTO;
@@ -271,17 +272,31 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("/appointments/physicans/{phyId}")
+	@GetMapping("/physicans/appointments/{phyId}")
 	public ResponseEntity<List<Schedular>> getAllUpcomingAppointmentsforPhysician(@PathVariable String phyId){
 			
 				System.out.println("inside the appointments");
-				LocalDate date=LocalDate.now().minusDays(4);
+				LocalDate date=LocalDate.now().minusDays(6);
 				System.out.println(date+"   "+phyId);
 				List<Schedular> upcomingschedule=repo.findAllWithDateAfter(date, phyId,false);
 				upcomingschedule.forEach(x->System.out.println(x));
 			   //return new ResponseEntity<List<Schedular>>( repo.findAllWithDateAfter(date, phyId),HttpStatus.OK);
 				return new ResponseEntity<List<Schedular>>(upcomingschedule,HttpStatus.OK);
 	}
+	
+	
+	@GetMapping("/patient/appointments/{pId}")
+	public ResponseEntity<List<Schedular>> getAllUpcomingAppointmentsforPatient(@PathVariable String pId){
+			
+	
+				LocalDate date=LocalDate.now().minusDays(1);
+				System.out.println(date+"   "+pId);
+				List<Schedular> upcomingschedule=repo.findAllWithDateAfterforpatient(date, pId,false);
+				upcomingschedule.forEach(x->System.out.println(x));
+			   //return new ResponseEntity<List<Schedular>>( repo.findAllWithDateAfter(date, phyId),HttpStatus.OK);
+				return new ResponseEntity<List<Schedular>>(upcomingschedule,HttpStatus.OK);
+	}
+	
 	
 	
 	@PostMapping("/appointments/cancelappoitment")
@@ -302,6 +317,30 @@ public class HomeController {
 					return new ResponseEntity<String>("Failed",HttpStatus.OK);
 			}
 			}
+	
+	
+	@GetMapping("/patient/cancelledappoitments/{pid}")
+	public ResponseEntity<List<CancelledAppoitmentDTO>> getAllCancelAppoitment(@PathVariable String pid){
+		
+			System.out.println("inside cancelled"+pid);
+		
+		List<Schedular> result=repo.findByPidAndIscancelled(pid, true);
+		List<CancelledAppoitmentDTO> finalresult=new ArrayList<CancelledAppoitmentDTO>();
+			result.stream().forEach(x->System.out.println(x));
+			for(Schedular sc:result) {
+				CancelledAppoitmentDTO cancelledapt=new CancelledAppoitmentDTO();
+				cancelledapt.setDate(sc.getDate());
+				cancelledapt.setPhyId(sc.getPhyid());
+				cancelledapt.setTime(sc.getTime());
+				finalresult.add(cancelledapt);
+			}
+		
+		
+		return new ResponseEntity<List<CancelledAppoitmentDTO>>(finalresult,HttpStatus.OK);
+		
+	}
+	
+	
 	
 	
 	}

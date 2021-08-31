@@ -5,13 +5,15 @@ import { VitalSignsComponent } from './vital-signs/vital-signs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { PatientVisitHistoryComponent } from './patient-visit-history/patient-visit-history.component';
 
 
 
 @NgModule({
   declarations: [
     VisitDetailsComponent,
-    VitalSignsComponent
+    VitalSignsComponent,
+    PatientVisitHistoryComponent
   ],
   imports: [
    
@@ -21,6 +23,6 @@ import { BrowserModule } from '@angular/platform-browser';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  exports : [VitalSignsComponent,VisitDetailsComponent ]
+  exports : [VitalSignsComponent,VisitDetailsComponent,PatientVisitHistoryComponent ]
 })
 export class PatientVisitModule { }

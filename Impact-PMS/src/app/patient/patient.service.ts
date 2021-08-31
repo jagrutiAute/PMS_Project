@@ -104,4 +104,7 @@ export class PatientDetailService {
         return result;
     }
 
+
+   
+
 }
