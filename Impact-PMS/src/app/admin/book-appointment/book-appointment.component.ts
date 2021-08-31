@@ -27,7 +27,8 @@ export class BookAppointmentComponent implements OnInit {
   // getSchedule:GetSchedule
 
   tempDate: Date;
-  selectoption: any;
+  selectName: string;
+  
    constructor(private schedulingService: SchedulingService,
      private router: Router) {}
  
@@ -46,13 +47,18 @@ export class BookAppointmentComponent implements OnInit {
     
    }
  
+   
    reloadData() {
-     let getSchedule = new GetSchedule();
+     let getSchedule: GetSchedule = new GetSchedule();
      //  let getschedule = new Patient1();
-     //let d: Date = new Date("2021-08-17");
-     // getSchedule.phyid="CT0003";
-      getSchedule.phyid= this.selectoption;
+    // let d: Date = new Date("2021-08-19");
+    console.log(this.selectName);
+    //getSchedule.phyid= "CT0003";
+      getSchedule.phyid = this.selectName;
       console.log(getSchedule.phyid)
+      if(getSchedule.phyid == this.selectName){
+        console.log("equal")
+      }
 
       getSchedule.date = this.tempDate;
       console.log(getSchedule.date)
@@ -108,10 +114,10 @@ export class BookAppointmentComponent implements OnInit {
      // get date from date picker
      // get patient id from session
      
-     let scheduleBook = new ScheduleBook();
-     //let date1: Date = new Date("2021-08-17");
+     let scheduleBook: ScheduleBook = new ScheduleBook();
+    // let date1: Date = new Date("2021-08-19");
     // scheduleBook.phid = "CT0003";
-     scheduleBook.phid =this.selectoption;
+     scheduleBook.phid =this.selectName;
      scheduleBook.time = time;
      scheduleBook.date = this.tempDate;
     
@@ -120,7 +126,8 @@ export class BookAppointmentComponent implements OnInit {
      this.schedulingService.bookappointment(scheduleBook).subscribe((data)=>{
      // location.reload();
     if(data=="booked"){
-     location.reload();
+    // location.reload();
+     this.reloadData();
     }
      })
    }
@@ -137,8 +144,9 @@ export class BookAppointmentComponent implements OnInit {
     selectOption(event: any) {
     //console.log(event)
     //console.log("value")
-    this.selectoption = event.target.value;
+    this.selectName = event.target.value;
     console.log(event.target.value)
+    console.log(this.selectName);
     this.reloadData();
 
     // this.schedulingService.getPhysicianNameById(this.selectoption).subscribe((data)=>{

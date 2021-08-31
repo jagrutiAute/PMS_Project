@@ -1,7 +1,7 @@
 export class ScheduleBook{
-    phid: String;
-    time: String;
+    phid: string;
+    time: string;
     date: Date;
    // date = new Date("17 08 2021");
-    pid: String;
+    pid: string;
 }
