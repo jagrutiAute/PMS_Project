@@ -143,6 +143,7 @@ public class HomeController {
 			//LocalDate date1=LocalDate.parse(details.getDate());
 			LocalDate date1 = details.getDate();
 			System.out.println("details="+details);
+			System.out.println("details="+details.getPhyid());
 			//booked
 			// List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true,true);
 			//List<Schedular> result= repo.findByPhyidAndDateAndBookedAndIscancelled(details.getPhyid(), date1, true, true);
@@ -150,6 +151,7 @@ public class HomeController {
 			System.out.println("helo");
 			result.stream().forEach(a->System.out.println(a));
 			 PhysicianSchedule psc= phyrepo.findByPhyidAndDate(details.getPhyid(), date1);
+			 System.out.println("psc"+psc);
 			 
 			//System.out.println(result);
 			//System.out.println(psc);

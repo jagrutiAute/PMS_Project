@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+
 import { Observable } from "rxjs";
 import { Medication } from "./medication-master";
 import { Medication1 } from "./medication1";
@@ -23,6 +24,7 @@ export class MedicationService {
   addMedicationForPatient(medicationObject: Medication[]): Observable<any> {
     let id: Number = 1;
     let phyid: Number = 12;
+   // let phyid = sessionStorage.getItem('userName');
     return this._http.post<any>(`${this.baseUrl}/physician/addmedication/${id}/${phyid}`,medicationObject);
 
   }
