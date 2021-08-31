@@ -27,6 +27,11 @@ import { RecievedNotesComponent } from '../inbox/recieved-notes/recieved-notes.c
 import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 import { AddedDiagnosisComponent } from './added-diagnosis/added-diagnosis.component';
+import { VitalSignsComponent } from '../patient-visit/vital-signs/vital-signs.component';
+import { ProcedureComponent } from './procedure/procedure.component';
+import { PatientProcedureDetailsComponent } from './patient-procedure-details/patient-procedure-details.component';
+import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
+import { PatientVitalSignComponent } from '../patient-visit/patient-vital-sign/patient-vital-sign.component';
 import { PatientVisitHistoryComponent } from '../patient-visit/patient-visit-history/patient-visit-history.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
@@ -79,6 +84,11 @@ export var adminroutes: Route[] = [
             {path: 'scheduling', component: SchedulingComponent},
             {path : 'added-diagnosis', component: AddedDiagnosisComponent},
             {path:'visit-history',component:PatientVisitHistoryComponent},
+            {path : 'vital-sign', component: VitalSignsComponent},
+            {path : 'procedure', component: ProcedureComponent},
+            {path : 'procedure-details', component: PatientProcedureDetailsComponent},
+            {path : 'patient-vital-sign', component: PatientVitalSignComponent},
+            
             {
                 path: 'medication',
                 children: [
@@ -100,11 +110,13 @@ export var adminroutes: Route[] = [
             {
                 path: 'notes', component: NotesComponent
 
-            }, { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
+            },
             { path: 'recieved-notes', component: RecievedNotesComponent },
             { path: 'sent-notes', component: SentNotesComponent },
             { path: 'notes', component: NotesComponent },
-            { path: 'upcoming-appointment', component: UpcomingAppointmentComponent },
+            
+            { path: 'vital-sign', component: VitalSignsComponent },
+            
             {
                 path: 'patient-details', component: PatientDetailsComponent
 
@@ -112,7 +124,7 @@ export var adminroutes: Route[] = [
 
             },
             {
-                path: 'scheduling', component: SchedulingComponent
+                path: 'bookappointment', component: BookAppointmentComponent
 
             },
             {

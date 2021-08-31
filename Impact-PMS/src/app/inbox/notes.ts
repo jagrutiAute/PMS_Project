@@ -7,4 +7,5 @@ export class Notes {
     isUrgent: boolean;
     sentTime: Date;
     recieveTime: Date;
+    isRead: boolean;
 }

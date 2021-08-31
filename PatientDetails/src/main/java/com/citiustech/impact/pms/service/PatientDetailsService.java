@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
@@ -16,6 +17,7 @@ import com.citiustech.impact.pms.model.Users;
 import com.citiustech.impact.pms.repository.EthinicityRepository;
 import com.citiustech.impact.pms.repository.PatientDetailsRepository;
 import com.citiustech.impact.pms.repository.RaceRepository;
+
 
 @Service
 public class PatientDetailsService {
@@ -83,6 +85,16 @@ public class PatientDetailsService {
 		patientDetails.setRace(race.get());
 
 		return patientDetailsRepo.save(patientDetails);
+	}
+
+	
+	public List<PatientDetails> fetchAllPatient() {
+		// TODO Auto-generated method stub
+		//System.out.println("patientDetailsRepo.findAll() ::::  "+patientDetailsRepo.findAll());
+		
+		//List<PatientDetails> patientList = patientDetailsRepo.findPatientInfo();
+		return patientDetailsRepo.findAll();
+		
 	}
 
 }

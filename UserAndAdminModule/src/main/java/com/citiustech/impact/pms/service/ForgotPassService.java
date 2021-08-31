@@ -30,7 +30,7 @@ public class ForgotPassService {
 
 			String generatedString = RandomStringUtils.randomNumeric(1, 1).concat(RandomStringUtils.randomAlphanumeric(7,14)).concat("$");
 
-			//System.out.println("generatedString  ::  " + generatedString);
+			System.out.println("generatedString  ::  " + generatedString);
 
 			/*
 			 * send("impactpmsjavabatch1@gmail.com", "amit@1234", email,

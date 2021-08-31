@@ -25,6 +25,8 @@ public class PatientProcedure {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	private String pid;
+	private String procedureCode;
 	private String procedureDesc;
 	private String createdBy;
 	private Calendar createdDateNtime;
@@ -35,8 +37,8 @@ public class PatientProcedure {
 	//dummy for now
 	private Integer patientvisitId;
 	
-	@JoinColumn(name = "procedure_code")
-	@OneToOne(cascade = CascadeType.ALL)
-	private Procedure procedure;
+	//@JoinColumn(name = "procedure_code")
+	//@OneToOne(cascade = CascadeType.ALL)
+	//private Procedure procedure;
 
 }

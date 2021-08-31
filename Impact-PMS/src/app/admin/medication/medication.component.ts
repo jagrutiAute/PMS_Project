@@ -39,27 +39,34 @@ export class MedicationComponent implements OnInit {
 // }
   reloadData() {
     console.log("inside reload")
-     this.medicationService.gerMedication().subscribe((data1) => {
-      this.medications= data1
-      
-      console.log(data1)
-    /*  for(let data in this.patients){
-        this.patients[data];
-        console.log("hello")
-        console.log(this.patients[data])
-        for(let d in this.patients[data]){
-          d.match("user")
-          console.log(d)
-        }
 
-      } */
-      console.log(this.medications)
-      
-    },
-    (error) => {
-      console.log(error)
-    })
-    // console.log(this.patients);
+    // if(localStorage.getItem('medication').length != 0){
+    //   this.medications = JSON.parse(localStorage.getItem('medication'));
+    // }else{ 
+
+      this.medicationService.gerMedication().subscribe((data1) => {
+        this.medications= data1
+        localStorage.setItem('medication',JSON.stringify(data1));
+        console.log(data1)
+      /*  for(let data in this.patients){
+          this.patients[data];
+          console.log("hello")
+          console.log(this.patients[data])
+          for(let d in this.patients[data]){
+            d.match("user")
+            console.log(d)
+          }
+  
+        } */
+        console.log(this.medications)
+        
+      },
+      (error) => {
+        console.log(error)
+      })
+   // }
+     
+    
   }
 
 
@@ -103,7 +110,7 @@ export class MedicationComponent implements OnInit {
    } else
   
     this.map.set(medication.applNo, medication)
-
+    this.toaster.Success("medication added")
     // getPatientIdFromSession
   }
 

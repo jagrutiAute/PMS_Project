@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetSchedule } from '../getSchedule';
-import { PhysicianId } from '../physicianId';
+import {PhysicianIdAndName } from '../physicianId';
+import { PhysicianName } from '../physicianName';
+
 import { Schedule1 } from '../schedule1';
 import { ScheduleBook } from '../schedulebook';
 import { SchedulingService } from '../scheduling.service';
@@ -16,7 +18,8 @@ export class BookAppointmentComponent implements OnInit {
 
   //scheduling: Scheduling[];
   //str:string;
-  physicianId: PhysicianId[];
+  physicianIdAndName: PhysicianIdAndName[];
+ // physicianName: PhysicianName[];
   schedule: Schedule1[];
   // user: User1;
    //firstName: any;
@@ -24,6 +27,8 @@ export class BookAppointmentComponent implements OnInit {
   // getSchedule:GetSchedule
 
   tempDate: Date;
+  selectName: string;
+  
    constructor(private schedulingService: SchedulingService,
      private router: Router) {}
  
@@ -31,28 +36,36 @@ export class BookAppointmentComponent implements OnInit {
      this.reloadData();
      console.log("hello oye")
     // this.load();
-    this.schedulingService.getAllPhysicianId().subscribe((data)=>{
-      this.physicianId = data;
+    this.schedulingService.getAllPhysicianIdAndName().subscribe((data)=>{
+      this.physicianIdAndName = data;
       console.log("hiiiiiiiiiiiii")
       console.log(data);
     })
+    console.log("out")
+
+    
+    
    }
- // load(){
- //   console.log("load")
- //   //this.patients.forEach(projet=>console.log(projet.id));
- //   for(var pat in this.patients){
- //     console.log("hello")
- //     console.log(this.patients[pat]);
- //   }
- // }
+ 
+   
    reloadData() {
-     let getSchedule = new GetSchedule();
-  //  let getschedule = new Patient1();
-  //let d: Date = new Date("2021-08-17");
-      getSchedule.phyid="12";
+     let getSchedule: GetSchedule = new GetSchedule();
+     //  let getschedule = new Patient1();
+    // let d: Date = new Date("2021-08-19");
+    console.log(this.selectName);
+    //getSchedule.phyid= "CT0003";
+      getSchedule.phyid = this.selectName;
+      console.log(getSchedule.phyid)
+      if(getSchedule.phyid == this.selectName){
+        console.log("equal")
+      }
+
       getSchedule.date = this.tempDate;
+      console.log(getSchedule.date)
+
       console.log("inside reload")
       console.log(this.tempDate);
+      if(getSchedule.phyid!=null && getSchedule.date!=null){
       this.schedulingService.getAllUnbookedappointmet(getSchedule).subscribe((data) => {
        this.schedule = data;
        console.log(data)
@@ -62,6 +75,7 @@ export class BookAppointmentComponent implements OnInit {
      (error) => {
        console.log(error)
      })
+    }
      // console.log(this.patients);
    }
  
@@ -100,18 +114,20 @@ export class BookAppointmentComponent implements OnInit {
      // get date from date picker
      // get patient id from session
      
-     let scheduleBook = new ScheduleBook();
-     //let date1: Date = new Date("2021-08-17");
-     scheduleBook.phid = "12";
+     let scheduleBook: ScheduleBook = new ScheduleBook();
+    // let date1: Date = new Date("2021-08-19");
+    // scheduleBook.phid = "CT0003";
+     scheduleBook.phid =this.selectName;
      scheduleBook.time = time;
      scheduleBook.date = this.tempDate;
     
-     scheduleBook.pid = "1";
+     scheduleBook.pid = "5";
   
      this.schedulingService.bookappointment(scheduleBook).subscribe((data)=>{
      // location.reload();
     if(data=="booked"){
-     location.reload();
+    // location.reload();
+     this.reloadData();
     }
      })
    }
@@ -128,10 +144,20 @@ export class BookAppointmentComponent implements OnInit {
     selectOption(event: any) {
     //console.log(event)
     //console.log("value")
+    this.selectName = event.target.value;
     console.log(event.target.value)
+    console.log(this.selectName);
+    this.reloadData();
+
+    // this.schedulingService.getPhysicianNameById(this.selectoption).subscribe((data)=>{
+    //   this.physicianName = data;
+    //   console.log("patietName")
+    //   console.log(this.physicianName);
+    // })
+   
     }
 
-
+    
  
    updateStatus(id: number){
      this.router.navigate(['admin-dashboard/patient-users/edit-patient-users', id]);

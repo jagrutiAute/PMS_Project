@@ -14,7 +14,8 @@ import lombok.NoArgsConstructor;
 public class Procedure {
 
 	@Id
-	private Integer procedureCode;
+	private Integer id;
+	private String procedureCode;
 	private String procedureDesc;
 	private Boolean isProcedureDpricated;
 	

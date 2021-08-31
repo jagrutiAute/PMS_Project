@@ -16,6 +16,7 @@ import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 import { NotesComponent } from '../inbox/notes/notes.component';
 import { CancelappointmentsComponent } from './cancelappointments/cancelappointments.component';
 import { PatientUpcomingAppoitmentsComponent } from '../inbox/patient-upcoming-appoitments/patient-upcoming-appoitments.component';
+import { PatientVitalSignComponent } from '../patient-visit/patient-vital-sign/patient-vital-sign.component';
 
 export var patientroutes:Route[]=[
     
@@ -39,8 +40,10 @@ export var patientroutes:Route[]=[
 
        {path:'vital-signs',component:VitalSignsComponent},
       { path: 'medication',component: MedicationComponent },
+     
       { path: 'book-appointment',component: BookAppointmentComponent },
-      { path: 'app-patient-allergy-details',component: PatientAllergyDetailsComponent }
+      { path: 'app-patient-allergy-details',component: PatientAllergyDetailsComponent },
+      { path: 'patient-vital-sign',component: PatientVitalSignComponent }
        
 
     ]

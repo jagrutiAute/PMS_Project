@@ -3,24 +3,34 @@
 </head>
 
 
-<h1 style="text-align: center;"><u><b>Book Appontment</b></u></h1>
+<h1 style="text-align: center;"><b>Book Appointment</b></h1>
 <br>
 
 <input type="date" placeholder="Choose a date" (change)="onChangeEvent($event)" >&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
 <select name="phid" id="phid" (change)="selectOption($event)"> 
     <option value="">------select-----</option>
-    <option *ngFor="let pid of physicianId" value="{{pid}}">
+    <option *ngFor="let pid of physicianIdAndName" value="{{pid.phyid}}">
 
-        {{pid}} </option>
+        {{pid.firstName}} {{pid.lastName}}</option>
     
   </select>
-<br>
-<br>
+   <!-- <p *ngFor="let p of physicianName">
 
+   <br> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; {{p.firstName}}
+  {{p.lastName}}
+
+  </p>
+  
+<br>
+<br> -->
+<br>
+<br>
 
 <table class="table table-striped" style="font-size: 15px;">
     <thead>
-        <tr style="background-color:royalblue; color: seashell;">
+        <tr style="background-color:#2f4b7c; color: seashell;">
             <th style="width: 24%">Time</th>
            
           

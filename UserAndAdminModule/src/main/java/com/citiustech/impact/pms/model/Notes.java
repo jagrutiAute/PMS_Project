@@ -27,6 +27,7 @@ public class Notes {
 	private LocalDateTime sentTime;
 	private LocalDateTime recieveTime;	
 	private String sender;
+	private Boolean isRead;
 	
 	
 	

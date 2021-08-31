@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 public class Medication {
 
 	@Id
-	@Column(name="appl_no")
+	@Column(name="applno")
 	private String applNo;
 	
-	@Column(name="product_no")
+	@Column(name="productno")
 	private String productNo;
 	
 	@Column(name="form")
@@ -29,16 +29,16 @@ public class Medication {
 	@Column(name="strength")
 	private String strength;
 	
-	@Column(name="reference_drug")
+	@Column(name="referencedrug")
 	private int referenceDrug;
 	
-	@Column(name="drug_name")
+	@Column(name="drugname")
 	private String drugName;
 	
-	@Column(name="active_ingredient")
+	@Column(name="activeingredient")
 	private String activeIngredient;
 	
-	@Column(name="reference_standard")
+	@Column(name="referencestandard")
 	private int referenceStandard;
 	
 }

@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,6 +14,11 @@ public interface PatientDetailsRepository extends JpaRepository<PatientDetails, 
 
 
 public Optional<PatientDetails> findAllPatientDetailsByUsername(String email);
+
+
+
+@Query(value="select mrn,first_name,last_name from patient;",nativeQuery = true )
+public List<PatientDetails> findPatientInfo();
 
 
 }

@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
@@ -19,6 +20,7 @@ import com.citiustech.impact.pms.model.PatientDetails;
 import com.citiustech.impact.pms.service.EmergencyContactInfoService;
 import com.citiustech.impact.pms.service.PatientDetailsService;
 
+
 @RestController
 @CrossOrigin(origins = "*")
 public class PatientDetailsController {
@@ -30,6 +32,17 @@ public class PatientDetailsController {
 
 	@Autowired
 	EmergencyContactInfoService emergencyContactInfoService;
+	
+	
+	@GetMapping("/getAllPatient")
+    public ResponseEntity<List<PatientDetails>> getAllPatient()
+    {
+		
+		List<PatientDetails> patientList=patientDetailsService.fetchAllPatient();
+		
+		return new ResponseEntity<List<PatientDetails>>(patientList,HttpStatus.OK);
+    	
+    }
 
 	@GetMapping("/getPatientDetails/{username}")
 	public Optional<Optional<PatientDetails>> getPatientDetails(@PathVariable String username) {

@@ -4,7 +4,7 @@
 
 
 <br>
-<h1 style="text-align: center;"><u><b>Allergy Details</b></u></h1>
+<h1 style="text-align: center;"><b>Allergy Details</b></h1>
 <br>
 <!-- <a routerLink="add-patient-users" class="btn btn-lg btn-success mb-2">Add Patient</a> -->
 
@@ -54,7 +54,7 @@
         </tr>
     </thead>
     <tbody >
-        <tr *ngFor="let allergy of allergies | paginate: {itemsPerPage:2,currentPage:p};">
+        <tr *ngFor="let allergy of allergies | paginate: {itemsPerPage:7,currentPage:p};">
             <td>{{allergy.id}}</td>
             <td>{{allergy.type}}</td>
             <td> {{allergy.name}} </td>
