@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -22,6 +24,9 @@ import lombok.NoArgsConstructor;
 public class MedicationSave {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	@Column(name="appl_no")
 	private String applNo;
 	
@@ -35,7 +40,7 @@ public class MedicationSave {
 	private String strength;
 	
 	@Column(name="reference_drug")
-	private int referenceDrug;
+	private String referenceDrug;
 	
 	@Column(name="drug_name")
 	private String drugName;
@@ -44,13 +49,12 @@ public class MedicationSave {
 	private String activeIngredient;
 	
 	@Column(name="reference_standard")
-	private int referenceStandard;
+	private String referenceStandard;
 	
 	
 	private String pid;
 	
-	private String phyid;
-	
+		
 	private LocalDate date;
 	
 }

@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.procedure.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,8 +16,13 @@ public class Procedure {
 
 	@Id
 	private Integer id;
+	@Column(name="procedure_code")
 	private String procedureCode;
+	
+	@Column(name ="procedure_desc")
 	private String procedureDesc;
-	private Boolean isProcedureDpricated;
+	
+	@Column(name="is_procedure_dpricated")
+	private String isProcedureDpricated;
 	
 }

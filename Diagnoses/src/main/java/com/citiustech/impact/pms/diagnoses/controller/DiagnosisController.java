@@ -56,7 +56,7 @@ public class DiagnosisController {
 			
 			d1.setDiagnosis_code(d.getDiagnosis_code());
 			d1.setDiagnosis_description(d.getDiagnosis_description());
-			d1.setDiagnosis_is_deprecated(d.isDiagnosis_is_deprecated());
+			d1.setDiagnosis_is_deprecated(d.getDiagnosis_is_deprecated());
 			d1.setPid(pid);
 			d1.setPhyid(phyid);
 //		    m1.setApplNo(m.getApplNo());
@@ -85,9 +85,9 @@ public class DiagnosisController {
 		return "save";
 	}
 	
-	@GetMapping("physician/getAddedDiagnosis")
-	public ResponseEntity<List<DiagnosisSave>> getAddedDiagnosis(){
-		List<DiagnosisSave> DiagnosisSave = diagnosisService.gettingAddedDiagnosis();
+	@GetMapping("physician/getAddedDiagnosis/{id}")
+	public ResponseEntity<List<DiagnosisSave>> getAddedDiagnosis(@PathVariable String id){
+		List<DiagnosisSave> DiagnosisSave = diagnosisService.gettingAddedDiagnosis(id);
 		
 		return new ResponseEntity<List<DiagnosisSave>>(DiagnosisSave, HttpStatus.OK);
 	}

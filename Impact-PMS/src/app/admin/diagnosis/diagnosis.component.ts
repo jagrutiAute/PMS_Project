@@ -126,7 +126,7 @@ export class DiagnosisComponent implements OnInit {
     })
     
 
-    this.router.navigate(['physician-dashboard/patient-details'])
+    this.router.navigate(['physician-dashboard/patient-diagnosis'])
   }
   else
   //console.log("same page")

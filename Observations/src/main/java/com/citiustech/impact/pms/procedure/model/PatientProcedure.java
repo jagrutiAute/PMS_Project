@@ -3,6 +3,7 @@ package com.citiustech.impact.pms.procedure.model;
 import java.util.Calendar;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,13 +27,20 @@ public class PatientProcedure {
 	private Integer id;
 	
 	private String pid;
+	
+	@Column(name="procedure_code")
 	private String procedureCode;
+	
+	@Column(name ="procedure_desc")
 	private String procedureDesc;
+	
 	private String createdBy;
 	private Calendar createdDateNtime;
 	private String modifiedBy;
 	private Calendar modifiedDateNtime;
-	private Boolean isProcedureActive;
+	
+	@Column(name="is_procedure_dpricated")
+	private String isProcedureDpricated;
 	
 	//dummy for now
 	private Integer patientvisitId;

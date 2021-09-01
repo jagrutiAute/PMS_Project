@@ -16,7 +16,7 @@ import { HospitalUserService } from './hospital-user.service';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MedicationComponent } from './medication/medication.component';
-import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { PatientDetailsComponent1 } from './patient-details/patient-details.component';
 import { AddMedicationComponent } from './add-medication/add-medication.component';
 
 import { SchedulingComponent } from './scheduling/scheduling.component';
@@ -55,6 +55,7 @@ import { BookAppointmentComponent } from './book-appointment/book-appointment.co
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProcedureComponent } from './procedure/procedure.component';
 import { PatientProcedureDetailsComponent } from './patient-procedure-details/patient-procedure-details.component';
+import { PatientDiagnosisComponent } from './patient-diagnosis/patient-diagnosis.component';
 
 
 
@@ -76,7 +77,7 @@ import { PatientProcedureDetailsComponent } from './patient-procedure-details/pa
     CreateHospitalUserComponent,
     UpdateHospitalUserComponent,
     MedicationComponent,
-    PatientDetailsComponent,
+    PatientDetailsComponent1,
     AddMedicationComponent,
     SchedulingComponent,
     NurseDashboardComponent,
@@ -86,7 +87,8 @@ import { PatientProcedureDetailsComponent } from './patient-procedure-details/pa
     AddedDiagnosisComponent,
     BookAppointmentComponent,
     ProcedureComponent,
-    PatientProcedureDetailsComponent
+    PatientProcedureDetailsComponent,
+    PatientDiagnosisComponent
     
     
   ],

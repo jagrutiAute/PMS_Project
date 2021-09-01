@@ -12,7 +12,7 @@ import { CreateHospitalUserComponent } from './create-hospital-user/create-hospi
 import { UpdateHospitalUserComponent } from './update-hospital-user/update-hospital-user.component';
 import { EditPatientUsersComponent } from './edit-patient-users/edit-patient-users.component';
 import { MedicationComponent } from './medication/medication.component';
-import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { PatientDetailsComponent1 } from './patient-details/patient-details.component';
 import { AddMedicationComponent } from './add-medication/add-medication.component';
 import { SchedulingComponent } from './scheduling/scheduling.component';
 import { AdminGuard } from '../admin.guard';
@@ -32,6 +32,8 @@ import { ProcedureComponent } from './procedure/procedure.component';
 import { PatientProcedureDetailsComponent } from './patient-procedure-details/patient-procedure-details.component';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 import { PatientVitalSignComponent } from '../patient-visit/patient-vital-sign/patient-vital-sign.component';
+import { PatientDetailsComponent } from '../patient/patient-details/patient-details.component';
+import { PatientDiagnosisComponent } from './patient-diagnosis/patient-diagnosis.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 
@@ -79,13 +81,14 @@ export var adminroutes: Route[] = [
             { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
             { path: 'recieved-notes', component: RecievedNotesComponent },
             { path: 'sent-notes', component: SentNotesComponent },
-            {path: 'patient-details', component: PatientDetailsComponent},
+            {path: 'patient-details', component: PatientDetailsComponent1},
             {path: 'scheduling', component: SchedulingComponent},
             {path : 'added-diagnosis', component: AddedDiagnosisComponent},
             {path : 'vital-sign', component: VitalSignsComponent},
             {path : 'procedure', component: ProcedureComponent},
             {path : 'procedure-details', component: PatientProcedureDetailsComponent},
             {path : 'patient-vital-sign', component: PatientVitalSignComponent},
+            {path : 'patient-diagnosis', component: PatientDiagnosisComponent},
             
             {
                 path: 'medication',

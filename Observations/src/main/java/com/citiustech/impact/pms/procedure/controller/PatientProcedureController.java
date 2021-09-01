@@ -63,7 +63,7 @@ public class PatientProcedureController {
 			m1.setPid(pid);
 			m1.setProcedureCode(m.getProcedureCode());
 			m1.setProcedureDesc(m.getProcedureDesc());
-			m1.setIsProcedureActive(m.getIsProcedureDpricated());
+			m1.setIsProcedureDpricated(m.getIsProcedureDpricated());
 			
 			procedures.add(m1);
 		}

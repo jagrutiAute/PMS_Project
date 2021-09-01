@@ -22,16 +22,26 @@ export class MedicationService {
 
 
   addMedicationForPatient(medicationObject: Medication[]): Observable<any> {
-    let id: Number = 1;
-    let phyid: Number = 12;
-   // let phyid = sessionStorage.getItem('userName');
-    return this._http.post<any>(`${this.baseUrl}/physician/addmedication/${id}/${phyid}`,medicationObject);
+   // let id: Number = 1;
+    //let phyid: Number = 12;
+    let pid = sessionStorage.getItem('pidforvisit');
+    return this._http.post<any>(`${this.baseUrl}/physician/addmedication/${pid}`,medicationObject);
 
   }
 
 
   getAddedMedication(): Observable<Medication1[]> {
-    return this._http.get<Medication1[]>(this.baseUrl + '/physician/getAddedMedication');
+   
+    let pid:string;
+   
+    if(sessionStorage.getItem('role')=='Physician'){
+     pid = sessionStorage.getItem('pidforvisit');
+    }else{
+      pid =sessionStorage.getItem('mrnNumber');
+    }
+
+    console.log("Hjdkdldl"+this._http.get<Medication1[]>(this.baseUrl + '/physician/getAddedMedication'+pid));
+    return this._http.get<Medication1[]>(this.baseUrl + '/physician/getAddedMedication/'+pid);
   }
 
 

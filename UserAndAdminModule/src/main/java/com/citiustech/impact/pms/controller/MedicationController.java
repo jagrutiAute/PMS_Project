@@ -48,11 +48,11 @@ public class MedicationController {
 		return new ResponseEntity<List<Medication>>(medication, HttpStatus.OK);
 	}
 	
-	@PostMapping("physician/addmedication/{pid}/{phyid}")
-	public String addMedicationForPatient(@RequestBody List<MedicationSave> medicationObject, @PathVariable String pid, @PathVariable String phyid){
+	@PostMapping("physician/addmedication/{pid}")
+	public String addMedicationForPatient(@RequestBody List<MedicationSave> medicationObject, @PathVariable String pid){
 		
 		System.out.println("pid="+pid);
-		System.out.println("phyid="+phyid);
+		
 		List<MedicationSave> medicationSaves = new ArrayList<>();
 		for(MedicationSave m: medicationObject) {
 			
@@ -66,7 +66,7 @@ public class MedicationController {
 		    m1.setActiveIngredient(m.getActiveIngredient());
 		    m1.setReferenceStandard(m.getReferenceStandard());
 		    m1.setPid(pid);
-		    m1.setPhyid(phyid);
+		    //m1.setPhyid(phyid);
 		    m1.setDate(LocalDate.now());
 		    medicationSaves.add(m1);
 		}
@@ -82,9 +82,9 @@ public class MedicationController {
 		return "save";
 	}
 	
-	@GetMapping("physician/getAddedMedication")
-	public ResponseEntity<List<MedicationSave>> getAddedMedication(){
-		List<MedicationSave> medicationSave = medicationService.gettingAddedMedication();
+	@GetMapping("physician/getAddedMedication/{pid}")
+	public ResponseEntity<List<MedicationSave>> getAddedMedication(@PathVariable String pid){
+		List<MedicationSave> medicationSave = medicationService.gettingAddedMedication(pid);
 		
 		return new ResponseEntity<List<MedicationSave>>(medicationSave, HttpStatus.OK);
 	}
