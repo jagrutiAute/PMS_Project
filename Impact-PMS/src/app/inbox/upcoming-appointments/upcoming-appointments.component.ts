@@ -60,17 +60,21 @@ export class UpcomingAppointmentsComponent implements OnInit {
         tmp.time=apt.time;
       ///take patient id from drop down
       tmp.pid=apt.pid;
-          this.schedulingservice.canceelapppoitment(tmp).subscribe(x=>{
+      if(confirm("do you want to cancel the appointment ?") == true){
 
-                if(x=='Success'){
-                    alert('Appoitment cancelled successfully');
-                    location.reload();
-                }
-                else{
-                    alert('You entered wrong data');
-                }
-                
-          });
+        this.schedulingservice.canceelapppoitment(tmp).subscribe(x=>{
+
+          if(x=='Success'){
+            this.toaster.Success("appointment cancelled")
+            
+              location.reload();
+          }
+         
+          
+    });
+
+      }
+        
 
   }
 

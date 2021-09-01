@@ -22,11 +22,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { PatientUpcomingAppoitmentsComponent } from './patient-upcoming-appoitments/patient-upcoming-appoitments.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [NotesComponent, RecievedNotesComponent, SentNotesComponent, UpcomingAppointmentsComponent, NoteSortPipe, NoteIsurgentPipe, PatientUpcomingAppoitmentsComponent],
   providers: [ToasterService1],
   imports: [
+    MatButtonModule,
     CommonModule,
     MatRadioModule,
     TextFieldModule,
