@@ -6,9 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { PatientVisitHistoryComponent } from './patient-visit-history/patient-visit-history.component';
+import { PatientVitalSignComponent } from './patient-vital-sign/patient-vital-sign.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { PatientVitalSignComponent } from './patient-vital-sign/patient-vital-sign.component';
+
 
 
 

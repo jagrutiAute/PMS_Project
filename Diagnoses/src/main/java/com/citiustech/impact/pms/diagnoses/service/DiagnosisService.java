@@ -38,8 +38,8 @@ public class DiagnosisService {
 		diagnosisSaveArrayListRepository.saveAll(diagnosisSaveArrayList);
 	}
 
-	public List<DiagnosisSave> gettingAddedDiagnosis() {
+	public List<DiagnosisSave> gettingAddedDiagnosis(String id) {
 		
-		return diagnosisSaveArrayListRepository.findAll();
+		return diagnosisSaveArrayListRepository.findByPid(id);
 	}
 }

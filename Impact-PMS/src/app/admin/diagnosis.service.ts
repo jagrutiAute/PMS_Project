@@ -18,14 +18,24 @@ export class DiagnosisService {
 
 
   addDiagnosisForPatient(diadnosisObject: Diagnosis[]): Observable<any> {
-    let id: Number = 1;
-    let phyid: Number = 12;
+    let id: string=sessionStorage.getItem('pidforvisit');
+    let phyid= sessionStorage.getItem('username');
+    
     return this._http.post<any>(`${this.baseUrlDiagnosis}/physician/addDiagnosis/${id}/${phyid}`,diadnosisObject);
   }
 
   
   getAddedDiagnosis(): Observable<Diagnosis[]> {
-    return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + '/physician/getAddedDiagnosis');
+    let pid:string;
+   
+    if(sessionStorage.getItem('role')=='Physician'){
+     pid = sessionStorage.getItem('pidforvisit');
+    }else{
+      pid =sessionStorage.getItem('mrnNumber');
+    }
+    
+       
+    return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + '/physician/getAddedDiagnosis/'+pid);
   }
 
 }

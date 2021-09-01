@@ -82,7 +82,7 @@ public class PDFGenerator {
 				formCell.setHorizontalAlignment(Element.ALIGN_LEFT);
 				table.addCell(formCell);
 
-				PdfPCell phyIdCell = new PdfPCell(new Phrase(med.getPhyid()));
+				PdfPCell phyIdCell = new PdfPCell(new Phrase(med.getPid()));
 				phyIdCell.setPaddingLeft(4);
 				phyIdCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 				phyIdCell.setHorizontalAlignment(Element.ALIGN_LEFT);

@@ -2,14 +2,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-
-<h1 style="text-align: center;"><b>Vital Sign</b></h1>
+<br>
+<h1 style="text-align: center;"><b>Vital Sign</b></h1><hr>
 <br>
 
 
+<div *ngIf = "roles=='Physician'">
 
-
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" style="margin-left:2%">
     <mat-label>Patient</mat-label>
     <select matNativeControl formControlName="patientID" (change)="selectOption($event)"   >
        
@@ -20,14 +20,14 @@
     </select>
 </mat-form-field>
 
- 
+</div>
 
 
 
 <br>
 
 <table class="table table-striped" style="font-size: 15px;">
-    <thead>
+    <thead style="background-color:#2f4b7c; color: white;" >
 
         <tr>
             <td>Height</td>

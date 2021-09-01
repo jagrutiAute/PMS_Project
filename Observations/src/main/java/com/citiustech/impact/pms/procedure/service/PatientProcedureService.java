@@ -35,8 +35,8 @@ public class PatientProcedureService {
 		log.debug("calling findById() method of PatientProcedureRepository interface");
 		
 		
-		//return patientProcedureRepo.findById(id);
-		return patientProcedureRepo.getAllPatientProcedure(pid);
+		return patientProcedureRepo.findByPid(pid);
+		//return patientProcedureRepo.getAllPatientProcedure(pid);
 		
 	}
 

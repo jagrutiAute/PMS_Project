@@ -2,6 +2,8 @@ package com.citiustech.impact.pms.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +18,9 @@ import lombok.NoArgsConstructor;
 @Table(name="productmedication")
 public class Medication {
 
+	
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	//private Integer id;
 	@Id
 	@Column(name="applno")
 	private String applNo;

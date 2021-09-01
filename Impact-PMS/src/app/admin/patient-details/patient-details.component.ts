@@ -9,7 +9,7 @@ import { Medication1 } from '../medication1';
   templateUrl: './patient-details.component.html',
   styleUrls: ['./patient-details.component.css']
 })
-export class PatientDetailsComponent implements OnInit {
+export class PatientDetailsComponent1 implements OnInit {
   
   medications: Medication1[];
   constructor(private medicationService: MedicationService){}

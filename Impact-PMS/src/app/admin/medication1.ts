@@ -3,10 +3,10 @@ export interface Medication1 {
     applNo:String;
      productNo:String;
      form:String;
-     strength:number;
+     strength:String;
     referenceDrug:String;
      drugName:String;
      activeIngredient:String;
-    referenceStandard:number;
+    referenceStandard:String;
     
 }

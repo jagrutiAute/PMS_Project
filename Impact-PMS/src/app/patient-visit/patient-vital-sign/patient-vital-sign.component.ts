@@ -36,7 +36,7 @@ export class PatientVitalSignComponent implements OnInit {
     let pid :any;
     if(this.roles == 'Physician'){
 
-      pid = "22"
+      pid = "1"
     }else{
       pid = sessionStorage.getItem('mrnNumber')
     }

@@ -17,11 +17,15 @@ import { NotesComponent } from '../inbox/notes/notes.component';
 import { CancelappointmentsComponent } from './cancelappointments/cancelappointments.component';
 import { PatientUpcomingAppoitmentsComponent } from '../inbox/patient-upcoming-appoitments/patient-upcoming-appoitments.component';
 import { PatientVitalSignComponent } from '../patient-visit/patient-vital-sign/patient-vital-sign.component';
+import { ProcedureComponent } from '../admin/procedure/procedure.component';
+import { PatientProcedureDetailsComponent } from '../admin/patient-procedure-details/patient-procedure-details.component';
+import { PatientDetailsComponent1 } from '../admin/patient-details/patient-details.component';
+import { PatientDiagnosisComponent } from '../admin/patient-diagnosis/patient-diagnosis.component';
 
 export var patientroutes:Route[]=[
     
     {path:'app-body-layout', component:BodyLayoutComponent,
-    //, canActivate:[AuthGuard]
+     canActivate:[AuthGuard],
 
     children:[
 
@@ -43,8 +47,11 @@ export var patientroutes:Route[]=[
      
       { path: 'book-appointment',component: BookAppointmentComponent },
       { path: 'app-patient-allergy-details',component: PatientAllergyDetailsComponent },
-      { path: 'patient-vital-sign',component: PatientVitalSignComponent }
-       
+      { path: 'patient-vital-sign',component: PatientVitalSignComponent },
+      { path: 'procedure',component: PatientProcedureDetailsComponent },
+      { path: 'showmedication',component: PatientDetailsComponent1 },
+      { path: 'showdiagnosis',component: PatientDiagnosisComponent }
+      
 
     ]
 }

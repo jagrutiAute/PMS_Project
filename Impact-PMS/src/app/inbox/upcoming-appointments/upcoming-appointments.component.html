@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-
+<br>
 <h1 style="text-align: center;"><b>Upcoming Appointments</b></h1>
 <br>
 <!-- <a routerLink="add-patient-users" class="btn btn-lg btn-success mb-2">Add Patient</a> -->
@@ -29,18 +29,13 @@
 
 <table class="table table-striped" style="font-size: 15px;">
     <thead>
-        <!-- <tr style="background-color:royalblue; color: seashell;">
-            <th (click)="sort('id')" style="width: 8%">appNo&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('title')" style="width: 11%">ProductNo&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('firstName')" style="width: 10%">form&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('dateOfBirth')" style="width: 12%">strengthString&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('email')" style="width: 12%">referenceDrug&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('phoneNumber')" style="width: 14%">activeIngredient&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('Status')" style="width: 16%">referenceStandard&nbsp;<i class="fa fa-sort"></i></th>
-            <th style="width: 25%">Action</th>
-        </tr> -->
+        <tr style="background-color:#2f4b7c; color: seashell; ">
+            <th style="width: 40%; text-align:center; ">Appointments</th>
+          
+        </tr>
     </thead>
     <tbody>
+        
         <tr *ngFor="let upcmgapts of appoinmets | orderBy: key: reverse | paginate: {itemsPerPage:3,currentPage:p};">
             <td>{{upcmgapts.id}}</td>
             <td>{{upcmgapts.date}}</td>
@@ -53,7 +48,8 @@
            </p> -->
             <td>
                 <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
-                 <button (click)="canceleAppoitment(upcmgapts)" class="btn btn-primary btn-lg">Cancel</button>
+                
+                <button (click)="canceleAppoitment(upcmgapts)"  mat-raised-button color="warn">Cancel</button>
 
             </td>
         </tr>
@@ -62,11 +58,15 @@
 
 </table>
 <br><br><br>
+
 <div class="card" style="font-size: 17px;">
     <div class="card-header">
+        
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
+    
 </div>
+
 <br>
 <div class="table table-striped" style="font-size: 15px;">
 

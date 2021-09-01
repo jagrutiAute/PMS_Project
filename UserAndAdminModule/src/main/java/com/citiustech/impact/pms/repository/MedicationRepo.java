@@ -11,7 +11,7 @@ import com.citiustech.impact.pms.model.Medication;
 
 @Repository
 @EnableJpaRepositories
-public interface MedicationRepo extends JpaRepository<Medication, String>{
+public interface MedicationRepo extends JpaRepository<Medication, Integer>{
 
 	@Query(value="select * from productmedication limit 500", nativeQuery = true)
 	List<Medication> findAllMedication();

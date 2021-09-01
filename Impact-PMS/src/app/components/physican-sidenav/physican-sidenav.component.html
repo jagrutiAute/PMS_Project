@@ -68,7 +68,7 @@
 
       </mat-expansion-panel-header>
       <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="patient-vital-sign">
-        vital sign
+        Vital Sign
       </a>
 
       <!-- <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="/app-body-layout/emergency-contact-info">
@@ -86,9 +86,18 @@
         Procedure
       </a>
 
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="patient-details">
+      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="allergy">
+        Allergy
+      </a>
+
+      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="pateint-allergy">
+        Previous Allergy
+      </a>
+      
+
+      <!-- <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="patient-details">
         Patient Details
-      </a>
+      </a> -->
 
 
     </mat-expansion-panel>
@@ -97,31 +106,6 @@
 
 </mat-nav-list>
 
-<mat-nav-list>
-
-  <mat-accordion>
-
-    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
-
-      <mat-expansion-panel-header class="specific-class">
-        <mat-panel-title style="color: white;">
-          Appointment
-        </mat-panel-title>
-
-      </mat-expansion-panel-header>
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/app-body-layout/patient-details">
-        Notification
-      </a>
-
-
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;" routerLink="scheduling">
-        Scheduling
-      </a>
-
-    </mat-expansion-panel>
-  </mat-accordion>
-</mat-nav-list>
 
 
 <mat-nav-list>
@@ -137,7 +121,7 @@
 
       </mat-expansion-panel-header>
       <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/app-body-layout/patient-details">
+        routerLink="visit-history">
         Visit History
       </a>
 
@@ -149,46 +133,3 @@
   </mat-accordion>
 </mat-nav-list>
 
-<mat-nav-list>
-
-  <mat-accordion>
-
-    <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)">
-
-      <mat-expansion-panel-header class="specific-class">
-        <mat-panel-title style="color: white;">
-          Patient Details
-        </mat-panel-title>
-
-      </mat-expansion-panel-header>
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/app-body-layout/patient-details">
-        Visit History
-      </a>
-
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/app-body-layout/patient-details">
-        Demographics
-      </a>
-
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/app-body-layout/emergency-contact-info">
-        Emergency Contact
-      </a>
-
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/app-body-layout/allergy-details">
-        Allergies
-      </a>
-
-      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
-        routerLink="/physician-dashboard/added-diagnosis">
-        Diagnosis
-      </a>
-
-
-
-    </mat-expansion-panel>
-
-  </mat-accordion>
-</mat-nav-list>

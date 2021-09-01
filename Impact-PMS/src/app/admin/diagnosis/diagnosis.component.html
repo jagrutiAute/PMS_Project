@@ -3,21 +3,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-
-<h1 style="text-align: center;"><u><b>Diagnosis Details</b></u></h1>
 <br>
-<!-- <a routerLink="add-patient-users" class="btn btn-lg btn-success mb-2">Add Patient</a> -->
+<h1 style="text-align: center;"><b>Diagnosis Details</b></h1><hr>
+<br>
 
-<!--<div class="search-container" style="text-align: right;">
-    <form action="#">
-      <input type="text" placeholder="Search.." name="firstName">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>..
-  </div>-->
-
-
-
-<div class="search-container">
+<div class="search-container" style="width: 30%;">
     <input type="text" placeholder=" Search..." class="form-control" name="diagnosis_code" [(ngModel)]="diagnosis_code"
         (ngModelChange)="search()">
    
@@ -27,15 +17,11 @@
 
 <table class="table table-striped" style="font-size: 15px;">
     <thead>
-        <tr style="background-color:royalblue; color: seashell;">
+        <tr style="background-color:#003f5c; color: seashell;">
             <th (click)="sort('id')" style="width: 12%">diagnosis_code&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('title')" style="width: 18%">diagnosis_description&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('firstName')" style="width: 10%">diagnosis_is_deprecated&nbsp;<i class="fa fa-sort"></i></th>
-            <!-- <th (click)="sort('dateOfBirth')" style="width: 12%">strengthString&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('email')" style="width: 12%">referenceDrug&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('phoneNumber')" style="width: 14%">activeIngredient&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('Status')" style="width: 16%">referenceStandard&nbsp;<i class="fa fa-sort"></i></th>   -->
-            <th style="width: 0%">Action</th>
+            <th (click)="sort('firstName')" style="width: 9%">diagnosis_is_deprecated&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="width: 2%">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -46,9 +32,7 @@
             
           
             <td>
-                <!--<button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
-                <button (click)="addDiagnosis(medication)" class="btn btn-primary btn-lg">Add Diagnosis</button>
-
+              <button (click)="addDiagnosis(medication)" class="btn btn-lg" mat-raised-button color="accent">Add Diagnosis</button>
             </td>
         </tr>
 
@@ -87,9 +71,9 @@
 
 </tbody>
 <br>
-<div>
+<div style="margin-left: 2%;">
    
-<button (click)="saveDiagnosis()" class="btn btn-primary btn-lg" [disabled]="map.size==0"> Save </button>
+<button (click)="saveDiagnosis()" class="btn-lg" style="background-color: #003f5c; color: white;" [disabled]="map.size==0"> Save </button>
 </div>
 </div>
 

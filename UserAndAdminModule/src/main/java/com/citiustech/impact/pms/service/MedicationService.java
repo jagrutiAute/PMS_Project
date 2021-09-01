@@ -20,9 +20,9 @@ public class MedicationService {
 		medicationSaveRepository.saveAll(medicationDTO);
 	}
 
-	public List<MedicationSave> gettingAddedMedication() {
-		return medicationSaveRepository.findAll();
-		
+	public List<MedicationSave> gettingAddedMedication(String pid) {
+		//return medicationSaveRepository.findAll();
+		return medicationSaveRepository.findByPid(pid);
 		
 	}
 

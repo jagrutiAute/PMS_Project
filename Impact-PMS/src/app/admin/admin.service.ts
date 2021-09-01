@@ -21,8 +21,13 @@ export class AdminDashBoardService {
   constructor(private _http: HttpClient) { }
 
   getAddeProcedures(): Observable<Procedure[]> {
-    //let pid=sessionStorage.getItem("mrnNumber");
-    let pid = 22;
+    let pid:string;
+   
+    if(sessionStorage.getItem('role')=='Physician'){
+     pid = sessionStorage.getItem('pidforvisit');
+    }else{
+      pid =sessionStorage.getItem('mrnNumber');
+    }
     return this._http.get<Procedure[]>(`${this.getAddedProceUrl}/${pid}`);
   }
   
