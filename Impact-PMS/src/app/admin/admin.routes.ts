@@ -34,6 +34,7 @@ import { BookAppointmentComponent } from './book-appointment/book-appointment.co
 import { PatientVitalSignComponent } from '../patient-visit/patient-vital-sign/patient-vital-sign.component';
 import { PatientDetailsComponent } from '../patient/patient-details/patient-details.component';
 import { PatientDiagnosisComponent } from './patient-diagnosis/patient-diagnosis.component';
+import { PatientVisitHistoryComponent } from '../patient-visit/patient-visit-history/patient-visit-history.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 
@@ -84,6 +85,7 @@ export var adminroutes: Route[] = [
             {path: 'patient-details', component: PatientDetailsComponent1},
             {path: 'scheduling', component: SchedulingComponent},
             {path : 'added-diagnosis', component: AddedDiagnosisComponent},
+            {path:'visit-history',component:PatientVisitHistoryComponent},
             {path : 'vital-sign', component: VitalSignsComponent},
             {path : 'procedure', component: ProcedureComponent},
             {path : 'procedure-details', component: PatientProcedureDetailsComponent},

@@ -14,6 +14,8 @@ import { UpcomingAppointmentsComponent } from '../inbox/upcoming-appointments/up
 import { RecievedNotesComponent } from '../inbox/recieved-notes/recieved-notes.component';
 import { SentNotesComponent } from '../inbox/sent-notes/sent-notes.component';
 import { NotesComponent } from '../inbox/notes/notes.component';
+import { CancelappointmentsComponent } from './cancelappointments/cancelappointments.component';
+import { PatientUpcomingAppoitmentsComponent } from '../inbox/patient-upcoming-appoitments/patient-upcoming-appoitments.component';
 import { PatientVitalSignComponent } from '../patient-visit/patient-vital-sign/patient-vital-sign.component';
 import { ProcedureComponent } from '../admin/procedure/procedure.component';
 import { PatientProcedureDetailsComponent } from '../admin/patient-procedure-details/patient-procedure-details.component';
@@ -22,7 +24,8 @@ import { PatientDiagnosisComponent } from '../admin/patient-diagnosis/patient-di
 
 export var patientroutes:Route[]=[
     
-    {path:'app-body-layout', canActivate:[AuthGuard], component:BodyLayoutComponent,
+    {path:'app-body-layout', component:BodyLayoutComponent,
+    //, canActivate:[AuthGuard]
 
     children:[
 
@@ -30,6 +33,17 @@ export var patientroutes:Route[]=[
         {path:'emergency-contact-info', component:EmergencyContactInfoComponent},
         {path:'allergy-details',component:AllergyDetailsComponent},
         { path: 'upcoming-appointments', component: UpcomingAppointmentsComponent },
+        { path: 'recieved-notes', component: RecievedNotesComponent },
+        { path: 'sent-notes', component: SentNotesComponent },
+        { path: 'notes', component: NotesComponent },
+        {path:'cancelled-appoitments',component:CancelappointmentsComponent},
+        {path:'patient-upcoming-appoitments',component:PatientUpcomingAppoitmentsComponent},
+
+
+
+
+       {path:'vital-signs',component:VitalSignsComponent},
+      { path: 'medication',component: MedicationComponent },
      
       { path: 'book-appointment',component: BookAppointmentComponent },
       { path: 'app-patient-allergy-details',component: PatientAllergyDetailsComponent },

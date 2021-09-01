@@ -32,6 +32,7 @@ public class NotesController {
 		notes.setSender(sender);
 		notes.setSentTime(LocalDateTime.now());
 		notes.setRecieveTime(LocalDateTime.now());
+		notes.setIsRead(false);
 
 		System.out.println("notes " + notes);
 		System.out.println("inside controller");

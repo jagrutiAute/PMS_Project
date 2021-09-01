@@ -38,12 +38,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { ToasterService1 } from '../toaster-service.service';
 import { MatSelectModule } from '@angular/material/select';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { CancelappointmentsComponent } from './cancelappointments/cancelappointments.component';
 
 
 
 @NgModule({
   declarations: [PatientDetailsComponent, EmergencyContactInfoComponent, BodyLayoutComponent,AllergyDetailsComponent,
-    HeaderComponent,SidenavComponent, PatientAllergyDetailsComponent],
+    HeaderComponent,SidenavComponent, PatientAllergyDetailsComponent, CancelappointmentsComponent],
   imports: [
     OverlayModule,
     ToastrModule.forRoot(),

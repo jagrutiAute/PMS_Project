@@ -28,6 +28,8 @@ export class UpcomingAppointmentsComponent implements OnInit {
   ngOnInit() {
     this.reloadData();
     console.log("hello oye")
+
+    
    // this.load();
   }
 

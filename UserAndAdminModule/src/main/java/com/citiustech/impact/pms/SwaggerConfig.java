@@ -19,8 +19,7 @@ public class SwaggerConfig {
 	  @Bean
 	    public Docket productApi() {
 	        return new Docket(DocumentationType.SWAGGER_2)
-	                .select()                 .apis(RequestHandlerSelectors.basePackage("com.citiustech.impact.pms.controller"))
-	                
+	                .select().apis(RequestHandlerSelectors.basePackage("com.citiustech.impact.pms.controller"))
 	                .build()
 	                .apiInfo(metaData());
 	

@@ -52,7 +52,7 @@ public class AccountController {
 
 	}
 
-	@GetMapping("/getUser/{email}")
+	@GetMapping("/getUser/{email}" )
 	public ResponseEntity<Users> getUser(@PathVariable String email) {
 		
 		log.debug("inside getUser() method");
@@ -150,4 +150,13 @@ public class AccountController {
 ////				}
 //				return new ResponseEntity<List<Object>>(phid1,HttpStatus.OK);
 //	}
+	
+	@GetMapping("/physicans/name/{phyid}")
+	public ResponseEntity<String> getEmployeeId(@PathVariable String phyid){
+			
+		Users user = userRepo.findByEmail(phyid);
+		String providerRegistration = hospitalUserRepository.findByEmployeeId(user.getId());
+		
+		return new ResponseEntity<String>(providerRegistration, HttpStatus.OK);
+	}
 }

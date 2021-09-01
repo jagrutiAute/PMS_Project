@@ -17,17 +17,22 @@ export class RecievedNotesComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(sessionStorage.getItem('username'));
+   // let employeeId = sessionStorage.setItem('')
     this.loadNotes()
   }
 
   loadNotes() {
     this.service.getAllReceiveNotes(this.receiver).subscribe(
       (data) => {
-        console.log(data)
+        // console.log(data)
         this.notes = data
-        // for(let d in this.notes){
-        //   if( d.isUrgent )
-        // }
+        for (var n in this.notes) {
+          if (this.notes[n].isRead) {
+          } else {
+            
+          }
+
+        }
       },
       (error) => {
         console.log(error)
@@ -47,7 +52,7 @@ export class RecievedNotesComponent implements OnInit {
           console.log("Note deleted successfully...")
           window.location.reload();
         },
-        error =>{
+        error => {
           console.log(error)
         }
       )
