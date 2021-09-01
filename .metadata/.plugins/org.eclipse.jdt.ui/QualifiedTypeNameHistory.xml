@@ -6,4 +6,26 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="springfox.documentation.swagger2.annotations.EnableSwagger2"/>
+<fullyQualifiedTypeName name="springfox.documentation.spring.web.plugins.Docket"/>
+<fullyQualifiedTypeName name="springfox.documentation.spi.DocumentationType"/>
+<fullyQualifiedTypeName name="springfox.documentation.builders.RequestHandlerSelectors"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.ws.api.addressing.WSEndpointReference.Metadata"/>
+<fullyQualifiedTypeName name="springfox.documentation.service.ApiInfo"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+<fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.EnableEurekaClient"/>
+<fullyQualifiedTypeName name="org.springframework.cloud.client.discovery.EnableDiscoveryClient"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.citiustech.impact.pms.repository.MedicationSaveRepository"/>
+<fullyQualifiedTypeName name="org.springframework.core.io.InputStreamResource"/>
+<fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.citiustech.impact.pms.model.MedicationSave"/>
+<fullyQualifiedTypeName name="com.citiustech.impact.pms.util.PDFGenerator"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
 </qualifiedTypeNameHistroy>
