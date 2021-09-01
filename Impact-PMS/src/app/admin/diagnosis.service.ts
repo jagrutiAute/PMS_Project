@@ -38,4 +38,13 @@ export class DiagnosisService {
     return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + '/physician/getAddedDiagnosis/'+pid);
   }
 
+
+  getdiagnosisforspecificdate(date:any):Observable<Diagnosis[]>{
+
+    let pid=sessionStorage.getItem('mrnNumber');
+
+   // return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + 'patient/getAddedDiagnosis/'+pid+'/'+date);
+    return this._http.get<Diagnosis[]>(`${this.baseUrlDiagnosis}/patient/getAddedDiagnosis/`+`${pid}/`+`${date}`);
+  }
+
 }

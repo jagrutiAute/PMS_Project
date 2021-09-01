@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.procedure.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,8 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.citiustech.impact.pms.procedure.model.PatientProcedure;
 import com.citiustech.impact.pms.procedure.model.Procedure;
+import com.citiustech.impact.pms.procedure.repository.PatientProcedureRepository;
 import com.citiustech.impact.pms.procedure.service.ProcedureService;
 
 @RestController
@@ -25,7 +27,8 @@ public class ProcedureController {
 	@Autowired
 	ProcedureService procedureService;
 	
-	
+	@Autowired
+	PatientProcedureRepository patientProcedureRepository;
 	/*
 	 * @GetMapping("/getProcedureDetails/{proceCode}") public
 	 * ResponseEntity<Procedure> getProcedureDetails(@PathVariable int proceCode) {
@@ -49,5 +52,14 @@ public class ProcedureController {
 	
 		return new ResponseEntity<List<Procedure>>(procedure.get(),HttpStatus.OK);
 		
+	}
+    
+    @GetMapping("patient/getAddedProcedure/{pid}/{date}")
+	public ResponseEntity<List<PatientProcedure>> getAddedProcedureforspecificdate(@PathVariable String pid,@PathVariable String date){
+		LocalDate d=LocalDate.parse(date);
+		
+		List<PatientProcedure> procedureSave = patientProcedureRepository.findByPidAndDate(pid, d);
+		
+		return new ResponseEntity<List<PatientProcedure>>(procedureSave, HttpStatus.OK);
 	}
 }

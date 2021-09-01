@@ -43,4 +43,13 @@ export class PatientVisitHistoryComponent implements OnInit {
     getMedication(id: any){
    this.router.navigateByUrl('/app-body-layout/medication-history/'+id)
     }
+
+    getDiagnosis(id: any){
+      this.router.navigateByUrl('/app-body-layout/diagnosis-history/'+id)
+       }
+
+       getProcedure(id: any){
+        this.router.navigateByUrl('/app-body-layout/procedure-history/'+id)
+         }
+    
 }

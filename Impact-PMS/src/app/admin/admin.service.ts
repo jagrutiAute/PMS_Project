@@ -34,8 +34,9 @@ export class AdminDashBoardService {
   
   addProcedurePatient(produre: Procedure[]): Observable<any> {
        
-    let pid = 22;
-    //let pid=sessionStorage.getItem("mrnNumber");
+    //let pid = 22;
+    let pid=sessionStorage.getItem("mrnNumber");
+    
       
       return this._http.post<any>(`${this.saveProcedureUrl}/${pid}`,produre);
   
@@ -114,7 +115,14 @@ console.log(id+"    "+status);
     return this._http.get<Medication1[]>(this.baseUrl + '/physician/getAddedMedication');
   }*/
   
+  
+  getProcedureforspecificdate(date:any):Observable<Procedure[]>{
 
+    let pid=sessionStorage.getItem('mrnNumber');
+
+   // return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + 'patient/getAddedDiagnosis/'+pid+'/'+date);
+    return this._http.get<Procedure[]>(`${this.getAddedProceUrl}/patient/getAddedProcedure/`+`${pid}/`+`${date}`);
+  }
 
   
 }

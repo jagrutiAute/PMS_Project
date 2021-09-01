@@ -23,6 +23,8 @@ import { PatientDetailsComponent1 } from '../admin/patient-details/patient-detai
 import { PatientDiagnosisComponent } from '../admin/patient-diagnosis/patient-diagnosis.component';
 import { PatientVisitHistoryComponent } from '../patient-visit/patient-visit-history/patient-visit-history.component';
 import { MedicationHistoryComponent } from '../patient-visit/medication-history/medication-history.component';
+import { DiagnosisHistoryComponent } from '../patient-visit/diagnosis-history/diagnosis-history.component';
+import { ProcedureHistoryComponent } from '../patient-visit/procedure-history/procedure-history.component';
 
 export var patientroutes:Route[]=[
     
@@ -54,7 +56,11 @@ export var patientroutes:Route[]=[
       { path: 'showmedication',component: PatientDetailsComponent1 },
       { path: 'showdiagnosis',component: PatientDiagnosisComponent },
       { path: 'medication-history',component: MedicationHistoryComponent },
-      { path: 'medication-history/:id',component: MedicationHistoryComponent }
+      { path: 'medication-history/:id',component: MedicationHistoryComponent },
+      { path: 'diagnosis-history',component: DiagnosisHistoryComponent },
+      { path: 'diagnosis-history/:id',component: DiagnosisHistoryComponent },
+      { path: 'procedure-history',component: ProcedureHistoryComponent },
+      { path: 'procedure-history/:id',component: ProcedureHistoryComponent }
       
 
     ]

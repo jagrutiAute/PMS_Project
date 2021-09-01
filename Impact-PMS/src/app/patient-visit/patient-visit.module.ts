@@ -11,7 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MedicationHistoryComponent } from './medication-history/medication-history.component';
-
+import {MatButtonModule} from '@angular/material/button';
+import { DiagnosisHistoryComponent } from './diagnosis-history/diagnosis-history.component';
+import { ProcedureHistoryComponent } from './procedure-history/procedure-history.component';
 
 
 
@@ -21,7 +23,9 @@ import { MedicationHistoryComponent } from './medication-history/medication-hist
     VitalSignsComponent,
     PatientVisitHistoryComponent,
     PatientVitalSignComponent,
-    MedicationHistoryComponent
+    MedicationHistoryComponent,
+    DiagnosisHistoryComponent,
+    ProcedureHistoryComponent
   ],
   imports: [
     MatFormFieldModule,
@@ -32,7 +36,8 @@ import { MedicationHistoryComponent } from './medication-history/medication-hist
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatButtonModule
   ],
   exports : [VitalSignsComponent,VisitDetailsComponent,PatientVisitHistoryComponent ]
 })

@@ -100,7 +100,7 @@ public class MedicationController {
 		return new ResponseEntity<List<MedicationSave>>(medicationSave, HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/medications/{pid}/{date}", produces = MediaType.APPLICATION_PDF_VALUE)
+	@GetMapping(value = "medication/download/{pid}/{date}", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> customersReport(@PathVariable String pid,
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) throws IOException {
 		List<MedicationSave> medications = (List<MedicationSave>) medicationSaveRepo.findByPidAndDate(pid, date);
@@ -114,5 +114,14 @@ public class MedicationController {
 
 		return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
 				.body(new InputStreamResource(bis));
+	}
+	
+	@GetMapping("medication/{pid}/{date}")
+	public ResponseEntity<List<MedicationSave>> getMedicationForSpececificDate(@PathVariable String pid, @PathVariable String date ){
+		
+		LocalDate s = LocalDate.parse(date);
+		List<MedicationSave> medications = (List<MedicationSave>) medicationSaveRepo.findByPidAndDate(pid, s);
+
+		return new ResponseEntity<List<MedicationSave>>(medications, HttpStatus.OK);
 	}
 }
