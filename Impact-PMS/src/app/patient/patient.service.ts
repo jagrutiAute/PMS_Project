@@ -33,21 +33,39 @@ export class PatientDetailService {
 
     deleteAllergies(id:number): Observable<any>{
 
-        let pid=sessionStorage.getItem("mrnNumber");
+        let pid:string;
+   
+        if(sessionStorage.getItem('role')=='Physician'){
+         pid = sessionStorage.getItem('pidforvisit');
+        }else{
+          pid =sessionStorage.getItem('mrnNumber');
+        }
         //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
         return this._http.delete<any>(`${this.deleteAllergyUrl}/${pid}/${id}`);
     }
 
     getAddeAllergies(): Observable<Allergy[]> {
-        let pid=sessionStorage.getItem("mrnNumber");
+        let pid:string;
+   
+        if(sessionStorage.getItem('role')=='Physician'){
+         pid = sessionStorage.getItem('pidforvisit');
+        }else{
+          pid =sessionStorage.getItem('mrnNumber');
+        }
+
         return this._http.get<Allergy[]>(`${this.getaddedAllergiesUrl}/${pid}`);
       }
 
     
     addAllergyPatient(allergyObject: Allergy[]): Observable<any> {
        
-       // let pid=11;
-       let pid=sessionStorage.getItem("mrnNumber");
+        let pid:string;
+   
+    if(sessionStorage.getItem('role')=='Physician'){
+     pid = sessionStorage.getItem('pidforvisit');
+    }else{
+      pid =sessionStorage.getItem('mrnNumber');
+    }
          //http://localhost:8080/login?username=test1@gmail.com&password=tes1@123
          return this._http.post<any>(`${this.savePatientAllergyUrl}/${pid}`,allergyObject);
      

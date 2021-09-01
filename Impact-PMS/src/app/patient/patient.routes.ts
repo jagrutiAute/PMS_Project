@@ -25,7 +25,7 @@ import { PatientDiagnosisComponent } from '../admin/patient-diagnosis/patient-di
 export var patientroutes:Route[]=[
     
     {path:'app-body-layout', component:BodyLayoutComponent,
-    //, canActivate:[AuthGuard]
+     canActivate:[AuthGuard],
 
     children:[
 

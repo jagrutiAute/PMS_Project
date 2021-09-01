@@ -66,8 +66,11 @@ export class SchedulingService {
         phyid = data;
        console.log(data)
        sessionStorage.setItem('employeeid',phyid);
+       
      })
-      return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/appointments/physicans/'+ `${phyid}`)
+     console.log("phyid :::  "+phyid)
+
+      return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/physicans/appointments/'+ `${sessionStorage.getItem('employeeid')}`)
 
     //if role is patient call this method
    
@@ -76,7 +79,7 @@ export class SchedulingService {
 getallUpcomingAppointmentsforpatient():Observable<UpcomingAppointmentDetails[]> {
   //if role is patient then call this method
     //let pid=11; 
-    let pid=sessionStorage.getItem('mrnnumber');
+    let pid=sessionStorage.getItem('mrnNumber');
     return this._http.get<UpcomingAppointmentDetails[]>(`${this.baseUrl}`+'/patient/appointments/'+ `${pid}`)
 
     //if role is patient call this method
