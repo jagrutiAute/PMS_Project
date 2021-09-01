@@ -4,14 +4,14 @@
 
 
 <br>
-<h1 style="text-align: center;"><u><b>Procedure Details</b></u></h1>
+<h1 style="text-align: center;"><b>Procedure Details</b></h1>
 <br>
 
 
 
 
 
-<div class="search-container">
+<div class="search-container" style="width: 30%;">
 
 
     <input type="text" placeholder=" Search..." class="form-control" name="procedureCode" [(ngModel)]="procedureCode"
@@ -28,9 +28,9 @@
         <tr style="background-color:#2f4b7c; color: seashell;">
             <th style="width: 8%">Procedure Code&nbsp;&nbsp;<i class="fa fa-sort"></i></th>
             <th style="width: 8%">&nbsp;Isdeprecated&nbsp;<i class="fa fa-sort"></i></th>
-            <th style="width: 15%">procedure Description&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="width: 30%">procedure Description&nbsp;<i class="fa fa-sort"></i></th>
 
-            <th style="width: 30%">Action</th>
+            <th style="width: 10%">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -70,7 +70,7 @@
 
 
     <br>
-    <div>
+    <div style="margin-left: 2%;">
 
         <button  (click)="saveProcedure()" class="btn btn-lg search-container" style="background-color: #2f4b7c; color: white;"> Save </button>
     </div>

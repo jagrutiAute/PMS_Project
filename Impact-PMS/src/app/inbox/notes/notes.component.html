@@ -1,4 +1,5 @@
-<h3 style="text-align: center;"><b>Create Note</b></h3>
+<br>
+<h1 style="text-align: center;"><b>Create Notes</b></h1><hr>
 
 <form class="form" [formGroup]="notesForm" action="##" method="post" id="notesForm">
     <div class="float-container">
@@ -26,16 +27,16 @@
 
         <div class="float-child">
             <input type="radio" id="urgent" value="true" formControlName="isUrgent">
-            <label for=" ">Urgent</label>&nbsp; &nbsp;&nbsp;&nbsp;
+            <label for=" ">&nbsp;&nbsp;Urgent</label>&nbsp; &nbsp;&nbsp;&nbsp;
             <input type="radio" id="noturgent" value="false" formControlName="isUrgent">
-            <label for=" ">Not Urgent</label><br>
+            <label for=" ">&nbsp;&nbsp;Not Urgent</label><br>
         </div>
     </div>
 
     <div class="float-container">
         <div class="float-child">
 
-            <button type="submit" class="btn btn-primary btn-lg" (click)="sendNote()">Send Notes</button><br><br>
+            <button type="submit" class="btn btn-lg" style="background-color:#003f5c; color: white;" (click)="sendNote()">Send Notes</button><br><br>
         </div>
     </div>
 </form>

@@ -1,5 +1,7 @@
 package com.citiustech.impact.pms.repository;
 
+import java.time.LocalDate;
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,10 +12,10 @@ import com.citiustech.impact.pms.model.MedicationSave;
 
 @Repository
 @EnableJpaRepositories
-public interface MedicationSaveRepository extends JpaRepository<MedicationSave, Integer> {
+
+public interface MedicationSaveRepository extends JpaRepository<MedicationSave, String> {
+	List<MedicationSave> findByPidAndDate(String pid, LocalDate date);
 
 	List<MedicationSave> findByPid(String pid);
-
-	
 
 }
