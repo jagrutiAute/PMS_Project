@@ -12,23 +12,23 @@
 <table class="table table-striped" style="font-size: 15px;">
     <thead>
         <tr style="background-color:royalblue; color: seashell;">
-            <th style="width: 24%">Date</th>
-           
+            <th style="width: 90%">Date</th>
+           <th></th>
+           <th></th>
           
-            <th style="width: 10%">Physician Id</th> 
+           <th style="width: 0%">See Details</th> 
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let s of visithistory">
+        <tr *ngFor="let s of visithistory | paginate: {itemsPerPage:2,currentPage:p};">
             
            <td> {{s.date}}  </td>
-           
-           
-             <td class="buttonA">
-               <!--  <button (click)="deletePatient(patient.id)" class="btn btn-danger btn-lg">Delete</button>&nbsp; -->
-                
-               {{s.phyId}}
-            </td> 
+          <td> <button (click)="getMedication(s.date)" mat-raised-button color="accent">Medication</button></td>
+          <td> <button mat-raised-button color="accent">Diagnosis</button></td>
+          <td> <button mat-raised-button color="accent">Procedure</button></td>
+       
+            
         </tr>
 
     </tbody>
@@ -37,7 +37,7 @@
 <br><br><br>
  <div class="card" style="font-size: 17px;">
     <div class="card-header">
-<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+ <pagination-controls (pageChange)="p = $event"></pagination-controls> 
 </div>
 </div> 
 

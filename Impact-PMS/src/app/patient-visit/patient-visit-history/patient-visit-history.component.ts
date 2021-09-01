@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { VisitHistoryServic } from '../visit-history.service';
 import { VistihistoryDates } from './visithistroydates';
 
@@ -9,7 +10,10 @@ import { VistihistoryDates } from './visithistroydates';
 })
 export class PatientVisitHistoryComponent implements OnInit {
 
-  constructor( private visithistoryservice:VisitHistoryServic) { }
+
+
+  p: number = 1;
+  constructor( private visithistoryservice:VisitHistoryServic, private router: Router) { }
 
   ngOnInit(): void {
     this.getvisithistory()
@@ -19,7 +23,14 @@ export class PatientVisitHistoryComponent implements OnInit {
     visithistory:VistihistoryDates[];
 
     getvisithistory(){
-      this.visithistoryservice.getVisitHistoryDates('11').subscribe(data=>{
+      let pid;
+      if(sessionStorage.getItem('role')=='Physician'){
+        pid = sessionStorage.getItem('pidforvisit')
+      } else
+      {
+        pid = sessionStorage.getItem('mrnNumber')
+      }
+      this.visithistoryservice.getVisitHistoryDates(pid).subscribe(data=>{
 
           this.visithistory=data;
           console.log(data);
@@ -28,4 +39,8 @@ export class PatientVisitHistoryComponent implements OnInit {
       })
     }
 
+
+    getMedication(id: any){
+   this.router.navigateByUrl('/app-body-layout/medication-history/'+id)
+    }
 }
