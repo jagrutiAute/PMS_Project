@@ -33,28 +33,34 @@ export class DiagnosisComponent implements OnInit {
 
   reloadData() {
     console.log("inside reload")
-     this.diagnosisService.getDiagnosis().subscribe((data1) => {
-      this.diagnosis= data1
-      
-      console.log(data1)
-    /*  for(let data in this.patients){
-        this.patients[data];
-        console.log("hello")
-        console.log(this.patients[data])
-        for(let d in this.patients[data]){
-          d.match("user")
-          console.log(d)
-        }
+    if(localStorage.getItem('diagnosis') == null){
 
-      } */
-      console.log(this.diagnosis)
-      
-    },
-    (error) => {
-      console.log(error)
-    })
-    // console.log(this.patients);
-  }
+      this.diagnosisService.getDiagnosis().subscribe((data1) => {
+        this.diagnosis= data1
+        localStorage.setItem('diagnosis',JSON.stringify(data1))
+        console.log(data1)
+      /*  for(let data in this.patients){
+          this.patients[data];
+          console.log("hello")
+          console.log(this.patients[data])
+          for(let d in this.patients[data]){
+            d.match("user")
+            console.log(d)
+          }
+  
+        } */
+        console.log(this.diagnosis)
+        
+      },
+      (error) => {
+        console.log(error)
+      })
+      // console.log(this.patients);
+    }else{
+      this.diagnosis = JSON.parse(localStorage.getItem('diagnosis'));
+    }
+    }
+    
 
 
   search(){

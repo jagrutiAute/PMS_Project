@@ -40,11 +40,9 @@ export class MedicationComponent implements OnInit {
   reloadData() {
     console.log("inside reload")
 
-    // if(localStorage.getItem('medication').length != 0){
-    //   this.medications = JSON.parse(localStorage.getItem('medication'));
-    // }else{ 
-
-      this.medicationService.gerMedication().subscribe((data1) => {
+     if(localStorage.getItem('medication') == null){
+       
+       this.medicationService.gerMedication().subscribe((data1) => {
         this.medications= data1
         localStorage.setItem('medication',JSON.stringify(data1));
         console.log(data1)
@@ -64,7 +62,12 @@ export class MedicationComponent implements OnInit {
       (error) => {
         console.log(error)
       })
-   // }
+
+     }else{ 
+
+      this.medications = JSON.parse(localStorage.getItem('medication'));
+     
+    }
      
     
   }

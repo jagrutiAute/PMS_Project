@@ -28,15 +28,22 @@ procedureCode :any;
 
   ngOnInit(): void {
 
-    this.service.getProcedureList().subscribe(
+    if(localStorage.getItem('procedure') == null){
 
-      (data) => {
-        console.log("getProcedureList() :::::  " + data)
+      this.service.getProcedureList().subscribe(
 
-        this.procedure = data;
-
-      }
-    );
+        (data) => {
+          console.log("getProcedureList() :::::  " + data)
+  
+          this.procedure = data;
+          localStorage.setItem('procedure',JSON.stringify(data))
+  
+        }
+      );
+    }else{
+      this.procedure =  JSON.parse(localStorage.getItem('procedure'));
+    }
+   
   }
 
 
