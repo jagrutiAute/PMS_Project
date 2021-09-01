@@ -20,8 +20,8 @@ export class CancelappointmentsComponent implements OnInit {
 
     getallcancelledappimtnets(){
         //get pateient id from session
-        //let username= sessionStorage.getItem('username');
-        this.schedulingservice.getAllCancelAppoitmetns('11').subscribe(data=>{
+        let username= sessionStorage.getItem('mrnNumber');
+        this.schedulingservice.getAllCancelAppoitmetns(username).subscribe(data=>{
             this.cancealappoitmentsresult=data;
             console.log(data);
 

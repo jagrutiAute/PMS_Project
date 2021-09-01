@@ -35,6 +35,8 @@ import { PatientVitalSignComponent } from '../patient-visit/patient-vital-sign/p
 import { PatientDetailsComponent } from '../patient/patient-details/patient-details.component';
 import { PatientDiagnosisComponent } from './patient-diagnosis/patient-diagnosis.component';
 import { PatientVisitHistoryComponent } from '../patient-visit/patient-visit-history/patient-visit-history.component';
+import { AllergyDetailsComponent } from '../patient/allergy-details/allergy-details.component';
+import { PatientAllergyDetailsComponent } from '../patient/patient-allergy-details/patient-allergy-details.component';
 
 // http://localhost:4200/admin-dashboard/edit-patient-users/2
 
@@ -43,7 +45,7 @@ export var adminroutes: Route[] = [
 
     {
         path: 'admin-dashboard', component: AdminDashboardComponent,
-        //, canActivate: [AdminGuard]
+         canActivate: [AdminGuard],
 
         children: [
 
@@ -73,7 +75,7 @@ export var adminroutes: Route[] = [
 
     },
     {
-        path: 'physician-dashboard', component: PhysicianDashboardComponent,
+        path: 'physician-dashboard', component: PhysicianDashboardComponent, canActivate: [PhysicianGuard],
         children: [
             {
                 path: 'notes', component: NotesComponent
@@ -91,7 +93,8 @@ export var adminroutes: Route[] = [
             {path : 'procedure-details', component: PatientProcedureDetailsComponent},
             {path : 'patient-vital-sign', component: PatientVitalSignComponent},
             {path : 'patient-diagnosis', component: PatientDiagnosisComponent},
-            
+            {path : 'allergy', component: AllergyDetailsComponent},
+            {path : 'pateint-allergy', component: PatientAllergyDetailsComponent},
             {
                 path: 'medication',
                 children: [
@@ -108,7 +111,7 @@ export var adminroutes: Route[] = [
         ]
     },
     {
-        path: 'nurse-dashboard', component: NurseDashboardComponent,
+        path: 'nurse-dashboard', component: NurseDashboardComponent,canActivate:[NurseGuard],
         children: [
             {
                 path: 'notes', component: NotesComponent

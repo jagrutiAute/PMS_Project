@@ -22,7 +22,7 @@ public interface HospitalUserRepository extends JpaRepository<ProviderRegistrati
 	
 	List<ProviderRegistration> findByFirstNameAndLastName(String fname, String lname);
 
-	@Query(value="select * from pms.provider pr join pms.users pu on pr.users_id=pu.id AND pu.role_master_id=2;", nativeQuery = true)
+	@Query(value="select * from pms.provider pr join pms.users pu on pr.users_id=pu.id AND pu.role_master_id=1;", nativeQuery = true)
 	List<ProviderRegistration> findAllId();
 
 	@Query(value="select employee_id from pms.provider where users_id=?1", nativeQuery = true)

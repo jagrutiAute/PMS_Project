@@ -15,4 +15,6 @@ public interface PatientProcedureRepository extends JpaRepository<PatientProcedu
 	@Query("from PatientProcedure  where pid = ?1")
 	public Optional<List<PatientProcedure>> getAllPatientProcedure(String pid);
 
+	public Optional<List<PatientProcedure>> findByPid(String pid);
+
 }
