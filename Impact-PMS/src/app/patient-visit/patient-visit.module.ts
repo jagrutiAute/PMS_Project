@@ -5,13 +5,11 @@ import { VitalSignsComponent } from './vital-signs/vital-signs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< HEAD
 import { PatientVisitHistoryComponent } from './patient-visit-history/patient-visit-history.component';
-=======
+import { PatientVitalSignComponent } from './patient-vital-sign/patient-vital-sign.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { PatientVitalSignComponent } from './patient-vital-sign/patient-vital-sign.component';
->>>>>>> 26e357982a338e0a2bf61e79970852621a28e550
+
 
 
 
@@ -19,11 +17,8 @@ import { PatientVitalSignComponent } from './patient-vital-sign/patient-vital-si
   declarations: [
     VisitDetailsComponent,
     VitalSignsComponent,
-<<<<<<< HEAD
-    PatientVisitHistoryComponent
-=======
+    PatientVisitHistoryComponent,
     PatientVitalSignComponent
->>>>>>> 26e357982a338e0a2bf61e79970852621a28e550
   ],
   imports: [
     MatFormFieldModule,
