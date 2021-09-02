@@ -34,8 +34,13 @@ export class AdminDashBoardService {
   
   addProcedurePatient(produre: Procedure[]): Observable<any> {
        
-    let pid = 22;
-    //let pid=sessionStorage.getItem("mrnNumber");
+    let pid:string;
+   
+    if(sessionStorage.getItem('role')=='Physician'){
+     pid = sessionStorage.getItem('pidforvisit');
+    }else{
+      pid =sessionStorage.getItem('mrnNumber');
+    }
       
       return this._http.post<any>(`${this.saveProcedureUrl}/${pid}`,produre);
   
