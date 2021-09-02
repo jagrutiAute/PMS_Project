@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.citiustech.impact.pms.diagnoses.model.DiagnosisModel;
 import com.citiustech.impact.pms.diagnoses.model.DiagnosisSave;
+import com.citiustech.impact.pms.diagnoses.repository.DiagnosisSaveRepository;
 import com.citiustech.impact.pms.diagnoses.service.DiagnosisService;
 
 
@@ -29,6 +30,9 @@ public class DiagnosisController {
 	
 	@Autowired
 	private DiagnosisService diagnosisService;
+	
+	@Autowired
+	DiagnosisSaveRepository diagnosisSaveRepository;
 	
 	static Logger log = Logger.getLogger(DiagnosisModel.class.getName());
 	
@@ -59,6 +63,7 @@ public class DiagnosisController {
 			d1.setDiagnosis_is_deprecated(d.getDiagnosis_is_deprecated());
 			d1.setPid(pid);
 			d1.setPhyid(phyid);
+			d1.setDate(LocalDate.now());
 //		    m1.setApplNo(m.getApplNo());
 //		    m1.setProductNo(m.getProductNo());
 //		    m1.setForm(m.getForm());
@@ -91,4 +96,14 @@ public class DiagnosisController {
 		
 		return new ResponseEntity<List<DiagnosisSave>>(DiagnosisSave, HttpStatus.OK);
 	}
+	
+	@GetMapping("patient/getAddedDiagnosis/{pid}/{date}")
+	public ResponseEntity<List<DiagnosisSave>> getAddedDiagnosisforspecificdate(@PathVariable String pid,@PathVariable String date){
+		LocalDate d=LocalDate.parse(date);
+		
+		List<DiagnosisSave> DiagnosisSave = diagnosisSaveRepository.findByPidAndDate(pid, d);
+		
+		return new ResponseEntity<List<DiagnosisSave>>(DiagnosisSave, HttpStatus.OK);
+	}
+	
 }

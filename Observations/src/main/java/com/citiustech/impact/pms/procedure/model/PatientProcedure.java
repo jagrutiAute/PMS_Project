@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.procedure.model;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 
 import javax.persistence.CascadeType;
@@ -39,11 +40,14 @@ public class PatientProcedure {
 	private String modifiedBy;
 	private Calendar modifiedDateNtime;
 	
+	
 	@Column(name="is_procedure_dpricated")
 	private String isProcedureDpricated;
 	
 	//dummy for now
 	private Integer patientvisitId;
+	
+	private LocalDate date;
 	
 	//@JoinColumn(name = "procedure_code")
 	//@OneToOne(cascade = CascadeType.ALL)

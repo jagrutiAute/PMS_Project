@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.procedure.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -64,7 +65,7 @@ public class PatientProcedureController {
 			m1.setProcedureCode(m.getProcedureCode());
 			m1.setProcedureDesc(m.getProcedureDesc());
 			m1.setIsProcedureDpricated(m.getIsProcedureDpricated());
-			
+			m1.setDate(LocalDate.now());
 			procedures.add(m1);
 		}
 		

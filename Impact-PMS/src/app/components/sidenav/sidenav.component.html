@@ -125,3 +125,30 @@
 
   </mat-accordion>
 </mat-nav-list>
+
+
+
+<mat-nav-list>
+
+  <mat-accordion>
+
+    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)">
+
+      <mat-expansion-panel-header class="specific-class">
+        <mat-panel-title style="color: white;">
+          Visits
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <a mat-list-item routerLinkActive="list-item-active" style="font-size: larger;"
+        routerLink="visit-history">
+        Visit History
+      </a>
+
+
+
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</mat-nav-list>

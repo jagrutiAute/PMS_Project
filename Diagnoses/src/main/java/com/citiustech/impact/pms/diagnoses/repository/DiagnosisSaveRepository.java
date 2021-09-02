@@ -1,5 +1,6 @@
 package com.citiustech.impact.pms.diagnoses.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,6 +15,7 @@ public interface DiagnosisSaveRepository extends JpaRepository<DiagnosisSave, In
 
 	
 	List<DiagnosisSave> findByPid(String id);
+	List<DiagnosisSave>  findByPidAndDate(String pid,LocalDate date);
 	
 	
 }

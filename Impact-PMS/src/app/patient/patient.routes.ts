@@ -21,6 +21,10 @@ import { ProcedureComponent } from '../admin/procedure/procedure.component';
 import { PatientProcedureDetailsComponent } from '../admin/patient-procedure-details/patient-procedure-details.component';
 import { PatientDetailsComponent1 } from '../admin/patient-details/patient-details.component';
 import { PatientDiagnosisComponent } from '../admin/patient-diagnosis/patient-diagnosis.component';
+import { PatientVisitHistoryComponent } from '../patient-visit/patient-visit-history/patient-visit-history.component';
+import { MedicationHistoryComponent } from '../patient-visit/medication-history/medication-history.component';
+import { DiagnosisHistoryComponent } from '../patient-visit/diagnosis-history/diagnosis-history.component';
+import { ProcedureHistoryComponent } from '../patient-visit/procedure-history/procedure-history.component';
 
 export var patientroutes:Route[]=[
     
@@ -38,7 +42,7 @@ export var patientroutes:Route[]=[
         { path: 'notes', component: NotesComponent },
         {path:'cancelled-appoitments',component:CancelappointmentsComponent},
         {path:'patient-upcoming-appoitments',component:PatientUpcomingAppoitmentsComponent},
-
+        {path:'visit-history',component:PatientVisitHistoryComponent},
 
 
 
@@ -50,7 +54,13 @@ export var patientroutes:Route[]=[
       { path: 'patient-vital-sign',component: PatientVitalSignComponent },
       { path: 'procedure',component: PatientProcedureDetailsComponent },
       { path: 'showmedication',component: PatientDetailsComponent1 },
-      { path: 'showdiagnosis',component: PatientDiagnosisComponent }
+      { path: 'showdiagnosis',component: PatientDiagnosisComponent },
+      { path: 'medication-history',component: MedicationHistoryComponent },
+      { path: 'medication-history/:id',component: MedicationHistoryComponent },
+      { path: 'diagnosis-history',component: DiagnosisHistoryComponent },
+      { path: 'diagnosis-history/:id',component: DiagnosisHistoryComponent },
+      { path: 'procedure-history',component: ProcedureHistoryComponent },
+      { path: 'procedure-history/:id',component: ProcedureHistoryComponent }
       
 
     ]

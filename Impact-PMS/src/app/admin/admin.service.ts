@@ -119,7 +119,14 @@ console.log(id+"    "+status);
     return this._http.get<Medication1[]>(this.baseUrl + '/physician/getAddedMedication');
   }*/
   
+  
+  getProcedureforspecificdate(date:any):Observable<Procedure[]>{
 
+    let pid=sessionStorage.getItem('mrnNumber');
+
+   // return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + 'patient/getAddedDiagnosis/'+pid+'/'+date);
+    return this._http.get<Procedure[]>(`${this.getAddedProceUrl}/patient/getAddedProcedure/`+`${pid}/`+`${date}`);
+  }
 
   
 }

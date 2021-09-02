@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NbWindowService } from '@nebular/theme';
 import { MedicationService } from '../medication.service';
 import { Medication1 } from '../medication1';
 
@@ -12,19 +14,24 @@ import { Medication1 } from '../medication1';
 export class PatientDetailsComponent1 implements OnInit {
   
   medications: Medication1[];
-  constructor(private medicationService: MedicationService){}
-  ngOnInit() {
-    this.reload();
+  constructor(private medicationService: MedicationService){
     
+  }
+  ngOnInit() {
+    console.log("date")
+    
+    this.reload();
+ 
   }
 
   
 
  reload(){
-
+  
   this.medicationService.getAddedMedication().subscribe((data)=>{
     this.medications=data;
     console.log("inside patient-details: reload")
+    //location.reload();
     console.log(data)
   },
   (error)=>{

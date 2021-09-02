@@ -9,7 +9,11 @@ import { PatientVisitHistoryComponent } from './patient-visit-history/patient-vi
 import { PatientVitalSignComponent } from './patient-vital-sign/patient-vital-sign.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MedicationHistoryComponent } from './medication-history/medication-history.component';
+import {MatButtonModule} from '@angular/material/button';
+import { DiagnosisHistoryComponent } from './diagnosis-history/diagnosis-history.component';
+import { ProcedureHistoryComponent } from './procedure-history/procedure-history.component';
 
 
 
@@ -18,7 +22,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     VisitDetailsComponent,
     VitalSignsComponent,
     PatientVisitHistoryComponent,
-    PatientVitalSignComponent
+    PatientVitalSignComponent,
+    MedicationHistoryComponent,
+    DiagnosisHistoryComponent,
+    ProcedureHistoryComponent
   ],
   imports: [
     MatFormFieldModule,
@@ -28,7 +35,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    MatButtonModule
   ],
   exports : [VitalSignsComponent,VisitDetailsComponent,PatientVisitHistoryComponent ]
 })

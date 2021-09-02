@@ -1,5 +1,7 @@
 package com.citiustech.impact.pms.diagnoses.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +33,7 @@ public class DiagnosisSave {
 	
 	private String pid;
 	private String phyid;
+	private LocalDate date;
 	
 	
 

@@ -40,7 +40,6 @@ export class MedicationService {
       pid =sessionStorage.getItem('mrnNumber');
     }
 
-    console.log("Hjdkdldl"+this._http.get<Medication1[]>(this.baseUrl + '/physician/getAddedMedication'+pid));
     return this._http.get<Medication1[]>(this.baseUrl + '/physician/getAddedMedication/'+pid);
   }
 

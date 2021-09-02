@@ -1,0 +1,37 @@
+
+  <div class="card">
+    <div class="card-header" style="text-align: center;">
+      <br>
+    <h1 style="text-align: center;"><b>Diagnosis</b></h1>
+     
+    </div>
+      <div class="card-body">
+        <table class="table table-striped" style="font-size: 15px;">
+          <thead>
+              <tr style="background-color:#2f4b7c; color: seashell;">
+                  <th style="width: 8%">Diagnosis Code</th>
+                  <th  style="width: 11%">Diagnosis Description</th>
+                  <th style="width: 10%">Diagnisis Isdepricated</th>
+                                   
+              </tr>
+          </thead>
+          <tbody>
+           <tr *ngFor="let diagnosisObject of diagnosis">
+          <td style="width: 8%">{{diagnosisObject.diagnosis_code}}</td>
+          <td style="width: 8%">{{diagnosisObject.diagnosis_description}}</td>
+          <td style="width: 8%"> {{diagnosisObject.diagnosis_is_deprecated}}</td>
+             
+        
+          </tr> 
+  
+        </tbody>
+  
+  
+         
+      </table>
+    </div>
+  </div>
+
+  
+  <br>
+  <button (click)="downloadDiagnosis()" mat-raised-button color="primary">Download Diagnosis</button>
