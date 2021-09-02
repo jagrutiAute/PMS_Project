@@ -16,6 +16,7 @@ export class AdminDashBoardService {
   private procedureUrl = 'http://localhost:8096/getProcedureDetails'
   private saveProcedureUrl = 'http://localhost:8096/savePatientProcedure'
   private getAddedProceUrl = 'http://localhost:8096/getPatientProcedure'
+  private getAddedProceUrlNew = 'http://localhost:8096'
  // private baseUrlDiagnosis = "http://localhost:8082";  
   
   constructor(private _http: HttpClient) { }
@@ -119,13 +120,26 @@ console.log(id+"    "+status);
     return this._http.get<Medication1[]>(this.baseUrl + '/physician/getAddedMedication');
   }*/
   
+
+  downloadMedication(date: string): Observable<Blob>{
+    let pid = sessionStorage.getItem('mrnNumber');
+   
+      const httpOptions = {​​​
+    responseType: 'blob' as 'json',
+    headers: new HttpHeaders({​​​
+      
+    }​​​)
+  }​​​;
+
+     return this._http.get<Blob>(`${this.getAddedProceUrlNew}/procedure/download/`+`${pid}/`+`${date}`,{responseType: 'blob' as 'json'})
+   }
   
   getProcedureforspecificdate(date:any):Observable<Procedure[]>{
 
     let pid=sessionStorage.getItem('mrnNumber');
 
    // return this._http.get<Diagnosis[]>(this.baseUrlDiagnosis + 'patient/getAddedDiagnosis/'+pid+'/'+date);
-    return this._http.get<Procedure[]>(`${this.getAddedProceUrl}/patient/getAddedProcedure/`+`${pid}/`+`${date}`);
+    return this._http.get<Procedure[]>(`${this.getAddedProceUrlNew}/patient/getAddedProcedure/`+`${pid}/`+`${date}`);
   }
 
   

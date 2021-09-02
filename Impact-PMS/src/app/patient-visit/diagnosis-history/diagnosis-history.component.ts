@@ -36,6 +36,23 @@ export class DiagnosisHistoryComponent implements OnInit {
    }
 
    downloadDiagnosis(){
-     
+
+    this.diagnosisService.downloadMedication(this.date).subscribe((data) =>{
+       data;
+       var newBlob = new Blob([data], { type: "application/pdf" });
+       //const data1 = window.URL.createObjectURL(newBlob);
+
+       if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveOrOpenBlob(newBlob);
+        return;
+    }
+    
+    // For other browsers: 
+    // Create a link pointing to the ObjectURL containing the blob.
+    const data1 = window.URL.createObjectURL(newBlob);
+    window.open(data1)
+    //const link = document.createElement('a');
+   
+    })
    }
 }

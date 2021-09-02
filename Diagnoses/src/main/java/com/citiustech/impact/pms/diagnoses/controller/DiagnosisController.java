@@ -1,12 +1,18 @@
 package com.citiustech.impact.pms.diagnoses.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.citiustech.impact.pms.diagnoses.model.DiagnosisModel;
 import com.citiustech.impact.pms.diagnoses.model.DiagnosisSave;
+import com.citiustech.impact.pms.diagnoses.model.PDFGenerator;
 import com.citiustech.impact.pms.diagnoses.repository.DiagnosisSaveRepository;
 import com.citiustech.impact.pms.diagnoses.service.DiagnosisService;
 
@@ -104,6 +111,22 @@ public class DiagnosisController {
 		List<DiagnosisSave> DiagnosisSave = diagnosisSaveRepository.findByPidAndDate(pid, d);
 		
 		return new ResponseEntity<List<DiagnosisSave>>(DiagnosisSave, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/diagnosis/download/{pid}/{date}", produces = MediaType.APPLICATION_PDF_VALUE)
+	public ResponseEntity<InputStreamResource> customersReport(@PathVariable String pid,
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) throws IOException {
+		List<DiagnosisSave> medications = (List<DiagnosisSave>) diagnosisSaveRepository.findByPidAndDate(pid, date);
+
+		System.out.println(medications);
+
+		ByteArrayInputStream bis = PDFGenerator.medicationPDFReport(medications);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "inline; filename=medications.pdf");
+
+		return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
+				.body(new InputStreamResource(bis));
 	}
 	
 }

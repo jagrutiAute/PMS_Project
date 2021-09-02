@@ -34,7 +34,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let proc of procedure | paginate: {itemsPerPage:5,currentPage:p};">
+        <tr *ngFor="let proc of procedure | paginate: {itemsPerPage:3,currentPage:p};">
             <td>{{proc.procedureCode}}</td>
             <td>{{proc.isProcedureDpricated}}</td>
             <td> {{proc.procedureDesc}} </td>

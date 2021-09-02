@@ -40,7 +40,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let medication of medications | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p};">
+        <tr *ngFor="let medication of medications | orderBy: key: reverse | paginate: {itemsPerPage:3,currentPage:p};">
             <td>{{medication.applNo}}</td>
             <td>{{medication.productNo}}</td>
             <td> {{medication.form}}</td>
