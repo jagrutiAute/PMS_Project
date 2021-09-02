@@ -28,6 +28,12 @@ procedureCode :any;
 
   ngOnInit(): void {
 
+    this.reload();
+   
+  }
+
+  reload(){
+
     if(localStorage.getItem('procedure') == null){
 
       this.service.getProcedureList().subscribe(
@@ -43,7 +49,6 @@ procedureCode :any;
     }else{
       this.procedure =  JSON.parse(localStorage.getItem('procedure'));
     }
-   
   }
 
 
@@ -67,14 +72,16 @@ procedureCode :any;
 
   search() {
     if (this.procedureCode == "") {
-      //this.reloadData();
+      this.reload();
     } else
       console.log("inside search else")
-    this.procedureCode = this.procedureCode.filter((data: { procedureCode: string; }) => {
-      return data.procedureCode.toLocaleLowerCase().match(this.procedureCode.toLocaleLowerCase());
+    this.procedure = this.procedure.filter(res =>{
+      return res.procedureCode.toLocaleLowerCase().match(this.procedureCode.toLocaleLowerCase());
     })
   }
 
+
+ 
   saveProcedure(){
 
     let r = confirm("are you sure to save? ")

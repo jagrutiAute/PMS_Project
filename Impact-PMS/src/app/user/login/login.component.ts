@@ -87,28 +87,32 @@ export class LoginComponent {
           console.log("username :: " + login.email);
 
           // alert('Login successfully');
-          this.toaster.Success("Login successfully");
+         // this.toaster.Warning("Login successfully");
           if (data == 'status_change') {
-
+            this.toaster.Success("Login successfully");
             this.router.navigateByUrl('change-password');
+
           }
           if (data == 'Patient') {
-
+            this.toaster.Success("Login successfully");
             this.router.navigateByUrl('app-body-layout/patient-details');
           }
 
           if (data == 'Admin') {
+            this.toaster.Success("Login successfully");
             this.router.navigateByUrl('/admin-dashboard/hospital-users');
           }
 
 
 
           if (data == 'Physician') {
+            this.toaster.Success("Login successfully");
             // this.router.navigateByUrl('/physician-dashboard/patient-details');
             this.router.navigateByUrl('/physician-dashboard/recieved-notes');
           }
 
           if (data == 'Nurse') {
+            this.toaster.Success("Login successfully");
             this.router.navigateByUrl('/nurse-dashboard/recieved-notes');
           }
 
